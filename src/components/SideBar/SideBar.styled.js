@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export const SSideBarContainer = styled(motion.nav)`
   position: absolute;
   width: ${({ width }) => (width ? width : "22rem")};
-  height: 45.188rem;
+  min-height: 45.188rem;
   background-color: #1a1b1c;
   border-radius: 0px 0px 6px 0px;
   top: 6.4rem;
@@ -15,7 +15,7 @@ export const SSideBarDiv = styled.div`
   flex-direction: column;
   gap: 2.3rem;
   height: 100%;
-  margin: 5.75rem 0 0 1.875rem;
+  margin: 5.75rem 0 2rem 1.875rem;
   overflow: hidden;
 `;
 
