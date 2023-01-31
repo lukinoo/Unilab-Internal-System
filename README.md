@@ -15,3 +15,7 @@ branch anatomy: type/title
 type: core | feature | bugfix
 
 pre-development branch is synced to the development branch once a week.
+
+Install with npm: npm install
+
+Use npm run dev to run the app.
