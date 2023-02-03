@@ -6,6 +6,7 @@ import {
   SContentWrapper,
   STitle,
   SActionWrapper,
+  SSearchIcon
 } from "./StudentListPage.styled";
 import { columns } from "./columns";
 import { Input } from "../../components/Inputs/Input";
@@ -54,7 +55,8 @@ export const StudentListPage = () => {
             />
             <Input
               width="16.25rem"
-              LeftComponent={<img src="assets/svg/search.svg" />}
+              placeholder="ძებნა"
+              LeftComponent={<SSearchIcon src="assets/svg/search.svg" alt="filter" />}
               value={globalFilter}
               onChange={(e) => {
                 setGlobalFilter(e.target.value);

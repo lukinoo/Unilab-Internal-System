@@ -4064,5 +4064,5 @@ export const studentData = [
     number: "815-397-0540",
     address: "3752 Waywood Street",
     date_of_birth: "11/19/1998",
-  }
+  },
 ];

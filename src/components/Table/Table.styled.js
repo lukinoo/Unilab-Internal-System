@@ -82,3 +82,8 @@ export const SPaddingRow = styled.tr`
   color: transparent;
   box-shadow: inset -1px 1px 0px 1px ${({ isFirst }) => (isFirst ? "#f1f1f1" : "transparent")};
 `;
+
+export const SPaginationArrow = styled.img`
+  width: 8px;
+  height: 14px;
+`;

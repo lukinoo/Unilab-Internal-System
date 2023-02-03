@@ -2,7 +2,11 @@ import { useRef } from "react";
 import { Button } from "../Button";
 import { DateRange } from "../Fillters/DateRange";
 import { MultipleChoice } from "../Fillters/MultipleChoice/MultipleChoice";
-import { SDropdown, SDropdownWrapper } from "./FiltersDropdown.styled";
+import {
+  SDropdown,
+  SDropdownWrapper,
+  SFilterIcon,
+} from "./FiltersDropdown.styled";
 import { AnimatePresence } from "framer-motion";
 import { dropdownVariants } from "./FitlerDropdown.variants";
 import { useAutoClose } from "../../hooks/useAutoClose";
@@ -18,7 +22,7 @@ export const FilterDropdown = ({ fields, getFilter, updateFilter }) => {
         secondary
         width="11.875rem"
         onClick={() => setIsOpen(!isOpen)}
-        LeftComponent={<img src="assets/svg/filter.svg" />}
+        LeftComponent={<SFilterIcon src="assets/svg/filter.svg" alt="filter" />}
       >
         ფილტრი
       </Button>

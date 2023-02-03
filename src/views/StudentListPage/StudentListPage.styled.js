@@ -24,3 +24,8 @@ export const SActionWrapper = styled.div`
   justify-content: space-between;
   margin-bottom: 1.5rem;
 `;
+
+export const SSearchIcon = styled.img`
+  width: 24px;
+  height: 24px;
+`;
