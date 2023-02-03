@@ -18,8 +18,6 @@ export const SideDropdown = ({
   label,
   items,
   LeftComponent,
-  items,
-  LeftComponent,
   showSideBar,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
