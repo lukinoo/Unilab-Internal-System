@@ -19,3 +19,8 @@ export const SDropdown = styled(motion.div)`
   width: 18.75rem;
   box-shadow: 0 4px 4px #dddddd40;
 `;
+
+export const SFilterIcon = styled.img`
+  width: 24px;
+  height: 24px;
+`;

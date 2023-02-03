@@ -15,6 +15,9 @@ export const SideDropdown = ({
   id,
   children,
   path,
+  label,
+  items,
+  LeftComponent,
   items,
   LeftComponent,
   showSideBar,
@@ -29,7 +32,9 @@ export const SideDropdown = ({
             setIsOpen(!isOpen);
           }}
         >
-          <SSvgLeft to={path}>{LeftComponent}</SSvgLeft>
+          <SSvgLeft to={path} aria-label={label}>
+            {LeftComponent}
+          </SSvgLeft>
           <SSideInputSpan>{children}</SSideInputSpan>
           <SSideArrowButton title="toggle dropdown">
             <DropArrow isOpen={isOpen} stroke={"#FFFFFF"} />

@@ -38,6 +38,7 @@ export const SideBar = () => {
         <SideDropdown
           showSideBar={showSideBar}
           path={"/"}
+          label="Courses"
           items={["მოსწავლე", "სტუდენტი", "კურსდამთავრებული"]}
           LeftComponent={<ActivitiesSvg />}
         >
@@ -46,6 +47,7 @@ export const SideBar = () => {
         <SideDropdown
           showSideBar={showSideBar}
           path={"/"}
+          label="Activities"
           items={["მოსწავლე", "სტუდენტი", "კურსდამთავრებული"]}
           LeftComponent={<HeadPhoneSvg />}
         >
@@ -54,6 +56,7 @@ export const SideBar = () => {
         <SideDropdown
           showSideBar={showSideBar}
           path={"/"}
+          label="Devices"
           items={["მოსწავლე", "სტუდენტი", "კურსდამთავრებული"]}
           LeftComponent={<HDSvg />}
         >
@@ -62,6 +65,7 @@ export const SideBar = () => {
         <SideDropdown
           showSideBar={showSideBar}
           path={"/"}
+          label="User control"
           items={["მოსწავლე", "სტუდენტი", "კურსდამთავრებული"]}
           LeftComponent={<UsersSvg />}
         >
