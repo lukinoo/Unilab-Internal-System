@@ -19,11 +19,17 @@ import {
 } from "./Table.styled";
 import { useState, useMemo } from "react";
 import { SortArrows } from "../SortArrows";
-import { fuzzyFilter } from "../../utils/table";
+import { fuzzyFilter, dateRangeFilter } from "../../utils/table";
 
 const itemsPerPage = 7;
 
-export const Table = ({ columns, data, globalFilter, setGlobalFilter }) => {
+export const Table = ({
+  columns,
+  data,
+  globalFilter,
+  setGlobalFilter,
+  columnFilters,
+}) => {
   const [{ pageIndex, pageSize }, setPagination] = useState({
     pageIndex: 0,
     pageSize: itemsPerPage,
@@ -42,9 +48,11 @@ export const Table = ({ columns, data, globalFilter, setGlobalFilter }) => {
     columns,
     filterFns: {
       fuzzy: fuzzyFilter,
+      inDateRange: dateRangeFilter,
     },
     state: {
       pagination,
+      columnFilters,
       globalFilter,
     },
     onGlobalFilterChange: setGlobalFilter,
@@ -55,7 +63,6 @@ export const Table = ({ columns, data, globalFilter, setGlobalFilter }) => {
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });
-
   return (
     <>
       <STable>
