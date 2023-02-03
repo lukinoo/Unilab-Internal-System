@@ -18,6 +18,9 @@ export const SideDropdown = ({
   label,
   items,
   LeftComponent,
+  items,
+  LeftComponent,
+  showSideBar,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -38,7 +41,7 @@ export const SideDropdown = ({
           </SSideArrowButton>
         </SSideClick>
       </SSideMainDiv>
-      {isOpen && (
+      {isOpen && showSideBar && (
         <>
           <SSideInputItemWrapper
             initial={{ opacity: 0 }}

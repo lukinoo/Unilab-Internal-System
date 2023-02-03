@@ -16,6 +16,7 @@ export const SSideDropdownWrapper = styled.div`
 export const SSvgLeft = styled(Link)`
   display: flex;
   align-items: center;
+  padding-right: 1.938rem;
   height: ${({ height }) => (height ? height : "1.5rem")};
 `;
 
@@ -38,7 +39,7 @@ export const SSideMainDiv = styled.div`
   }
 `;
 export const SSideInputSpan = styled.span`
-  margin: 0 0.875rem 0 1.938rem;
+  margin: 0 0.875rem 0 0;
 `;
 
 export const SSideInputItemWrapper = styled(motion.div)`

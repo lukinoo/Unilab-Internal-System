@@ -36,6 +36,7 @@ export const SideBar = () => {
           სწავლებები
         </SideButton>
         <SideDropdown
+          showSideBar={showSideBar}
           path={"/"}
           label="Courses"
           items={["მოსწავლე", "სტუდენტი", "კურსდამთავრებული"]}
@@ -44,6 +45,7 @@ export const SideBar = () => {
           კონკურსები
         </SideDropdown>
         <SideDropdown
+          showSideBar={showSideBar}
           path={"/"}
           label="Activities"
           items={["მოსწავლე", "სტუდენტი", "კურსდამთავრებული"]}
@@ -52,6 +54,7 @@ export const SideBar = () => {
           აქტივობები
         </SideDropdown>
         <SideDropdown
+          showSideBar={showSideBar}
           path={"/"}
           label="Devices"
           items={["მოსწავლე", "სტუდენტი", "კურსდამთავრებული"]}
@@ -60,6 +63,7 @@ export const SideBar = () => {
           მოწყობილობები
         </SideDropdown>
         <SideDropdown
+          showSideBar={showSideBar}
           path={"/"}
           label="User control"
           items={["მოსწავლე", "სტუდენტი", "კურსდამთავრებული"]}
