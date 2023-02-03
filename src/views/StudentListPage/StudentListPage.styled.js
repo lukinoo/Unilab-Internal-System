@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
-export const SContentWrapper = styled.div`
+export const SStudentListContainer = styled.div`
   padding: 4rem;
-  max-width: 100vw;
-  box-sizing: border-box;
+  padding-left: 8rem;
+`;
+
+export const SContentWrapper = styled.div`
+  max-width: 100%;
+  box-sizing: content-box;
   width: 1200px;
   margin: 0 auto;
 `;

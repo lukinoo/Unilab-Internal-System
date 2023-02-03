@@ -8,6 +8,7 @@ export const SSideBarContainer = styled(motion.nav)`
   background-color: #1a1b1c;
   border-radius: 0px 0px 6px 0px;
   top: 6.4rem;
+  left: 0;
 `;
 
 export const SSideBarDiv = styled.div`
