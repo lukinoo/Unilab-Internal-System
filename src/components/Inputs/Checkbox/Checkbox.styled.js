@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const SContainer = styled.div`
   display: flex;
@@ -12,12 +13,11 @@ export const SInputWrapper = styled.div`
   height: fit-content;
 `;
 
-export const SInput = styled.input`
+export const SInput = styled(motion.input)`
   appearance: none;
   width: 1rem;
   height: 1rem;
-  background-color: transparent;
-  border: solid 1px #ffffff;
+  border: solid 1px ${({ filled }) => (filled ? "#3669A2" : "#ffffff")};
   border-radius: 2px;
   cursor: pointer;
 `;
@@ -28,11 +28,12 @@ export const SCheckWrapper = styled.div`
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   pointer-events: none;
+  z-index: 2;
 `;
 
 export const SLabel = styled.label`
-  font-size: 0.6875rem;
+  font-size: ${({ fontSize }) => (fontSize ? fontSize : "0.6875rem")};
   width: fit-content;
-  color: #ebebeb;
+  color: ${({ filled }) => (filled ? "#353535" : "#ebebeb")};
   cursor: pointer;
 `;

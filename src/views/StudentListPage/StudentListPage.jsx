@@ -6,44 +6,73 @@ import {
   SContentWrapper,
   STitle,
   SActionWrapper,
+  SSearchIcon
 } from "./StudentListPage.styled";
 import { columns } from "./columns";
 import { Input } from "../../components/Inputs/Input";
-import { Button } from "../../components/Button";
 import { useState } from "react";
+import { FilterDropdown } from "../../components/FilterDropdown";
+import { useFilters } from "../../hooks/useFilters";
+import { SideBar } from "../../components/SideBar";
+import { SStudentListContainer } from "./StudentListPage.styled";
 
 export const StudentListPage = () => {
   const [globalFilter, setGlobalFilter] = useState("");
+  const [filters, getFilter, updateFilter] = useFilters();
 
   return (
     <div>
       <FourthHeader />
-      <SContentWrapper>
-        <STitle>სტუდენტების სია</STitle>
-        <SActionWrapper>
-          <Button
-            secondary
-            width="11.875rem"
-            LeftComponent={<img src="assets/svg/filter.svg" />}
-          >
-            ფილტრი
-          </Button>
-          <Input
-            width="16.25rem"
-            LeftComponent={<img src="assets/svg/search.svg" />}
-            value={globalFilter}
-            onChange={(e) => {
-              setGlobalFilter(e.target.value);
-            }}
+      <SStudentListContainer>
+        <SContentWrapper>
+          <STitle>სტუდენტების სია</STitle>
+          <SActionWrapper>
+            <FilterDropdown
+              fields={[
+                {
+                  id: "status",
+                  type: "multiple",
+                  values: [
+                    "Registered",
+                    "Rejected",
+                    "Active",
+                    "Completed",
+                    "Failed",
+                  ],
+                },
+                {
+                  id: "gender",
+                  type: "multiple",
+                  values: ["Female", "Male"],
+                },
+                {
+                  id: "date_of_birth",
+                  type: "date",
+                },
+              ]}
+              getFilter={getFilter}
+              updateFilter={updateFilter}
+            />
+            <Input
+              width="16.25rem"
+              placeholder="ძებნა"
+              LeftComponent={<SSearchIcon src="assets/svg/search.svg" alt="filter" />}
+              value={globalFilter}
+              onChange={(e) => {
+                setGlobalFilter(e.target.value);
+              }}
+            />
+          </SActionWrapper>
+          <Table
+            columns={columns}
+            data={studentData}
+            columnFilters={filters}
+            globalFilter={globalFilter}
+            setGlobalFilter={setGlobalFilter}
           />
-        </SActionWrapper>
-        <Table
-          columns={columns}
-          data={studentData}
-          globalFilter={globalFilter}
-          setGlobalFilter={setGlobalFilter}
-        />
-      </SContentWrapper>
+          <SideBar />
+        </SContentWrapper>
+      </SStudentListContainer>
     </div>
   );
 };

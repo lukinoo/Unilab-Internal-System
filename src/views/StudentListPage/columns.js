@@ -6,22 +6,30 @@ export const columns = [
   columnHelper.accessor("full_name", {
     header: "სტუდენტის სახელი და გვარი",
     enableSorting: false,
-    filterFn: "fuzzy",
     cell: (data) => data.getValue(),
   }),
   columnHelper.accessor("status", {
     header: "სტატუსი",
     enableSorting: false,
+    filterFn: "arrIncludesSome",
     cell: (data) => data.getValue(),
   }),
   columnHelper.accessor("points", {
     header: "ქულები",
     enableSorting: true,
+    filterFn: "inNumberRange",
     cell: (data) => data.getValue(),
   }),
   columnHelper.accessor("gender", {
     header: "სქესი",
     enableSorting: false,
+    filterFn: "arrIncludesSome",
+    cell: (data) => data.getValue(),
+  }),
+  columnHelper.accessor("date_of_birth", {
+    header: "დაბადების თარიღი",
+    enableSorting: false,
+    filterFn: "inDateRange",
     cell: (data) => data.getValue(),
   }),
   columnHelper.accessor("personal_id", {

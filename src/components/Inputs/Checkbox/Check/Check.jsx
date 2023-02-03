@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export const Check = ({ isChecked }) => {
+export const Check = ({ isChecked, stroke }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,14 +9,14 @@ export const Check = ({ isChecked }) => {
       height={12}
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#ffffff"
+      stroke={stroke}
       strokeWidth={3}
       strokeLinecap="round"
       strokeLinejoin="round"
       className="feather feather-check"
     >
       <motion.path
-        d="M4 12 9 17l 11-11"
+        d="M4 14 9 19l 11-11"
         initial={{ pathLength: 0 }}
         animate={
           isChecked

@@ -36,28 +36,36 @@ export const SideBar = () => {
           სწავლებები
         </SideButton>
         <SideDropdown
+          showSideBar={showSideBar}
           path={"/"}
+          label="Courses"
           items={["მოსწავლე", "სტუდენტი", "კურსდამთავრებული"]}
           LeftComponent={<ActivitiesSvg />}
         >
           კონკურსები
         </SideDropdown>
         <SideDropdown
+          showSideBar={showSideBar}
           path={"/"}
+          label="Activities"
           items={["მოსწავლე", "სტუდენტი", "კურსდამთავრებული"]}
           LeftComponent={<HeadPhoneSvg />}
         >
           აქტივობები
         </SideDropdown>
         <SideDropdown
+          showSideBar={showSideBar}
           path={"/"}
+          label="Devices"
           items={["მოსწავლე", "სტუდენტი", "კურსდამთავრებული"]}
           LeftComponent={<HDSvg />}
         >
           მოწყობილობები
         </SideDropdown>
         <SideDropdown
+          showSideBar={showSideBar}
           path={"/"}
+          label="User control"
           items={["მოსწავლე", "სტუდენტი", "კურსდამთავრებული"]}
           LeftComponent={<UsersSvg />}
         >

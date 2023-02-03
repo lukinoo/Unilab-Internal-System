@@ -11,7 +11,15 @@ import {
 } from "./SideDropdown.styled";
 import { DropArrow } from "../../DropArrow";
 
-export const SideDropdown = ({ id, children, path, items, LeftComponent }) => {
+export const SideDropdown = ({
+  id,
+  children,
+  path,
+  label,
+  items,
+  LeftComponent,
+  showSideBar,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -22,14 +30,16 @@ export const SideDropdown = ({ id, children, path, items, LeftComponent }) => {
             setIsOpen(!isOpen);
           }}
         >
-          <SSvgLeft to={path}>{LeftComponent}</SSvgLeft>
+          <SSvgLeft to={path} aria-label={label}>
+            {LeftComponent}
+          </SSvgLeft>
           <SSideInputSpan>{children}</SSideInputSpan>
           <SSideArrowButton title="toggle dropdown">
             <DropArrow isOpen={isOpen} stroke={"#FFFFFF"} />
           </SSideArrowButton>
         </SSideClick>
       </SSideMainDiv>
-      {isOpen && (
+      {isOpen && showSideBar && (
         <>
           <SSideInputItemWrapper
             initial={{ opacity: 0 }}
