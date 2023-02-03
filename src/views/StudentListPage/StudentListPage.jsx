@@ -9,11 +9,13 @@ import {
 } from "./StudentListPage.styled";
 import { columns } from "./columns";
 import { Input } from "../../components/Inputs/Input";
-import { Button } from "../../components/Button";
 import { useState } from "react";
+import { FilterDropdown } from "../../components/FilterDropdown";
+import { useFilters } from "../../hooks/useFilters";
 
 export const StudentListPage = () => {
   const [globalFilter, setGlobalFilter] = useState("");
+  const [filters, getFilter, updateFilter] = useFilters();
 
   return (
     <div>
@@ -21,13 +23,32 @@ export const StudentListPage = () => {
       <SContentWrapper>
         <STitle>სტუდენტების სია</STitle>
         <SActionWrapper>
-          <Button
-            secondary
-            width="11.875rem"
-            LeftComponent={<img src="assets/svg/filter.svg" />}
-          >
-            ფილტრი
-          </Button>
+          <FilterDropdown
+            fields={[
+              {
+                id: "status",
+                type: "multiple",
+                values: [
+                  "Registered",
+                  "Rejected",
+                  "Active",
+                  "Completed",
+                  "Failed",
+                ],
+              },
+              {
+                id: "gender",
+                type: "multiple",
+                values: ["Female", "Male"],
+              },
+              {
+                id: "date_of_birth",
+                type: "date",
+              },
+            ]}
+            getFilter={getFilter}
+            updateFilter={updateFilter}
+          />
           <Input
             width="16.25rem"
             LeftComponent={<img src="assets/svg/search.svg" />}
@@ -40,6 +61,7 @@ export const StudentListPage = () => {
         <Table
           columns={columns}
           data={studentData}
+          columnFilters={filters}
           globalFilter={globalFilter}
           setGlobalFilter={setGlobalFilter}
         />
