@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { MainPage } from "./views/MainPage";
 import { Authentication } from "./views/Authentication";
 import { PrivacyPolicy } from "./views/PrivacyPolicy";
@@ -15,17 +15,15 @@ dayjs.locale("ka");
 const App = () => {
   return (
     <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/authentication" element={<Authentication />} />
-          <Route path="/recovery-password" element={<RecoveryPassword />} />
-          <Route path="/registration" element={<Registration />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/student-list" element={<StudentListPage />} />
-          <Route path="/edit-course" element={<EditCourse />} />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/authentication" element={<Authentication />} />
+        <Route path="/recovery-password" element={<RecoveryPassword />} />
+        <Route path="/registration" element={<Registration />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/student-list" element={<StudentListPage />} />
+        <Route path="/edit-course" element={<EditCourse />} />
+      </Routes>
     </div>
   );
 };
