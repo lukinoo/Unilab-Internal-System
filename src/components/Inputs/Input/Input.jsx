@@ -1,5 +1,11 @@
 import React from "react";
-import { SContainer, SLabel, SInputWrapper, SInput } from "./Input.styled";
+import {
+  SContainer,
+  SLabel,
+  SInputWrapper,
+  SInput,
+  SError,
+} from "./Input.styled";
 
 export const Input = ({
   id,
@@ -12,12 +18,15 @@ export const Input = ({
   fontWeight,
   gridArea,
   readOnly,
-  value,
-  onChange,
   onClick,
+  register,
+  validation,
+  errors,
   LeftComponent,
   RightComponent,
 }) => {
+  const errorMessage = errors[name]?.message;
+
   return (
     <SContainer width={width} gridArea={gridArea} onClick={onClick}>
       <SLabel htmlFor={id}>{label}</SLabel>
@@ -26,17 +35,16 @@ export const Input = ({
         <SInput
           id={id}
           type={type}
-          name={name}
           placeholder={placeholder}
           width={width}
           fontSize={fontSize}
           fontWeight={fontWeight}
           readOnly={readOnly}
-          value={value || ""}
-          onChange={onChange}
+          {...register(name, validation)}
         />
         {RightComponent}
       </SInputWrapper>
+      {errorMessage && <SError>{errorMessage}</SError>}
     </SContainer>
   );
 };

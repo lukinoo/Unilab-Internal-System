@@ -58,3 +58,8 @@ export const SInput = styled.input`
     display: none;
   }
 `;
+
+export const SError = styled.span`
+  font-size: 0.75rem;
+  color: #bd3a3a;
+`;

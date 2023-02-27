@@ -16,22 +16,23 @@ export const Checkbox = ({
   name,
   filled,
   fontSize,
-  isChecked,
-  onChange,
+  register,
+  validation,
+  watch
 }) => {
+  const isChecked = watch(name)
+
   return (
     <SContainer>
       <SInputWrapper>
         <SInput
           id={id}
-          name={name}
           type="checkbox"
-          checked={isChecked}
-          onChange={onChange}
           variants={checkboxVariants}
           initial={"transparent"}
           animate={isChecked && filled ? "filled" : "transparent"}
           filled={filled}
+          {...register(name, validation)}
         />
         <SCheckWrapper>
           <Check isChecked={isChecked} stroke={stroke ?? "#fff"} />
