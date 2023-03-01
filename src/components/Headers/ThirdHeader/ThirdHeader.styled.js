@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const SThirdHeader = styled.header`
@@ -40,8 +41,12 @@ export const SRegistrationPart = styled.div`
   gap: 2rem;
 `;
 
-export const SRegistrationPartIcon = styled.img`
+export const SAuthenticationIcon = styled.img`
   cursor: pointer;
   width: 1.5rem;
   height: 1.5rem;
+`;
+
+export const SAuthenticationLink = styled(Link)`
+  display: flex;
 `;

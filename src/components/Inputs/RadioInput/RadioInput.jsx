@@ -8,17 +8,14 @@ import {
 } from "./RadioInput.styled";
 import { CircleCheck } from "./CircleCheck";
 
-export const RadioInput = ({ id, label, name, value, isChecked, onChange }) => {
+export const RadioInput = ({ label, name, value, register, watch }) => {
+  const isChecked = watch(name) === value;
+  const id = `${name}-${value}`;
+
   return (
     <SContainer>
       <SInputWrapper>
-        <SInput
-          id={id}
-          name={name}
-          type="radio"
-          checked={isChecked}
-          onChange={() => onChange(value)}
-        />
+        <SInput id={id} type="radio" value={value} {...register(name)} />
         <SCheckWrapper>
           <CircleCheck isChecked={isChecked} />
         </SCheckWrapper>

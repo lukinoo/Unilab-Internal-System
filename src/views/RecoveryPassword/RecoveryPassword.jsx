@@ -13,9 +13,10 @@ import {
   SVektorRecoveryRight,
   SStarRecoveryBottom,
 } from "./RecoveryPassword.styled";
+import { useForm } from "react-hook-form";
 
 export const RecoveryPassword = () => {
-  const [email, setEmail] = useState("");
+  const { register } = useForm();
 
   return (
     <SRecoveryPasswordView>
@@ -27,16 +28,12 @@ export const RecoveryPassword = () => {
           შესახებ
         </SDescription>
         <Input
-          id="email"
           type="email"
           name="email"
           label="ელ-ფოსტა"
           width="21.25rem"
           placeholder="info@unilab.ge"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
+          register={register}
         />
         <SMarginTop></SMarginTop>
         <Button margin="0 0 6.25rem" width="21.25rem">

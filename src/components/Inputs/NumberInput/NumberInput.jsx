@@ -1,34 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Input } from "../Input";
 
-export const NumberInput = ({
-  id,
-  label,
-  name,
-  placeholder,
-  width,
-  fontSize,
-  fontWeight,
-  value,
-  onChange,
-}) => {
+export const NumberInput = (props) => {
   const handleOnChange = (e) => {
-    if (isNaN(e.target.value)) return;
-    onChange(e);
+    e.target.value = e.target.value.replace(/\D/g, "");
   };
 
-  return (
-    <Input
-      id={id}
-      type={"text"}
-      label={label}
-      name={name}
-      width={width}
-      fontSize={fontSize}
-      fontWeight={fontWeight}
-      placeholder={placeholder}
-      value={value}
-      onChange={handleOnChange}
-    />
-  );
+  return <Input {...props} type={"text"} onChange={handleOnChange} />;
 };
