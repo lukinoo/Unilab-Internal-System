@@ -10,35 +10,33 @@ import { Check } from "./Check";
 import { checkboxVariants } from "./Checkbox.variants";
 
 export const Checkbox = ({
-  id,
   label,
   stroke,
   name,
   filled,
   fontSize,
   register,
-  validation,
-  watch
+  watch,
 }) => {
-  const isChecked = watch(name)
+  const isChecked = watch(name);
 
   return (
     <SContainer>
       <SInputWrapper>
         <SInput
-          id={id}
+          id={name}
           type="checkbox"
           variants={checkboxVariants}
           initial={"transparent"}
           animate={isChecked && filled ? "filled" : "transparent"}
           filled={filled}
-          {...register(name, validation)}
+          {...register(name)}
         />
         <SCheckWrapper>
           <Check isChecked={isChecked} stroke={stroke ?? "#fff"} />
         </SCheckWrapper>
       </SInputWrapper>
-      <SLabel htmlFor={id} filled={filled} fontSize={fontSize}>
+      <SLabel htmlFor={name} filled={filled} fontSize={fontSize}>
         {label}
       </SLabel>
     </SContainer>

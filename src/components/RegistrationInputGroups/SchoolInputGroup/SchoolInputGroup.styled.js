@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-export const SAdditionalInfoSchool = styled.div`
+export const SAdditionalInfoSchool = styled(motion.div)`
   margin: 4rem 0rem;
 `;
 

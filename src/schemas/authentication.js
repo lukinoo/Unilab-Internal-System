@@ -1,6 +1,6 @@
 import * as z from "zod";
 
-export const schema = z.object({
+export const authenticationSchema = z.object({
   email: z.string().email({ message: "არასწორი მეილი" }).max(320),
   password: z
     .string()

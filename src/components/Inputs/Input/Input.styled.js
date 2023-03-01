@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const SContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: ${({ width }) => (width ? width : "100%")};
@@ -59,7 +61,12 @@ export const SInput = styled.input`
   }
 `;
 
-export const SError = styled.span`
+export const SError = styled(motion.span)`
+  width: 100%;
+  max-height: 1.8rem;
+  line-height: 0.9rem;
+  overflow: hidden;
+  margin-top: 0.5rem;
   font-size: 0.75rem;
   color: #bd3a3a;
 `;

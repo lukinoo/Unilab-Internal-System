@@ -2,35 +2,16 @@ import React from "react";
 import { Dropdown } from "../Dropdown";
 import { SCountryIconContainer, SIcon } from "./CountryDropdown.styled";
 
-export const CountryDropdown = ({
-  id,
-  label,
-  name,
-  placeholder,
-  width,
-  fontSize,
-  fontWeight,
-  icons,
-  items,
-  selected,
-  onSelect,
-}) => {
+export const CountryDropdown = (props) => {
   return (
     <Dropdown
-      id={id}
-      type={"text"}
-      label={label}
-      name={name}
-      width={width}
-      fontSize={fontSize}
-      fontWeight={fontWeight}
-      placeholder={placeholder}
-      items={items}
-      onSelect={onSelect}
-      selected={selected}
+      {...props}
       LeftComponent={
         <SCountryIconContainer>
-          <SIcon src={icons[selected]} alt="country flag" />
+          <SIcon
+            src="https://cdn.countryflags.com/thumbs/georgia/flag-round-250.png"
+            alt="country flag"
+          />
         </SCountryIconContainer>
       }
     />

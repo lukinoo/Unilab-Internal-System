@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const SContainer = styled.div`
   display: flex;
   gap: 0.5rem;
+  align-items: center;
 `;
 
 export const SInputWrapper = styled.div`
@@ -35,4 +36,5 @@ export const SLabel = styled.label`
   width: fit-content;
   color: #ebebeb;
   cursor: pointer;
+  height: fit-content;
 `;

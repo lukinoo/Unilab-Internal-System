@@ -12,42 +12,37 @@ import {
 import { datePickerVariants } from "./DateInput.variants";
 import { useAutoClose } from "../../../hooks/useAutoClose";
 import { AnimatePresence } from "framer-motion";
+import { useController } from "react-hook-form";
 
-export const DateInput = ({
-  id,
-  label,
-  name,
-  placeholder,
-  defaultDate = dayjs(),
-  maxDate,
-  width,
-  fontSize,
-  fontWeight,
-  selectedDate,
-  onSelect,
-  RightComponent,
-}) => {
-  const dateInputRef = useRef(null);
-  const [isOpen, setIsOpen] = useAutoClose(dateInputRef, false);
+export const DateInput = (props) => {
+  const {
+    name,
+    maxDate,
+    defaultDate = dayjs(),
+    control,
+    RightComponent,
+  } = props;
+
+  const {
+    field: { value, onChange, onBlur },
+  } = useController({ name, control });
 
   const handleSubmit = (date) => {
     setIsOpen(false);
-    onSelect(date);
+    onChange(date.toISOString());
   };
+
+  const dateInputRef = useRef(null);
+
+  const [isOpen, setIsOpen] = useAutoClose(dateInputRef, false, onBlur);
 
   return (
     <SDateInputWrapper ref={dateInputRef}>
       <Input
-        id={id}
-        type={"text"}
-        label={label}
-        name={name}
-        width={width}
-        fontSize={fontSize}
-        fontWeight={fontWeight}
-        placeholder={placeholder}
+        {...props}
+        value={value && dayjs(value).format("DD.MM.YYYY")}
         readOnly
-        value={selectedDate}
+        type={"text"}
         onClick={() => setIsOpen(!isOpen)}
         LeftComponent={
           <SCalendarIconContainer>
@@ -70,7 +65,7 @@ export const DateInput = ({
               maxDate={maxDate}
               onSubmit={handleSubmit}
               locale={dayjs.locale()}
-              submitComponent={<Button>არჩევა</Button>}
+              submitComponent={<Button type="button">არჩევა</Button>}
             />
           </SDatePickerWrapper>
         )}

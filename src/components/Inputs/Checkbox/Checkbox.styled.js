@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export const SContainer = styled.div`
   display: flex;
   gap: 0.5rem;
-  align-self: flex-end;
+  align-items: center;
 `;
 
 export const SInputWrapper = styled.div`

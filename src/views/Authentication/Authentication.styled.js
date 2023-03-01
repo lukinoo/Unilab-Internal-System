@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const SAuthenticationView = styled.div`
   display: flex;
@@ -53,6 +54,13 @@ export const SForgotPasswordLink = styled(Link)`
   font-size: 0.6875rem;
   width: fit-content;
   color: #ebebeb;
+`;
+
+export const SError = styled.span`
+  font-size: 0.75rem;
+  color: #bd3a3a;
+  max-width: 40rem;
+  margin-bottom: 2.5rem;
 `;
 
 export const SRegistrationText = styled.p`

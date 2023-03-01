@@ -12,46 +12,42 @@ import { dropdownVariants } from "./Dropdown.variants";
 import { getLongestString } from "../../../utils/dropdown";
 import { useAutoClose } from "../../../hooks/useAutoClose";
 import { AnimatePresence } from "framer-motion";
+import { useController } from "react-hook-form";
 
-export const Dropdown = ({
-  id,
-  label,
-  name,
-  placeholder,
-  width,
-  gridArea,
-  fontSize,
-  fontWeight,
-  items,
-  selected,
-  onSelect,
-  LeftComponent,
-}) => {
+export const Dropdown = (props) => {
+  const { name, gridArea, items, control } = props;
+
+  const {
+    field: { value, onChange, onBlur },
+  } = useController({ name, control });
+
   const dropdownRef = useRef(null);
-  const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false);
+  const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false, onBlur);
+
+  const longestItem = items && getLongestString(Object.values(items));
+
+  const toggleOpen = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleSelect = (id) => {
+    toggleOpen();
+    onChange(id);
+  };
 
   return (
     <SDropdownWrapper gridArea={gridArea} ref={dropdownRef}>
       <Input
-        id={id}
-        type={"text"}
-        label={label}
-        name={name}
-        width={width}
-        fontSize={fontSize}
-        fontWeight={fontWeight}
-        placeholder={placeholder}
+        {...props}
+        value={items && items[value]}
         readOnly
-        value={selected}
-        onClick={() => {
-          setIsOpen(!isOpen);
-        }}
+        type={"text"}
+        onClick={toggleOpen}
         RightComponent={
-          <SArrowButton title="toggle dropdown">
+          <SArrowButton type="button" title="toggle dropdown">
             <DropArrow isOpen={isOpen} />
           </SArrowButton>
         }
-        LeftComponent={LeftComponent}
       />
       <AnimatePresence>
         {isOpen && (
@@ -62,22 +58,22 @@ export const Dropdown = ({
             exit={"hidden"}
             transition={{ duration: 0.4, type: "spring" }}
           >
-            {items ? (
-              items.map((item) => (
-                <SDropdownItem key={item}>
-                  <SDropdownButton
-                    onClick={() => {
-                      onSelect(item);
-                      setIsOpen(false);
-                    }}
-                    data-longestitem={getLongestString(items)}
-                  >
-                    {item}
-                  </SDropdownButton>
-                </SDropdownItem>
-              ))
+            {!items ? (
+              <span>--- no items ---</span>
             ) : (
-              <span>No items</span>
+              Object.entries(items).map(([id, value]) => {
+                return (
+                  <SDropdownItem key={id}>
+                    <SDropdownButton
+                      type="button"
+                      onClick={() => handleSelect(id)}
+                      data-longestitem={longestItem}
+                    >
+                      {value}
+                    </SDropdownButton>
+                  </SDropdownItem>
+                );
+              })
             )}
           </SDropdownList>
         )}

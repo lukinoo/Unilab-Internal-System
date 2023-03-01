@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "../../components/Headers/Header";
 import { Input } from "../../components/Inputs/Input";
 import { PasswordInput } from "../../components/Inputs/PasswordInput";
@@ -13,6 +13,7 @@ import {
   SRegistrationLink,
   SRegistrationText,
   SRememberWrapper,
+  SError,
   STitle,
   SAuthenticationSvgs,
   SVectorSvg,
@@ -23,7 +24,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { schema } from "./Authentication.schema";
+import { authenticationSchema } from "../../schemas/authentication";
 
 export const Authentication = () => {
   const {
@@ -32,10 +33,13 @@ export const Authentication = () => {
     formState: { errors },
     handleSubmit,
   } = useForm({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(authenticationSchema),
     mode: "all",
     delayError: 500,
   });
+
+  const [serverErrors, setServerErrors] = useState(null);
+
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
@@ -49,9 +53,14 @@ export const Authentication = () => {
       })
       .then((res) => {
         if (res.statusText !== "OK") return;
-        navigate(0);
+        navigate("/");
       })
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => {
+        if (!err.response.data) return console.log(err);
+
+        console.log(err.response.data);
+        setServerErrors(err.response.data);
+      });
   };
 
   return (
@@ -95,7 +104,7 @@ export const Authentication = () => {
             დაგავიწყდა პაროლი?
           </SForgotPasswordLink>
         </SRememberWrapper>
-
+        {serverErrors && <SError>{serverErrors}</SError>}
         <Button width="21.25rem">ავტორიზაცია</Button>
         <SRegistrationText>
           არ გაქვს ანგარიში?

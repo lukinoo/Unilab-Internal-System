@@ -6,7 +6,7 @@ import {
   SContentWrapper,
   STitle,
   SActionWrapper,
-  SSearchIcon
+  SSearchIcon,
 } from "./StudentListPage.styled";
 import { columns } from "./columns";
 import { Input } from "../../components/Inputs/Input";
@@ -15,9 +15,10 @@ import { FilterDropdown } from "../../components/FilterDropdown";
 import { useFilters } from "../../hooks/useFilters";
 import { SideBar } from "../../components/SideBar";
 import { SStudentListContainer } from "./StudentListPage.styled";
+import { useForm } from "react-hook-form";
 
 export const StudentListPage = () => {
-  const [globalFilter, setGlobalFilter] = useState("");
+  const { register, watch, setValue } = useForm();
   const [filters, getFilter, updateFilter] = useFilters();
 
   return (
@@ -54,21 +55,21 @@ export const StudentListPage = () => {
               updateFilter={updateFilter}
             />
             <Input
+              name="global_filter"
               width="16.25rem"
               placeholder="ძებნა"
-              LeftComponent={<SSearchIcon src="assets/svg/search.svg" alt="filter" />}
-              value={globalFilter}
-              onChange={(e) => {
-                setGlobalFilter(e.target.value);
-              }}
+              LeftComponent={
+                <SSearchIcon src="assets/svg/search.svg" alt="filter" />
+              }
+              register={register}
             />
           </SActionWrapper>
           <Table
             columns={columns}
             data={studentData}
             columnFilters={filters}
-            globalFilter={globalFilter}
-            setGlobalFilter={setGlobalFilter}
+            globalFilter={watch("global_filter")}
+            setGlobalFilter={(val) => setValue("global_filter", val)}
           />
           <SideBar />
         </SContentWrapper>

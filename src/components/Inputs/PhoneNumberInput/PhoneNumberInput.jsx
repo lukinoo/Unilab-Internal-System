@@ -7,32 +7,18 @@ const patterns = {
   995: "--- --- ---",
 };
 
-export const PhoneNumberInput = ({
-  id,
-  label,
-  name,
-  width,
-  fontSize,
-  fontWeight,
-  countryCode,
-  value,
-  onChange,
-}) => {
+export const PhoneNumberInput = (props) => {
+  const { countryCode } = props;
+
   const handleChange = (e) => {
-    handleNumberChange(e, patterns, countryCode, onChange);
+    handleNumberChange(e, patterns, countryCode);
   };
 
   return (
     <Input
-      id={id}
+      {...props}
       type={"tel"}
-      name={name}
-      label={label}
-      width={width}
-      fontSize={fontSize}
-      fontWeight={fontWeight}
       placeholder={patterns[countryCode]}
-      value={value}
       onChange={handleChange}
       LeftComponent={<SCountryCode>+{countryCode}</SCountryCode>}
     />

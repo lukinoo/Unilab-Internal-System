@@ -1,1 +1,0 @@
-export { AdditionalInfoUniversity } from "./AdditionalInfoUniversity";
