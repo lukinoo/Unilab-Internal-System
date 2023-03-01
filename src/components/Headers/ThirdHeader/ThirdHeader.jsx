@@ -9,7 +9,8 @@ import {
   SHomePartIcon,
   SHomePartTitle,
   SRegistrationPart,
-  SRegistrationPartIcon,
+  SAuthenticationLink,
+  SAuthenticationIcon,
 } from "./ThirdHeader.styled";
 
 export const ThirdHeader = () => {
@@ -23,7 +24,9 @@ export const ThirdHeader = () => {
         <SHomePartTitle>უნილაბის შიდა სისტემა</SHomePartTitle>
       </SHomePart>
       <SRegistrationPart>
-        <SRegistrationPartIcon src="assets/svg/log-in.svg" alt="login" />
+        <SAuthenticationLink to="/authentication">
+          <SAuthenticationIcon src="assets/svg/log-in.svg" alt="login" />
+        </SAuthenticationLink>
         <Link to="/registration">
           <Button width="12rem">რეგისტრაცია</Button>
         </Link>
