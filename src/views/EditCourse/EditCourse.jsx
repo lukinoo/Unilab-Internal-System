@@ -11,10 +11,9 @@ import {
 } from "./EditCourse.styled";
 import { Dropdown } from "../../components/Inputs/Dropdown";
 import { Button } from "../../components/Button";
+import { useForm } from "react-hook-form";
 export const EditCourse = () => {
-  const [courseName, setCourseName] = useState("");
-  const [lecturer, setLecturer] = useState("");
-  const [teachingType, setTeachingType] = useState("");
+  const { register, control } = useForm();
 
   return (
     <SEditCourseMainDiv>
@@ -23,36 +22,32 @@ export const EditCourse = () => {
       <SContainer>
         <SGridContainer>
           <Dropdown
-            id="courseName"
+            name="course"
             label="მიმართულების დასახელება"
             width="18.75rem"
             placeholder="მიმართულების დასახელება"
-            selected={courseName}
-            onSelect={(item) => {
-              setCourseName(item);
+            items={{
+              1: "UI/UX დიზაინი",
+              2: "Front End",
+              3: "Back End",
+              4: "PM",
             }}
-            items={["UI/UX დიზაინი", "Front End", "Back End", "PM"]}
+            control={control}
           ></Dropdown>
           <Dropdown
-            id="lecturer"
+            name="lecturer"
             label="ლექტორი"
             width="18.75rem"
             placeholder="ლექტორის სახელი და გვარი"
-            selected={lecturer}
-            onSelect={(item) => {
-              setLecturer(item);
-            }}
-            items={["გიორგი", "გიო", "ბექა"]}
+            items={{ 1: "გიორგი", 2: "გიო", 3: "ბექა" }}
+            control={control}
           ></Dropdown>
           <Dropdown
-            id="teachingType"
+            name="teaching_type"
             label="სწავლების ტიპი"
             width="18.75rem"
             placeholder=""
-            selected={teachingType}
-            onSelect={(item) => {
-              setTeachingType(item);
-            }}
+            control={control}
           ></Dropdown>
         </SGridContainer>
       </SContainer>

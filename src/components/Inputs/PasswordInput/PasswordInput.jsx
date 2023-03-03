@@ -2,17 +2,7 @@ import React, { useState } from "react";
 import { Eye } from "./Eye";
 import { Input } from "../Input";
 
-export const PasswordInput = ({
-  id,
-  label,
-  name,
-  placeholder,
-  width,
-  fontSize,
-  fontWeight,
-  value,
-  onChange,
-}) => {
+export const PasswordInput = (props) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const handleVisibilityToggle = () => {
@@ -21,16 +11,8 @@ export const PasswordInput = ({
 
   return (
     <Input
-      id={id}
+      {...props}
       type={isPasswordVisible ? "text" : "password"}
-      label={label}
-      name={name}
-      width={width}
-      fontSize={fontSize}
-      fontWeight={fontWeight}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
       RightComponent={
         <Eye
           isPasswordVisible={isPasswordVisible}

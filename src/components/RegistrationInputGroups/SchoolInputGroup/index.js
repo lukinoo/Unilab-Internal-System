@@ -1,0 +1,1 @@
+export { SchoolInputGroup } from "./SchoolInputGroup";

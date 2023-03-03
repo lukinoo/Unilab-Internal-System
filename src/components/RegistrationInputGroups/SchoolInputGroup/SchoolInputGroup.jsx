@@ -1,96 +1,87 @@
-import React, { useState } from "react";
+import React from "react";
 import { PhoneNumberInput } from "../../Inputs/PhoneNumberInput";
 import { Input } from "../../Inputs/Input";
 import { Dropdown } from "../../Inputs/Dropdown";
+import { useFormContext } from "react-hook-form";
 import {
   SAdditionalInformationText,
   SAdditionalInfoSchool,
   SAdditionalInfoSchoolGrid,
   SAdditionalInfoSchoolContainer,
-} from "./AdditionalInfoSchool.styeld";
-export const AdditionalInfoSchool = () => {
-  const [schoolNumber, setSchoolNumber] = useState("");
-  const [parentFirstName, setParentFirstName] = useState("");
-  const [schoolClass, setSchoolClass] = useState("");
-  const [parentlastName, setParentLastName] = useState("");
-  const [parentPhoneNumber, setParentPhoneNumber] = useState("");
+} from "./SchoolInputGroup.styled";
+
+export const SchoolInputGroup = () => {
+  const {
+    register,
+    control,
+    watch,
+    formState: { errors },
+  } = useFormContext();
+
+  if (watch("role") != 1) return;
 
   return (
-    <SAdditionalInfoSchool>
+    <SAdditionalInfoSchool
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <SAdditionalInformationText>
         გთხოვთ, მოგვაწოდოთ დამატებითი ინფორმაცია
       </SAdditionalInformationText>
       <SAdditionalInfoSchoolContainer>
         <SAdditionalInfoSchoolGrid>
           <Input
-            id="schoolNumber"
             type="text"
-            name="schoolNumber"
+            name="school"
             label="სკოლის ნომერი"
             width="18.75rem"
             placeholder="მიუთითეთ ნომერი"
-            value={schoolNumber}
-            onChange={(e) => {
-              setSchoolNumber(e.target.value);
-            }}
+            register={register}
+            errors={errors}
           />
           <Dropdown
-          id="class"
+            name="grade"
             label="კლასი"
             width="5.5rem"
             gridArea="auto / 2 / auto / 4"
             placeholder=""
-            selected={schoolClass}
-            onSelect={(item) => {
-              setSchoolClass(item);
+            items={{
+              1: "1",
+              2: "2",
+              3: "3",
+              4: "4",
             }}
-            items={[
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "7",
-              "8",
-              "9",
-              "10",
-              "11",
-              "12",
-            ]}
+            control={control}
+            errors={errors}
           />
+
           <Input
-            id="parentFirstName"
             type="text"
-            name="parentFirstName"
+            name="parent_name"
             label="მშობლის სახელი "
             width="18.75rem"
             placeholder="მიუთითეთ მშობლის სახელი"
-            value={parentFirstName}
-            onChange={(e) => {
-              setParentFirstName(e.target.value);
-            }}
+            register={register}
+            errors={errors}
           />
           <Input
-            id="parentlastName"
             type="text"
-            name="parentlastName"
+            name="parent_lastname"
             label="მშობლის გვარი"
             width="18.75rem"
             placeholder="მიუთითეთ მშობლის გვარი"
-            value={parentlastName}
-            onChange={(e) => {
-              setParentLastName(e.target.value);
-            }}
+            register={register}
+            errors={errors}
           />
           <PhoneNumberInput
-            id="parentPhoneNumber"
+            name="parent_number"
             label="მობილურის ნომერი"
             width="18.75rem"
             fontSize="1rem"
             countryCode={995}
-            value={parentPhoneNumber}
-            onChange={(e) => setParentPhoneNumber(e.target.value)}
+            register={register}
+            errors={errors}
           />
         </SAdditionalInfoSchoolGrid>
       </SAdditionalInfoSchoolContainer>

@@ -1,42 +1,60 @@
 import React from "react";
-import { SContainer, SLabel, SInputWrapper, SInput } from "./Input.styled";
+import {
+  SContainer,
+  SLabel,
+  SInputWrapper,
+  SInput,
+  SError,
+} from "./Input.styled";
 
 export const Input = ({
-  id,
   type,
   label,
   name,
   placeholder,
+  value,
   width,
   fontSize,
   fontWeight,
   gridArea,
   readOnly,
-  value,
-  onChange,
   onClick,
+  register,
+  validation,
+  errors,
+  onChange,
   LeftComponent,
   RightComponent,
 }) => {
+  const errorMessage = errors && errors[name]?.message;
   return (
     <SContainer width={width} gridArea={gridArea} onClick={onClick}>
-      <SLabel htmlFor={id}>{label}</SLabel>
+      <SLabel htmlFor={name}>{label}</SLabel>
       <SInputWrapper>
         {LeftComponent}
         <SInput
-          id={id}
+          id={name}
           type={type}
-          name={name}
           placeholder={placeholder}
           width={width}
           fontSize={fontSize}
           fontWeight={fontWeight}
           readOnly={readOnly}
-          value={value || ""}
-          onChange={onChange}
+          {...(register
+            ? register(name, { ...validation, onChange })
+            : { value: value || "" })}
         />
         {RightComponent}
       </SInputWrapper>
+      {errorMessage && (
+        <SError
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2 }}
+        >
+          {errorMessage}
+        </SError>
+      )}
     </SContainer>
   );
 };

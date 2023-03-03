@@ -4,7 +4,7 @@ const getLastDigitIndex = (string) => {
   }
 };
 
-export const handleNumberChange = (e, patterns, countryCode, onChange) => {
+export const handleNumberChange = (e, patterns, countryCode) => {
   const value = e.target.value;
   const numberString = value.split(" ").join("").replaceAll("-", "");
   let newValue = patterns[countryCode];
@@ -19,7 +19,6 @@ export const handleNumberChange = (e, patterns, countryCode, onChange) => {
 
   let currentCarretIndex = e.target.selectionStart;
   e.target.value = newValue;
-  onChange(e);
 
   let prevCaretIndex = getLastDigitIndex(value) + 1;
   let nextCarretIndex = getLastDigitIndex(newValue) + 1;

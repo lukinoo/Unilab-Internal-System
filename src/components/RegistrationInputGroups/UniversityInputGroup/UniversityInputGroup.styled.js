@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-export const SAdditionalInfoUniversity = styled.div`
+export const SAdditionalInfoUniversity = styled(motion.div)`
   margin: 4rem 0rem;
 `;
 export const SAdditionalInformationText = styled.p`
@@ -20,8 +21,24 @@ export const SAdditionalInfoUniversityGrid = styled.div`
   grid-gap: 3rem 5.5rem;
 `;
 
+export const SDegreeWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+`;
+
 export const SRadioWrapper = styled.div`
   display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
+  gap: 3rem;
+`;
+
+export const SError = styled.span`
+  width: 100%;
+  max-height: 1.8rem;
+  line-height: 0.9rem;
+  overflow: hidden;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #bd3a3a;
 `;
