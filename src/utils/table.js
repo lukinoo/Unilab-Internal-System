@@ -17,12 +17,14 @@ export const fuzzyFilter = (row, columnId, value, addMeta) => {
 export const dateRangeFilter = (row, columnId, value) => {
   let doesExist = true;
   const currentDate = dayjs(row.getValue(columnId));
+  const minDate = dayjs(value[0]);
+  const maxDate = dayjs(value[1]);
 
-  if (value[0] && currentDate.isBefore(value[0])) {
+  if (minDate && currentDate.isBefore(minDate)) {
     doesExist = false;
   }
 
-  if (value[1] && currentDate.isAfter(value[1])) {
+  if (maxDate && currentDate.isAfter(maxDate)) {
     doesExist = false;
   }
 

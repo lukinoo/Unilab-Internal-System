@@ -12,6 +12,7 @@ export const SDropdown = styled(motion.div)`
   position: absolute;
   top: 0;
   left: 0;
+  margin-top: 1rem;
   background-color: #fff;
   border-radius: 4px;
   list-style: none;

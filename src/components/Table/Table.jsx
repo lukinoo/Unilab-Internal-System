@@ -16,7 +16,7 @@ import {
   SBodyCell,
   SHead,
   SBody,
-  SPaginationArrow
+  SPaginationArrow,
 } from "./Table.styled";
 import { useState, useMemo } from "react";
 import { SortArrows } from "../SortArrows";
@@ -129,9 +129,17 @@ export const Table = ({
         breakLabel="..."
         pageRangeDisplayed={5}
         pageCount={table.getPageCount()}
-        nextLabel={<SPaginationArrow src="assets/svg/chevronRight.svg" alt="left arrow" />}
+        nextLabel={
+          <SPaginationArrow
+            src="assets/svg/chevronRight.svg"
+            alt="left arrow"
+          />
+        }
         previousLabel={
-          <SPaginationArrow src="assets/svg/chevronLeft.svg" alt="right arrow" />
+          <SPaginationArrow
+            src="assets/svg/chevronLeft.svg"
+            alt="right arrow"
+          />
         }
         onPageChange={({ selected }) => table.setPageIndex(selected)}
         forcePage={pageIndex}

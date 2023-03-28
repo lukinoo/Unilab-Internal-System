@@ -14,20 +14,25 @@ export const Checkbox = ({
   stroke,
   name,
   filled,
+  value,
   fontSize,
   register,
   watch,
 }) => {
-  const isChecked = watch(name);
+  const currentValue = watch(name);
+  const isChecked = Array.isArray(currentValue)
+    ? watch(name)?.find((curVal) => curVal === value)
+    : currentValue;
 
   return (
     <SContainer>
       <SInputWrapper>
         <SInput
-          id={name}
+          id={value || name}
           type="checkbox"
           variants={checkboxVariants}
           initial={"transparent"}
+          value={value}
           animate={isChecked && filled ? "filled" : "transparent"}
           filled={filled}
           {...register(name)}
@@ -36,7 +41,7 @@ export const Checkbox = ({
           <Check isChecked={isChecked} stroke={stroke ?? "#fff"} />
         </SCheckWrapper>
       </SInputWrapper>
-      <SLabel htmlFor={name} filled={filled} fontSize={fontSize}>
+      <SLabel htmlFor={value || name} filled={filled} fontSize={fontSize}>
         {label}
       </SLabel>
     </SContainer>

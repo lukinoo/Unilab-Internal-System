@@ -8,7 +8,7 @@ export const useAutoClose = (ref, initialState, onClose) => {
       return;
     }
 
-    if (isOpen) {
+    if (isOpen && onClose) {
       onClose();
     }
 

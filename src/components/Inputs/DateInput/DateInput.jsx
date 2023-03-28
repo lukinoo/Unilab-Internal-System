@@ -21,6 +21,7 @@ export const DateInput = (props) => {
     defaultDate = dayjs(),
     control,
     RightComponent,
+    onSubmit,
   } = props;
 
   const {
@@ -30,6 +31,9 @@ export const DateInput = (props) => {
   const handleSubmit = (date) => {
     setIsOpen(false);
     onChange(date.toISOString());
+    if (onSubmit) {
+      onSubmit(date);
+    }
   };
 
   const dateInputRef = useRef(null);
