@@ -18,7 +18,13 @@ import { SStudentListContainer } from "./StudentListPage.styled";
 import { useForm } from "react-hook-form";
 
 export const StudentListPage = () => {
-  const { register, watch, setValue } = useForm();
+  const {
+    register,
+    watch,
+    control,
+    formState: { errors },
+    setValue,
+  } = useForm();
   const [filters, getFilter, updateFilter] = useFilters();
 
   return (
@@ -53,6 +59,10 @@ export const StudentListPage = () => {
               ]}
               getFilter={getFilter}
               updateFilter={updateFilter}
+              register={register}
+              control={control}
+              errors={errors}
+              watch={watch}
             />
             <Input
               name="global_filter"

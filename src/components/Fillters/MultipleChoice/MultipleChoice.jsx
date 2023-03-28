@@ -2,7 +2,14 @@ import React from "react";
 import { Checkbox } from "../../Inputs/Checkbox";
 import { SMultipleChoice } from "./MultipleChoice.module";
 
-export const MultipleChoice = ({ id, values, getFilter, updateFilter }) => {
+export const MultipleChoice = ({
+  id,
+  values,
+  getFilter,
+  updateFilter,
+  watch,
+  register,
+}) => {
   const selectedValues = getFilter(id) ?? [];
   return (
     <SMultipleChoice>
@@ -13,10 +20,13 @@ export const MultipleChoice = ({ id, values, getFilter, updateFilter }) => {
             <Checkbox
               id={value}
               label={value}
+              name={value}
               filled
               isChecked={isChecked}
               fontSize={"0.875rem"}
               fontColor={"#dedede"}
+              register={register}
+              watch={watch}
               onChange={() => {
                 if (isChecked) {
                   selectedValues.splice(
