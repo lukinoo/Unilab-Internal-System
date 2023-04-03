@@ -18,7 +18,6 @@ import { SStudentListContainer } from "./StudentListPage.styled";
 import { useForm } from "react-hook-form";
 
 const getColumnFilters = (fields, filters) => {
-  console.log(filters)
   return Object.entries(filters)
     .filter(
       ([key, value]) => fields.find(({ id }) => key === id) && value.length > 0
@@ -30,7 +29,7 @@ const getColumnFilters = (fields, filters) => {
 };
 
 export const StudentListPage = () => {
-  const { register, watch, setValue } = useForm();
+  const { register, watch, getValues, setValue } = useForm();
 
   const fields = [
     {
@@ -60,6 +59,7 @@ export const StudentListPage = () => {
               fields={fields}
               register={register}
               watch={watch}
+              getValues={getValues}
               setValue={setValue}
             />
             <Input

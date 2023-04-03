@@ -87,7 +87,7 @@ export const Authentication = () => {
             name="password"
             label="პაროლი"
             width={"21.25rem"}
-            placeholder="●●●●●●●●"
+            placeholder="∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗"
             register={register}
             errors={errors}
           />

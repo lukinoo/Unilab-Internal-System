@@ -1,12 +1,20 @@
 import { useForm } from "react-hook-form";
 import { DateInput } from "../../Inputs/DateInput";
 
-export const DateRange = ({ name, setValue }) => {
+export const DateRange = ({ name, getRootValues, setValue }) => {
+  const defaultValues = getRootValues(name) ?? ['' , ''];
+
   const {
     control,
     formState: { errors },
     getValues,
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      [name + "-from"]: defaultValues[0],
+      [name + "-to"]: defaultValues[1],
+    },
+  });
+
   return (
     <div>
       From
