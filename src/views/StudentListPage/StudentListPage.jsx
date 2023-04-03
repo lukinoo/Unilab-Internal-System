@@ -17,9 +17,36 @@ import { SideBar } from "../../components/SideBar";
 import { SStudentListContainer } from "./StudentListPage.styled";
 import { useForm } from "react-hook-form";
 
+const getColumnFilters = (fields, filters) => {
+  return Object.entries(filters)
+    .filter(
+      ([key, value]) => fields.find(({ id }) => key === id) && value.length > 0
+    )
+    .map(([key, value]) => ({
+      id: key,
+      value,
+    }));
+};
+
 export const StudentListPage = () => {
-  const { register, watch, setValue } = useForm();
-  const [filters, getFilter, updateFilter] = useFilters();
+  const { register, watch, getValues, setValue } = useForm();
+
+  const fields = [
+    {
+      id: "status",
+      type: "multiple",
+      values: ["Registered", "Rejected", "Active", "Completed", "Failed"],
+    },
+    {
+      id: "gender",
+      type: "multiple",
+      values: ["Female", "Male"],
+    },
+    {
+      id: "date_of_birth",
+      type: "date",
+    },
+  ];
 
   return (
     <div>
@@ -29,30 +56,11 @@ export const StudentListPage = () => {
           <STitle>სტუდენტების სია</STitle>
           <SActionWrapper>
             <FilterDropdown
-              fields={[
-                {
-                  id: "status",
-                  type: "multiple",
-                  values: [
-                    "Registered",
-                    "Rejected",
-                    "Active",
-                    "Completed",
-                    "Failed",
-                  ],
-                },
-                {
-                  id: "gender",
-                  type: "multiple",
-                  values: ["Female", "Male"],
-                },
-                {
-                  id: "date_of_birth",
-                  type: "date",
-                },
-              ]}
-              getFilter={getFilter}
-              updateFilter={updateFilter}
+              fields={fields}
+              register={register}
+              watch={watch}
+              getValues={getValues}
+              setValue={setValue}
             />
             <Input
               name="global_filter"
@@ -67,7 +75,7 @@ export const StudentListPage = () => {
           <Table
             columns={columns}
             data={studentData}
-            columnFilters={filters}
+            columnFilters={getColumnFilters(fields, watch())}
             globalFilter={watch("global_filter")}
             setGlobalFilter={(val) => setValue("global_filter", val)}
           />

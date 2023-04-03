@@ -60,7 +60,7 @@ export const MainInputGroup = () => {
           name="password"
           label="პაროლი"
           width="18.75rem"
-          placeholder="●●●●●●●●"
+          placeholder="∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗"
           register={register}
           errors={errors}
         />
@@ -68,7 +68,7 @@ export const MainInputGroup = () => {
           name="conf_password"
           label="პაროლი განმეორებით"
           width="18.75rem"
-          placeholder="●●●●●●●●"
+          placeholder="∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗"
           register={register}
           errors={errors}
         />
