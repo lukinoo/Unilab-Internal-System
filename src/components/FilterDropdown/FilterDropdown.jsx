@@ -12,7 +12,7 @@ import { dropdownVariants } from "./FitlerDropdown.variants";
 import { useAutoClose } from "../../hooks/useAutoClose";
 import { SectionDropdown } from "../SectionDropdown";
 
-export const FilterDropdown = ({ fields, getFilter, updateFilter }) => {
+export const FilterDropdown = ({ fields, register, watch, getValues, setValue }) => {
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false);
 
@@ -41,17 +41,11 @@ export const FilterDropdown = ({ fields, getFilter, updateFilter }) => {
                   <MultipleChoice
                     id={id}
                     values={values}
-                    getFilter={getFilter}
-                    updateFilter={updateFilter}
+                    register={register}
+                    watch={watch}
                   />
                 )}
-                {type === "date" && (
-                  <DateRange
-                    id={id}
-                    getFilter={getFilter}
-                    updateFilter={updateFilter}
-                  />
-                )}
+                {type === "date" && <DateRange name={id} getRootValues={getValues} setValue={setValue} />}
               </SectionDropdown>
             ))}
           </SDropdown>
