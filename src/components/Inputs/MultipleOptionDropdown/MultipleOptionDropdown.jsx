@@ -31,7 +31,7 @@ export const MultipleOptionDropdown = (props) => {
   };
 
   const handleSelect = (id) => {
-    if(value){
+    if (value) {
       const isSelected = value.includes(id);
       if (isSelected) {
         const updatedValue = value.filter((selectedId) => selectedId !== id);
@@ -40,17 +40,20 @@ export const MultipleOptionDropdown = (props) => {
         const updatedValue = [...value, id];
         onChange(updatedValue);
       }
-    }else{
+    } else {
       onChange(id);
     }
-
   };
 
   return (
     <SDropdownWrapper gridArea={gridArea} ref={dropdownRef}>
       <Input
         {...props}
-        value={Array.isArray(value) ? value.map((id) => items[id]).join(", ") : items[value]} // display mutliple values
+        value={
+          Array.isArray(value)
+            ? value.map((id) => items[id]).join(", ")
+            : items[value]
+        } // display mutliple values
         readOnly
         type={"text"}
         onClick={toggleOpen}
