@@ -14,13 +14,13 @@ import { useAutoClose } from "../../../hooks/useAutoClose";
 import { AnimatePresence } from "framer-motion";
 import { useController } from "react-hook-form";
 
-export const MultiplePageDropdown = (props) => {
+export const MultipleOptionDropdown = (props) => {
   const { name, gridArea, items, control } = props;
 
   const {
     field: { value, onChange, onBlur },
   } = useController({ name, control });
-
+  
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false, onBlur);
 
@@ -31,22 +31,27 @@ export const MultiplePageDropdown = (props) => {
   };
 
   const handleSelect = (id) => {
-    const isSelected = value.includes(id);
-  
-    if (isSelected) {
-      const updatedValue = value.filter((selectedId) => selectedId !== id);
-      onChange(updatedValue);
-    } else {
-      const updatedValue = [...value, id];
-      onChange(updatedValue);
+    if(value){
+      const isSelected = value.includes(id);
+      console.log("VALUE:", value);
+      if (isSelected) {
+        const updatedValue = value.filter((selectedId) => selectedId !== id);
+        onChange(updatedValue);
+      } else {
+        const updatedValue = [...value, id];
+        onChange(updatedValue);
+      }
+    }else{
+      onChange(id);
     }
+
   };
 
   return (
     <SDropdownWrapper gridArea={gridArea} ref={dropdownRef}>
       <Input
         {...props}
-        value={value.map((id) => items[id]).join(", ")} // display mutliple values
+        value={Array.isArray(value) ? value.map((id) => items[id]).join(", ") : items[value]} // display mutliple values
         readOnly
         type={"text"}
         onClick={toggleOpen}

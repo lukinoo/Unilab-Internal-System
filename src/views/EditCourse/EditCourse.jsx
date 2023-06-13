@@ -12,6 +12,7 @@ import {
 import { Dropdown } from "../../components/Inputs/Dropdown";
 import { Button } from "../../components/Button";
 import { useForm } from "react-hook-form";
+import { MultiplePageDropdown } from "../../components/Inputs/MultipleOptionDropdown";
 export const EditCourse = () => {
   const { register, control } = useForm();
 
@@ -34,19 +35,22 @@ export const EditCourse = () => {
             }}
             control={control}
           ></Dropdown>
-          <Dropdown
+          
+          <MultiplePageDropdown
             name="lecturer"
             label="ლექტორი"
             width="18.75rem"
             placeholder="ლექტორის სახელი და გვარი"
             items={{ 1: "გიორგი", 2: "გიო", 3: "ბექა" }}
             control={control}
-          ></Dropdown>
+          ></MultiplePageDropdown>
+
           <Dropdown
             name="teaching_type"
             label="სწავლების ტიპი"
             width="18.75rem"
             placeholder=""
+            items={{ 1: "პირველი", 2: "მეორე", 3: "მესამე" }}
             control={control}
           ></Dropdown>
         </SGridContainer>
