@@ -20,7 +20,7 @@ export const MultipleOptionDropdown = (props) => {
   const {
     field: { value, onChange, onBlur },
   } = useController({ name, control });
-  
+
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false, onBlur);
 
@@ -33,7 +33,6 @@ export const MultipleOptionDropdown = (props) => {
   const handleSelect = (id) => {
     if(value){
       const isSelected = value.includes(id);
-      console.log("VALUE:", value);
       if (isSelected) {
         const updatedValue = value.filter((selectedId) => selectedId !== id);
         onChange(updatedValue);
