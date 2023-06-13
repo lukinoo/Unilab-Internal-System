@@ -15,7 +15,7 @@ export const SMultipleDropdownItem = styled(SDropdownItem)`
   &>input[type="checkbox"]{
     width: 1rem;
     height: 1rem;
-    border: 1px solid #3669A2;
+    border: 0.0625rem solid #3669A2;
     background-color: #3669A2;
     cursor: pointer;
   }
