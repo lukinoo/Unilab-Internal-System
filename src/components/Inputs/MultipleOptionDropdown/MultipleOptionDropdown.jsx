@@ -7,6 +7,7 @@ import {
   SDropdownList,
   SDropdownWrapper,
 } from "../Dropdown/Dropdown.styled";
+import { SMultipleDropdownList, SMultipleDropdownItem } from "./MultipleOptionDropdown.styled";
 import { DropArrow } from "../../DropArrow";
 import { dropdownVariants } from "../Dropdown/Dropdown.variants";
 import { getLongestString } from "../../../utils/dropdown";
@@ -65,7 +66,7 @@ export const MultipleOptionDropdown = (props) => {
       />
       <AnimatePresence>
         {isOpen && (
-          <SDropdownList
+          <SMultipleDropdownList
             variants={dropdownVariants}
             initial={"hidden"}
             animate={"visible"}
@@ -75,21 +76,21 @@ export const MultipleOptionDropdown = (props) => {
             {!items ? (
               <span>--- no items ---</span>
             ) : (
-              Object.entries(items).map(([id, value]) => {
+              Object.entries(items).map(([id, itemValue]) => {
                 return (
-                  <SDropdownItem key={id}>
+                  <SMultipleDropdownItem key={id} checked={value?.includes(id)}>
                     <SDropdownButton
                       type="button"
                       onClick={() => handleSelect(id)}
                       data-longestitem={longestItem}
                     >
-                      {value}
+                      {itemValue}
                     </SDropdownButton>
-                  </SDropdownItem>
+                  </SMultipleDropdownItem>
                 );
               })
             )}
-          </SDropdownList>
+          </SMultipleDropdownList>
         )}
       </AnimatePresence>
     </SDropdownWrapper>
