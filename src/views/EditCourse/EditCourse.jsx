@@ -13,6 +13,8 @@ import { Dropdown } from "../../components/Inputs/Dropdown";
 import { Button } from "../../components/Button";
 import { useForm } from "react-hook-form";
 import { MultipleOptionDropdown } from "../../components/Inputs/MultipleOptionDropdown";
+import { DateInput } from "../../components/Inputs/DateInput/DateInput";
+
 export const EditCourse = () => {
   const { register, control } = useForm();
 
@@ -51,6 +53,24 @@ export const EditCourse = () => {
             items={{ 1: "პირველი", 2: "მეორე", 3: "მესამე" }}
             control={control}
           ></Dropdown>
+          {true ? ( // test
+            <>
+              <DateInput
+                name="start_date"
+                label="დაწყების თარიღი"
+                control={control}
+                width="18.75rem"
+                onSubmit={() => {}}
+              ></DateInput>
+              <DateInput
+                name="end_date"
+                label="დასრულების თარიღი"
+                control={control}
+                width="18.75rem"
+                onSubmit={() => {}}
+              ></DateInput>
+            </>
+          ) : null}
         </SGridContainer>
       </SContainer>
       <SButtonContainer>
