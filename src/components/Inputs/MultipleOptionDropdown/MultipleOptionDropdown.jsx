@@ -77,8 +77,10 @@ export const MultipleOptionDropdown = (props) => {
               <span>--- no items ---</span>
             ) : (
               Object.entries(items).map(([id, itemValue]) => {
+                const checked = value?.includes(id);
                 return (
-                  <SMultipleDropdownItem key={id} checked={value?.includes(id)}>
+                  <SMultipleDropdownItem key={id}>
+                    <input type="checkbox" onChange={()=>handleSelect(id)} checked={checked} />
                     <SDropdownButton
                       type="button"
                       onClick={() => handleSelect(id)}
