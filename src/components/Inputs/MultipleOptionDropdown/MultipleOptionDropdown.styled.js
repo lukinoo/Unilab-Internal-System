@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { SDropdownList , SDropdownItem} from '../Dropdown/Dropdown.styled';
-import image from "../../../../public/assets/svg/checkmark.svg";
+import image from "/assets/svg/checkmark.svg";
 
 export const SMultipleDropdownList = styled(SDropdownList)`
   display: flex;
