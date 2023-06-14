@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { SideBar } from "../../components/SideBar";
 import { Footer } from "../../components/Footer";
@@ -16,7 +16,23 @@ import { MultipleOptionDropdown } from "../../components/Inputs/MultipleOptionDr
 import { DateInput } from "../../components/Inputs/DateInput/DateInput";
 
 export const EditCourse = () => {
-  const { register, control } = useForm();
+  const { register, control, watch  } = useForm();
+  const [displayInputs, setDisplayInputs] = useState(false); // state to display additional inputs
+
+  // watch all input values
+  const allValues = watch();
+
+  useEffect(() => {
+    console.log("Checking...");
+    console.log(allValues);
+
+    // Check if first three input values are present and change boolean state
+    if (allValues.course && allValues.lecturer && allValues.teaching_type) {
+      setDisplayInputs(true);
+    } else {
+      setDisplayInputs(false);
+    }
+  }, [allValues]);
 
   return (
     <SEditCourseMainDiv>
@@ -53,7 +69,7 @@ export const EditCourse = () => {
             items={{ 1: "პირველი", 2: "მეორე", 3: "მესამე" }}
             control={control}
           ></Dropdown>
-          {true ? ( // test
+          {displayInputs ? (
             <>
               <DateInput
                 name="start_date"
