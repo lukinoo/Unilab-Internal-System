@@ -16,7 +16,7 @@ import { MultipleOptionDropdown } from "../../components/Inputs/MultipleOptionDr
 import { DateInput } from "../../components/Inputs/DateInput/DateInput";
 
 export const EditCourse = () => {
-  const { register, control, watch  } = useForm();
+  const { register, control, watch } = useForm();
   const [displayInputs, setDisplayInputs] = useState(false); // state to display additional inputs
 
   // watch all input values
@@ -69,7 +69,7 @@ export const EditCourse = () => {
             items={{ 1: "პირველი", 2: "მეორე", 3: "მესამე" }}
             control={control}
           ></Dropdown>
-          {displayInputs ? (
+          {displayInputs && (
             <>
               <DateInput
                 name="start_date"
@@ -86,7 +86,7 @@ export const EditCourse = () => {
                 onSubmit={() => {}}
               ></DateInput>
             </>
-          ) : null}
+          )}
         </SGridContainer>
       </SContainer>
       <SButtonContainer>
