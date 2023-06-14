@@ -3,8 +3,6 @@ import { Input } from "../Input";
 import {
   SArrowButton,
   SDropdownButton,
-  SDropdownItem,
-  SDropdownList,
   SDropdownWrapper,
 } from "../Dropdown/Dropdown.styled";
 import { SMultipleDropdownList, SMultipleDropdownItem } from "./MultipleOptionDropdown.styled";
