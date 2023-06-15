@@ -8,17 +8,20 @@ import {
   SContainer,
   SGridContainer,
   SButtonContainer,
+  SAddDescButton,
 } from "./EditCourse.styled";
 import { Dropdown } from "../../components/Inputs/Dropdown";
 import { Button } from "../../components/Button";
 import { useForm } from "react-hook-form";
 import { MultipleOptionDropdown } from "../../components/Inputs/MultipleOptionDropdown";
 import { DateInput } from "../../components/Inputs/DateInput/DateInput";
+import { Textarea } from "../../components/Inputs/Textarea";
 
 export const EditCourse = () => {
   const { register, control, watch } = useForm();
   const [displayInputs, setDisplayInputs] = useState(false); // state to display additional inputs
-
+  const [displayTextArea, setDisplayTextArea] = useState(false);
+  
   // watch all input values
   const allValues = watch();
 
@@ -85,9 +88,24 @@ export const EditCourse = () => {
                 width="18.75rem"
                 onSubmit={() => {}}
               ></DateInput>
+              {/* add button to add textarea */}
+              <SAddDescButton
+                width="18.75rem"
+                name="add_description"
+                onClick={() => setDisplayTextArea(true)}
+              >
+                მიმართულების აღწერის დამატება
+              </SAddDescButton>
             </>
           )}
         </SGridContainer>
+        {displayTextArea && (
+          <Textarea
+            control={control}
+            name="course_description"
+            placeholder="ჩაწერეთ მიმართულების მოკლე აღწერა..."
+          />
+        )}
       </SContainer>
       <SButtonContainer>
         <Button width="15rem" height={"3rem"} secondary={"secondary"}>
