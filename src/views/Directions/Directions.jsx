@@ -6,6 +6,7 @@ import { SideBar } from "../../components/SideBar";
 import { Input } from "../../components/Inputs/Input";
 import { SDirectionsWrapper, SInputForm, STitle } from "./Directions.styled";
 import { Dropdown } from "../../components/Inputs/Dropdown";
+import { items } from "./SidebarItems";
 
 export const Directions = () => {
   const {
@@ -23,7 +24,7 @@ export const Directions = () => {
   return (
     <>
       <FourthHeader />
-      <SideBar />
+      <SideBar items={items} />
       <SDirectionsWrapper>
         <STitle>მიმართულების დამატება/რედაქტირება</STitle>
         <SInputForm>
@@ -45,6 +46,7 @@ export const Directions = () => {
             fontSize="0.687rem"
             placeholder="აირჩიეთ ლექტორის სახელი და გვარი"
             control={control}
+            items={["test", "test2"]}
           ></Dropdown>
         </SInputForm>
       </SDirectionsWrapper>

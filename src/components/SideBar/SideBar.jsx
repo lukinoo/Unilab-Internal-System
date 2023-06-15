@@ -1,11 +1,8 @@
-import React, { useRef } from "react";
+import React, { Fragment, useRef } from "react";
 import { useAutoClose } from "../../hooks/useAutoClose";
 import { DropArrow } from "../DropArrow";
 import { SideButton } from "../Buttons/SideButton";
 import { SideDropdown } from "../Inputs/SideDropdown";
-import { SideHomeSvg } from "./SideSvgs/SideHomeSvg";
-import { EditSvg } from "./SideSvgs/EditSvg";
-import { ActivitiesSvg } from "./SideSvgs/ActivitiesSvg";
 
 import {
   SSideBarContainer,
@@ -13,11 +10,8 @@ import {
   SSideBarButton,
   SSideBarArrowButton,
 } from "./SideBar.styled";
-import { HeadPhoneSvg } from "./SideSvgs/HeadPhoneSvg";
-import { HDSvg } from "./SideSvgs/HDSvg";
-import { UsersSvg } from "./SideSvgs/UsersSvg";
 
-export const SideBar = () => {
+export const SideBar = ({ items }) => {
   const dropdownRef = useRef(null);
   const [showSideBar, setShowSideBar] = useAutoClose(dropdownRef, false);
 
@@ -29,48 +23,30 @@ export const SideBar = () => {
       transition={{ type: "spring", duration: 0.5 }}
     >
       <SSideBarDiv>
-        <SideButton to="/" LeftComponent={<SideHomeSvg />}>
-          მთავარი
-        </SideButton>
-        <SideButton to="/privacy-policy" LeftComponent={<EditSvg />}>
-          სწავლებები
-        </SideButton>
-        <SideDropdown
-          showSideBar={showSideBar}
-          path={"/"}
-          label="Courses"
-          items={["მოსწავლე", "სტუდენტი", "კურსდამთავრებული"]}
-          LeftComponent={<ActivitiesSvg />}
-        >
-          კონკურსები
-        </SideDropdown>
-        <SideDropdown
-          showSideBar={showSideBar}
-          path={"/"}
-          label="Activities"
-          items={["მოსწავლე", "სტუდენტი", "კურსდამთავრებული"]}
-          LeftComponent={<HeadPhoneSvg />}
-        >
-          აქტივობები
-        </SideDropdown>
-        <SideDropdown
-          showSideBar={showSideBar}
-          path={"/"}
-          label="Devices"
-          items={["მოსწავლე", "სტუდენტი", "კურსდამთავრებული"]}
-          LeftComponent={<HDSvg />}
-        >
-          მოწყობილობები
-        </SideDropdown>
-        <SideDropdown
-          showSideBar={showSideBar}
-          path={"/"}
-          label="User control"
-          items={["მოსწავლე", "სტუდენტი", "კურსდამთავრებული"]}
-          LeftComponent={<UsersSvg />}
-        >
-          მომხმარებლების მართვა
-        </SideDropdown>
+        {items.map((item, index) => (
+          <Fragment key={index}>
+            {item.children ? (
+              <SideDropdown
+                showSideBar={showSideBar}
+                path={item.to}
+                label={item.label}
+                items={item.children}
+                LeftComponent={item.icon}
+                key={item.name}
+              >
+                {item.name}
+              </SideDropdown>
+            ) : (
+              <SideButton
+                to={item.to}
+                LeftComponent={item.icon}
+                key={item.name}
+              >
+                {item.name}
+              </SideButton>
+            )}
+          </Fragment>
+        ))}
       </SSideBarDiv>
 
       <SSideBarButton
