@@ -20,6 +20,10 @@ export const SCourseTitle = styled.h1`
 
 export const SContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  min-width: 62.5rem;
+  width: 70%;
+  align-self: center;
   justify-content: center;
   margin-bottom: 17rem;
 `;
