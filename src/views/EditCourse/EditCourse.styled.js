@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import plusCircle from "/assets/svg/plusCircle.svg";
 
 export const SEditCourseMainDiv = styled.div`
   display: flex;
@@ -33,3 +34,15 @@ export const SButtonContainer = styled.div`
   gap: 5.5rem;
   margin-bottom: 15rem;
 `;
+export const SAddDescButton = styled.button`
+  width: ${({width})=>width};
+  border: none;
+  height: 2.5rem;
+  margin-top: 1.2rem;
+  background-color: inherit;
+  background-image: url(${plusCircle});
+  background-position: left;
+  background-repeat: no-repeat;
+  color: #4980C0;
+  cursor: pointer;
+`
