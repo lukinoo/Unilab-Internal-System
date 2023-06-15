@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { Input } from "../Input";
 import {
   SArrowButton,
   SDropdownButton,
@@ -12,6 +11,7 @@ import { getLongestString } from "../../../utils/dropdown";
 import { useAutoClose } from "../../../hooks/useAutoClose";
 import { AnimatePresence } from "framer-motion";
 import { useController } from "react-hook-form";
+import { MultipleOptionInput } from "../MultipleOptionInput";
 
 export const MultipleOptionDropdown = (props) => {
   const { name, gridArea, items, control } = props;
@@ -46,7 +46,7 @@ export const MultipleOptionDropdown = (props) => {
 
   return (
     <SDropdownWrapper gridArea={gridArea} ref={dropdownRef}>
-      <Input
+      <MultipleOptionInput
         {...props}
         value={
           Array.isArray(value)
