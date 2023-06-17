@@ -31,11 +31,11 @@ export const MultipleOptionInput = ({
   const valueObject = value;
 
   // console.log("VALUE: ", value);
-  
+
   const renderObjectElements = (obj) => {
     return Object.entries(obj).map(([key, value]) => {
       return (
-        <SNameSpan>
+        <SNameSpan key={key}>
           <span>{value}</span>
           <img src={xCross} alt="r" />
         </SNameSpan>
