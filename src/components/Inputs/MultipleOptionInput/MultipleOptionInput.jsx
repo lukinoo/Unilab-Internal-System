@@ -5,10 +5,7 @@ import {
   SInputWrapper,
   SError,
 } from "../Input/Input.styled";
-import {
-  SMultipleOptionDiv,
-  SNameSpan,
-} from "./MultipleOptionInput.styled";
+import { SMultipleOptionDiv, SNameSpan } from "./MultipleOptionInput.styled";
 import xCross from "/assets/svg/xCross.svg";
 
 export const MultipleOptionInput = ({
@@ -31,14 +28,23 @@ export const MultipleOptionInput = ({
   RightComponent,
 }) => {
   const errorMessage = errors && errors[name]?.message;
-  console.log("value", value);
-  const arrayOfValues = value && value.split(",");
+  const valueObject = value;
+
+  // console.log("VALUE: ", value);
+  
+  const renderObjectElements = (obj) => {
+    return Object.entries(obj).map(([key, value]) => {
+      return (
+        <SNameSpan>
+          <span>{value}</span>
+          <img src={xCross} alt="r" />
+        </SNameSpan>
+      );
+    });
+  };
+
   return (
-    <SContainer
-      width={width}
-      gridArea={gridArea}
-      onClick={onClick}
-    >
+    <SContainer width={width} gridArea={gridArea} onClick={onClick}>
       <SLabel htmlFor={name}>{label}</SLabel>
       <SInputWrapper>
         {LeftComponent}
@@ -54,13 +60,7 @@ export const MultipleOptionInput = ({
             ? register(name, { ...validation, onChange })
             : { value: value || "" })}
         >
-          {(Array.isArray(arrayOfValues) && arrayOfValues.length>0) &&
-            arrayOfValues.map((item) => (
-              <SNameSpan>
-                <span>{item}</span>
-                <img src={xCross} alt="r" />
-              </SNameSpan>
-            ))}
+          {renderObjectElements(valueObject)}
         </SMultipleOptionDiv>
         {RightComponent}
       </SInputWrapper>
