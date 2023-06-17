@@ -4,7 +4,10 @@ import {
   SDropdownButton,
   SDropdownWrapper,
 } from "../Dropdown/Dropdown.styled";
-import { SMultipleDropdownList, SMultipleDropdownItem } from "./MultipleOptionDropdown.styled";
+import {
+  SMultipleDropdownList,
+  SMultipleDropdownItem,
+} from "./MultipleOptionDropdown.styled";
 import { DropArrow } from "../../DropArrow";
 import { dropdownVariants } from "../Dropdown/Dropdown.variants";
 import { getLongestString } from "../../../utils/dropdown";
@@ -44,15 +47,31 @@ export const MultipleOptionDropdown = (props) => {
     }
   };
 
+  const createFilteredObject = (keysArray, sourceObject) => {
+    const resultObject = {};
+    if (keysArray && keysArray.length > 1) {
+      keysArray.forEach((key) => {
+        if (sourceObject.hasOwnProperty(key)) {
+          resultObject[key] = sourceObject[key];
+        }
+      });
+    } else if (keysArray && keysArray.length === 1) {
+      const key = keysArray[0];
+      return sourceObject.hasOwnProperty(key)
+        ? { [key]: sourceObject[key] }
+        : {};
+    }
+
+    return resultObject;
+  };
+  // store selected key and value pairs 
+  const resultObject = createFilteredObject(value, items);
+
   return (
     <SDropdownWrapper gridArea={gridArea} ref={dropdownRef}>
       <MultipleOptionInput
         {...props}
-        value={
-          Array.isArray(value)
-            ? value.map((id) => items[id]).join(", ")
-            : items[value]
-        } // display mutliple values
+        value={resultObject} // display mutliple values
         readOnly
         type={"text"}
         onClick={toggleOpen}
@@ -78,7 +97,11 @@ export const MultipleOptionDropdown = (props) => {
                 const checked = value?.includes(id);
                 return (
                   <SMultipleDropdownItem key={id}>
-                    <input type="checkbox" onChange={()=>handleSelect(id)} checked={checked} />
+                    <input
+                      type="checkbox"
+                      onChange={() => handleSelect(id)}
+                      checked={checked}
+                    />
                     <SDropdownButton
                       type="button"
                       onClick={() => handleSelect(id)}
