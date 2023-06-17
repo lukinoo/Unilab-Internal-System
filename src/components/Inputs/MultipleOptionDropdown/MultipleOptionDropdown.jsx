@@ -34,47 +34,30 @@ export const MultipleOptionDropdown = (props) => {
 
   const handleSelect = (id) => {
     if (value) {
-      const isSelected = value.includes(id);
-      if (isSelected) {
-        const updatedValue = value.filter((selectedId) => selectedId !== id);
+      if (value.hasOwnProperty(id)) {
+        // remove value
+        const { [id]: removedValue, ...updatedValue } = value;
         onChange(updatedValue);
       } else {
-        const updatedValue = [...value, id];
+        // add value
+        const updatedValue = { ...value, [id]: items[id] };
         onChange(updatedValue);
       }
     } else {
-      onChange(id);
+      // if empty create an object with one item
+      onChange({ [id]: items[id] });
     }
   };
-
-  const createFilteredObject = (keysArray, sourceObject) => {
-    const resultObject = {};
-    if (keysArray && keysArray.length > 1) {
-      keysArray.forEach((key) => {
-        if (sourceObject.hasOwnProperty(key)) {
-          resultObject[key] = sourceObject[key];
-        }
-      });
-    } else if (keysArray && keysArray.length === 1) {
-      const key = keysArray[0];
-      return sourceObject.hasOwnProperty(key)
-        ? { [key]: sourceObject[key] }
-        : {};
-    }
-
-    return resultObject;
-  };
-  // store selected key and value pairs 
-  const resultObject = createFilteredObject(value, items);
 
   return (
     <SDropdownWrapper gridArea={gridArea} ref={dropdownRef}>
       <MultipleOptionInput
         {...props}
-        value={resultObject} // display mutliple values
+        value={value}
         readOnly
         type={"text"}
         onClick={toggleOpen}
+        handleSelect={handleSelect}
         RightComponent={
           <SArrowButton type="button" title="toggle dropdown">
             <DropArrow isOpen={isOpen} />
@@ -93,8 +76,10 @@ export const MultipleOptionDropdown = (props) => {
             {!items ? (
               <span>--- no items ---</span>
             ) : (
-              Object.entries(items).map(([id, itemValue]) => {
-                const checked = value?.includes(id);
+              Object.keys(items).map((id) => {
+                const itemValue = items[id];
+                // check if the item with the id is already in the value
+                const checked = value?.hasOwnProperty(id);
                 return (
                   <SMultipleDropdownItem key={id}>
                     <input
