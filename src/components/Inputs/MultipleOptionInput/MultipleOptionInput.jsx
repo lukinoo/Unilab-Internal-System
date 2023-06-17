@@ -20,6 +20,7 @@ export const MultipleOptionInput = ({
   gridArea,
   readOnly,
   onClick,
+  handleSelect,
   register,
   validation,
   errors,
@@ -28,16 +29,18 @@ export const MultipleOptionInput = ({
   RightComponent,
 }) => {
   const errorMessage = errors && errors[name]?.message;
-  const valueObject = value;
-
-  // console.log("VALUE: ", value);
+  const valueObject = value ?? {};
 
   const renderObjectElements = (obj) => {
     return Object.entries(obj).map(([key, value]) => {
       return (
         <SNameSpan key={key}>
           <span>{value}</span>
-          <img src={xCross} alt="r" />
+          <img
+            src={xCross}
+            alt="r"
+            onClick={() => handleSelect(key)}
+          />
         </SNameSpan>
       );
     });
