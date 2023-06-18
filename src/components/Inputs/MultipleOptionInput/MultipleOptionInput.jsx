@@ -38,7 +38,7 @@ export const MultipleOptionInput = ({
           <span>{value}</span>
           <img
             src={xCross}
-            alt="r"
+            alt="remove"
             onClick={() => handleSelect(key)}
           />
         </SNameSpan>
