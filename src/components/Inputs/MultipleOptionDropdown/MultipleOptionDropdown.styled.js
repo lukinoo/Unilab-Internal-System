@@ -13,36 +13,34 @@ export const SMultipleDropdownItem = styled(SDropdownItem)`
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  &>input{
-    appearance: none;
-    -webkit-appearance: none;
-    width: 1rem;
-    height: 1rem;
-    padding: 0.45rem;
-    border-radius: 0.25rem;
-    border: 0.0625rem solid #3669A2;
-    cursor: pointer;
-  }
+`
 
-  &>input {
+export const SCheckbox = styled.input`
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  padding: 0.45rem;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #3669a2;
+  cursor: pointer;
   position: relative;
-  }
-  &>input:before {
-    content: '';
+  &:before {
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: inherit; 
+    width: inherit;
     height: inherit;
     border-radius: inherit;
     display: none;
     background-image: url(${image});
     background-repeat: no-repeat;
     background-position: center;
-    background-color: #3669A2;
+    background-color: #3669a2;
   }
-  &>input:checked::before {
-    display: block;
+  &::before {
+    display: ${({filled})=> filled ? 'block' : 'none'};
   }
-`
+`;
