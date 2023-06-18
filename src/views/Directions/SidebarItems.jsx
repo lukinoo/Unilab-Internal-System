@@ -1,23 +1,23 @@
-import { SideHomeSvg } from "../../components/SideBar/SideSvgs/SideHomeSvg";
-import { EditSvg } from "../../components/SideBar/SideSvgs/EditSvg";
 import { ActivitiesSvg } from "../../components/SideBar/SideSvgs/ActivitiesSvg";
 import { HDSvg } from "../../components/SideBar/SideSvgs/HDSvg";
 import { HeadPhoneSvg } from "../../components/SideBar/SideSvgs/HeadPhoneSvg";
 import { UsersSvg } from "../../components/SideBar/SideSvgs/UsersSvg";
+import { DesignerSvg } from "../../components/SideBar/SideSvgs/DesignerSvg";
+import { DeveloperModeSvg } from "../../components/SideBar/SideSvgs/DeveloperModeSvg";
 
 export const items = [
   {
-    name: "მთავარი",
+    name: "UI/UX დიზაინერი",
     to: "/",
-    icon: <SideHomeSvg />,
+    icon: <DesignerSvg />,
   },
   {
-    name: "სწავლებები",
+    name: "FRONT-END დეველოპერი",
     to: "/privacy-policy",
-    icon: <EditSvg />,
+    icon: <DeveloperModeSvg />,
   },
   {
-    name: "კონკურსები",
+    name: "FrontEnd-კონკურსები",
     to: "/",
     icon: <ActivitiesSvg />,
     label: "Courses",
