@@ -61,7 +61,7 @@ export const MultipleOptionInput = ({
           readOnly={readOnly}
           {...(register
             ? register(name, { ...validation, onChange })
-            : { value: value || "" })}
+            : { value: value })}
         >
           {renderObjectElements(valueObject)}
         </SMultipleOptionDiv>
