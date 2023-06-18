@@ -7,6 +7,7 @@ import {
 import {
   SMultipleDropdownList,
   SMultipleDropdownItem,
+  SCheckbox
 } from "./MultipleOptionDropdown.styled";
 import { DropArrow } from "../../DropArrow";
 import { dropdownVariants } from "../Dropdown/Dropdown.variants";
@@ -82,10 +83,10 @@ export const MultipleOptionDropdown = (props) => {
                 const checked = value?.hasOwnProperty(id);
                 return (
                   <SMultipleDropdownItem key={id}>
-                    <input
+                    <SCheckbox
                       type="checkbox"
                       onChange={() => handleSelect(id)}
-                      checked={checked}
+                      filled={checked}
                     />
                     <SDropdownButton
                       type="button"
