@@ -6,7 +6,6 @@ export const SMultipleDropdownList = styled(SDropdownList)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 30%;
 `
 
 export const SMultipleDropdownItem = styled(SDropdownItem)`

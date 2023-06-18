@@ -9,6 +9,7 @@ export const SDropdownWrapper = styled.div`
 
 export const SDropdownList = styled(motion.ul)`
   position: absolute;
+  display: flex;
   top: 100%;
   right: 0;
   display: flex;
