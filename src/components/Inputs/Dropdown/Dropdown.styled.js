@@ -8,9 +8,10 @@ export const SDropdownWrapper = styled.div`
 `;
 
 export const SDropdownList = styled(motion.ul)`
-  display: flex;
-  margin-left: 45%;
+  position: absolute;
+  top: 100%;
   right: 0;
+  display: flex;
   max-height: 11rem;
   max-width: 100%;
   flex-direction: column;
