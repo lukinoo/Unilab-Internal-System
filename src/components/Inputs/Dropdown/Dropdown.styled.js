@@ -8,9 +8,8 @@ export const SDropdownWrapper = styled.div`
 `;
 
 export const SDropdownList = styled(motion.ul)`
-  position: absolute;
   display: flex;
-  top: 100%;
+  margin-left: 45%;
   right: 0;
   max-height: 11rem;
   max-width: 100%;
@@ -42,6 +41,7 @@ export const SDropdownButton = styled(motion.button)`
   all: unset;
   cursor: pointer;
   padding: 0 1.375rem;
+  font-size: .75rem;
 
   &:hover {
     font-weight: 700;
