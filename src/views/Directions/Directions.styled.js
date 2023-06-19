@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const SDirectionsMainDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const SDirectionsWrapper = styled.div`
   max-width: 41.625rem;
   margin: 0 auto;
@@ -27,7 +32,7 @@ export const SInputForm = styled.form`
 `;
 
 export const SButtons = styled.div`
-  margin-top: 6.625rem;
+  margin-top: 12.125rem;
   margin-bottom: 29rem;
   display: flex;
   align-items: center;
