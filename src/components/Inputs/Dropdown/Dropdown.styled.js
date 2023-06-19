@@ -5,6 +5,7 @@ export const SDropdownWrapper = styled.div`
   position: relative;
   width: fit-content;
   grid-area: ${({ gridArea }) => (gridArea ? gridArea : null)};
+  height: fit-content;
 `;
 
 export const SDropdownList = styled(motion.ul)`
