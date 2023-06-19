@@ -1,5 +1,5 @@
 import React from "react";
-import { SButton, SContentWrapper, SText } from "./Button.styled";
+import { SButton, SContentWrapper } from "./Button.styled";
 
 export const Button = ({
   type,
@@ -27,7 +27,7 @@ export const Button = ({
     >
       <SContentWrapper>
         {LeftComponent}
-        <SText>{children}</SText>
+        {children}
         {RightComponent}
       </SContentWrapper>
     </SButton>

@@ -13,7 +13,7 @@ import { Dropdown } from "../../components/Inputs/Dropdown";
 import { Button } from "../../components/Button";
 import { useForm } from "react-hook-form";
 export const EditCourse = () => {
-  const { register, control } = useForm();
+  const { register } = useForm();
 
   return (
     <SEditCourseMainDiv>
