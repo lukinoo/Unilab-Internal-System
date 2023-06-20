@@ -52,7 +52,6 @@ export const MultipleOptionInput = ({
       <SInputWrapper>
         {LeftComponent}
         <SMultipleOptionDiv
-          itemCount={Object.entries(valueObject).length}
           id={name}
           type={type}
           placeholder={placeholder}
