@@ -61,7 +61,16 @@ export const EditCourse = () => {
             label="ლექტორი"
             width="18.75rem"
             placeholder="ლექტორის სახელი და გვარი"
-            items={{ 1: "გიორგი", 2: "გიო", 3: "ბექა" }}
+            items={{
+              1: "გიორგი",
+              2: "გიო",
+              3: "ბექა",
+              4: "სახელი გვარი",
+              5: "სახელი გვარი",
+              6: "სახელი გვარი",
+              7: "სახელი გვარი",
+              8: "სახელი გვარი",
+            }}
             control={control}
           ></MultipleOptionDropdown>
           <Dropdown
@@ -88,7 +97,6 @@ export const EditCourse = () => {
                 width="18.75rem"
                 onSubmit={() => {}}
               ></DateInput>
-              {/* add button to add textarea */}
               <SAddDescButton
                 width="18.75rem"
                 name="add_description"
