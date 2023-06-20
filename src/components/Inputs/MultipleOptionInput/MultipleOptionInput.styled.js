@@ -6,10 +6,7 @@ export const SMultipleOptionDiv = styled.div`
   padding: .5625rem 1.1rem .5rem .5625rem;
   width: ${({width})=>width};
   min-height: 2.55rem;
- 
-  &>span{
-    margin: ${({itemCount})=>itemCount === 1 ? '' : '0 .5rem .2rem 0'};
-  }
+  gap: .3125rem;
 `
 export const SNameSpan = styled.span`
   background-color: #EFEFEF;
@@ -21,6 +18,7 @@ export const SNameSpan = styled.span`
   outline: .0625rem solid #D1D1D1;
   border-radius: .25rem;
   font-size: .75rem;
+  max-height: 1.5rem;
 
   &>img{
     margin-left: .5625rem;
