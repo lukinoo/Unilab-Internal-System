@@ -19,8 +19,7 @@ export const SButton = styled.button`
 
 export const SContentWrapper = styled.div`
   display: flex;
-`;
-
-export const SText = styled.span`
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 1.741rem;
 `;

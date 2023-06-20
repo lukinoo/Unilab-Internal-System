@@ -12,6 +12,7 @@ export const SSideButton = styled(Link)`
   font-weight: ${({ fontWeight }) => (fontWeight ? fontWeight : "400")};
   background-color: ${({ secondary }) => (secondary ? "#ffffff" : "#1A1B1C")};
   color: ${({ secondary }) => (secondary ? "#000000" : "#ffffff")};
+  white-space: nowrap;
   cursor: pointer;
   &:hover {
     color: ${({ hover }) => (hover ? hover : "#4980C0")};

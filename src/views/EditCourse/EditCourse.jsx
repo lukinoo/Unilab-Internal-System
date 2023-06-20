@@ -26,9 +26,6 @@ export const EditCourse = () => {
   const allValues = watch();
 
   useEffect(() => {
-    console.log("Checking...");
-    console.log(allValues);
-
     // Check if first three input values are present and change boolean state
     if (allValues.course && allValues.lecturer && allValues.teaching_type) {
       setDisplayInputs(true);

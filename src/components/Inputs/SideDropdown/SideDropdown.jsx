@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { SideButton } from "../../Buttons/SideButton";
 import {
   SSideDropdownWrapper,
   SSideInputSpan,
@@ -21,7 +22,6 @@ export const SideDropdown = ({
   showSideBar,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <SSideDropdownWrapper>
       <SSideMainDiv isOpen={isOpen}>
@@ -49,7 +49,9 @@ export const SideDropdown = ({
           >
             {items &&
               items.map((item) => (
-                <SSideInputItems key={item}>{item}</SSideInputItems>
+                <SideButton key={item.name} to={item.to}>
+                  {item.name}
+                </SideButton>
               ))}
           </SSideInputItemWrapper>
         </>
