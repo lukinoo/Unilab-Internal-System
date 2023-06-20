@@ -20,7 +20,7 @@ export const SNameSpan = styled.span`
   padding: .3125rem .6875rem .375rem .5rem;
   outline: .0625rem solid #D1D1D1;
   border-radius: .25rem;
-  font-size: .625rem;
+  font-size: .75rem;
 
   &>img{
     margin-left: .5625rem;
