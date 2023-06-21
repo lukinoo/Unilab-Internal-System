@@ -56,7 +56,7 @@ export const Uploader = ({ title }) => {
             <SDownloadICon>
               <DownloadSvg />
             </SDownloadICon>
-            <SDeleteIcon>
+            <SDeleteIcon onClick={() => setData({})}>
               <DeleteSvg />
             </SDeleteIcon>
           </SOverlay>

@@ -5,6 +5,7 @@ export const SAnotherDirWrapper = styled.div`
   margin: 7.062rem auto;
   max-width: 72.062rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8.375rem;
 `;
@@ -30,6 +31,13 @@ export const SOverlay = styled.div`
   justify-content: center;
   gap: 1.187rem;
   visibility: hidden;
+
+  ${({ active }) =>
+    active &&
+    `
+      background: rgba(255, 255, 255, 0.7);
+      visibility: visible;
+    `}
 `;
 
 export const SAnotherDirection = styled.div`
@@ -42,27 +50,21 @@ export const SAnotherDirection = styled.div`
   padding: 0 1rem;
   border: 2px solid #2984ce;
   border-radius: 0.6rem;
-  cursor: pointer;
+  overflow: hidden;
 
   &:hover {
-    ${SOverlay} {
-      visibility: visible;
-      cursor: default;
-    }
-
     ${SEditIcon},${SDeleteIcon} {
       cursor: pointer;
     }
   }
 
-  span {
-    text-align: center;
-  }
-
   a {
-    display: flex;
-    align-items: center;
+    text-align: center;
     color: white;
     text-decoration: none;
   }
+`;
+
+export const SIcon = styled.div`
+  cursor: pointer;
 `;

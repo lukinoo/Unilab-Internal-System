@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
+
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { authenticationSchema } from "../../schemas/authentication";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { SideBar } from "../../components/SideBar";
 import { Input } from "../../components/Inputs/Input";
+
 import {
   SDirectionsMainDiv,
   SDirectionsWrapper,
@@ -22,8 +25,6 @@ import { SAdditionalResources } from "../../components/Buttons/AdditionalResourc
 import { AdditionalResources } from "../../components/Buttons/AdditionalResources";
 import { AnotherDirection } from "../../components/Buttons/AnotherDirection";
 import { Footer } from "../../components/Footer";
-import { EditSvg } from "../../components/Buttons/AnotherDirection/IconSvg/EditSvg";
-import { PlusSvg } from "../../components/Buttons/AdditionalResources/IconSvg/PlusSvg";
 import { LeftArrowSvg } from "../../components/Buttons/AdditionalResources/IconSvg/LeftArrowSvg";
 
 export const Directions = () => {
@@ -82,28 +83,19 @@ export const Directions = () => {
 
       <AnotherDirection />
 
-      <Button
-        type="submit"
-        width="14.875rem"
-        height="2.875rem"
-        fontSize="1rem"
-        margin="0 auto"
-        LeftComponent={<PlusSvg />}
-      >
-        დამატება
-      </Button>
-
       <SButtons>
-        <Button
-          type="submit"
-          width="14.875rem"
-          height="2.875rem"
-          fontSize="1rem"
-          secondary={true}
-          LeftComponent={<LeftArrowSvg />}
-        >
-          დაბრუნება
-        </Button>
+        <Link to="/">
+          <Button
+            type="submit"
+            width="14.875rem"
+            height="2.875rem"
+            fontSize="1rem"
+            secondary={true}
+            LeftComponent={<LeftArrowSvg />}
+          >
+            დაბრუნება
+          </Button>
+        </Link>
         <Button
           type="submit"
           width="14.875rem"

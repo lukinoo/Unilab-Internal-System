@@ -9,19 +9,4 @@ export const SAdditionalResources = styled.div`
   cursor: pointer;
 `;
 
-export const SIcon = styled.div`
-  animation-name: up-and-down;
-  animation-duration: 0.5s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate-reverse;
-
-  @keyframes up-and-down {
-    0% {
-      transform: translateY(15px);
-    }
-
-    100% {
-      transform: translateY(0);
-    }
-  }
-`;
+export const SIcon = styled.div``;

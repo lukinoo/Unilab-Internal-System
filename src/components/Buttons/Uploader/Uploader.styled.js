@@ -27,6 +27,7 @@ export const SOverlay = styled.div`
   justify-content: center;
   gap: 1.187rem;
   visibility: hidden;
+  cursor: default;
 `;
 
 export const SDeleteIcon = styled.div`
@@ -37,6 +38,7 @@ export const SDeleteIcon = styled.div`
   justify-content: center;
   background-color: #ffffff;
   border-radius: 0.375rem;
+  cursor: pointer;
 
   &:hover {
     background-color: red;
@@ -57,6 +59,7 @@ export const SDownloadICon = styled.div`
   justify-content: center;
   background-color: #ffffff;
   border-radius: 0.375rem;
+  cursor: pointer;
 `;
 
 export const SUploader = styled.form`
@@ -74,12 +77,15 @@ export const SUploader = styled.form`
 
   ${({ active }) =>
     active &&
-    `&:hover {
+    `
+    border:2px solid #2984CE;
+    &:hover {
       ${SOverlay} {
         background: rgba(255, 255, 255, 0.7);
         visibility: visible;
       }
-    }`}
+    }
+    `}
 `;
 
 export const STitle = styled.p`
@@ -88,6 +94,7 @@ export const STitle = styled.p`
 
 export const SDesk = styled.span`
   font-size: 0.75rem;
+  font-style: italic;
   display: block;
 `;
 
