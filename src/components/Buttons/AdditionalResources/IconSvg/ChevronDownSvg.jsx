@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export const ChevronDownSvg = () => {
   return (
@@ -19,7 +20,14 @@ export const ChevronDownSvg = () => {
         stroke="url(#paint0_linear_1466_10)"
         strokeWidth="2"
       />
-      <path
+
+      <motion.path
+        animate={{ y: 10 }}
+        transition={{
+          repeat: Infinity,
+          repeatType: "reverse",
+          duration: 0.7,
+        }}
         d="M14 47L20 53L26 47"
         stroke="#3641A2"
         strokeWidth="2"
