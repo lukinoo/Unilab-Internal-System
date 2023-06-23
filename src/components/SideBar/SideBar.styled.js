@@ -9,6 +9,7 @@ export const SSideBarContainer = styled(motion.nav)`
   border-radius: 0px 0px 6px 0px;
   top: 6.4rem;
   left: 0;
+  z-index: 1;
 `;
 
 export const SSideBarDiv = styled.div`
@@ -34,6 +35,7 @@ export const SSideBarButton = styled.div`
   align-items: center;
   cursor: pointer;
 `;
+
 export const SSideBarArrowButton = styled.button`
   all: unset;
   display: flex;

@@ -32,6 +32,45 @@ export const ProjectData = [
   },
 ];
 
+export const ContributorsData = [
+  {
+    id: 1,
+    fullname: "სალომე ყველიაშვილი",
+    position: "დიზაინერი",
+    src: "assets/images/testContributorImg.png",
+  },
+  {
+    id: 2,
+    fullname: "სალომე ყველიაშვილი",
+    position: "დიზაინერი",
+    src: "assets/images/testContributorImg.png",
+  },
+  {
+    id: 3,
+    fullname: "სალომე ყველიაშვილი",
+    position: "დიზაინერი",
+    src: "assets/images/testContributorImg.png",
+  },
+  {
+    id: 4,
+    fullname: "სალომე ყველიაშვილი",
+    position: "დიზაინერი",
+    src: "assets/images/testContributorImg.png",
+  },
+  {
+    id: 5,
+    fullname: "სალომე ყველიაშვილი",
+    position: "დიზაინერი",
+    src: "assets/images/testContributorImg.png",
+  },
+  {
+    id: 6,
+    fullname: "სალომე ყველიაშვილი",
+    position: "დიზაინერი",
+    src: "assets/images/testContributorImg.png",
+  },
+]
+
 export const studentData = [
   {
     id: "ce8410ce-a5f7-42fa-83b4-08d2bb3eb4a1",
