@@ -9,6 +9,7 @@ import { StudentListPage } from "./views/StudentListPage";
 import { EditCourse } from "./views/EditCourse";
 import { AboutProject } from "./views/AboutProject";
 import { Directions } from "./views/Directions";
+import { AddQuestions } from "./views/AddQuestions";
 import dayjs from "dayjs";
 import "dayjs/locale/ka";
 
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/edit-course" element={<EditCourse />} />
         <Route path="/about-project" element={<AboutProject />}/>
         <Route path="/directions" element={<Directions />} />
+        <Route path="/add-questions" element={<AddQuestions />} />
       </Routes>
     </div>
   );
