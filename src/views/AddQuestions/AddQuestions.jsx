@@ -1,17 +1,8 @@
 import { useState } from "react";
 import { QuestionTypeDropdown } from "../../components/Inputs/QuestionTypeDropdown";
 
-const questionTypes = {
-  1: 'Checkbox',
-  2: 'Multiple Choice',
-  3: 'Textbox',
-  4: 'Rating Scale'
-}
-
 export const AddQuestions = () =>{
-
   const [questionTypeId, setQuestionTypeId] = useState(1);
-
 
   return (
     <>
@@ -19,7 +10,14 @@ export const AddQuestions = () =>{
       <QuestionTypeDropdown 
         setQuestionTypeId={setQuestionTypeId}
         value={questionTypeId}
-        items={questionTypes}
+        items={
+          {
+            1: 'Checkbox',
+            2: 'Multiple Choice',
+            3: 'Textbox',
+            4: 'Rating Scale'
+          }
+        }
       />
     </>
   );
