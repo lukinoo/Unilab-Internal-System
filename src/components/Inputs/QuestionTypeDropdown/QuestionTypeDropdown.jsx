@@ -33,7 +33,7 @@ export const QuestionTypeDropdown = (props) => {
   console.log("value: ", value);
 
   const dropdownRef = useRef(null);
-  const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false, () => {}); // empty function in the place of onClose
+  const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false);
 
   const longestItem = items && getLongestString(Object.values(items));
 
