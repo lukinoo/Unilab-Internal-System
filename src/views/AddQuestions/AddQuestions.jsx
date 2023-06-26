@@ -1,3 +1,4 @@
+import { QuestionInput } from "../../components/Inputs/QuestionInput";
 import { useState } from "react";
 import { QuestionTypeDropdown } from "../../components/Inputs/QuestionTypeDropdown";
 
@@ -7,6 +8,7 @@ export const AddQuestions = () =>{
   return (
     <>
       <h1>Add Questions Page</h1>
+      <QuestionInput />
       <QuestionTypeDropdown 
         setQuestionTypeId={setQuestionTypeId}
         value={questionTypeId}
