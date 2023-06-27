@@ -17,7 +17,7 @@ import { DeleteSvg } from "./UploadSvg/DeleteSvg";
 import { UploadedDoneSvg } from "./UploadSvg/UploadedDoneSvg";
 import { DownloadSvg } from "./UploadSvg/DownloadSvg";
 
-export const Uploader = ({ title }) => {
+export const Uploader = ({ title, name }) => {
   const [data, setData] = useState({});
 
   const fileInputRef = useRef(null);
@@ -51,7 +51,7 @@ export const Uploader = ({ title }) => {
               {data?.name ? <UploadedDoneSvg /> : <UploadCloudSvg />}
             </SCloudUpload>
           </SFileUpload>
-          <SDesk>ატვირთე სილაბუსი</SDesk>
+          <SDesk>{name}</SDesk>
           <SOverlay>
             <SDownloadICon>
               <DownloadSvg />

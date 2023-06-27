@@ -21,7 +21,7 @@ export const EditCourse = () => {
   const { register, control, watch } = useForm();
   const [displayInputs, setDisplayInputs] = useState(false); // state to display additional inputs
   const [displayTextArea, setDisplayTextArea] = useState(false);
-  
+
   // watch all input values
   const allValues = watch();
 
