@@ -11,7 +11,7 @@ import {
   SSideBarArrowButton,
 } from "./SideBar.styled";
 
-export const SideBar = ({ items }) => {
+export const SideBar = ({ items = [] }) => {
   const dropdownRef = useRef(null);
   const [showSideBar, setShowSideBar] = useAutoClose(dropdownRef, false);
 
