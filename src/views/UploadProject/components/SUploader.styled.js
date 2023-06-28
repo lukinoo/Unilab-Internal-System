@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 export const SFlexColumnDiv = styled.div`
-  grid-column: ${({ topRight }) => (topRight ? " 4/5" : "")};
-  grid-row: ${({ topRight }) => (topRight ? " 1/2" : "")};
+  grid-column: ${({ topLeft }) => (topLeft ? " 1/2" : "")};
+  grid-row: ${({ topLeft }) => (topLeft ? " 1/2" : "")};
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  padding: 1rem 0 1rem 1.375rem;
+  padding: 1rem 1.375rem 1rem 0;
   font-size: 1rem;
   cursor: pointer;
-  border-left: ${({ topRight }) => (topRight ? " 1px solid #737373" : "none")};
+  border-right: ${({ topLeft }) => (topLeft ? " 1px solid #737373" : "none")}; ;
 `;
 
 export const SUploadedFile = styled.div`
