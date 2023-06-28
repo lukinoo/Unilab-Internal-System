@@ -24,3 +24,9 @@ export const SCheckbox = styled.input`
     background-repeat: no-repeat;
   }
 `
+
+export const SCross = styled.img`
+  cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
+`
