@@ -59,7 +59,7 @@ export const Uploader = () => {
         );
       })}
       <SFlexColumnDiv
-        topRight={data.length}
+        topLeft={data.length}
         active={!!data.name}
         onClick={() => !data.name && handleClick()}
       >
