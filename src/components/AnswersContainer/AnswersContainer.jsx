@@ -32,6 +32,10 @@ export const AnswersContainer = () => {
     setAnswers(updatedAnswers);
   };
   
+  const deleteAnswer = (id) =>{
+    const newAnswers = [...answers].filter(answer => answer.id !== id);
+    setAnswers(newAnswers);
+  }
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
@@ -58,7 +62,7 @@ export const AnswersContainer = () => {
                           <img src={dragIconSvg} alt=""/>
                         } // test
                         OptionSelector={<SCheckbox type="checkbox"/>} // test
-                        RightComponent={<SCross src={XSvg} alt="" />} //test
+                        RightComponent={<SCross src={XSvg} alt="" onClick={()=>deleteAnswer(item.id)}/>} //test
                         onChange={(e)=>handleInputChange(e, item.id)}
                       />
                     </SAnswerDiv>
