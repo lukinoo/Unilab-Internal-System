@@ -3,7 +3,6 @@ import { SAnswerInputWrapper, SAnswerInput, SAnswerContainer } from "./AnswerInp
 export const AnswerInput = ({
   type,
   name,
-  placeholder,  // test code
   value,
   width,
   fontSize,
@@ -23,7 +22,6 @@ export const AnswerInput = ({
       <SAnswerInputWrapper>
         <SAnswerInput
           type={type}
-          placeholder={placeholder} // test code
           name={name}
           width={width}
           fontSize={fontSize}
