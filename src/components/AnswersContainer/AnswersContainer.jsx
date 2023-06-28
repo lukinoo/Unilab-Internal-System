@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
-import { SAnswersContainer } from "./AnswersContainer.styled";
+import { SAnswersContainer, SAnswerDiv } from "./AnswersContainer.styled";
 import { AnswerInput } from "../Inputs/AnswerInput/AnswerInput";
+import dragIconSvg from "/assets/svg/dragIcon.svg";
+import XSvg from "/assets/svg/whiteX.svg";
 
 export const AnswersContainer = () => {
   const [answers, setAnswers] = useState([
-    { id: "a1", content: "Answer 1" },
-    { id: "a2", content: "Answer 2" },
-    { id: "a3", content: "Answer 3" },
+    { id: "1", content: "Answer 1"},
+    { id: "2", content: "Answer 2" },
+    { id: "3", content: "Answer 3" },
   ]);
 
   const handleDragEnd = (result) => {
@@ -35,23 +37,22 @@ export const AnswersContainer = () => {
                   index={index}
                 >
                   {(provided) => (
-                    <div
+                    <SAnswerDiv
                       ref={provided.innerRef}
                       {...provided.dragHandleProps}
                       {...provided.draggableProps}
                     >
                       <AnswerInput
+                        type="text"
                         placeholder={item.content}
                         width={"47rem"}
                         LeftComponent={
-                          <div>
-                            DRAG ICN
-                          </div>
+                          <img src={dragIconSvg} alt=""/>
                         } // test
                         OptionSelector={<input type="checkbox" />} // test
-                        RightComponent={<>X</>} //test
+                        RightComponent={<img src={XSvg} alt="" />} //test
                       />
-                    </div>
+                    </SAnswerDiv>
                   )}
                 </Draggable>
               ))}
