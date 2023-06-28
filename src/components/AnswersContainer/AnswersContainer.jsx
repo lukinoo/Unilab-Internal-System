@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
-import { SAnswersContainer, SAnswerDiv, SCheckbox, SCross} from "./AnswersContainer.styled";
+import {
+  SAnswersContainer,
+  SAnswerDiv,
+  SCheckbox,
+  SCross,
+} from "./AnswersContainer.styled";
 import { AnswerInput } from "../Inputs/AnswerInput/AnswerInput";
 import dragIconSvg from "/assets/svg/dragIcon.svg";
 import XSvg from "/assets/svg/whiteX.svg";
 
 export const AnswersContainer = () => {
   const [answers, setAnswers] = useState([
-    { id: "1", content: ""},
+    { id: "1", content: "" },
     { id: "2", content: "" },
     { id: "3", content: "" },
   ]);
@@ -26,16 +31,16 @@ export const AnswersContainer = () => {
 
   const handleInputChange = (e, id) => {
     const value = e.target.value;
-    const index = answers.findIndex(answer => answer.id === id);
+    const index = answers.findIndex((answer) => answer.id === id);
     const updatedAnswers = [...answers];
     updatedAnswers[index] = { id, content: value };
     setAnswers(updatedAnswers);
   };
-  
-  const deleteAnswer = (id) =>{
-    const newAnswers = [...answers].filter(answer => answer.id !== id);
+
+  const deleteAnswer = (id) => {
+    const newAnswers = [...answers].filter((answer) => answer.id !== id);
     setAnswers(newAnswers);
-  }
+  };
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
@@ -44,11 +49,7 @@ export const AnswersContainer = () => {
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
               {answers.map((item, index) => (
-                <Draggable
-                  key={item.id}
-                  draggableId={item.id}
-                  index={index}
-                >
+                <Draggable key={item.id} draggableId={item.id} index={index}>
                   {(provided) => (
                     <SAnswerDiv
                       ref={provided.innerRef}
@@ -58,12 +59,16 @@ export const AnswersContainer = () => {
                       <AnswerInput
                         type="text"
                         width={"47rem"}
-                        LeftComponent={
-                          <img src={dragIconSvg} alt=""/>
-                        } // test
-                        OptionSelector={<SCheckbox type="checkbox"/>} // test
-                        RightComponent={<SCross src={XSvg} alt="" onClick={()=>deleteAnswer(item.id)}/>} //test
-                        onChange={(e)=>handleInputChange(e, item.id)}
+                        LeftComponent={<img src={dragIconSvg} alt="" />} // test
+                        OptionSelector={<SCheckbox type="checkbox" />} // test
+                        RightComponent={
+                          <SCross
+                            src={XSvg}
+                            alt=""
+                            onClick={() => deleteAnswer(item.id)}
+                          />
+                        } //test
+                        onChange={(e) => handleInputChange(e, item.id)}
                       />
                     </SAnswerDiv>
                   )}
