@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import { SAnswersContainer } from "./AnswersContainer.styled";
-
+import { AnswerInput } from "../Inputs/AnswerInput/AnswerInput";
 
 export const AnswersContainer = () => {
   const [answers, setAnswers] = useState([
@@ -29,14 +29,28 @@ export const AnswersContainer = () => {
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
               {answers.map((item, index) => (
-                <Draggable key={item.id} draggableId={item.id} index={index}>
+                <Draggable
+                  key={item.id}
+                  draggableId={item.id}
+                  index={index}
+                >
                   {(provided) => (
                     <div
                       ref={provided.innerRef}
                       {...provided.dragHandleProps}
                       {...provided.draggableProps}
                     >
-                      {item.content}
+                      <AnswerInput
+                        placeholder={item.content}
+                        width={"47rem"}
+                        LeftComponent={
+                          <div>
+                            DRAG ICN
+                          </div>
+                        } // test
+                        OptionSelector={<input type="checkbox" />} // test
+                        RightComponent={<>X</>} //test
+                      />
                     </div>
                   )}
                 </Draggable>
