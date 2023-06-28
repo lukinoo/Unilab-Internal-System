@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
-import { SAnswersContainer, SAnswerDiv } from "./AnswersContainer.styled";
+import { SAnswersContainer, SAnswerDiv, SCheckbox, SCross} from "./AnswersContainer.styled";
 import { AnswerInput } from "../Inputs/AnswerInput/AnswerInput";
 import dragIconSvg from "/assets/svg/dragIcon.svg";
 import XSvg from "/assets/svg/whiteX.svg";
@@ -53,13 +53,12 @@ export const AnswersContainer = () => {
                     >
                       <AnswerInput
                         type="text"
-                        placeholder={item.content}
                         width={"47rem"}
                         LeftComponent={
                           <img src={dragIconSvg} alt=""/>
                         } // test
-                        OptionSelector={<input type="checkbox" />} // test
-                        RightComponent={<img src={XSvg} alt="" />} //test
+                        OptionSelector={<SCheckbox type="checkbox"/>} // test
+                        RightComponent={<SCross src={XSvg} alt="" />} //test
                         onChange={(e)=>handleInputChange(e, item.id)}
                       />
                     </SAnswerDiv>
