@@ -1,18 +1,20 @@
 import { SAnswerInputWrapper, SAnswerInput, SAnswerContainer } from "./AnswerInput.styled"
 
 export const AnswerInput = ({
-  width,
-  onClick,
-  onChange,
-  value, 
+  type,
   name,
+  placeholder,  // test code
+  value,
+  width,
   fontSize,
   fontWeight,
+  onClick,
   register,
+  validation,
+  onChange,
   LeftComponent,
   RightComponent,
   OptionSelector,
-  placeholder,  // test code
 }) => {
   return (
     <SAnswerContainer onClick={onClick}>
@@ -20,6 +22,7 @@ export const AnswerInput = ({
       {OptionSelector}
       <SAnswerInputWrapper>
         <SAnswerInput
+          type={type}
           placeholder={placeholder} // test code
           name={name}
           width={width}
