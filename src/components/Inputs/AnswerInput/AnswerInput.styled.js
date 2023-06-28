@@ -3,10 +3,13 @@ import { SContainer, SInput, SInputWrapper } from "../Input/Input.styled";
 
 export const SAnswerInputWrapper = styled(SInputWrapper)`
   border: .0625rem solid #ffffff;
-  background-color: transparent;
+  background-color: transparent;  
+  border: none;
+  outline: .0625rem solid #ffffff;
   &:focus-within {
     background-color:transparent;
-    box-shadow: inset 0 0 0 2px #2984ce;
+    box-shadow: none;
+    outline: .0625rem solid #2984ce;
   }
 `
 export const SAnswerInput = styled(SInput)`
