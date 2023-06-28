@@ -7,9 +7,9 @@ import XSvg from "/assets/svg/whiteX.svg";
 
 export const AnswersContainer = () => {
   const [answers, setAnswers] = useState([
-    { id: "1", content: "Answer 1"},
-    { id: "2", content: "Answer 2" },
-    { id: "3", content: "Answer 3" },
+    { id: "1", content: ""},
+    { id: "2", content: "" },
+    { id: "3", content: "" },
   ]);
 
   const handleDragEnd = (result) => {
@@ -23,6 +23,15 @@ export const AnswersContainer = () => {
 
     setAnswers(newAnswers);
   };
+
+  const handleInputChange = (e, id) => {
+    const value = e.target.value;
+    const index = answers.findIndex(answer => answer.id === id);
+    const updatedAnswers = [...answers];
+    updatedAnswers[index] = { id, content: value };
+    setAnswers(updatedAnswers);
+  };
+  
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
@@ -51,6 +60,7 @@ export const AnswersContainer = () => {
                         } // test
                         OptionSelector={<input type="checkbox" />} // test
                         RightComponent={<img src={XSvg} alt="" />} //test
+                        onChange={(e)=>handleInputChange(e, item.id)}
                       />
                     </SAnswerDiv>
                   )}
