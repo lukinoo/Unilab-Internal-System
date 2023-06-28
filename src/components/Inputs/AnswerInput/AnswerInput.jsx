@@ -11,14 +11,16 @@ export const AnswerInput = ({
   register,
   LeftComponent,
   RightComponent,
-  SelectOption,
+  OptionSelector,
+  placeholder,  // test code
 }) => {
   return (
     <SAnswerContainer onClick={onClick}>
       {LeftComponent}
-      {SelectOption}
+      {OptionSelector}
       <SAnswerInputWrapper>
         <SAnswerInput
+          placeholder={placeholder} // test code
           name={name}
           width={width}
           fontSize={fontSize}
@@ -28,6 +30,5 @@ export const AnswerInput = ({
       </SAnswerInputWrapper>
       {RightComponent}
     </SAnswerContainer>
-
   )
 }
