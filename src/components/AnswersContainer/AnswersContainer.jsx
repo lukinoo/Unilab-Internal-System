@@ -11,12 +11,17 @@ import { AnswerInput } from "../Inputs/AnswerInput/AnswerInput";
 import dragIconSvg from "/assets/svg/dragIcon.svg";
 import XSvg from "/assets/svg/whiteX.svg";
 
-export const AnswersContainer = () => {
-  const [answers, setAnswers] = useState([
-    { id: "1", content: "" },
-    { id: "2", content: "" },
-    { id: "3", content: "" },
-  ]);
+export const AnswersContainer = ({
+  answers, 
+  setAnswers,
+  type,
+}) => {
+  let optionSelector; // define a variable to display option selector;
+  if (type.toLowerCase() === 'checkbox') {
+    optionSelector = <SCheckbox type="checkbox" name="answer" />;
+  } else if (type.toLowerCase() === 'multiple choice') {
+    optionSelector = <SRadioButton type="radio" name="answer" />;
+  }
 
   const handleDragEnd = (result) => {
     if (!result.destination) {
@@ -61,7 +66,7 @@ export const AnswersContainer = () => {
                         type="text"
                         width={"47rem"}
                         LeftComponent={<img src={dragIconSvg} alt="" />}
-                        OptionSelector={<SRadioButton type="radio" name="answer"/>}
+                        OptionSelector={optionSelector}
                         RightComponent={
                           <SCross
                             src={XSvg}
