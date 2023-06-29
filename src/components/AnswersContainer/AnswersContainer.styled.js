@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import checkmark from "/assets/svg/greenCheckmark.svg";
+import circle from "/assets/svg/whiteCircle.svg";
 
 export const SAnswersContainer = styled.div`
   height: fit-content;
@@ -30,3 +31,20 @@ export const SCross = styled.img`
   width: 1.5rem;
   height: 1.5rem;
 `
+
+export const SRadioButton = styled.input`
+  all: unset;
+  position: relative;
+  width: 1.75rem;
+  height: 1.75rem;
+  aspect-ratio: 1;
+  background-color: transparent;
+  outline: .1125rem solid #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  &:checked{
+    background-image: url(${circle});
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+` 
