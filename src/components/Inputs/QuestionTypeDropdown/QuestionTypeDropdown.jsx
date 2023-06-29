@@ -29,8 +29,6 @@ const IMAGES = {
 
 export const QuestionTypeDropdown = (props) => {
   const { setQuestionTypeId, items, value } = props;
-  console.log(items[value]);
-  console.log("value: ", value);
 
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false);
