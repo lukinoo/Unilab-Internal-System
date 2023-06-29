@@ -5,6 +5,7 @@ import {
   SAnswerDiv,
   SCheckbox,
   SCross,
+  SRadioButton,
 } from "./AnswersContainer.styled";
 import { AnswerInput } from "../Inputs/AnswerInput/AnswerInput";
 import dragIconSvg from "/assets/svg/dragIcon.svg";
@@ -59,15 +60,15 @@ export const AnswersContainer = () => {
                       <AnswerInput
                         type="text"
                         width={"47rem"}
-                        LeftComponent={<img src={dragIconSvg} alt="" />} // test
-                        OptionSelector={<SCheckbox type="checkbox" />} // test
+                        LeftComponent={<img src={dragIconSvg} alt="" />}
+                        OptionSelector={<SRadioButton type="radio" name="answer"/>}
                         RightComponent={
                           <SCross
                             src={XSvg}
                             alt=""
                             onClick={() => deleteAnswer(item.id)}
                           />
-                        } //test
+                        }
                         onChange={(e) => handleInputChange(e, item.id)}
                       />
                     </SAnswerDiv>
