@@ -1,6 +1,7 @@
 import { QuestionInput } from "../../components/Inputs/QuestionInput";
 import { useState } from "react";
 import { QuestionTypeDropdown } from "../../components/Inputs/QuestionTypeDropdown";
+import { QuestionDescription } from "../../components/Inputs/QuestionDescription";
 
 export const AddQuestions = () =>{
   const [questionTypeId, setQuestionTypeId] = useState(1);
@@ -21,6 +22,7 @@ export const AddQuestions = () =>{
           }
         }
       />
+      <QuestionDescription />
     </>
   );
 }
