@@ -21,10 +21,11 @@ export const AddQuestions = () =>{
     { id: "2", content: "" },
     { id: "3", content: "" },
   ]);
-  
+
   const addAnswer = () => {
-    const lastId = parseInt(answers[answers.length-1].id); // get last id
-    setAnswers((prevAnswers) => [...prevAnswers, { id: `${lastId+1}`, content: "" }]);
+    const ids = answers.map(obj=>obj.id);
+    const largestId = Math.max(...ids) | 0;
+    setAnswers((prevAnswers) => [...prevAnswers, { id: `${largestId+1}`, content: "" }]);
   };
 
   return (
