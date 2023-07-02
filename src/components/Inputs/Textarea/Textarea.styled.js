@@ -7,6 +7,8 @@ export const STextarea = styled.textarea`
   border-radius: .625rem;
   padding: 1.0625rem 1.25rem;
   margin-top: 3.5rem;
+  background-color: ${({bgColor})=> bgColor ? bgColor : '#ffffff'};
+  color: ${({color})=>color};
   &:focus{
     outline: none;
   }
