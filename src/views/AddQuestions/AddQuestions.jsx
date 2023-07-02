@@ -27,6 +27,11 @@ export const AddQuestions = () =>{
     const largestId = Math.max(...ids) | 0;
     setAnswers((prevAnswers) => [...prevAnswers, { id: `${largestId+1}`, content: "" }]);
   };
+  
+  const deleteAnswer = (id) => {
+    const newAnswers = [...answers].filter((answer) => answer.id !== id);
+    setAnswers(newAnswers);
+  };
 
   return (
     <>
@@ -41,6 +46,7 @@ export const AddQuestions = () =>{
         answers={answers}
         setAnswers={setAnswers}
         type={items[questionTypeId]}
+        deleteAnswer={deleteAnswer}
       />
       <Button
         width="13.5rem"

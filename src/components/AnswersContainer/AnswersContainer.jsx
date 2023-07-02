@@ -14,6 +14,7 @@ import XSvg from "/assets/svg/whiteX.svg";
 export const AnswersContainer = ({
   answers, 
   setAnswers,
+  deleteAnswer,
   type,
 }) => {
   let optionSelector; // define a variable to display option selector;
@@ -41,11 +42,6 @@ export const AnswersContainer = ({
     const updatedAnswers = [...answers];
     updatedAnswers[index] = { id, content: value };
     setAnswers(updatedAnswers);
-  };
-
-  const deleteAnswer = (id) => {
-    const newAnswers = [...answers].filter((answer) => answer.id !== id);
-    setAnswers(newAnswers);
   };
 
   return (
