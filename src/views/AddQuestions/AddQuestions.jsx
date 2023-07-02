@@ -5,6 +5,8 @@ import { DraggableAnswersContainer } from "../../components/DraggableAnswersCont
 import { Button } from "../../components/Button/Button";
 import { SPlusIcon } from "./AddQuestions.styled";
 import plusSvg from "/assets/svg/plus.svg";
+import { TextareaAnswer } from "../../components/TextareaAnswer";
+import { useForm } from "react-hook-form";
 
 const items = {
   1: "Checkbox",
@@ -22,6 +24,8 @@ export const AddQuestions = () =>{
     { id: "3", content: "" },
   ]);
 
+  const { control, } = useForm(); // just a test code for textarea
+
   const addAnswer = () => {
     const ids = answers.map(obj=>obj.id);
     const largestId = Math.max(...ids) | 0;
@@ -37,7 +41,7 @@ export const AddQuestions = () =>{
     <>
       <h1>Add Questions Page</h1>
       <QuestionInput />
-      <QuestionTypeDropdown 
+      <QuestionTypeDropdown
         setQuestionTypeId={setQuestionTypeId}
         value={questionTypeId}
         items={items}
@@ -48,11 +52,18 @@ export const AddQuestions = () =>{
         type={items[questionTypeId]}
         deleteAnswer={deleteAnswer}
       />
+      <TextareaAnswer
+        answers={answers}
+        setAnswers={setAnswers}
+        type={items[questionTypeId]}
+        deleteAnswer={deleteAnswer}
+        control={control}
+      />
       <Button
         width="13.5rem"
         height="3rem"
         fontSize=".875rem"
-        LeftComponent={<SPlusIcon src={plusSvg} alt=""/>}
+        LeftComponent={<SPlusIcon src={plusSvg} alt="" />}
         onClick={addAnswer}
       >
         პასუხის დამატება
