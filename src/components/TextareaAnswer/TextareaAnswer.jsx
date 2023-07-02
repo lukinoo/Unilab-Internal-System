@@ -20,6 +20,8 @@ export const TextareaAnswer = ({
             bgColor="transparent"
             color="#ffffff"
             resize={false}
+            width="51.9375rem"
+            height="9rem"
           />
           <SCross src={XSvg} alt="" onClick={() => deleteAnswer(answerObj.id)} />
         </STextareaDiv>
