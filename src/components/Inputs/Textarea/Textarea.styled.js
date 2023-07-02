@@ -9,6 +9,7 @@ export const STextarea = styled.textarea`
   margin-top: 3.5rem;
   background-color: ${({bgColor})=> bgColor ? bgColor : '#ffffff'};
   color: ${({color})=>color};
+  resize: ${({resize})=> !resize ? 'none' : 'both' };
   &:focus{
     outline: none;
   }
