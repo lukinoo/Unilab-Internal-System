@@ -1,7 +1,7 @@
 import { QuestionInput } from "../../components/Inputs/QuestionInput";
 import { useState } from "react";
 import { QuestionTypeDropdown } from "../../components/Inputs/QuestionTypeDropdown";
-import { AnswersContainer } from "../../components/AnswersContainer";
+import { DraggableAnswersContainer } from "../../components/DraggableAnswersContainer";
 import { Button } from "../../components/Button/Button";
 import { SPlusIcon } from "./AddQuestions.styled";
 import plusSvg from "/assets/svg/plus.svg";
@@ -42,7 +42,7 @@ export const AddQuestions = () =>{
         value={questionTypeId}
         items={items}
       />
-      <AnswersContainer 
+      <DraggableAnswersContainer
         answers={answers}
         setAnswers={setAnswers}
         type={items[questionTypeId]}
