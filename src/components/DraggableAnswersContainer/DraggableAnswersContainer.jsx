@@ -6,12 +6,12 @@ import {
   SCheckbox,
   SCross,
   SRadioButton,
-} from "./AnswersContainer.styled";
+} from "./DraggableAnswersContainer.styled";
 import { AnswerInput } from "../Inputs/AnswerInput/AnswerInput";
 import dragIconSvg from "/assets/svg/dragIcon.svg";
 import XSvg from "/assets/svg/whiteX.svg";
 
-export const AnswersContainer = ({
+export const DraggableAnswersContainer = ({
   answers, 
   setAnswers,
   deleteAnswer,
