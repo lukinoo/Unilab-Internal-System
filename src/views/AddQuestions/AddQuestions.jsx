@@ -1,6 +1,7 @@
 import { QuestionInput } from "../../components/Inputs/QuestionInput";
 import { useState } from "react";
 import { QuestionTypeDropdown } from "../../components/Inputs/QuestionTypeDropdown";
+import { QuestionDescription } from "../../components/Inputs/QuestionDescription";
 import { DraggableAnswersContainer } from "../../components/DraggableAnswersContainer";
 import { Button } from "../../components/Button/Button";
 import { SPlusIcon } from "./AddQuestions.styled";
@@ -24,10 +25,10 @@ export const AddQuestions = () =>{
     { id: "3", content: "" },
   ]);
 
-  const { control, } = useForm(); // just a test code for textarea
+  const { control } = useForm(); // just a test code for textarea
 
   const addAnswer = () => {
-    const ids = answers.map(obj=>obj.id);
+    const ids = answers.map(obj => obj.id);
     const largestId = Math.max(...ids) | 0;
     setAnswers((prevAnswers) => [...prevAnswers, { id: `${largestId+1}`, content: "" }]);
   };
@@ -59,6 +60,7 @@ export const AddQuestions = () =>{
         deleteAnswer={deleteAnswer}
         control={control}
       />
+      <QuestionDescription />
       <Button
         width="13.5rem"
         height="3rem"
