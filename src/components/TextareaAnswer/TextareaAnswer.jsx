@@ -1,7 +1,5 @@
 import { Textarea } from "../Inputs/Textarea/Textarea";
 import { STextareaDiv } from "./TextareaAnswer.styled";
-import { SCross } from "../DraggableAnswersContainer/DraggableAnswersContainer.styled";
-import XSvg from "/assets/svg/xCross.svg";
 
 export const TextareaAnswer = ({
   deleteAnswer,
