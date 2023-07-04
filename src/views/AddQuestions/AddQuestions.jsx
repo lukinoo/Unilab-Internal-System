@@ -54,7 +54,6 @@ export const AddQuestions = () =>{
         deleteAnswer={deleteAnswer}
       />
       <TextareaAnswer
-        deleteAnswer={deleteAnswer}
         control={control}
         name="textAnswer"
       />

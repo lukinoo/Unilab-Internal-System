@@ -2,7 +2,6 @@ import { Textarea } from "../Inputs/Textarea/Textarea";
 import { STextareaDiv } from "./TextareaAnswer.styled";
 
 export const TextareaAnswer = ({
-  deleteAnswer,
   control,
   name
 }) => {
