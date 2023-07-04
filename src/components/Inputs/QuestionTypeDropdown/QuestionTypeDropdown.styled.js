@@ -17,4 +17,5 @@ export const SQuestionTypeDropdownList = styled(SDropdownList)`
   border: .0625rem solid #ffffff;
   padding: 2rem 1rem;
   overflow: hidden;
+  width: ${({width})=>width};
 `
