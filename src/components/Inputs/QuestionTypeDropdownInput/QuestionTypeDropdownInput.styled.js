@@ -19,7 +19,7 @@ export const SQuestionTypeDropdownInput = styled(SInput)`
   background-image: url(${props => props.bgImage});
   background-position: left;
   background-repeat: no-repeat;
-  padding-left: 3rem;
+  padding-left: ${({bgImage})=> bgImage && '3rem'};
   background-size: 1.625rem;
   height: 4.375rem;
 `;
