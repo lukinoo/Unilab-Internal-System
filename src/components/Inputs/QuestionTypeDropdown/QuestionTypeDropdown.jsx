@@ -28,7 +28,7 @@ const IMAGES = {
 };
 
 export const QuestionTypeDropdown = (props) => {
-  const { action, items, value, listWidth, showImgs, displayScroll } = props;
+  const { action, items, value, listWidth, showImgs, displayScroll, labelText } = props;
 
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false);
@@ -53,6 +53,7 @@ export const QuestionTypeDropdown = (props) => {
         type={"text"}
         onClick={toggleOpen}
         bgImage={showImgs && IMAGES[value]}
+        labelText={labelText}
         RightComponent={
           <SArrowButton type="button" title="toggle dropdown">
             <DropArrow isOpen={isOpen} />
