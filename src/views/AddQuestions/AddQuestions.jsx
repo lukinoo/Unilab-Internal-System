@@ -24,6 +24,7 @@ export const AddQuestions = () =>{
     { id: "2", content: "" },
     { id: "3", content: "" },
   ]);
+  const [rangeValue, setRangeValue] = useState(4);
 
   const { control } = useForm(); // just a test code for textarea
 
@@ -43,9 +44,17 @@ export const AddQuestions = () =>{
       <h1>Add Questions Page</h1>
       <QuestionInput />
       <QuestionTypeDropdown
-        setQuestionTypeId={setQuestionTypeId}
+        action={setQuestionTypeId}
         value={questionTypeId}
         items={items}
+        showImgs={true}
+      />
+      <QuestionTypeDropdown
+        action={setRangeValue}
+        value={rangeValue}
+        items={ Array.from({ length: 10 }, (_, index) => index + 1)}
+        listWidth="100%"
+        labelText="Range"
       />
       <DraggableAnswersContainer
         answers={answers}
@@ -69,4 +78,4 @@ export const AddQuestions = () =>{
       </Button>
     </>
   );
-}
+};

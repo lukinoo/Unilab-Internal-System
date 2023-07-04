@@ -28,7 +28,7 @@ const IMAGES = {
 };
 
 export const QuestionTypeDropdown = (props) => {
-  const { setQuestionTypeId, items, value } = props;
+  const { action, items, value, listWidth, showImgs, labelText } = props;
 
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false);
@@ -41,7 +41,7 @@ export const QuestionTypeDropdown = (props) => {
 
   const handleSelect = (id) => {
     toggleOpen();
-    setQuestionTypeId(id);
+    action(id);
   };
 
   return (
@@ -52,7 +52,8 @@ export const QuestionTypeDropdown = (props) => {
         readOnly
         type={"text"}
         onClick={toggleOpen}
-        bgImage={IMAGES[value]}
+        bgImage={showImgs && IMAGES[value]}
+        labelText={labelText}
         RightComponent={
           <SArrowButton type="button" title="toggle dropdown">
             <DropArrow isOpen={isOpen} />
@@ -67,6 +68,7 @@ export const QuestionTypeDropdown = (props) => {
             animate={"visible"}
             exit={"hidden"}
             transition={{ duration: 0.4, type: "spring" }}
+            width={listWidth}
           >
             {!items ? (
               <span>--- no items ---</span>
@@ -78,7 +80,7 @@ export const QuestionTypeDropdown = (props) => {
                       type="button"
                       onClick={() => handleSelect(id)}
                       data-longestitem={longestItem}
-                      bgImage={IMAGES[id]}
+                      bgImage={showImgs && IMAGES[id]}
                     >
                       {value}
                     </SQuestionTypeDropdownButton>
