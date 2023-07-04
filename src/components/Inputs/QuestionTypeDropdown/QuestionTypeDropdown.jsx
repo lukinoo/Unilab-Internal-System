@@ -28,7 +28,7 @@ const IMAGES = {
 };
 
 export const QuestionTypeDropdown = (props) => {
-  const { action, items, value, listWidth, showImgs } = props;
+  const { action, items, value, listWidth, showImgs, displayScroll } = props;
 
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false);
@@ -68,12 +68,12 @@ export const QuestionTypeDropdown = (props) => {
             exit={"hidden"}
             transition={{ duration: 0.4, type: "spring" }}
             width={listWidth}
+            displayScroll={displayScroll}
           >
             {!items ? (
               <span>--- no items ---</span>
             ) : (
               Object.entries(items).map(([id, value]) => {
-                console.log("ID: ",id,"VALUE:", value);
                 return (
                   <SDropdownItem key={id}>
                     <SQuestionTypeDropdownButton
