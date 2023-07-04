@@ -54,7 +54,6 @@ export const AddQuestions = () =>{
         value={rangeValue}
         items={ Array.from({ length: 10 }, (_, index) => index + 1)}
         listWidth="100%"
-        displayScroll={true}
         labelText="Range"
       />
       <DraggableAnswersContainer
