@@ -23,3 +23,12 @@ export const SQuestionTypeDropdownInput = styled(SInput)`
   background-size: 1.625rem;
   height: 4.375rem;
 `;
+
+export const SFloatingLabel = styled.label`
+  color: #ffffff;
+  position: absolute;
+  left: 1.625rem;
+  top: -1rem;
+  padding: .375rem .9375rem;
+  background-color: #080707;
+`
