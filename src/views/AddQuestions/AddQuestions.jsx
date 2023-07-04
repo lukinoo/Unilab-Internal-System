@@ -54,11 +54,9 @@ export const AddQuestions = () =>{
         deleteAnswer={deleteAnswer}
       />
       <TextareaAnswer
-        answers={answers}
-        setAnswers={setAnswers}
-        type={items[questionTypeId]}
         deleteAnswer={deleteAnswer}
         control={control}
+        name="textAnswer"
       />
       <QuestionDescription />
       <Button
