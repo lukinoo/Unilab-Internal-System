@@ -9,7 +9,7 @@ export const SQuestionTypeDropdownButton = styled(SDropdownButton)`
   background-repeat: no-repeat;
   background-size: 1rem;
   height: 1.3rem;
-  padding-left: 2rem;
+  padding-left: ${({bgImage})=>bgImage && '2rem'};
   color: #ffffff;
 `
 export const SQuestionTypeDropdownList = styled(SDropdownList)`
