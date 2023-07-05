@@ -44,7 +44,7 @@ export const SDropdownButton = styled(motion.button)`
   all: unset;
   cursor: pointer;
   padding: 0 1.375rem;
-  font-size: .75rem;
+  font-size: 0.75rem;
 
   &:hover {
     font-weight: 700;

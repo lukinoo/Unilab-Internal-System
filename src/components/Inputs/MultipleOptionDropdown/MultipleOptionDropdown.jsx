@@ -7,7 +7,7 @@ import {
 import {
   SMultipleDropdownList,
   SMultipleDropdownItem,
-  SCheckbox
+  SCheckbox,
 } from "./MultipleOptionDropdown.styled";
 import { DropArrow } from "../../DropArrow";
 import { dropdownVariants } from "../Dropdown/Dropdown.variants";

@@ -12,6 +12,7 @@ import { Directions } from "./views/Directions";
 import dayjs from "dayjs";
 import "dayjs/locale/ka";
 import { UploadProject } from "./views/UploadProject";
+import { UploadProjectAdmin } from "./views/UploadProjectAdmin/UploadProjectAdmin";
 
 dayjs.locale("ka");
 
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/about-project" element={<AboutProject />} />
         <Route path="/directions" element={<Directions />} />
         <Route path="/upload-project" element={<UploadProject />} />
+        <Route path="/upload-project-admin" element={<UploadProjectAdmin />} />
       </Routes>
     </div>
   );

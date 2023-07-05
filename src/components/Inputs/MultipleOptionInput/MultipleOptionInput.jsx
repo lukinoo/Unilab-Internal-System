@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  SContainer,
-  SLabel,
-  SInputWrapper,
-  SError,
-} from "../Input/Input.styled";
+import { SContainer, SLabel, SInputWrapper, SError } from "../Input/Input.styled";
 import { SMultipleOptionDiv, SNameSpan } from "./MultipleOptionInput.styled";
 import xCross from "/assets/svg/xCross.svg";
 
@@ -36,11 +31,7 @@ export const MultipleOptionInput = ({
       return (
         <SNameSpan key={key}>
           <span>{value}</span>
-          <img
-            src={xCross}
-            alt="remove"
-            onClick={() => handleSelect(key)}
-          />
+          <img src={xCross} alt="remove" onClick={() => handleSelect(key)} />
         </SNameSpan>
       );
     });
@@ -59,20 +50,14 @@ export const MultipleOptionInput = ({
           fontSize={fontSize}
           fontWeight={fontWeight}
           readOnly={readOnly}
-          {...(register
-            ? register(name, { ...validation, onChange })
-            : { value: value })}
+          {...(register ? register(name, { ...validation, onChange }) : { value: value })}
         >
           {renderObjectElements(valueObject)}
         </SMultipleOptionDiv>
         {RightComponent}
       </SInputWrapper>
       {errorMessage && (
-        <SError
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.2 }}
-        >
+        <SError initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2 }}>
           {errorMessage}
         </SError>
       )}
