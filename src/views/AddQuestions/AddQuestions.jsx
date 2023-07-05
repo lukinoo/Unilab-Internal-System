@@ -8,6 +8,7 @@ import { SPlusIcon } from "./AddQuestions.styled";
 import plusSvg from "/assets/svg/plus.svg";
 import { TextareaAnswer } from "../../components/TextareaAnswer";
 import { useForm } from "react-hook-form";
+import { SaveAddButtons } from "../../components/Buttons/SaveAddButtons";
 
 const items = {
   1: "Checkbox",
@@ -76,6 +77,7 @@ export const AddQuestions = () =>{
       >
         პასუხის დამატება
       </Button>
+      <SaveAddButtons />
     </>
   );
 };
