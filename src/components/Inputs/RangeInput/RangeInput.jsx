@@ -10,7 +10,9 @@ import { SRangeInputContainer } from "./RangeInput.styled";
     <SRangeInputContainer>
       {loopArray.map((_, index) => (
         <>
+          {index === 0 && <>{firstValueName}</>}
           <input type="radio" name={name} key={index}/>
+          {index === loopArray.length-1 && <>{lastValueName}</>}
         </>
       ))}
     </SRangeInputContainer>
