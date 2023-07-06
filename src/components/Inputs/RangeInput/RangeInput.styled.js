@@ -39,6 +39,7 @@ export const SRadioDiv = styled.div`
   &>p{
     position: absolute;
     top: 100%;
+    text-align: center;
   }
 `
 
