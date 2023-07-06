@@ -13,7 +13,8 @@ export const SRadioButton = styled.input`
   background-color: transparent;
   border-radius: 50%;
   border: .125rem solid #ffffff;
-
+  cursor: pointer;
+  
   &:checked{
     background-image: url(${circleSvg});
     background-size: 1.25rem;
