@@ -1,4 +1,4 @@
-import { SRangeInputContainer } from "./RangeInput.styled"; 
+import { SRadioButton, SRangeInputContainer, SRadioDiv, SLine } from "./RangeInput.styled";
  export const RangeInput = ({
     rangeValue,
     name,
@@ -10,9 +10,12 @@ import { SRangeInputContainer } from "./RangeInput.styled";
     <SRangeInputContainer>
       {loopArray.map((_, index) => (
         <>
-          {index === 0 && <>{firstValueName}</>}
-          <input type="radio" name={name} key={index}/>
-          {index === loopArray.length-1 && <>{lastValueName}</>}
+        <SRadioDiv>
+          <SRadioButton type="radio" name={name} key={index} />
+          {index === 0 && <p>{firstValueName}</p>}
+          {index === loopArray.length-1 && <p>{lastValueName}</p>}
+        </SRadioDiv>
+        {index !== loopArray.length-1 &&  <SLine />}
         </>
       ))}
     </SRangeInputContainer>
