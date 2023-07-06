@@ -33,13 +33,13 @@ export const SRadioDiv = styled.div`
   align-items: center;
   justify-content: center;
   height: 3rem;
-  font-size: .875rem;
   width: 10rem;
 
   &>p{
     position: absolute;
     top: 100%;
     text-align: center;
+    font-size: .875rem;
   }
 `
 
