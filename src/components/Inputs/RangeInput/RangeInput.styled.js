@@ -9,22 +9,23 @@ export const SRangeInputContainer = styled.div`
   justify-content: space-around;
   margin: 2rem 0;
 `;
+
 export const SRadioButton = styled.input`
   all: unset;
   width: 1.875rem;
   height: 1.875rem;
   background-color: transparent;
   border-radius: 50%;
-  border: .125rem solid #ffffff;
+  border: 0.125rem solid #ffffff;
   cursor: pointer;
 
-  &:checked{
+  &:checked {
     background-image: url(${circleSvg});
     background-size: 1.25rem;
     background-position: center;
     background-repeat: no-repeat;
   }
-`
+`;
 
 export const SRadioDiv = styled.div`
   display: flex;
@@ -35,16 +36,16 @@ export const SRadioDiv = styled.div`
   height: 3rem;
   width: 10rem;
 
-  &>p{
+  & > p {
     position: absolute;
     top: 100%;
     text-align: center;
-    font-size: .875rem;
+    font-size: 0.875rem;
   }
-`
+`;
 
 export const SLine = styled.div`
-  width: ${({width})=> width ? width : '7rem'};
+  width: ${({ width }) => (width ? width : "7rem")};
   height: 0.1rem;
   background-color: gray;
-`
+`;
