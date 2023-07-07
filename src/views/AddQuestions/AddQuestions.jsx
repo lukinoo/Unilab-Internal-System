@@ -9,6 +9,7 @@ import plusSvg from "/assets/svg/plus.svg";
 import { TextareaAnswer } from "../../components/TextareaAnswer";
 import { useForm } from "react-hook-form";
 import { SaveAddButtons } from "../../components/Buttons/SaveAddButtons";
+import { RangeInput } from "../../components/Inputs/RangeInput/RangeInput";
 
 const items = {
   1: "Checkbox",
@@ -16,6 +17,8 @@ const items = {
   3: "Textbox",
   4: "Rating Scale",
 };
+
+const rangeValues = [ 3, 5, 7, 9];
 
 export const AddQuestions = () =>{
   const [questionTypeId, setQuestionTypeId] = useState(1);
@@ -25,8 +28,8 @@ export const AddQuestions = () =>{
     { id: "2", content: "" },
     { id: "3", content: "" },
   ]);
-  const [rangeValue, setRangeValue] = useState(4);
-
+  const [rangeValue, setRangeValue] = useState(0);
+  
   const { control } = useForm(); // just a test code for textarea
 
   const addAnswer = () => {
@@ -53,7 +56,7 @@ export const AddQuestions = () =>{
       <QuestionTypeDropdown
         action={setRangeValue}
         value={rangeValue}
-        items={ Array.from({ length: 10 }, (_, index) => index + 1)}
+        items={rangeValues}
         listWidth="100%"
         labelText="Range"
       />
@@ -77,6 +80,12 @@ export const AddQuestions = () =>{
       >
         პასუხის დამატება
       </Button>
+      <RangeInput
+        rangeValue={rangeValues[rangeValue]}
+        name="rangeValue"
+        firstOptionName="ძალიან ცუდი"
+        lastOptionName="ძალიან კარგი"
+      />
       <SaveAddButtons />
     </>
   );
