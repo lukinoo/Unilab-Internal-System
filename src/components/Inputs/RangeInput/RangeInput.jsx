@@ -3,8 +3,8 @@ import { SRadioButton, SRangeInputContainer, SRadioDiv, SLine } from "./RangeInp
 export const RangeInput = ({
   rangeValue,
   name,
-  lastValueName,
-  firstValueName,
+  firstOptionName,
+  lastOptionName,
 }) => {
   const loopArray = Array.from({ length: rangeValue }, (_, index) => index + 1);
   return (
@@ -13,8 +13,8 @@ export const RangeInput = ({
         <>
           <SRadioDiv>
             <SRadioButton type="radio" name={name} key={index} />
-            {index === 0 && <p>{firstValueName}</p>}
-            {index === loopArray.length - 1 && <p>{lastValueName}</p>}
+            {index === 0 && <p>{firstOptionName}</p>}
+            {index === loopArray.length - 1 && <p>{lastOptionName}</p>}
           </SRadioDiv>
           {index !== loopArray.length - 1 && <SLine />}
         </>

@@ -83,8 +83,8 @@ export const AddQuestions = () =>{
       <RangeInput
         rangeValue={rangeValues[rangeValue]}
         name="rangeValue"
-        firstValueName="ძალიან ცუდი"
-        lastValueName="ძალიან კარგი"
+        firstOptionName="ძალიან ცუდი"
+        lastOptionName="ძალიან კარგი"
       />
       <SaveAddButtons />
     </>
