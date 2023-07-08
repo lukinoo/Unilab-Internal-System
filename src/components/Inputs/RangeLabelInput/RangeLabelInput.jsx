@@ -1,4 +1,4 @@
-import { SRangeLabelInput, SRangeLabelInputDiv, SRangeLabel } from "./RangeLabelInput.styled";
+import { SRangeLabelInput, SRangeLabelInputDiv, SRangeLabel, SBottomLabel } from "./RangeLabelInput.styled";
 
 export const RangeLabelInput = ({
   displayLabel,
@@ -14,7 +14,7 @@ export const RangeLabelInput = ({
     <SRangeLabelInputDiv>
       {displayLabel && <SRangeLabel>სკალის მნიშვნელობა</SRangeLabel>}
       <SRangeLabelInput onChange={handleInputChange}/>
-      <p>რას ნიშნავს სკალაზე {number}?</p>
+      <SBottomLabel>რას ნიშნავს სკალაზე {number}?</SBottomLabel>
     </SRangeLabelInputDiv>
   );
 };
