@@ -10,6 +10,7 @@ import { TextareaAnswer } from "../../components/TextareaAnswer";
 import { useForm } from "react-hook-form";
 import { SaveAddButtons } from "../../components/Buttons/SaveAddButtons";
 import { RangeInput } from "../../components/Inputs/RangeInput/RangeInput";
+import { RangeLabelInput } from "../../components/Inputs/RangeLabelInput";
 
 const items = {
   1: "Checkbox",
@@ -18,11 +19,14 @@ const items = {
   4: "Rating Scale",
 };
 
-const rangeValues = [ 3, 5, 7, 9];
+const rangeValues = [ 3, 4, 5, 6, 7, 8, 9];
 
 export const AddQuestions = () =>{
   const [questionTypeId, setQuestionTypeId] = useState(1);
-  
+
+  const [firstRangeLabel, setFirstRangeLabel] = useState('');
+  const [secondRangeLabel, setSecondRangeLabel] = useState('');
+
   const [answers, setAnswers] = useState([
     { id: "1", content: "" },
     { id: "2", content: "" },
@@ -80,11 +84,13 @@ export const AddQuestions = () =>{
       >
         პასუხის დამატება
       </Button>
+      <RangeLabelInput displayLabel number={1} action={setFirstRangeLabel} />
+      <RangeLabelInput number={rangeValues[rangeValue]} action={setSecondRangeLabel} />
       <RangeInput
         rangeValue={rangeValues[rangeValue]}
         name="rangeValue"
-        firstOptionName="ძალიან ცუდი"
-        lastOptionName="ძალიან კარგი"
+        firstRangeLabel={firstRangeLabel}
+        secondRangeLabel={secondRangeLabel}
       />
       <SaveAddButtons />
     </>
