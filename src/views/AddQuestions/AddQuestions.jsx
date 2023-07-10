@@ -19,7 +19,7 @@ const items = {
   4: "Rating Scale",
 };
 
-const rangeValues = [ 3, 5, 7, 9];
+const rangeValues = [ 3, 4, 5, 6, 7, 8, 9];
 
 export const AddQuestions = () =>{
   const [questionTypeId, setQuestionTypeId] = useState(1);
@@ -85,7 +85,7 @@ export const AddQuestions = () =>{
         პასუხის დამატება
       </Button>
       <RangeLabelInput displayLabel number={1} action={setFirstRangeLabel} />
-      <RangeLabelInput number={10} action={setSecondRangeLabel} />
+      <RangeLabelInput number={rangeValues[rangeValue]} action={setSecondRangeLabel} />
       <RangeInput
         rangeValue={rangeValues[rangeValue]}
         name="rangeValue"
@@ -93,6 +93,6 @@ export const AddQuestions = () =>{
         secondRangeLabel={secondRangeLabel}
       />
       <SaveAddButtons />
-</>
+    </>
   );
 };
