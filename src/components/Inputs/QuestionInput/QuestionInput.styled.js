@@ -5,7 +5,7 @@ export const SQuestionInputContainer = styled.div`
   width: ${({width}) => (width ? width : "51.938rem")};
   height: ${({height}) => (height ? height : "4.375rem")};
   display: flex;
-  margin: ${({margin}) => (margin ? margin : "10rem")};
+  margin: ${({margin}) => (margin ? margin : "0")};
 `;
 
 export const SQuestionInput = styled.input`

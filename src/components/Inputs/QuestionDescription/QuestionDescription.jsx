@@ -1,8 +1,13 @@
 import React from 'react'
 import { SQuestionTextArea } from './QuestionDescription.styled'
 
-export const QuestionDescription = () => {
+export const QuestionDescription = ({
+  marginTop
+}) => {
   return (
-    <SQuestionTextArea />
+    <SQuestionTextArea 
+      placeholder="კითხვის მოკლე აღწერა (Optional)" 
+      marginTop={marginTop}
+    />
   )
 }
