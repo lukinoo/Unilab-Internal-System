@@ -4,7 +4,6 @@ export const SFormHeaderContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 2rem;
 `;
 export const SFormHeaderDiv = styled.div`
   display: flex;
