@@ -18,7 +18,7 @@ export const FormHeader = ({
 }) => {
   return (
     <SFormHeaderContainer>
-      <SFormHeaderDiv>
+      <SFormHeaderDiv marginRight>
         <QuestionInput />
         <QuestionDescription marginTop="1.125rem" />
       </SFormHeaderDiv>

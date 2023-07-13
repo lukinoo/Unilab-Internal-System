@@ -4,6 +4,7 @@ export const SSaveAddButtons = styled.div`
   display: flex;
   align-items: center;
   gap: 2.188rem;
+  align-self:flex-end;
 `
 
 export const SAddButton = styled.button`
