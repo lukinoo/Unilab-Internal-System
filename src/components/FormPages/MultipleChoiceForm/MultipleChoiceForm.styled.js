@@ -6,6 +6,7 @@ export const SFormBodyDiv = styled.div`
   display:flex;
   flex-direction: column;
   justify-content: space-between;
+  color: #ffffff;
   &>button{
     margin-left: 5rem;
     margin-top: .875rem;
