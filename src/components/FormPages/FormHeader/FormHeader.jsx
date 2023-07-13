@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { QuestionDescription } from "../../Inputs/QuestionDescription"
 import { QuestionInput } from "../../Inputs/QuestionInput"
 import { QuestionTypeDropdown } from "../../Inputs/QuestionTypeDropdown";
@@ -13,9 +12,10 @@ const items = {
 };
 
 
-export const FormHeader = () => {
-  const [questionTypeId, setQuestionTypeId] = useState(1);
-
+export const FormHeader = ({
+  questionTypeId,
+  setQuestionTypeId
+}) => {
   return (
     <SFormHeaderContainer>
       <SFormHeaderDiv>
