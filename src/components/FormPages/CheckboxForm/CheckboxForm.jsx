@@ -16,12 +16,12 @@ export const CheckboxForm = () => {
     { id: "2", content: "" },
     { id: "3", content: "" },
   ]);
-  const [questionTypeId, setQuestionTypeId] = useState(1);
+  const [questionTypeId, setQuestionTypeId] = useState(1);  // Temporary code 
 
   const deleteAnswer = (id) => {
     const newAnswers = [...answers].filter((answer) => answer.id !== id);
     setAnswers(newAnswers);
-  };
+  }; // Temporary code 
 
   return (
     <SFormContainer>
