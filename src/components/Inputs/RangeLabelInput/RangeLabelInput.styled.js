@@ -6,7 +6,6 @@ export const SRangeLabelInputDiv = styled.div`
   display: flex;
   flex-direction: column;
   color: #ffffff;
-  width: 50%;
 `;
 
 export const SRangeLabelInput = styled(SInput)`

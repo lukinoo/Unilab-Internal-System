@@ -15,4 +15,7 @@ export const STextarea = styled.textarea`
     outline: none;
     border: .0625rem solid #2984CE;
   }
+  &::placeholder {
+    font-family: "FiraGO";
+  }
 `
