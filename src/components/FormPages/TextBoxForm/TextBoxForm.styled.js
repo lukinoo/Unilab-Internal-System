@@ -1,7 +1,6 @@
 import styled from "styled-components";
+import { SFormBodyDiv } from "../MultipleChoiceForm/MultipleChoiceForm.styled";
 
-export const TextboxDiv = styled.div`
+export const STextboxDiv = styled(SFormBodyDiv)`
   height: 12rem;
-  margin-top: 1.375rem;
-  color: white;
 `
