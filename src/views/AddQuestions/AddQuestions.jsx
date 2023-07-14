@@ -7,10 +7,11 @@ import { Button } from "../../components/Button/Button";
 import { SPlusIcon } from "./AddQuestions.styled";
 import plusSvg from "/assets/svg/plus.svg";
 import { TextareaAnswer } from "../../components/TextareaAnswer";
-import { SaveAddButtons } from "../../components/Buttons/SaveAddButtons";
 import { RangeInput } from "../../components/Inputs/RangeInput/RangeInput";
 import { RangeLabelInput } from "../../components/Inputs/RangeLabelInput";
 
+
+import { SaveAddButtons } from "../../components/Buttons/SaveAddButtons";
 import { CheckboxForm } from "../../components/FormPages/CheckboxForm";
 import { MultipleChoiceForm } from "../../components/FormPages/MultipleChoiceForm";
 import { TextBoxForm } from "../../components/FormPages/TextBoxForm";
