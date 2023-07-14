@@ -17,6 +17,7 @@ import { MultipleChoiceForm } from "../../components/FormPages/MultipleChoiceFor
 import { TextBoxForm } from "../../components/FormPages/TextBoxForm";
 import { RatingScaleForm } from "../../components/FormPages/RatingScaleForm";
 import { SAddQuestionsMainDiv, STitle, SAddQuestionsContainer } from "./AddQuestions.styled";
+import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { useForm, useFieldArray } from "react-hook-form";
 
 // const items = {
@@ -108,12 +109,12 @@ import { useForm, useFieldArray } from "react-hook-form";
 export const AddQuestions = () => {
   const { control, register, watch } = useForm({defaultValues:{
     forms: [
-      {type: "checkbox"},
-      {type: "multipleChocie"},
-      {type: "textBox"},
-      {type: "rangeInput"},
+      {type: "checkbox", answers:[{},{},{}]},
+      {type: "multipleChoice", answers:[{},{},{}]},
+      {type: "textBox", answers:[{}]},
+      {type: "rangeInput", answers:[{}]},
     ]
-  }});
+  }}); // test code
   const { fields, append, remove } = useFieldArray({control, name:"forms"});
   console.log("FIELDS:",fields);
   
@@ -134,13 +135,13 @@ export const AddQuestions = () => {
   }
   return (
     <SAddQuestionsMainDiv>
-      {/* HEADER GOES HERE */}
+      <FourthHeader />
       {/* SIDEBAR GOES HERE */}
       <STitle>კითხვების შედგენა</STitle>
       <SAddQuestionsContainer>
         {fields.map((item, index) => displayForm(item.type))}
         <SaveAddButtons
-          handleAddQuestion={() => append({ type: "checkbox" })}
+          handleAddQuestion={() => append({ type: "checkbox", answers:[{},{},{}] })} // test
         />
       </SAddQuestionsContainer>
     </SAddQuestionsMainDiv>
