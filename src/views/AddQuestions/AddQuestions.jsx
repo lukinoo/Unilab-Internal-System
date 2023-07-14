@@ -7,16 +7,20 @@ import { Button } from "../../components/Button/Button";
 import { SPlusIcon } from "./AddQuestions.styled";
 import plusSvg from "/assets/svg/plus.svg";
 import { TextareaAnswer } from "../../components/TextareaAnswer";
-import { useForm } from "react-hook-form";
-import { SaveAddButtons } from "../../components/Buttons/SaveAddButtons";
 import { RangeInput } from "../../components/Inputs/RangeInput/RangeInput";
 import { RangeLabelInput } from "../../components/Inputs/RangeLabelInput";
 
+
+import { SaveAddButtons } from "../../components/Buttons/SaveAddButtons";
 import { CheckboxForm } from "../../components/FormPages/CheckboxForm";
 import { MultipleChoiceForm } from "../../components/FormPages/MultipleChoiceForm";
 import { TextBoxForm } from "../../components/FormPages/TextBoxForm";
+import { RatingScaleForm } from "../../components/FormPages/RatingScaleForm";
 import { SAddQuestionsMainDiv, STitle, SAddQuestionsContainer } from "./AddQuestions.styled";
+import { FourthHeader } from "../../components/Headers/FourthHeader";
+import { useForm, useFieldArray } from "react-hook-form";
 import { RatingScaleForm } from "../../components/FormPages/RatingScaleForm/RatingScaleForm";
+
 
 // const items = {
 //   1: "Checkbox",
@@ -105,19 +109,43 @@ import { RatingScaleForm } from "../../components/FormPages/RatingScaleForm/Rati
 
 
 export const AddQuestions = () => {
-  return(
+  const { control, register, watch } = useForm({defaultValues:{
+    forms: [
+      {type: "checkbox", answers:[{},{},{}]},
+      {type: "multipleChoice", answers:[{},{},{}]},
+      {type: "textBox", answers:[{}]},
+      {type: "rangeInput", answers:[{}]},
+    ]
+  }}); // test code
+  const { fields, append, remove } = useFieldArray({control, name:"forms"});
+  console.log("FIELDS:",fields);
+  
+  // test code; replace hardcoded variables;
+  const displayForm = (formName) => {
+    switch(formName){
+      case 'checkbox':
+        return <CheckboxForm />
+      case 'multipleChoice':
+        return <MultipleChoiceForm />
+      case 'rangeInput':
+        return <RatingScaleForm />
+      case 'textBox':
+        return <TextBoxForm />
+      default:
+        return null;
+    }
+  }
+  return (
     <SAddQuestionsMainDiv>
-      {/* HEADER GOES HERE */}
+      <FourthHeader />
       {/* SIDEBAR GOES HERE */}
       <STitle>კითხვების შედგენა</STitle>
       <SAddQuestionsContainer>
-        <CheckboxForm />
-        <MultipleChoiceForm />
-        <TextBoxForm />
-        {/* Rating scale goes HERE */}
-        <RatingScaleForm />
-        <SaveAddButtons />
+        {fields.map((item, index) => displayForm(item.type))}
+        <SaveAddButtons
+          handleAddQuestion={() => append({ type: "checkbox", answers:[{},{},{}] })} // test
+        />
       </SAddQuestionsContainer>
     </SAddQuestionsMainDiv>
-  )
+  );
 }
