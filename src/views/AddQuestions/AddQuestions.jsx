@@ -19,6 +19,8 @@ import { RatingScaleForm } from "../../components/FormPages/RatingScaleForm";
 import { SAddQuestionsMainDiv, STitle, SAddQuestionsContainer } from "./AddQuestions.styled";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { useForm, useFieldArray } from "react-hook-form";
+import { RatingScaleForm } from "../../components/FormPages/RatingScaleForm/RatingScaleForm";
+
 
 // const items = {
 //   1: "Checkbox",
