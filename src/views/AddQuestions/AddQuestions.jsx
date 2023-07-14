@@ -132,17 +132,17 @@ export const AddQuestions = () => {
         return null;
     }
   }
-  return(
+  return (
     <SAddQuestionsMainDiv>
       {/* HEADER GOES HERE */}
       {/* SIDEBAR GOES HERE */}
       <STitle>კითხვების შედგენა</STitle>
       <SAddQuestionsContainer>
-        {fields.map((item, index)=>(
-            displayForm(item.type)
-        ))}
-        <SaveAddButtons handleAddQuestion={()=>append({type:'multipleChoice'})} />
+        {fields.map((item, index) => displayForm(item.type))}
+        <SaveAddButtons
+          handleAddQuestion={() => append({ type: "multipleChoice" })}
+        />
       </SAddQuestionsContainer>
     </SAddQuestionsMainDiv>
-  )
+  );
 }
