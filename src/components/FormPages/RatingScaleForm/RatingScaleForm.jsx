@@ -6,6 +6,7 @@ import { SFormHeaderContainer } from "../FormHeader/FormHeader.styled";
 import {
   SRangeInputLabel,
   SRangeLabelInputsContainer,
+  SRatingScaleFormContainer,
 } from "./RatingScaleForm.styled";
 import { RangeInput } from "../../Inputs/RangeInput/RangeInput";
 
@@ -18,7 +19,7 @@ export const RatingScaleForm = ({name}) => {
   const [rangeValue, setRangeValue] = useState(0);
 
   return (
-    <>
+    <SRatingScaleFormContainer>
       <FormHeader />
       <QuestionTypeDropdown
         action={setRangeValue}
@@ -42,6 +43,6 @@ export const RatingScaleForm = ({name}) => {
         firstRangeLabel={firstRangeLabel}
         secondRangeLabel={secondRangeLabel}
       />
-    </>
+    </SRatingScaleFormContainer>
   );
 };

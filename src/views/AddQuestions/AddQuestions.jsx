@@ -16,6 +16,7 @@ import { CheckboxForm } from "../../components/FormPages/CheckboxForm";
 import { MultipleChoiceForm } from "../../components/FormPages/MultipleChoiceForm";
 import { TextBoxForm } from "../../components/FormPages/TextBoxForm";
 import { SAddQuestionsMainDiv, STitle, SAddQuestionsContainer } from "./AddQuestions.styled";
+import { RatingScaleForm } from "../../components/FormPages/RatingScaleForm/RatingScaleForm";
 
 // const items = {
 //   1: "Checkbox",
@@ -114,6 +115,7 @@ export const AddQuestions = () => {
         <MultipleChoiceForm />
         <TextBoxForm />
         {/* Rating scale goes HERE */}
+        <RatingScaleForm />
         <SaveAddButtons />
       </SAddQuestionsContainer>
     </SAddQuestionsMainDiv>
