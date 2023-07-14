@@ -140,7 +140,7 @@ export const AddQuestions = () => {
       <SAddQuestionsContainer>
         {fields.map((item, index) => displayForm(item.type))}
         <SaveAddButtons
-          handleAddQuestion={() => append({ type: "multipleChoice" })}
+          handleAddQuestion={() => append({ type: "checkbox" })}
         />
       </SAddQuestionsContainer>
     </SAddQuestionsMainDiv>
