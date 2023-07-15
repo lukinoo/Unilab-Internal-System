@@ -110,30 +110,29 @@ import { useForm, useFieldArray } from "react-hook-form";
 const arrayOfAnswers = (numOfQuestions, type) =>
   Array.from({ length: numOfQuestions }, (_, i) => ({
     id: `${i + 1}`,
-    question: "",
-    answer: "",
+    content: "",
     isCorrect: false,
     type,
 }));
 
 export const AddQuestions = () => {
-  const { control, register, watch } = useForm({defaultValues:{
+  const { control, register, watch, setValue } = useForm({defaultValues:{
     forms: [
-      {type: "checkbox", answers:arrayOfAnswers(3, 'checkbox')},
-      {type: "multipleChoice", answers: arrayOfAnswers(3, 'multipleChoice')},
-      {type: "textBox", answers: arrayOfAnswers(1, 'textbox')},
-      {type: "rangeInput", answers:arrayOfAnswers(1, 'rangeInput')},
+      {type: "checkbox", answers:arrayOfAnswers(3, 'checkbox'), question:""},
+      {type: "multipleChoice", answers: arrayOfAnswers(3, 'multipleChoice'), question:""},
+      {type: "textBox", answers: arrayOfAnswers(1, 'textbox'), question:""},
+      {type: "rangeInput", answers:arrayOfAnswers(1, 'rangeInput'), question:""},
     ]
   }}); // test code
   const { fields, append, remove } = useFieldArray({control, name:"forms"});
   console.log("FIELDS:",fields);
-  
+
   // test code; replace hardcoded variables;
   const displayForm = (item) => {
     const formType = item.type;
     switch(formType){
       case 'checkbox':
-        return <CheckboxForm {...item}/>
+        return <CheckboxForm />
       case 'multipleChoice':
         return <MultipleChoiceForm />
       case 'rangeInput':
@@ -152,7 +151,13 @@ export const AddQuestions = () => {
       <SAddQuestionsContainer>
         {fields.map((item, index) => displayForm(item))}
         <SaveAddButtons
-          handleAddQuestion={() => append({ type: "checkbox", answers:[{},{},{}] })} // test
+          handleAddQuestion={() =>
+            append({
+              type: "checkbox",
+              answers: arrayOfAnswers(3, "checkbox"),
+              question: "",
+            })
+          } // test
         />
       </SAddQuestionsContainer>
     </SAddQuestionsMainDiv>
