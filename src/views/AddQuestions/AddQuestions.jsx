@@ -130,11 +130,11 @@ export const AddQuestions = () => {
       {type: FORM_TYPES.TEXTBOX, answers: arrayOfAnswers(1, FORM_TYPES.TEXTBOX), question:""},
       {type: FORM_TYPES.RANGE_INPUT, answers:arrayOfAnswers(1, FORM_TYPES.RANGE_INPUT), question:""},
     ]
-  }}); // test code
+  }});
   const { fields, append, remove } = useFieldArray({control, name:"forms"});
   console.log("FIELDS:",fields);
 
-  // test code; replace hardcoded variables;
+  
   const displayForm = (item) => {
     const formType = item.type;
     switch(formType){
@@ -164,7 +164,7 @@ export const AddQuestions = () => {
               answers: arrayOfAnswers(3, FORM_TYPES.CHECKBOX),
               question: "",
             })
-          } // test
+          }
         />
       </SAddQuestionsContainer>
     </SAddQuestionsMainDiv>
