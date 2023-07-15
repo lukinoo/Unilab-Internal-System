@@ -115,13 +115,20 @@ const arrayOfAnswers = (numOfQuestions, type) =>
     type,
 }));
 
+const FORM_TYPES = {
+  'CHECKBOX':'checkbox',
+  'MULTIPLE_CHOICE': 'multipleChoice',
+  'TEXTBOX': 'textBox',
+  'RANGE_INPUT': 'rangeInput'
+} 
+
 export const AddQuestions = () => {
   const { control, register, watch, setValue } = useForm({defaultValues:{
     forms: [
-      {type: "checkbox", answers:arrayOfAnswers(3, 'checkbox'), question:""},
-      {type: "multipleChoice", answers: arrayOfAnswers(3, 'multipleChoice'), question:""},
-      {type: "textBox", answers: arrayOfAnswers(1, 'textbox'), question:""},
-      {type: "rangeInput", answers:arrayOfAnswers(1, 'rangeInput'), question:""},
+      {type: FORM_TYPES.CHECKBOX, answers:arrayOfAnswers(3, FORM_TYPES.CHECKBOX), question:""},
+      {type: FORM_TYPES.MULTIPLE_CHOICE, answers: arrayOfAnswers(3, FORM_TYPES.MULTIPLE_CHOICE), question:""},
+      {type: FORM_TYPES.TEXTBOX, answers: arrayOfAnswers(1, FORM_TYPES.TEXTBOX), question:""},
+      {type: FORM_TYPES.RANGE_INPUT, answers:arrayOfAnswers(1, FORM_TYPES.RANGE_INPUT), question:""},
     ]
   }}); // test code
   const { fields, append, remove } = useFieldArray({control, name:"forms"});
@@ -131,13 +138,13 @@ export const AddQuestions = () => {
   const displayForm = (item) => {
     const formType = item.type;
     switch(formType){
-      case 'checkbox':
+      case FORM_TYPES.CHECKBOX:
         return <CheckboxForm />
-      case 'multipleChoice':
+      case FORM_TYPES.MULTIPLE_CHOICE:
         return <MultipleChoiceForm />
-      case 'rangeInput':
+      case FORM_TYPES.RANGE_INPUT:
         return <RatingScaleForm />
-      case 'textBox':
+      case FORM_TYPES.TEXTBOX:
         return <TextBoxForm />
       default:
         return null;
@@ -153,8 +160,8 @@ export const AddQuestions = () => {
         <SaveAddButtons
           handleAddQuestion={() =>
             append({
-              type: "checkbox",
-              answers: arrayOfAnswers(3, "checkbox"),
+              type: FORM_TYPES.CHECKBOX,
+              answers: arrayOfAnswers(3, FORM_TYPES.CHECKBOX),
               question: "",
             })
           } // test
