@@ -106,9 +106,10 @@ import { useForm, useFieldArray } from "react-hook-form";
 //   );
 // };
 
-const arrayOfAnswers = (questionsNumber, type) =>
-  Array.from({ length: questionsNumber }, (_, i) => ({
-    id: i + 1,
+// create an array of answers
+const arrayOfAnswers = (numOfQuestions, type) =>
+  Array.from({ length: numOfQuestions }, (_, i) => ({
+    id: `${i + 1}`,
     question: "",
     answer: "",
     isCorrect: false,
