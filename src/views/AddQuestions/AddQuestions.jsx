@@ -116,40 +116,57 @@ const arrayOfAnswers = (numOfQuestions, type) =>
 }));
 
 const FORM_TYPES = {
-  'CHECKBOX':'checkbox',
-  'MULTIPLE_CHOICE': 'multipleChoice',
-  'TEXTBOX': 'textBox',
-  'RANGE_INPUT': 'rangeInput'
-} 
+  CHECKBOX: "checkbox",
+  MULTIPLE_CHOICE: "multipleChoice",
+  TEXTBOX: "textBox",
+  RANGE_INPUT: "rangeInput",
+};
 
 export const AddQuestions = () => {
-  const { control, register, watch, setValue } = useForm({defaultValues:{
-    forms: [
-      {type: FORM_TYPES.CHECKBOX, answers:arrayOfAnswers(3, FORM_TYPES.CHECKBOX), question:""},
-      {type: FORM_TYPES.MULTIPLE_CHOICE, answers: arrayOfAnswers(3, FORM_TYPES.MULTIPLE_CHOICE), question:""},
-      {type: FORM_TYPES.TEXTBOX, answers: arrayOfAnswers(1, FORM_TYPES.TEXTBOX), question:""},
-      {type: FORM_TYPES.RANGE_INPUT, answers:arrayOfAnswers(1, FORM_TYPES.RANGE_INPUT), question:""},
-    ]
-  }});
-  const { fields, append, remove } = useFieldArray({control, name:"forms"});
-  console.log("FIELDS:",fields);
+  const { control, register, watch, setValue } = useForm({
+    defaultValues: {
+      forms: [
+        {
+          type: FORM_TYPES.CHECKBOX,
+          answers: arrayOfAnswers(3, FORM_TYPES.CHECKBOX),
+          question: "",
+        },
+        {
+          type: FORM_TYPES.MULTIPLE_CHOICE,
+          answers: arrayOfAnswers(3, FORM_TYPES.MULTIPLE_CHOICE),
+          question: "",
+        },
+        {
+          type: FORM_TYPES.TEXTBOX,
+          answers: arrayOfAnswers(1, FORM_TYPES.TEXTBOX),
+          question: "",
+        },
+        {
+          type: FORM_TYPES.RANGE_INPUT,
+          answers: arrayOfAnswers(1, FORM_TYPES.RANGE_INPUT),
+          question: "",
+        },
+      ],
+    },
+  });
+  const { fields, append, remove } = useFieldArray({ control, name: "forms" });
+  console.log("FIELDS:", fields);
 
-  
   const displayForm = (item) => {
     const formType = item.type;
-    switch(formType){
+    switch (formType) {
       case FORM_TYPES.CHECKBOX:
-        return <CheckboxForm />
+        return <CheckboxForm />;
       case FORM_TYPES.MULTIPLE_CHOICE:
-        return <MultipleChoiceForm />
+        return <MultipleChoiceForm />;
       case FORM_TYPES.RANGE_INPUT:
-        return <RatingScaleForm />
+        return <RatingScaleForm />;
       case FORM_TYPES.TEXTBOX:
-        return <TextBoxForm />
+        return <TextBoxForm />;
       default:
         return null;
     }
-  }
+  };
   return (
     <SAddQuestionsMainDiv>
       <FourthHeader />
@@ -169,4 +186,4 @@ export const AddQuestions = () => {
       </SAddQuestionsContainer>
     </SAddQuestionsMainDiv>
   );
-}
+};
