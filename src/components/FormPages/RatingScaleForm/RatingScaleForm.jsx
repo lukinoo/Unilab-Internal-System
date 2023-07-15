@@ -39,7 +39,7 @@ export const RatingScaleForm = ({name}) => {
       <SRangeInputLabel>პასუხები</SRangeInputLabel>
       <RangeInput
         rangeValue={rangeValues[rangeValue]}
-        name={name}
+        name={'RangeInput'} // test code
         firstRangeLabel={firstRangeLabel}
         secondRangeLabel={secondRangeLabel}
       />
