@@ -19,7 +19,6 @@ import { RatingScaleForm } from "../../components/FormPages/RatingScaleForm";
 import { SAddQuestionsMainDiv, STitle, SAddQuestionsContainer } from "./AddQuestions.styled";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { useForm, useFieldArray } from "react-hook-form";
-import { RatingScaleForm } from "../../components/FormPages/RatingScaleForm/RatingScaleForm";
 
 
 // const items = {
@@ -107,24 +106,33 @@ import { RatingScaleForm } from "../../components/FormPages/RatingScaleForm/Rati
 //   );
 // };
 
+const arrayOfAnswers = (questionsNumber, type) =>
+  Array.from({ length: questionsNumber }, (_, i) => ({
+    id: i + 1,
+    question: "",
+    answer: "",
+    isCorrect: false,
+    type,
+}));
 
 export const AddQuestions = () => {
   const { control, register, watch } = useForm({defaultValues:{
     forms: [
-      {type: "checkbox", answers:[{},{},{}]},
-      {type: "multipleChoice", answers:[{},{},{}]},
-      {type: "textBox", answers:[{}]},
-      {type: "rangeInput", answers:[{}]},
+      {type: "checkbox", answers:arrayOfAnswers(3, 'checkbox')},
+      {type: "multipleChoice", answers: arrayOfAnswers(3, 'multipleChoice')},
+      {type: "textBox", answers: arrayOfAnswers(1, 'textbox')},
+      {type: "rangeInput", answers:arrayOfAnswers(1, 'rangeInput')},
     ]
   }}); // test code
   const { fields, append, remove } = useFieldArray({control, name:"forms"});
   console.log("FIELDS:",fields);
   
   // test code; replace hardcoded variables;
-  const displayForm = (formName) => {
-    switch(formName){
+  const displayForm = (item) => {
+    const formType = item.type;
+    switch(formType){
       case 'checkbox':
-        return <CheckboxForm />
+        return <CheckboxForm {...item}/>
       case 'multipleChoice':
         return <MultipleChoiceForm />
       case 'rangeInput':
@@ -141,7 +149,7 @@ export const AddQuestions = () => {
       {/* SIDEBAR GOES HERE */}
       <STitle>კითხვების შედგენა</STitle>
       <SAddQuestionsContainer>
-        {fields.map((item, index) => displayForm(item.type))}
+        {fields.map((item, index) => displayForm(item))}
         <SaveAddButtons
           handleAddQuestion={() => append({ type: "checkbox", answers:[{},{},{}] })} // test
         />
