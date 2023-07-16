@@ -171,7 +171,13 @@ export const AddQuestions = () => {
           />
         );
       case FORM_TYPES.MULTIPLE_CHOICE:
-        return <MultipleChoiceForm />;
+        return (
+          <MultipleChoiceForm
+            formIndex={index}
+            changeAnswersArray={changeAnswersArray}
+            item={item}
+          />
+        );
       case FORM_TYPES.RANGE_INPUT:
         return <RatingScaleForm />;
       case FORM_TYPES.TEXTBOX:
