@@ -158,6 +158,11 @@ export const AddQuestions = () => {
     setValue('forms', forms);
   };
 
+  const addAnswer = (formIndex, newAnswer) => {
+    const forms = [...getValues().forms];
+    forms[formIndex].answers = [...forms[formIndex].answers, newAnswer];
+    setValue('forms', forms);
+  };
 
   const displayForm = (item, index) => {
     const formType = item.type;
@@ -168,6 +173,7 @@ export const AddQuestions = () => {
             formIndex={index}
             changeAnswersArray={changeAnswersArray}
             item={item}
+            addAnswer={addAnswer}
           />
         );
       case FORM_TYPES.MULTIPLE_CHOICE:
