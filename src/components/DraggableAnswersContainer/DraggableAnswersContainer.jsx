@@ -13,9 +13,10 @@ import XSvg from "/assets/svg/whiteX.svg";
 
 export const DraggableAnswersContainer = ({
   answers, 
-  setAnswers,
   deleteAnswer,
   type,
+  changeAnswersArray,
+  formIndex
 }) => {
   let optionSelector; // define a variable to display option selector;
   if (type.toLowerCase() === 'checkbox') {
@@ -33,15 +34,21 @@ export const DraggableAnswersContainer = ({
     const [reorderedItem] = newAnswers.splice(result.source.index, 1);
     newAnswers.splice(result.destination.index, 0, reorderedItem);
 
-    setAnswers(newAnswers);
+    changeAnswersArray(formIndex, newAnswers);
   };
 
   const handleInputChange = (e, id) => {
     const value = e.target.value;
     const index = answers.findIndex((answer) => answer.id === id);
     const updatedAnswers = [...answers];
-    updatedAnswers[index] = { id, content: value };
-    setAnswers(updatedAnswers);
+    updatedAnswers[index] = {
+      id,
+      content: value,
+      isCorrect: false,
+      type,
+    };
+
+    changeAnswersArray(formIndex, updatedAnswers);
   };
 
   return (
@@ -67,7 +74,7 @@ export const DraggableAnswersContainer = ({
                           <SCross
                             src={XSvg}
                             alt=""
-                            onClick={() => deleteAnswer(item.id)}
+                            onClick={() => deleteAnswer(formIndex, item.id)}
                           />
                         }
                         onChange={(e) => handleInputChange(e, item.id)}

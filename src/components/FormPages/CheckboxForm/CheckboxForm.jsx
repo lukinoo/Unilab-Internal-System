@@ -14,23 +14,30 @@ const items = {
   4: "Rating Scale",
 };
 
-export const CheckboxForm = () => {
-  const [answers, setAnswers] = useState([
-    { id: "1", content: "" },
-    { id: "2", content: "" },
-    { id: "3", content: "" },
-  ]);
+export const CheckboxForm = ({
+  item,
+  formIndex,
+  changeAnswersArray,
+  addAnswer,
+  deleteAnswer,
+  changeQuestion,
+}) => {
+  const answers = item.answers
   const [questionTypeId, setQuestionTypeId] = useState(1);  // Temporary code 
 
-  const deleteAnswer = (id) => {
-    const newAnswers = [...answers].filter((answer) => answer.id !== id);
-    setAnswers(newAnswers);
-  }; // Temporary code 
-
-  const addAnswer = () => {
-    const ids = answers.map(obj => obj.id);
+  const handleAddAnswer = () => {
+    const ids = answers.map((obj) => obj.id);
     const largestId = Math.max(...ids) | 0;
-    setAnswers((prevAnswers) => [...prevAnswers, { id: `${largestId+1}`, content: "" }]);
+    addAnswer(formIndex, {
+      id: `${largestId + 1}`,
+      content: "",
+      isCorrect: false,
+      type: items[questionTypeId],
+    });
+  };
+
+  const handleQuestionChange = (value) => {
+    changeQuestion(formIndex, value);
   };
 
   return (
@@ -38,21 +45,23 @@ export const CheckboxForm = () => {
       <FormHeader
         questionTypeId={questionTypeId}
         setQuestionTypeId={setQuestionTypeId}
+        handleQuestionChange={handleQuestionChange}
       />
       <SFormBodyDiv>
         <h3>პასუხები:</h3>
         <DraggableAnswersContainer
           type={items[questionTypeId]}
           answers={answers}
-          setAnswers={setAnswers}
           deleteAnswer={deleteAnswer}
+          changeAnswersArray={changeAnswersArray}
+          formIndex={formIndex}
         />
         <Button
           width="13.5rem"
           height="3rem"
           fontSize=".875rem"
           LeftComponent={<SPlusIcon src={plusSvg} alt="" />}
-          onClick={addAnswer}
+          onClick={handleAddAnswer}
         >
           პასუხის დამატება
         </Button>

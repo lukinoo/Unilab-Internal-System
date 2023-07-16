@@ -14,12 +14,13 @@ const items = {
 
 export const FormHeader = ({
   questionTypeId,
-  setQuestionTypeId
+  setQuestionTypeId,
+  handleQuestionChange,
 }) => {
   return (
     <SFormHeaderContainer>
       <SFormHeaderDiv marginRight>
-        <QuestionInput />
+        <QuestionInput handleQuestionChange={handleQuestionChange}/>
         <QuestionDescription marginTop="1.125rem" />
       </SFormHeaderDiv>
       <SFormHeaderDiv>

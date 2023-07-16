@@ -13,7 +13,7 @@ export const SQuestionTypeDropdownButton = styled(SDropdownButton)`
   color: #ffffff;
 `
 export const SQuestionTypeDropdownList = styled(SDropdownList)`
-  background-color: transparent;
+  background-color: #090707;
   border: .0625rem solid #ffffff;
   padding: 1.2rem 1rem;
   width: ${({width})=>width};

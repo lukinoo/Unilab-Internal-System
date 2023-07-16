@@ -19,7 +19,6 @@ import { RatingScaleForm } from "../../components/FormPages/RatingScaleForm";
 import { SAddQuestionsMainDiv, STitle, SAddQuestionsContainer } from "./AddQuestions.styled";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { useForm, useFieldArray } from "react-hook-form";
-import { RatingScaleForm } from "../../components/FormPages/RatingScaleForm/RatingScaleForm";
 
 
 // const items = {
@@ -107,45 +106,126 @@ import { RatingScaleForm } from "../../components/FormPages/RatingScaleForm/Rati
 //   );
 // };
 
+// create an array of answers
+const arrayOfAnswers = (numOfQuestions, type) =>
+  Array.from({ length: numOfQuestions }, (_, i) => ({
+    id: `${i + 1}`,
+    content: "",
+    isCorrect: false,
+    type,
+}));
+
+const FORM_TYPES = {
+  CHECKBOX: "checkbox",
+  MULTIPLE_CHOICE: "multipleChoice",
+  TEXTBOX: "textBox",
+  RANGE_INPUT: "rangeInput",
+};
 
 export const AddQuestions = () => {
-  const { control, register, watch } = useForm({defaultValues:{
-    forms: [
-      {type: "checkbox", answers:[{},{},{}]},
-      {type: "multipleChoice", answers:[{},{},{}]},
-      {type: "textBox", answers:[{}]},
-      {type: "rangeInput", answers:[{}]},
-    ]
-  }}); // test code
-  const { fields, append, remove } = useFieldArray({control, name:"forms"});
-  console.log("FIELDS:",fields);
-  
-  // test code; replace hardcoded variables;
-  const displayForm = (formName) => {
-    switch(formName){
-      case 'checkbox':
-        return <CheckboxForm />
-      case 'multipleChoice':
-        return <MultipleChoiceForm />
-      case 'rangeInput':
-        return <RatingScaleForm />
-      case 'textBox':
-        return <TextBoxForm />
+  const { control, register, watch, setValue, getValues } = useForm({
+    defaultValues: {
+      forms: [
+        {
+          type: FORM_TYPES.CHECKBOX,
+          answers: arrayOfAnswers(3, FORM_TYPES.CHECKBOX),
+          question: "",
+        },
+        {
+          type: FORM_TYPES.MULTIPLE_CHOICE,
+          answers: arrayOfAnswers(3, FORM_TYPES.MULTIPLE_CHOICE),
+          question: "",
+        },
+        {
+          type: FORM_TYPES.TEXTBOX,
+          answers: arrayOfAnswers(1, FORM_TYPES.TEXTBOX),
+          question: "",
+        },
+        {
+          type: FORM_TYPES.RANGE_INPUT,
+          answers: arrayOfAnswers(1, FORM_TYPES.RANGE_INPUT),
+          question: "",
+        },
+      ],
+    },
+  });
+  const { fields, append, remove } = useFieldArray({ control, name: "forms" });
+  console.log("FIELDS:", fields);
+
+  const changeAnswersArray = (formIndex, newAnswersArray) => {
+    const forms = [...getValues().forms];
+    forms[formIndex].answers = newAnswersArray;
+    setValue('forms', forms);
+  };
+
+  const addAnswer = (formIndex, newAnswer) => {
+    const forms = [...getValues().forms];
+    forms[formIndex].answers = [...forms[formIndex].answers, newAnswer];
+    setValue('forms', forms);
+  };
+
+  const deleteAnswer = (formIndex, id) => {
+    const forms = [...getValues().forms];
+    forms[formIndex].answers = forms[formIndex].answers.filter(answerObj=>answerObj.id !== id);
+    setValue('forms', forms);
+  }
+
+  const changeQuestion = (formIndex, question) => {
+    const forms = [...getValues().forms];
+    forms[formIndex].question = question;
+    setValue('forms', forms);
+  }
+
+  const displayForm = (item, index) => {
+    const formType = item.type;
+    switch (formType) {
+      case FORM_TYPES.CHECKBOX:
+        return (
+          <CheckboxForm
+            formIndex={index}
+            changeAnswersArray={changeAnswersArray}
+            item={item}
+            addAnswer={addAnswer}
+            deleteAnswer={deleteAnswer}
+            changeQuestion={changeQuestion}
+          />
+        );
+      case FORM_TYPES.MULTIPLE_CHOICE:
+        return (
+          <MultipleChoiceForm
+            formIndex={index}
+            changeAnswersArray={changeAnswersArray}
+            item={item}
+            addAnswer={addAnswer}
+            deleteAnswer={deleteAnswer}
+            changeQuestion={changeQuestion}
+          />
+        );
+      case FORM_TYPES.RANGE_INPUT:
+        return <RatingScaleForm />;
+      case FORM_TYPES.TEXTBOX:
+        return <TextBoxForm />;
       default:
         return null;
     }
-  }
+  };
   return (
     <SAddQuestionsMainDiv>
       <FourthHeader />
       {/* SIDEBAR GOES HERE */}
       <STitle>კითხვების შედგენა</STitle>
       <SAddQuestionsContainer>
-        {fields.map((item, index) => displayForm(item.type))}
+        {fields.map((item, index) => displayForm(item, index))}
         <SaveAddButtons
-          handleAddQuestion={() => append({ type: "checkbox", answers:[{},{},{}] })} // test
+          handleAddQuestion={() =>
+            append({
+              type: FORM_TYPES.CHECKBOX,
+              answers: arrayOfAnswers(3, FORM_TYPES.CHECKBOX),
+              question: "",
+            })
+          }
         />
       </SAddQuestionsContainer>
     </SAddQuestionsMainDiv>
   );
-}
+};
