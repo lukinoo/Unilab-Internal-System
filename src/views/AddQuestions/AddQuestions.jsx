@@ -189,6 +189,8 @@ export const AddQuestions = () => {
             formIndex={index}
             changeAnswersArray={changeAnswersArray}
             item={item}
+            addAnswer={addAnswer}
+            deleteAnswer={deleteAnswer}
           />
         );
       case FORM_TYPES.RANGE_INPUT:
