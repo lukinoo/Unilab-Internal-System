@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const SFormBodyDiv = styled.div`
   position: relative;
-  height: 15rem;
+  min-height: 15rem;
+  height: fit-content;
   display:flex;
   flex-direction: column;
   justify-content: space-between;
