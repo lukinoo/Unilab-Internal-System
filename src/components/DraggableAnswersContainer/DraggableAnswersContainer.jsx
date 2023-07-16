@@ -13,9 +13,10 @@ import XSvg from "/assets/svg/whiteX.svg";
 
 export const DraggableAnswersContainer = ({
   answers, 
-  setAnswers,
-  deleteAnswer,
+  deleteAnswer, // must be removed
   type,
+  changeAnswersArray,
+  formIndex
 }) => {
   let optionSelector; // define a variable to display option selector;
   if (type.toLowerCase() === 'checkbox') {
@@ -33,7 +34,7 @@ export const DraggableAnswersContainer = ({
     const [reorderedItem] = newAnswers.splice(result.source.index, 1);
     newAnswers.splice(result.destination.index, 0, reorderedItem);
 
-    setAnswers(newAnswers);
+    changeAnswersArray(formIndex, newAnswers);
   };
 
   const handleInputChange = (e, id) => {
@@ -41,7 +42,8 @@ export const DraggableAnswersContainer = ({
     const index = answers.findIndex((answer) => answer.id === id);
     const updatedAnswers = [...answers];
     updatedAnswers[index] = { id, content: value };
-    setAnswers(updatedAnswers);
+
+    changeAnswersArray(formIndex, updatedAnswers);
   };
 
   return (
