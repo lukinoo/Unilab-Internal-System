@@ -123,7 +123,7 @@ const FORM_TYPES = {
 };
 
 export const AddQuestions = () => {
-  const { control, register, watch, setValue } = useForm({
+  const { control, register, watch, setValue, getValues } = useForm({
     defaultValues: {
       forms: [
         {
@@ -152,11 +152,24 @@ export const AddQuestions = () => {
   const { fields, append, remove } = useFieldArray({ control, name: "forms" });
   console.log("FIELDS:", fields);
 
-  const displayForm = (item) => {
+  const changeAnswersArray = (formIndex, newAnswersArray) => {
+    const forms = [...getValues().forms];
+    forms[formIndex].answers = newAnswersArray;
+    setValue('forms', forms);
+  };
+
+
+  const displayForm = (item, index) => {
     const formType = item.type;
     switch (formType) {
       case FORM_TYPES.CHECKBOX:
-        return <CheckboxForm />;
+        return (
+          <CheckboxForm
+            formIndex={index}
+            changeAnswersArray={changeAnswersArray}
+            item={item}
+          />
+        );
       case FORM_TYPES.MULTIPLE_CHOICE:
         return <MultipleChoiceForm />;
       case FORM_TYPES.RANGE_INPUT:
@@ -173,7 +186,7 @@ export const AddQuestions = () => {
       {/* SIDEBAR GOES HERE */}
       <STitle>კითხვების შედგენა</STitle>
       <SAddQuestionsContainer>
-        {fields.map((item, index) => displayForm(item))}
+        {fields.map((item, index) => displayForm(item, index))}
         <SaveAddButtons
           handleAddQuestion={() =>
             append({
