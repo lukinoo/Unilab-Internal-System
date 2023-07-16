@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FormHeader } from "../FormHeader/FormHeader";
 import { RangeLabelInput } from "../../Inputs/RangeLabelInput";
 import { QuestionTypeDropdown } from "../../Inputs/QuestionTypeDropdown";
-import { SFormHeaderContainer } from "../FormHeader/FormHeader.styled";
+
 import {
   SRangeInputLabel,
   SRangeLabelInputsContainer,
