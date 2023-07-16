@@ -74,7 +74,7 @@ export const DraggableAnswersContainer = ({
                           <SCross
                             src={XSvg}
                             alt=""
-                            onClick={() => deleteAnswer(item.id)}
+                            onClick={() => deleteAnswer(formIndex, item.id)}
                           />
                         }
                         onChange={(e) => handleInputChange(e, item.id)}
