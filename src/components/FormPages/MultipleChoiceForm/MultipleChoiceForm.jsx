@@ -20,7 +20,8 @@ export const MultipleChoiceForm = ({
   changeAnswersArray,
   addAnswer,
   deleteAnswer,
-  changeQuestion
+  changeQuestion,
+  handleRemoveForm
 }) => {
   const answers = item.answers;
   const [questionTypeId, setQuestionTypeId] = useState(2); // Temporary code
@@ -46,6 +47,7 @@ export const MultipleChoiceForm = ({
         questionTypeId={questionTypeId}
         setQuestionTypeId={setQuestionTypeId}
         handleQuestionChange={handleQuestionChange}
+        handleRemoveForm={handleRemoveForm}
       />
       <SFormBodyDiv>
         <h3>პასუხები:</h3>

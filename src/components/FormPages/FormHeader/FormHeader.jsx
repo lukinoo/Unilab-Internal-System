@@ -16,6 +16,7 @@ export const FormHeader = ({
   questionTypeId,
   setQuestionTypeId,
   handleQuestionChange,
+  handleRemoveForm
 }) => {
   return (
     <SFormHeaderContainer>
@@ -30,7 +31,7 @@ export const FormHeader = ({
           value={questionTypeId}
           showImgs={true}
         />
-        <DuplicateDeleteButtons />
+        <DuplicateDeleteButtons handleRemoveForm={handleRemoveForm}/>
       </SFormHeaderDiv>
     </SFormHeaderContainer>
   )

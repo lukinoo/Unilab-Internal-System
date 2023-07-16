@@ -11,7 +11,10 @@ import { RangeInput } from "../../Inputs/RangeInput/RangeInput";
 
 const rangeValues = [ 3, 4, 5, 6, 7, 8, 9];
 
-export const RatingScaleForm = ({name}) => {
+export const RatingScaleForm = ({
+  name,
+  handleRemoveForm
+}) => {
   
   const [firstRangeLabel, setFirstRangeLabel] = useState("");
   const [secondRangeLabel, setSecondRangeLabel] = useState("");
@@ -19,7 +22,9 @@ export const RatingScaleForm = ({name}) => {
 
   return (
     <SRatingScaleFormContainer>
-      <FormHeader />
+      <FormHeader 
+        handleRemoveForm={handleRemoveForm}
+      />
       <QuestionTypeDropdown
         action={setRangeValue}
         value={rangeValue}

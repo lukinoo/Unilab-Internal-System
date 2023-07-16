@@ -188,6 +188,7 @@ export const AddQuestions = () => {
             addAnswer={addAnswer}
             deleteAnswer={deleteAnswer}
             changeQuestion={changeQuestion}
+            handleRemoveForm={()=>remove(index)}
           />
         );
       case FORM_TYPES.MULTIPLE_CHOICE:
@@ -199,12 +200,21 @@ export const AddQuestions = () => {
             addAnswer={addAnswer}
             deleteAnswer={deleteAnswer}
             changeQuestion={changeQuestion}
+            handleRemoveForm={()=>remove(index)}
           />
         );
       case FORM_TYPES.RANGE_INPUT:
-        return <RatingScaleForm />;
+        return (
+          <RatingScaleForm 
+            handleRemoveForm={()=>remove(index)}
+          />
+        );
       case FORM_TYPES.TEXTBOX:
-        return <TextBoxForm />;
+        return (
+          <TextBoxForm 
+            handleRemoveForm={()=>remove(index)}
+          />
+        );
       default:
         return null;
     }
