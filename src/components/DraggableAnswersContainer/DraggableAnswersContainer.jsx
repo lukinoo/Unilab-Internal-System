@@ -13,7 +13,7 @@ import XSvg from "/assets/svg/whiteX.svg";
 
 export const DraggableAnswersContainer = ({
   answers, 
-  deleteAnswer, // must be removed
+  deleteAnswer,
   type,
   changeAnswersArray,
   formIndex
@@ -41,7 +41,12 @@ export const DraggableAnswersContainer = ({
     const value = e.target.value;
     const index = answers.findIndex((answer) => answer.id === id);
     const updatedAnswers = [...answers];
-    updatedAnswers[index] = { id, content: value };
+    updatedAnswers[index] = {
+      id,
+      content: value,
+      isCorrect: false,
+      type,
+    };
 
     changeAnswersArray(formIndex, updatedAnswers);
   };
