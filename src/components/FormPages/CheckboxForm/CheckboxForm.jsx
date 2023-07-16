@@ -21,6 +21,7 @@ export const CheckboxForm = ({
   addAnswer,
   deleteAnswer,
   changeQuestion,
+  handleRemoveForm
 }) => {
   const answers = item.answers
   const [questionTypeId, setQuestionTypeId] = useState(1);  // Temporary code 
@@ -46,6 +47,7 @@ export const CheckboxForm = ({
         questionTypeId={questionTypeId}
         setQuestionTypeId={setQuestionTypeId}
         handleQuestionChange={handleQuestionChange}
+        handleRemoveForm={handleRemoveForm}
       />
       <SFormBodyDiv>
         <h3>პასუხები:</h3>
