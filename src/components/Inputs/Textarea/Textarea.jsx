@@ -1,21 +1,22 @@
-import { SLabel } from "../Input/Input.styled";
-import { STextarea, STextareaWrapper } from "./Textarea.styled";
+import { STextarea } from "./Textarea.styled";
 import { useController } from "react-hook-form";
 
-export const Textarea = ({ name, control, placeholder, label }) => {
+export const Textarea = ({ name, control, placeholder, bgColor, color, resize, width, height}) => {
   const {
     field: { value, onChange },
   } = useController({ name, control });
 
   return (
-    <STextareaWrapper>
-      <SLabel htmlFor={name}>{label}</SLabel>
-      <STextarea
-        onChange={onChange}
-        placeholder={placeholder}
-        control={control}
-        name={name}
-      />
-    </STextareaWrapper>
+    <STextarea
+      onChange={onChange}
+      placeholder={placeholder}
+      control={control}
+      name={name}
+      bgColor={bgColor}
+      color={color}
+      resize={resize}
+      width={width}
+      height={height}
+    />
   );
 };
