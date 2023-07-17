@@ -21,7 +21,8 @@ export const CheckboxForm = ({
   addAnswer,
   deleteAnswer,
   changeQuestion,
-  handleRemoveForm
+  handleRemoveForm,
+  handleMarkAnswer
 }) => {
   const answers = item.answers
   const [questionTypeId, setQuestionTypeId] = useState(1);  // Temporary code 
@@ -57,6 +58,7 @@ export const CheckboxForm = ({
           deleteAnswer={deleteAnswer}
           changeAnswersArray={changeAnswersArray}
           formIndex={formIndex}
+          handleMarkAnswer={handleMarkAnswer}
         />
         <Button
           width="13.5rem"
