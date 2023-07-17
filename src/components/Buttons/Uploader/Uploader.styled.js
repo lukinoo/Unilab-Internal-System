@@ -93,7 +93,7 @@ export const STitle = styled.p`
 `;
 
 export const SDesk = styled.span`
-  font-size: 0.75rem;
+  font-size: 0.688rem;
   font-style: italic;
   display: block;
 `;
@@ -104,6 +104,7 @@ export const UploadContentWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  cursor: pointer;
 `;
 
 export const SFileUpload = styled.div`

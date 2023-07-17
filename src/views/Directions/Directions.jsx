@@ -70,10 +70,10 @@ export const Directions = () => {
         </SInputForm>
 
         <SUploaderContainer>
-          <Uploader title="კურსის სილაბუსი" />
-          <Uploader title="სტაჟირების სილაბუსი" />
-          <Uploader title="სცადე,ისწავლე ასწავლე" />
-          <Uploader title="უნილაბი სკოლაში" />
+          <Uploader title="კურსის სილაბუსი" name="ატვირთე სილაბუსი" />
+          <Uploader title="სტაჟირების სილაბუსი" name="ატვირთე სილაბუსი" />
+          <Uploader title="სცადე,ისწავლე ასწავლე" name="ატვირთე სილაბუსი" />
+          <Uploader title="უნილაბი სკოლაში" name="ატვირთე სილაბუსი" />
         </SUploaderContainer>
 
         <SAdditionalResources>

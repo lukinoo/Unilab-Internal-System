@@ -1,5 +1,5 @@
-import { STextarea } from './Textarea.styled';
-import { useController } from 'react-hook-form';
+import { STextarea } from "./Textarea.styled";
+import { useController } from "react-hook-form";
 
 export const Textarea = ({ name, control, placeholder, bgColor, color, resize, width, height}) => {
   const {

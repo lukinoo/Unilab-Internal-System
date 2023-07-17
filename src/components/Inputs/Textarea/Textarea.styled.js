@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const STextarea = styled.textarea`
   width: ${({width})=>width ? width : '41.3125rem'};
@@ -11,11 +11,11 @@ export const STextarea = styled.textarea`
   background-color: ${({bgColor})=> bgColor ? bgColor : '#ffffff'};
   color: ${({color})=>color};
   resize: ${({resize})=> !resize ? 'none' : 'both' };
-  &:focus{
+  &:focus {
     outline: none;
     border: .0625rem solid #2984CE;
   }
   &::placeholder {
     font-family: "FiraGO";
   }
-`
+`;
