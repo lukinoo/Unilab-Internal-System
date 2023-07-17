@@ -16,14 +16,33 @@ export const DraggableAnswersContainer = ({
   deleteAnswer,
   type,
   changeAnswersArray,
-  formIndex
+  formIndex,
+  handleMarkAnswer
 }) => {
-  let optionSelector; // define a variable to display option selector;
-  if (type.toLowerCase() === 'checkbox') {
-    optionSelector = <SCheckbox type="checkbox" name="answer" />;
-  } else if (type.toLowerCase() === 'multiple choice') {
-    optionSelector = <SRadioButton type="radio" name="answer" />;
-  }
+  //  define a variable to display option selector;
+  const optionSelector = (answerIndex) => {
+    if (type.toLowerCase() === "checkbox") {
+      return (
+        <SCheckbox
+          type="checkbox"
+          name="answer"
+          onClick={() => {
+            handleMarkAnswer(formIndex, answerIndex);
+          }}
+        />
+      );
+    } else if (type.toLowerCase() === "multiple choice") {
+      return (
+        <SRadioButton
+          type="radio"
+          name="answer"
+          onClick={() => {
+            handleMarkAnswer(formIndex, answerIndex);
+          }}
+        />
+      );
+    }
+  };
 
   const handleDragEnd = (result) => {
     if (!result.destination) {
@@ -69,7 +88,7 @@ export const DraggableAnswersContainer = ({
                         type="text"
                         width={"47rem"}
                         LeftComponent={<img src={dragIconSvg} alt="" />}
-                        OptionSelector={optionSelector}
+                        OptionSelector={optionSelector(index)}
                         RightComponent={
                           <SCross
                             src={XSvg}
