@@ -176,6 +176,23 @@ export const AddQuestions = () => {
     setValue('forms', forms);
   }
 
+  const handleMarkCheckboxAnswer = (formIndex, answerIndex) => {
+    const forms = [...getValues().forms];
+    const answerObj = forms[formIndex].answers[answerIndex];
+    answerObj.isCorrect = !answerObj.isCorrect;
+    forms[formIndex].answers[answerIndex] = answerObj;
+    setValue('forms', forms);
+  }
+
+  const handleMarkRadioAnswer = (formIndex, answerIndex) =>{
+    const forms = [...getValues().forms];
+    const answers = forms[formIndex].answers;
+    for (let i = 0; i < answers.length; i++) {
+      answers[i].isCorrect = i === answerIndex;
+    }
+    setValue('forms', forms);
+  }
+
   const displayForm = (item, index) => {
     const formType = item.type;
     switch (formType) {
@@ -189,6 +206,7 @@ export const AddQuestions = () => {
             deleteAnswer={deleteAnswer}
             changeQuestion={changeQuestion}
             handleRemoveForm={()=>remove(index)}
+            handleMarkAnswer={handleMarkCheckboxAnswer}
           />
         );
       case FORM_TYPES.MULTIPLE_CHOICE:
@@ -201,6 +219,7 @@ export const AddQuestions = () => {
             deleteAnswer={deleteAnswer}
             changeQuestion={changeQuestion}
             handleRemoveForm={()=>remove(index)}
+            handleMarkAnswer={handleMarkRadioAnswer}
           />
         );
       case FORM_TYPES.RANGE_INPUT:
