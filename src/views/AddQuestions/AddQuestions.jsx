@@ -10,16 +10,18 @@ import { TextareaAnswer } from "../../components/TextareaAnswer";
 import { RangeInput } from "../../components/Inputs/RangeInput/RangeInput";
 import { RangeLabelInput } from "../../components/Inputs/RangeLabelInput";
 
-
 import { SaveAddButtons } from "../../components/Buttons/SaveAddButtons";
 import { CheckboxForm } from "../../components/FormPages/CheckboxForm";
 import { MultipleChoiceForm } from "../../components/FormPages/MultipleChoiceForm";
 import { TextBoxForm } from "../../components/FormPages/TextBoxForm";
 import { RatingScaleForm } from "../../components/FormPages/RatingScaleForm";
-import { SAddQuestionsMainDiv, STitle, SAddQuestionsContainer } from "./AddQuestions.styled";
+import {
+  SAddQuestionsMainDiv,
+  STitle,
+  SAddQuestionsContainer,
+} from "./AddQuestions.styled";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { useForm, useFieldArray } from "react-hook-form";
-
 
 // const items = {
 //   1: "Checkbox",
@@ -42,7 +44,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 //     { id: "3", content: "" },
 //   ]);
 //   const [rangeValue, setRangeValue] = useState(0);
-  
+
 //   const { control } = useForm(); // just a test code for textarea
 
 //   const addAnswer = () => {
@@ -50,7 +52,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 //     const largestId = Math.max(...ids) | 0;
 //     setAnswers((prevAnswers) => [...prevAnswers, { id: `${largestId+1}`, content: "" }]);
 //   };
-  
+
 //   const deleteAnswer = (id) => {
 //     const newAnswers = [...answers].filter((answer) => answer.id !== id);
 //     setAnswers(newAnswers);
@@ -113,8 +115,7 @@ const arrayOfAnswers = (numOfQuestions, type) =>
     content: "",
     isCorrect: false,
     type,
-}));
-
+  }));
 
 const indexedFormTypes = {
   1: "Checkbox",
@@ -130,9 +131,8 @@ const FORM_TYPES = {
   RANGE_INPUT: indexedFormTypes[4],
 };
 
-
 export const AddQuestions = () => {
-  const { control, register, watch, setValue, getValues } = useForm({
+  const { control, setValue, getValues } = useForm({
     defaultValues: {
       forms: [
         {
@@ -164,50 +164,52 @@ export const AddQuestions = () => {
   const changeAnswersArray = (formIndex, newAnswersArray) => {
     const forms = [...getValues().forms];
     forms[formIndex].answers = newAnswersArray;
-    setValue('forms', forms);
+    setValue("forms", forms);
   };
 
   const addAnswer = (formIndex, newAnswer) => {
     const forms = [...getValues().forms];
     forms[formIndex].answers = [...forms[formIndex].answers, newAnswer];
-    setValue('forms', forms);
+    setValue("forms", forms);
   };
 
   const deleteAnswer = (formIndex, id) => {
     const forms = [...getValues().forms];
-    forms[formIndex].answers = forms[formIndex].answers.filter(answerObj=>answerObj.id !== id);
-    setValue('forms', forms);
-  }
+    forms[formIndex].answers = forms[formIndex].answers.filter(
+      (answerObj) => answerObj.id !== id
+    );
+    setValue("forms", forms);
+  };
 
   const changeQuestion = (formIndex, question) => {
     const forms = [...getValues().forms];
     forms[formIndex].question = question;
-    setValue('forms', forms);
-  }
+    setValue("forms", forms);
+  };
 
   const handleMarkCheckboxAnswer = (formIndex, answerIndex) => {
     const forms = [...getValues().forms];
     const answerObj = forms[formIndex].answers[answerIndex];
     answerObj.isCorrect = !answerObj.isCorrect;
     forms[formIndex].answers[answerIndex] = answerObj;
-    setValue('forms', forms);
-  }
+    setValue("forms", forms);
+  };
 
-  const handleMarkRadioAnswer = (formIndex, answerIndex) =>{
+  const handleMarkRadioAnswer = (formIndex, answerIndex) => {
     const forms = [...getValues().forms];
     const answers = forms[formIndex].answers;
     for (let i = 0; i < answers.length; i++) {
       answers[i].isCorrect = i === answerIndex;
     }
-    setValue('forms', forms);
-  }
+    setValue("forms", forms);
+  };
 
-  const handleFormTypeChange = (formIndex, newFormTypeId) =>{
+  const handleFormTypeChange = (formIndex, newFormTypeId) => {
     const forms = [...getValues().forms];
     const questionObj = forms[formIndex];
     questionObj.type = indexedFormTypes[newFormTypeId];
-    setValue('forms', forms);
-  }
+    setValue("forms", forms);
+  };
 
   const displayForm = (item, index) => {
     const formType = item.type;
@@ -216,14 +218,13 @@ export const AddQuestions = () => {
         return (
           <CheckboxForm
             indexedFormTypes={indexedFormTypes}
-            formTypes={FORM_TYPES}
             formIndex={index}
             changeAnswersArray={changeAnswersArray}
             item={item}
             addAnswer={addAnswer}
             deleteAnswer={deleteAnswer}
             changeQuestion={changeQuestion}
-            handleRemoveForm={()=>remove(index)}
+            handleRemoveForm={() => remove(index)}
             handleMarkAnswer={handleMarkCheckboxAnswer}
             handleFormTypeChange={handleFormTypeChange}
           />
@@ -231,26 +232,34 @@ export const AddQuestions = () => {
       case FORM_TYPES.MULTIPLE_CHOICE:
         return (
           <MultipleChoiceForm
+            indexedFormTypes={indexedFormTypes}
             formIndex={index}
             changeAnswersArray={changeAnswersArray}
             item={item}
             addAnswer={addAnswer}
             deleteAnswer={deleteAnswer}
             changeQuestion={changeQuestion}
-            handleRemoveForm={()=>remove(index)}
+            handleRemoveForm={() => remove(index)}
             handleMarkAnswer={handleMarkRadioAnswer}
+            handleFormTypeChange={handleFormTypeChange}
           />
         );
       case FORM_TYPES.RANGE_INPUT:
         return (
-          <RatingScaleForm 
-            handleRemoveForm={()=>remove(index)}
+          <RatingScaleForm
+            formIndex={index}
+            handleRemoveForm={() => remove(index)}
+            indexedFormTypes={indexedFormTypes}
+            handleFormTypeChange={handleFormTypeChange}
           />
         );
       case FORM_TYPES.TEXTBOX:
         return (
-          <TextBoxForm 
-            handleRemoveForm={()=>remove(index)}
+          <TextBoxForm
+            formIndex={index}
+            handleRemoveForm={() => remove(index)}
+            indexedFormTypes={indexedFormTypes}
+            handleFormTypeChange={handleFormTypeChange}
           />
         );
       default:
