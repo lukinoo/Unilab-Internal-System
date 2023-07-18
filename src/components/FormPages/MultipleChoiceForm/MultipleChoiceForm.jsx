@@ -22,10 +22,11 @@ export const MultipleChoiceForm = ({
   deleteAnswer,
   changeQuestion,
   handleRemoveForm,
-  handleMarkAnswer
+  handleMarkAnswer,
+  handleFormTypeChange,
+  indexedFormTypes,
 }) => {
   const answers = item.answers;
-  const [questionTypeId, setQuestionTypeId] = useState(2); // Temporary code
 
   const handleAddAnswer = () => {
     const ids = answers.map((obj) => obj.id);
@@ -42,18 +43,22 @@ export const MultipleChoiceForm = ({
     changeQuestion(formIndex, value);
   };
 
+  const setFormType = (newFormTypeId) =>{
+    handleFormTypeChange(formIndex, newFormTypeId);
+  }
+
   return (
     <SFormContainer>
       <FormHeader
-        questionTypeId={questionTypeId}
-        setQuestionTypeId={setQuestionTypeId}
+        indexedFormTypes={indexedFormTypes}
+        setFormType={setFormType}
         handleQuestionChange={handleQuestionChange}
         handleRemoveForm={handleRemoveForm}
       />
       <SFormBodyDiv>
         <h3>პასუხები:</h3>
         <DraggableAnswersContainer
-          type={items[questionTypeId]}
+          type={indexedFormTypes[2]} // temporary code
           answers={answers}
           deleteAnswer={deleteAnswer}
           changeAnswersArray={changeAnswersArray}
