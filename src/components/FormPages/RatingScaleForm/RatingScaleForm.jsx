@@ -8,17 +8,19 @@ import {
   SRatingScaleFormContainer,
 } from "./RatingScaleForm.styled";
 import { RangeInput } from "../../Inputs/RangeInput/RangeInput";
+import { getKeyByValue} from "../../../utils/getKeyByValue";
 
 const rangeValues = [3, 4, 5, 6, 7, 8, 9];
 
 export const RatingScaleForm = ({
+  item,
   name,
   formIndex,
   handleRemoveForm,
   indexedFormTypes,
   handleFormTypeChange,
 }) => {
-  
+
   const [firstRangeLabel, setFirstRangeLabel] = useState("");
   const [secondRangeLabel, setSecondRangeLabel] = useState("");
   const [rangeValue, setRangeValue] = useState(0);
@@ -33,6 +35,7 @@ export const RatingScaleForm = ({
         indexedFormTypes={indexedFormTypes}
         handleRemoveForm={handleRemoveForm}
         setFormType={setFormType}
+        formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
       />
       <QuestionTypeDropdown
         action={setRangeValue}
