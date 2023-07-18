@@ -6,13 +6,7 @@ import { SPlusIcon } from "../../../views/AddQuestions/AddQuestions.styled";
 import plusSvg from "/assets/svg/plus.svg";
 import { Button } from "../../Button/Button";
 import { SFormBodyDiv } from "./MultipleChoiceForm.styled";
-
-const items = {
-  1: "Checkbox",
-  2: "Multiple Choice",
-  3: "Textbox",
-  4: "Rating Scale",
-};
+import { getKeyByValue } from "../../../utils/getKeyByValue";
 
 export const MultipleChoiceForm = ({
   item,
@@ -54,6 +48,7 @@ export const MultipleChoiceForm = ({
         setFormType={setFormType}
         handleQuestionChange={handleQuestionChange}
         handleRemoveForm={handleRemoveForm}
+        formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
       />
       <SFormBodyDiv>
         <h3>პასუხები:</h3>
