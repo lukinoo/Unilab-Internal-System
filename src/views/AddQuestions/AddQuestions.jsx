@@ -207,7 +207,9 @@ export const AddQuestions = () => {
   const handleFormTypeChange = (formIndex, newFormTypeId) => {
     const forms = [...getValues().forms];
     const questionObj = forms[formIndex];
+    const numAnswers = newFormTypeId < 3 ? 3 : 1;
     questionObj.type = indexedFormTypes[newFormTypeId];
+    questionObj.answers = arrayOfAnswers(numAnswers , indexedFormTypes[newFormTypeId])
     setValue("forms", forms);
   };
 
