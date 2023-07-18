@@ -202,12 +202,21 @@ export const AddQuestions = () => {
     setValue('forms', forms);
   }
 
+  const handleFormTypeChange = (formIndex, newFormTypeId) =>{
+    const forms = [...getValues().forms];
+    const questionObj = forms[formIndex];
+    questionObj.type = indexedFormTypes[newFormTypeId];
+    setValue('forms', forms);
+  }
+
   const displayForm = (item, index) => {
     const formType = item.type;
     switch (formType) {
       case FORM_TYPES.CHECKBOX:
         return (
           <CheckboxForm
+            indexedFormTypes={indexedFormTypes}
+            formTypes={FORM_TYPES}
             formIndex={index}
             changeAnswersArray={changeAnswersArray}
             item={item}
@@ -216,6 +225,7 @@ export const AddQuestions = () => {
             changeQuestion={changeQuestion}
             handleRemoveForm={()=>remove(index)}
             handleMarkAnswer={handleMarkCheckboxAnswer}
+            handleFormTypeChange={handleFormTypeChange}
           />
         );
       case FORM_TYPES.MULTIPLE_CHOICE:
