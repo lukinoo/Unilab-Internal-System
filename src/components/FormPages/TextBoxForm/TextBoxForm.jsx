@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form";
 import { TextareaAnswer } from "../../TextareaAnswer";
 import { SFormContainer } from "../CheckboxForm/CheckboxForm.styled";
 import { STextboxDiv } from "./TextBoxForm.styled";
+import { getKeyByValue} from "../../../utils/getKeyByValue";
 
 export const TextBoxForm = ({
+  item,
   formIndex,
   handleRemoveForm,
   indexedFormTypes,
@@ -26,6 +28,7 @@ export const TextBoxForm = ({
         questionTypeId={questionTypeId}
         setQuestionTypeId={setQuestionTypeId}
         handleRemoveForm={handleRemoveForm}
+        formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
       />
       <STextboxDiv>
         <h3>პასუხი:</h3>
