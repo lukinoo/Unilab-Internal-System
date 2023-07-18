@@ -4,19 +4,11 @@ import { QuestionTypeDropdown } from "../../Inputs/QuestionTypeDropdown";
 import { SFormHeaderContainer, SFormHeaderDiv } from "./FormHeader.styled";
 import { DuplicateDeleteButtons } from "../../Buttons/DuplicateDeleteButtons"
 
-const items = {
-  1: "Checkbox",
-  2: "Multiple Choice",
-  3: "Textbox",
-  4: "Rating Scale",
-};
-
-
 export const FormHeader = ({
-  questionTypeId,
-  setQuestionTypeId,
   handleQuestionChange,
-  handleRemoveForm
+  handleRemoveForm,
+  indexedFormTypes,
+  setFormType 
 }) => {
   return (
     <SFormHeaderContainer>
@@ -26,9 +18,8 @@ export const FormHeader = ({
       </SFormHeaderDiv>
       <SFormHeaderDiv>
         <QuestionTypeDropdown 
-          items={items}
-          action={setQuestionTypeId}
-          value={questionTypeId}
+          items={indexedFormTypes}
+          action={setFormType}
           showImgs={true}
         />
         <DuplicateDeleteButtons handleRemoveForm={handleRemoveForm}/>
