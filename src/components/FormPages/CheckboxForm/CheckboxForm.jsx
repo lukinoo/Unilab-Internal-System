@@ -1,18 +1,10 @@
-import { useState } from "react";
-import { FormHeader } from "../FormHeader/FormHeader"
+import { FormHeader } from "../FormHeader/FormHeader";
 import { DraggableAnswersContainer } from "../../DraggableAnswersContainer";
 import { SFormContainer } from "./CheckboxForm.styled";
 import { Button } from "../../Button/Button";
 import plusSvg from "/assets/svg/plus.svg";
 import { SFormBodyDiv } from "../MultipleChoiceForm/MultipleChoiceForm.styled";
 import { SPlusIcon } from "../../../views/AddQuestions/AddQuestions.styled";
-
-const items = {
-  1: "Checkbox",
-  2: "Multiple Choice",
-  3: "Textbox",
-  4: "Rating Scale",
-};
 
 export const CheckboxForm = ({
   item,
@@ -22,10 +14,11 @@ export const CheckboxForm = ({
   deleteAnswer,
   changeQuestion,
   handleRemoveForm,
-  handleMarkAnswer
+  handleMarkAnswer,
+  indexedFormTypes,
+  handleFormTypeChange,
 }) => {
-  const answers = item.answers
-  const [questionTypeId, setQuestionTypeId] = useState(1);  // Temporary code 
+  const answers = item.answers;
 
   const handleAddAnswer = () => {
     const ids = answers.map((obj) => obj.id);
@@ -42,18 +35,22 @@ export const CheckboxForm = ({
     changeQuestion(formIndex, value);
   };
 
+  const setFormType = (newFormTypeId) => {
+    handleFormTypeChange(formIndex, newFormTypeId);
+  };
+
   return (
     <SFormContainer>
       <FormHeader
-        questionTypeId={questionTypeId}
-        setQuestionTypeId={setQuestionTypeId}
+        indexedFormTypes={indexedFormTypes}
+        setFormType={setFormType}
         handleQuestionChange={handleQuestionChange}
         handleRemoveForm={handleRemoveForm}
       />
       <SFormBodyDiv>
         <h3>პასუხები:</h3>
         <DraggableAnswersContainer
-          type={items[questionTypeId]}
+          type={indexedFormTypes[1]} // temporary code
           answers={answers}
           deleteAnswer={deleteAnswer}
           changeAnswersArray={changeAnswersArray}
@@ -71,5 +68,5 @@ export const CheckboxForm = ({
         </Button>
       </SFormBodyDiv>
     </SFormContainer>
-  )
-}
+  );
+};
