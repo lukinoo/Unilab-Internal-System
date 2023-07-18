@@ -35,7 +35,7 @@ export const MultipleChoiceForm = ({
       id: `${largestId + 1}`,
       content: "",
       isCorrect: false,
-      type: items[questionTypeId],
+      type: item.type,
     });
   };
 
