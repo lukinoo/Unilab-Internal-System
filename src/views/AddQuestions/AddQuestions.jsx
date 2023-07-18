@@ -115,12 +115,21 @@ const arrayOfAnswers = (numOfQuestions, type) =>
     type,
 }));
 
-const FORM_TYPES = {
-  CHECKBOX: "checkbox",
-  MULTIPLE_CHOICE: "multipleChoice",
-  TEXTBOX: "textBox",
-  RANGE_INPUT: "rangeInput",
+
+const indexedFormTypes = {
+  1: "Checkbox",
+  2: "Multiple Choice",
+  3: "Textbox",
+  4: "Rating Scale",
 };
+
+const FORM_TYPES = {
+  CHECKBOX: indexedFormTypes[1],
+  MULTIPLE_CHOICE: indexedFormTypes[2],
+  TEXTBOX: indexedFormTypes[3],
+  RANGE_INPUT: indexedFormTypes[4],
+};
+
 
 export const AddQuestions = () => {
   const { control, register, watch, setValue, getValues } = useForm({
