@@ -249,6 +249,7 @@ export const AddQuestions = () => {
       case FORM_TYPES.RANGE_INPUT:
         return (
           <RatingScaleForm
+            item={item}
             formIndex={index}
             handleRemoveForm={() => remove(index)}
             indexedFormTypes={indexedFormTypes}
@@ -259,6 +260,7 @@ export const AddQuestions = () => {
         return (
           <TextBoxForm
             formIndex={index}
+            item={item}
             handleRemoveForm={() => remove(index)}
             indexedFormTypes={indexedFormTypes}
             handleFormTypeChange={handleFormTypeChange}
