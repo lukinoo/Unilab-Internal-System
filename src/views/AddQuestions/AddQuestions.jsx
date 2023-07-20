@@ -169,8 +169,15 @@ export const AddQuestions = () => {
     setValue("forms", forms);
   }
 
-  const handleVerbalChange = (formIndex, ) =>{
-    
+  const handleVerbalChange = (formIndex, newValue, labelNumber ) =>{
+    const forms = [...getValues().forms];
+    const answerObj = forms[formIndex].answers[0];
+    if(labelNumber === 1) {
+      answerObj.minValueVerbal = newValue;
+    }else{
+      answerObj.maxValueVerbal = newValue;
+    }
+    setValue("forms", forms);
   }
 
   const displayForm = (item, index) => {
@@ -220,6 +227,7 @@ export const AddQuestions = () => {
             handleDescriptionChange={handleDescriptionChange}
             handleRatingValueChange={handleRatingValueChange}
             handleMaxRatingValueChange={handleMaxRatingValueChange}
+            handleVerbalChange={handleVerbalChange}
           />
         );
       case FORM_TYPES.TEXTBOX:
