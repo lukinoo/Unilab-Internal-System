@@ -9,13 +9,14 @@ export const FormHeader = ({
   handleRemoveForm,
   indexedFormTypes,
   setFormType,
-  formTypeIndex
+  formTypeIndex,
+  changeDescription
 }) => {
   return (
     <SFormHeaderContainer>
       <SFormHeaderDiv marginRight>
         <QuestionInput handleQuestionChange={handleQuestionChange}/>
-        <QuestionDescription marginTop="1.125rem" />
+        <QuestionDescription marginTop="1.125rem" changeDescription={changeDescription}/>
       </SFormHeaderDiv>
       <SFormHeaderDiv>
         <QuestionTypeDropdown 
