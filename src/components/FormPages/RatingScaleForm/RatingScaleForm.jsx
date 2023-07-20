@@ -14,7 +14,6 @@ const rangeValues = [3, 4, 5, 6, 7, 8, 9];
 
 export const RatingScaleForm = ({
   item,
-  name,
   formIndex,
   handleRemoveForm,
   indexedFormTypes,
@@ -66,7 +65,6 @@ export const RatingScaleForm = ({
       <SRangeInputLabel>პასუხები</SRangeInputLabel>
       <RangeInput
         rangeValue={rangeValues[rangeValue]}
-        name={"RangeInput"} // test code
         firstRangeLabel={firstRangeLabel}
         secondRangeLabel={secondRangeLabel}
       />
