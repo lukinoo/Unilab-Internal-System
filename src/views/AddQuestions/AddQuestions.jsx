@@ -162,11 +162,15 @@ export const AddQuestions = () => {
     setValue("forms", forms);
   }
 
-  const handleMaxRatingValueChange = (formIndex, id) =>{
+  const handleMaxRatingValueChange = (formIndex, index) =>{
     const forms = [...getValues().forms];
     const answerObj = forms[formIndex].answers[0];
-    answerObj.maxValue = id;
+    answerObj.maxValue = index;
     setValue("forms", forms);
+  }
+
+  const handleVerbalChange = (formIndex, ) =>{
+    
   }
 
   const displayForm = (item, index) => {
