@@ -11,16 +11,6 @@ import {
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { useForm, useFieldArray } from "react-hook-form";
 
-// create an array of answers
-
-// const arrayOfAnswers = (numOfQuestions, type) =>
-//   Array.from({ length: numOfQuestions }, (_, i) => ({
-//     id: `${i + 1}`,
-//     content: "",
-//     isCorrect: false,
-//     type,
-//   }));
-
 const arrayOfAnswers = (numOfQuestions, type) => {
   if (type !== FORM_TYPES.RANGE_INPUT) {
     return Array.from({ length: numOfQuestions }, (_, i) => ({
@@ -35,10 +25,10 @@ const arrayOfAnswers = (numOfQuestions, type) => {
         id: 1,
         minValue: 1,
         maxValue: 3,
-        minValueVerbal: '',
-        maxValueVerbal: '',
+        minValueVerbal: "",
+        maxValueVerbal: "",
         selectedValue: null,
-      }
+      },
     ];
   }
 };
@@ -155,13 +145,6 @@ export const AddQuestions = () => {
     setValue("forms", forms);
   }
 
-  const handleRatingValueChange = (formIndex, value) =>{
-    const forms = [...getValues().forms];
-    const answerObj = forms[formIndex].answers[0];
-    answerObj.selectedValue = value;
-    setValue("forms", forms);
-  }
-
   const handleMaxRatingValueChange = (formIndex, index) =>{
     const forms = [...getValues().forms];
     const answerObj = forms[formIndex].answers[0];
@@ -225,7 +208,6 @@ export const AddQuestions = () => {
             handleQuestionChange={handleQuestionChange}
             handleFormTypeChange={handleFormTypeChange}
             handleDescriptionChange={handleDescriptionChange}
-            handleRatingValueChange={handleRatingValueChange}
             handleMaxRatingValueChange={handleMaxRatingValueChange}
             handleVerbalChange={handleVerbalChange}
           />

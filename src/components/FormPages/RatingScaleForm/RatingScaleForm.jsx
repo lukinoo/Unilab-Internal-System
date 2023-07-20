@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FormHeader } from "../FormHeader/FormHeader";
 import { RangeLabelInput } from "../../Inputs/RangeLabelInput";
 import { QuestionTypeDropdown } from "../../Inputs/QuestionTypeDropdown";
@@ -20,43 +20,35 @@ export const RatingScaleForm = ({
   handleFormTypeChange,
   handleQuestionChange,
   handleDescriptionChange,
-  handleRatingValueChange,
   handleMaxRatingValueChange,
-  handleVerbalChange
+  handleVerbalChange,
 }) => {
   const firstRangeLabel = item.answers[0].minValueVerbal;
   const secondRangeLabel = item.answers[0].maxValueVerbal;
 
-  
   const maxValue = item.answers[0].maxValue;
-  console.log("MAX VALUE:", maxValue);
-
 
   const setFormType = (newFormTypeId) => {
     handleFormTypeChange(formIndex, newFormTypeId);
   };
 
-  const changeDescription = (newDescription)=>{
+  const changeDescription = (newDescription) => {
     handleDescriptionChange(formIndex, newDescription);
-  }
+  };
 
   const changeQuestion = (value) => {
     handleQuestionChange(formIndex, value);
   };
 
-  const markAnswer = (value) =>{
-    handleRatingValueChange(formIndex, value);
-  }
-
-  const changeLabelValue = (value, number) =>{
+  const changeLabelValue = (value, number) => {
     handleVerbalChange(formIndex, value, number);
-  }
+  };
 
   const setMaxValue = (index) => {
     console.log(rangeValues, rangeValues[index]);
     const newMaxValue = rangeValues[index];
     handleMaxRatingValueChange(formIndex, newMaxValue);
-  }
+  };
 
   return (
     <SRatingScaleFormContainer>
@@ -81,7 +73,6 @@ export const RatingScaleForm = ({
       </SRangeLabelInputsContainer>
       <SRangeInputLabel>პასუხები</SRangeInputLabel>
       <RangeInput
-        markAnswer={markAnswer}
         rangeValue={maxValue}
         firstRangeLabel={firstRangeLabel}
         secondRangeLabel={secondRangeLabel}
