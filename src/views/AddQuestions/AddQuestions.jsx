@@ -10,16 +10,18 @@ import { TextareaAnswer } from "../../components/TextareaAnswer";
 import { RangeInput } from "../../components/Inputs/RangeInput/RangeInput";
 import { RangeLabelInput } from "../../components/Inputs/RangeLabelInput";
 
-
 import { SaveAddButtons } from "../../components/Buttons/SaveAddButtons";
 import { CheckboxForm } from "../../components/FormPages/CheckboxForm";
 import { MultipleChoiceForm } from "../../components/FormPages/MultipleChoiceForm";
 import { TextBoxForm } from "../../components/FormPages/TextBoxForm";
 import { RatingScaleForm } from "../../components/FormPages/RatingScaleForm";
-import { SAddQuestionsMainDiv, STitle, SAddQuestionsContainer } from "./AddQuestions.styled";
+import {
+  SAddQuestionsMainDiv,
+  STitle,
+  SAddQuestionsContainer,
+} from "./AddQuestions.styled";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { useForm, useFieldArray } from "react-hook-form";
-
 
 // const items = {
 //   1: "Checkbox",
@@ -42,7 +44,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 //     { id: "3", content: "" },
 //   ]);
 //   const [rangeValue, setRangeValue] = useState(0);
-  
+
 //   const { control } = useForm(); // just a test code for textarea
 
 //   const addAnswer = () => {
@@ -50,7 +52,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 //     const largestId = Math.max(...ids) | 0;
 //     setAnswers((prevAnswers) => [...prevAnswers, { id: `${largestId+1}`, content: "" }]);
 //   };
-  
+
 //   const deleteAnswer = (id) => {
 //     const newAnswers = [...answers].filter((answer) => answer.id !== id);
 //     setAnswers(newAnswers);
@@ -113,17 +115,24 @@ const arrayOfAnswers = (numOfQuestions, type) =>
     content: "",
     isCorrect: false,
     type,
-}));
+  }));
+
+const indexedFormTypes = {
+  1: "Checkbox",
+  2: "Multiple Choice",
+  3: "Textbox",
+  4: "Rating Scale",
+};
 
 const FORM_TYPES = {
-  CHECKBOX: "checkbox",
-  MULTIPLE_CHOICE: "multipleChoice",
-  TEXTBOX: "textBox",
-  RANGE_INPUT: "rangeInput",
+  CHECKBOX: indexedFormTypes[1],
+  MULTIPLE_CHOICE: indexedFormTypes[2],
+  TEXTBOX: indexedFormTypes[3],
+  RANGE_INPUT: indexedFormTypes[4],
 };
 
 export const AddQuestions = () => {
-  const { control, register, watch, setValue, getValues } = useForm({
+  const { control, setValue, getValues } = useForm({
     defaultValues: {
       forms: [
         {
@@ -155,42 +164,69 @@ export const AddQuestions = () => {
   const changeAnswersArray = (formIndex, newAnswersArray) => {
     const forms = [...getValues().forms];
     forms[formIndex].answers = newAnswersArray;
-    setValue('forms', forms);
+    setValue("forms", forms);
   };
 
   const addAnswer = (formIndex, newAnswer) => {
     const forms = [...getValues().forms];
     forms[formIndex].answers = [...forms[formIndex].answers, newAnswer];
-    setValue('forms', forms);
+    setValue("forms", forms);
   };
 
   const deleteAnswer = (formIndex, id) => {
     const forms = [...getValues().forms];
-    forms[formIndex].answers = forms[formIndex].answers.filter(answerObj=>answerObj.id !== id);
-    setValue('forms', forms);
-  }
+    forms[formIndex].answers = forms[formIndex].answers.filter(
+      (answerObj) => answerObj.id !== id
+    );
+    setValue("forms", forms);
+  };
 
-  const changeQuestion = (formIndex, question) => {
+  const handleQuestionChange = (formIndex, newQuestion) => {
     const forms = [...getValues().forms];
-    forms[formIndex].question = question;
-    setValue('forms', forms);
-  }
+    forms[formIndex].question = newQuestion;
+    setValue("forms", forms);
+  };
 
   const handleMarkCheckboxAnswer = (formIndex, answerIndex) => {
     const forms = [...getValues().forms];
     const answerObj = forms[formIndex].answers[answerIndex];
     answerObj.isCorrect = !answerObj.isCorrect;
     forms[formIndex].answers[answerIndex] = answerObj;
-    setValue('forms', forms);
-  }
+    setValue("forms", forms);
+  };
 
-  const handleMarkRadioAnswer = (formIndex, answerIndex) =>{
+  const handleMarkRadioAnswer = (formIndex, answerIndex) => {
     const forms = [...getValues().forms];
     const answers = forms[formIndex].answers;
     for (let i = 0; i < answers.length; i++) {
       answers[i].isCorrect = i === answerIndex;
     }
-    setValue('forms', forms);
+    setValue("forms", forms);
+  };
+
+  const handleFormTypeChange = (formIndex, newFormTypeId) => {
+    const forms = [...getValues().forms];
+    const questionObj = forms[formIndex];
+    const numAnswers = newFormTypeId < 3 ? 3 : 1;
+    questionObj.type = indexedFormTypes[newFormTypeId];
+    questionObj.description = "";
+    questionObj.question = "";
+    questionObj.answers = arrayOfAnswers(numAnswers , indexedFormTypes[newFormTypeId])
+    setValue("forms", forms);
+  };
+
+  const handleDescriptionChange = (formIndex, newDescription) => {
+    const forms = [...getValues().forms];
+    const questionObj = forms[formIndex];
+    questionObj.description = newDescription;
+    setValue("forms", forms);
+  }
+
+  const handleTextBoxAnswerChange = (formIndex, newAnswer) => {
+    const forms = [...getValues().forms];
+    const questionObj = forms[formIndex];
+    questionObj.answers[0].content = newAnswer;
+    setValue("forms", forms);
   }
 
   const displayForm = (item, index) => {
@@ -199,39 +235,58 @@ export const AddQuestions = () => {
       case FORM_TYPES.CHECKBOX:
         return (
           <CheckboxForm
+            indexedFormTypes={indexedFormTypes}
             formIndex={index}
             changeAnswersArray={changeAnswersArray}
             item={item}
             addAnswer={addAnswer}
             deleteAnswer={deleteAnswer}
-            changeQuestion={changeQuestion}
-            handleRemoveForm={()=>remove(index)}
+            handleQuestionChange={handleQuestionChange}
+            handleRemoveForm={() => remove(index)}
             handleMarkAnswer={handleMarkCheckboxAnswer}
+            handleFormTypeChange={handleFormTypeChange}
+            handleDescriptionChange={handleDescriptionChange}
           />
         );
       case FORM_TYPES.MULTIPLE_CHOICE:
         return (
           <MultipleChoiceForm
+            indexedFormTypes={indexedFormTypes}
             formIndex={index}
             changeAnswersArray={changeAnswersArray}
             item={item}
             addAnswer={addAnswer}
             deleteAnswer={deleteAnswer}
-            changeQuestion={changeQuestion}
-            handleRemoveForm={()=>remove(index)}
+            handleQuestionChange={handleQuestionChange}
+            handleRemoveForm={() => remove(index)}
             handleMarkAnswer={handleMarkRadioAnswer}
+            handleFormTypeChange={handleFormTypeChange}
+            handleDescriptionChange={handleDescriptionChange}
           />
         );
       case FORM_TYPES.RANGE_INPUT:
         return (
-          <RatingScaleForm 
-            handleRemoveForm={()=>remove(index)}
+          <RatingScaleForm
+            item={item}
+            formIndex={index}
+            handleRemoveForm={() => remove(index)}
+            indexedFormTypes={indexedFormTypes}
+            handleQuestionChange={handleQuestionChange}
+            handleFormTypeChange={handleFormTypeChange}
+            handleDescriptionChange={handleDescriptionChange}
           />
         );
       case FORM_TYPES.TEXTBOX:
         return (
-          <TextBoxForm 
-            handleRemoveForm={()=>remove(index)}
+          <TextBoxForm
+            formIndex={index}
+            item={item}
+            handleRemoveForm={() => remove(index)}
+            indexedFormTypes={indexedFormTypes}
+            handleQuestionChange={handleQuestionChange}
+            handleFormTypeChange={handleFormTypeChange}
+            handleDescriptionChange={handleDescriptionChange}
+            handleTextBoxAnswerChange={handleTextBoxAnswerChange}
           />
         );
       default:

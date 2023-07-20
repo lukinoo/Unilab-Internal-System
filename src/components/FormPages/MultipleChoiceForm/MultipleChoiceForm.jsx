@@ -6,13 +6,7 @@ import { SPlusIcon } from "../../../views/AddQuestions/AddQuestions.styled";
 import plusSvg from "/assets/svg/plus.svg";
 import { Button } from "../../Button/Button";
 import { SFormBodyDiv } from "./MultipleChoiceForm.styled";
-
-const items = {
-  1: "Checkbox",
-  2: "Multiple Choice",
-  3: "Textbox",
-  4: "Rating Scale",
-};
+import { getKeyByValue } from "../../../utils/getKeyByValue";
 
 export const MultipleChoiceForm = ({
   item,
@@ -20,12 +14,14 @@ export const MultipleChoiceForm = ({
   changeAnswersArray,
   addAnswer,
   deleteAnswer,
-  changeQuestion,
+  handleQuestionChange,
   handleRemoveForm,
-  handleMarkAnswer
+  handleMarkAnswer,
+  handleFormTypeChange,
+  indexedFormTypes,
+  handleDescriptionChange
 }) => {
   const answers = item.answers;
-  const [questionTypeId, setQuestionTypeId] = useState(2); // Temporary code
 
   const handleAddAnswer = () => {
     const ids = answers.map((obj) => obj.id);
@@ -34,26 +30,35 @@ export const MultipleChoiceForm = ({
       id: `${largestId + 1}`,
       content: "",
       isCorrect: false,
-      type: items[questionTypeId],
+      type: item.type,
     });
   };
 
-  const handleQuestionChange = (value) => {
-    changeQuestion(formIndex, value);
+  const changeQuestion = (value) => {
+    handleQuestionChange(formIndex, value);
   };
+
+  const setFormType = (newFormTypeId) =>{
+    handleFormTypeChange(formIndex, newFormTypeId);
+  }
+  const changeDescription = (newDescription)=>{
+    handleDescriptionChange(formIndex, newDescription);
+  }
 
   return (
     <SFormContainer>
       <FormHeader
-        questionTypeId={questionTypeId}
-        setQuestionTypeId={setQuestionTypeId}
-        handleQuestionChange={handleQuestionChange}
+        indexedFormTypes={indexedFormTypes}
+        setFormType={setFormType}
+        changeQuestion={changeQuestion}
         handleRemoveForm={handleRemoveForm}
+        formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
+        changeDescription={changeDescription}
       />
       <SFormBodyDiv>
         <h3>პასუხები:</h3>
         <DraggableAnswersContainer
-          type={items[questionTypeId]}
+          type={indexedFormTypes[2]} // temporary code
           answers={answers}
           deleteAnswer={deleteAnswer}
           changeAnswersArray={changeAnswersArray}
