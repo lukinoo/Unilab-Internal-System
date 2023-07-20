@@ -10,6 +10,7 @@ export const TextareaAnswer = ({changeAnswer}) => {
         resize={false}
         width="51.9375rem"
         height="9rem"
+        marginTop="1.5rem"
         onInput={(e)=>changeAnswer(e.target.value)}
       />
     </STextareaDiv>
