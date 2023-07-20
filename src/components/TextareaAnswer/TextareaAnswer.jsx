@@ -1,20 +1,16 @@
-import { Textarea } from "../Inputs/Textarea/Textarea";
 import { STextareaDiv } from "./TextareaAnswer.styled";
+import { STextarea } from "../Inputs/Textarea/Textarea.styled";
 
-export const TextareaAnswer = ({
-  control,
-  name
-}) => {
+export const TextareaAnswer = ({changeAnswer}) => {
   return (
     <STextareaDiv>
-      <Textarea
-        name={name}
-        control={control}
+      <STextarea
         bgColor="transparent"
         color="#ffffff"
         resize={false}
         width="51.9375rem"
         height="9rem"
+        onInput={(e)=>changeAnswer(e.target.value)}
       />
     </STextareaDiv>
   );
