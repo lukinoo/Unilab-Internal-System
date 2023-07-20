@@ -162,6 +162,13 @@ export const AddQuestions = () => {
     setValue("forms", forms);
   }
 
+  const handleMaxRatingValueChange = (formIndex, id) =>{
+    const forms = [...getValues().forms];
+    const answerObj = forms[formIndex].answers[0];
+    answerObj.maxValue = id;
+    setValue("forms", forms);
+  }
+
   const displayForm = (item, index) => {
     const formType = item.type;
     switch (formType) {
@@ -208,6 +215,7 @@ export const AddQuestions = () => {
             handleFormTypeChange={handleFormTypeChange}
             handleDescriptionChange={handleDescriptionChange}
             handleRatingValueChange={handleRatingValueChange}
+            handleMaxRatingValueChange={handleMaxRatingValueChange}
           />
         );
       case FORM_TYPES.TEXTBOX:
