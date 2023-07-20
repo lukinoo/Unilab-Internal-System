@@ -19,6 +19,7 @@ export const MultipleChoiceForm = ({
   handleMarkAnswer,
   handleFormTypeChange,
   indexedFormTypes,
+  handleDescriptionChange
 }) => {
   const answers = item.answers;
 
@@ -40,6 +41,9 @@ export const MultipleChoiceForm = ({
   const setFormType = (newFormTypeId) =>{
     handleFormTypeChange(formIndex, newFormTypeId);
   }
+  const changeDescription = (newDescription)=>{
+    handleDescriptionChange(formIndex, newDescription);
+  }
 
   return (
     <SFormContainer>
@@ -49,6 +53,7 @@ export const MultipleChoiceForm = ({
         handleQuestionChange={handleQuestionChange}
         handleRemoveForm={handleRemoveForm}
         formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
+        changeDescription={changeDescription}
       />
       <SFormBodyDiv>
         <h3>პასუხები:</h3>

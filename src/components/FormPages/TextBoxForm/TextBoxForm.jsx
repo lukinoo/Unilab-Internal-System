@@ -11,7 +11,8 @@ export const TextBoxForm = ({
   formIndex,
   handleRemoveForm,
   indexedFormTypes,
-  handleFormTypeChange
+  handleFormTypeChange,
+  handleDescriptionChange
 }) => {
   const [questionTypeId, setQuestionTypeId] = useState(3); // Temporary code
   const { control } = useForm(); // just a test code for textarea
@@ -19,6 +20,10 @@ export const TextBoxForm = ({
   const setFormType = (newFormTypeId) =>{
     handleFormTypeChange(formIndex, newFormTypeId);
   }
+  const changeDescription = (newDescription)=>{
+    handleDescriptionChange(formIndex, newDescription);
+  }
+
 
   return (
     <SFormContainer>
@@ -29,6 +34,7 @@ export const TextBoxForm = ({
         setQuestionTypeId={setQuestionTypeId}
         handleRemoveForm={handleRemoveForm}
         formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
+        changeDescription={changeDescription}
       />
       <STextboxDiv>
         <h3>პასუხი:</h3>
