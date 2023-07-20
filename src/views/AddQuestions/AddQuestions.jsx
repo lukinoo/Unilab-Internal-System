@@ -217,7 +217,7 @@ export const AddQuestions = () => {
     const forms = [...getValues().forms];
     const questionObj = forms[formIndex];
     questionObj.description = newDescription;
-    setValue(forms);
+    setValue("forms", forms);
   }
 
   const displayForm = (item, index) => {
@@ -236,6 +236,7 @@ export const AddQuestions = () => {
             handleRemoveForm={() => remove(index)}
             handleMarkAnswer={handleMarkCheckboxAnswer}
             handleFormTypeChange={handleFormTypeChange}
+            handleDescriptionChange={handleDescriptionChange}
           />
         );
       case FORM_TYPES.MULTIPLE_CHOICE:
