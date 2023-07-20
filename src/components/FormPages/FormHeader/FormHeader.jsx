@@ -5,7 +5,7 @@ import { SFormHeaderContainer, SFormHeaderDiv } from "./FormHeader.styled";
 import { DuplicateDeleteButtons } from "../../Buttons/DuplicateDeleteButtons"
 
 export const FormHeader = ({
-  handleQuestionChange,
+  changeQuestion,
   handleRemoveForm,
   indexedFormTypes,
   setFormType,
@@ -15,7 +15,7 @@ export const FormHeader = ({
   return (
     <SFormHeaderContainer>
       <SFormHeaderDiv marginRight>
-        <QuestionInput handleQuestionChange={handleQuestionChange}/>
+        <QuestionInput changeQuestion={changeQuestion}/>
         <QuestionDescription marginTop="1.125rem" changeDescription={changeDescription}/>
       </SFormHeaderDiv>
       <SFormHeaderDiv>

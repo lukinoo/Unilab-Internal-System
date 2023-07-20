@@ -13,7 +13,7 @@ export const CheckboxForm = ({
   changeAnswersArray,
   addAnswer,
   deleteAnswer,
-  changeQuestion,
+  handleQuestionChange,
   handleRemoveForm,
   handleMarkAnswer,
   indexedFormTypes,
@@ -33,8 +33,8 @@ export const CheckboxForm = ({
     });
   };
 
-  const handleQuestionChange = (value) => {
-    changeQuestion(formIndex, value);
+  const changeQuestion = (value) => {
+    handleQuestionChange(formIndex, value);
   };
 
   const setFormType = (newFormTypeId) => {
@@ -50,7 +50,7 @@ export const CheckboxForm = ({
       <FormHeader
         indexedFormTypes={indexedFormTypes}
         setFormType={setFormType}
-        handleQuestionChange={handleQuestionChange}
+        changeQuestion={changeQuestion}
         handleRemoveForm={handleRemoveForm}
         formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
         changeDescription={changeDescription}

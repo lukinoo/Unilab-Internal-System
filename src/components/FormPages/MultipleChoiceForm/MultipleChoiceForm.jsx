@@ -14,7 +14,7 @@ export const MultipleChoiceForm = ({
   changeAnswersArray,
   addAnswer,
   deleteAnswer,
-  changeQuestion,
+  handleQuestionChange,
   handleRemoveForm,
   handleMarkAnswer,
   handleFormTypeChange,
@@ -34,8 +34,8 @@ export const MultipleChoiceForm = ({
     });
   };
 
-  const handleQuestionChange = (value) => {
-    changeQuestion(formIndex, value);
+  const changeQuestion = (value) => {
+    handleQuestionChange(formIndex, value);
   };
 
   const setFormType = (newFormTypeId) =>{
@@ -50,7 +50,7 @@ export const MultipleChoiceForm = ({
       <FormHeader
         indexedFormTypes={indexedFormTypes}
         setFormType={setFormType}
-        handleQuestionChange={handleQuestionChange}
+        changeQuestion={changeQuestion}
         handleRemoveForm={handleRemoveForm}
         formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
         changeDescription={changeDescription}
