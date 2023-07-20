@@ -213,6 +213,13 @@ export const AddQuestions = () => {
     setValue("forms", forms);
   };
 
+  const handleDescriptionChange = (formIndex, newDescription) => {
+    const forms = [...getValues().forms];
+    const questionObj = forms[formIndex];
+    questionObj.description = newDescription;
+    setValue(forms);
+  }
+
   const displayForm = (item, index) => {
     const formType = item.type;
     switch (formType) {
