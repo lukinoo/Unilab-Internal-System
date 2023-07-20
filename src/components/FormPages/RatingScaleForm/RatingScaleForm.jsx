@@ -19,6 +19,7 @@ export const RatingScaleForm = ({
   handleRemoveForm,
   indexedFormTypes,
   handleFormTypeChange,
+  handleQuestionChange,
   handleDescriptionChange
 }) => {
   const [firstRangeLabel, setFirstRangeLabel] = useState("");
@@ -33,6 +34,11 @@ export const RatingScaleForm = ({
     handleDescriptionChange(formIndex, newDescription);
   }
 
+  const changeQuestion = (value) => {
+    handleQuestionChange(formIndex, value);
+  };
+
+
   return (
     <SRatingScaleFormContainer>
       <FormHeader
@@ -41,6 +47,7 @@ export const RatingScaleForm = ({
         setFormType={setFormType}
         formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
         changeDescription={changeDescription}
+        changeQuestion={changeQuestion}
       />
       <QuestionTypeDropdown
         action={setRangeValue}
