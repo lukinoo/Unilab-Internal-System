@@ -45,7 +45,6 @@ export const RatingScaleForm = ({
   };
 
   const setMaxValue = (index) => {
-    console.log(rangeValues, rangeValues[index]);
     const newMaxValue = rangeValues[index];
     handleMaxRatingValueChange(formIndex, newMaxValue);
   };
