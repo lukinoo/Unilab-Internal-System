@@ -222,6 +222,13 @@ export const AddQuestions = () => {
     setValue("forms", forms);
   }
 
+  const handleTextBoxAnswerChange = (formIndex, newAnswer) => {
+    const forms = [...getValues().forms];
+    const questionObj = forms[formIndex];
+    questionObj.answers[0].content = newAnswer;
+    setValue("forms", forms);
+  }
+
   const displayForm = (item, index) => {
     const formType = item.type;
     switch (formType) {
@@ -279,6 +286,7 @@ export const AddQuestions = () => {
             handleQuestionChange={handleQuestionChange}
             handleFormTypeChange={handleFormTypeChange}
             handleDescriptionChange={handleDescriptionChange}
+            handleTextBoxAnswerChange={handleTextBoxAnswerChange}
           />
         );
       default:
