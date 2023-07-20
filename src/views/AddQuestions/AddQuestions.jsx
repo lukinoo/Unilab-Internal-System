@@ -155,11 +155,11 @@ export const AddQuestions = () => {
     setValue("forms", forms);
   }
 
-  const handleRatingValueChange = (formIndex, id) =>{
+  const handleRatingValueChange = (formIndex, value) =>{
     const forms = [...getValues().forms];
     const answerObj = forms[formIndex].answers[0];
-    console.log("ANSWER OBJECT",answerObj);
-    console.log("ID:",id);
+    answerObj.selectedValue = value;
+    setValue("forms", forms);
   }
 
   const displayForm = (item, index) => {
