@@ -209,6 +209,8 @@ export const AddQuestions = () => {
     const questionObj = forms[formIndex];
     const numAnswers = newFormTypeId < 3 ? 3 : 1;
     questionObj.type = indexedFormTypes[newFormTypeId];
+    questionObj.description = "";
+    questionObj.question = "";
     questionObj.answers = arrayOfAnswers(numAnswers , indexedFormTypes[newFormTypeId])
     setValue("forms", forms);
   };
