@@ -2,7 +2,6 @@ import { SRadioButton, SRangeInputContainer, SRadioDiv, SLine } from "./RangeInp
 
 export const RangeInput = ({
   rangeValue,
-  name,
   firstRangeLabel,
   secondRangeLabel,
 }) => {
@@ -12,7 +11,7 @@ export const RangeInput = ({
       {loopArray.map((_, index) => (
         <>
           <SRadioDiv>
-            <SRadioButton type="radio" name={name} key={index} />
+            <SRadioButton type="radio" name='RatingScale' key={index} />
             {index === 0 && <p>{firstRangeLabel}</p>}
             {index === loopArray.length - 1 && <p>{secondRangeLabel}</p>}
           </SRadioDiv>
