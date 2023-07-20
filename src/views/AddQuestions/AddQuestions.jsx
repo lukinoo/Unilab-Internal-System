@@ -252,6 +252,7 @@ export const AddQuestions = () => {
             handleRemoveForm={() => remove(index)}
             handleMarkAnswer={handleMarkRadioAnswer}
             handleFormTypeChange={handleFormTypeChange}
+            handleDescriptionChange={handleDescriptionChange}
           />
         );
       case FORM_TYPES.RANGE_INPUT:
@@ -262,6 +263,7 @@ export const AddQuestions = () => {
             handleRemoveForm={() => remove(index)}
             indexedFormTypes={indexedFormTypes}
             handleFormTypeChange={handleFormTypeChange}
+            handleDescriptionChange={handleDescriptionChange}
           />
         );
       case FORM_TYPES.TEXTBOX:
@@ -272,6 +274,7 @@ export const AddQuestions = () => {
             handleRemoveForm={() => remove(index)}
             indexedFormTypes={indexedFormTypes}
             handleFormTypeChange={handleFormTypeChange}
+            handleDescriptionChange={handleDescriptionChange}
           />
         );
       default:
