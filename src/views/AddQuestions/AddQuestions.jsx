@@ -181,9 +181,9 @@ export const AddQuestions = () => {
     setValue("forms", forms);
   };
 
-  const changeQuestion = (formIndex, question) => {
+  const changeQuestion = (formIndex, newQuestion) => {
     const forms = [...getValues().forms];
-    forms[formIndex].question = question;
+    forms[formIndex].question = newQuestion;
     setValue("forms", forms);
   };
 
