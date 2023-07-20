@@ -127,7 +127,10 @@ export const AddQuestions = () => {
     questionObj.type = indexedFormTypes[newFormTypeId];
     questionObj.description = "";
     questionObj.question = "";
-    questionObj.answers = arrayOfAnswers(numAnswers , indexedFormTypes[newFormTypeId])
+    questionObj.answers = arrayOfAnswers(
+      numAnswers,
+      indexedFormTypes[newFormTypeId]
+    );
     setValue("forms", forms);
   };
 
@@ -136,32 +139,32 @@ export const AddQuestions = () => {
     const questionObj = forms[formIndex];
     questionObj.description = newDescription;
     setValue("forms", forms);
-  }
+  };
 
   const handleTextBoxAnswerChange = (formIndex, newAnswer) => {
     const forms = [...getValues().forms];
     const questionObj = forms[formIndex];
     questionObj.answers[0].content = newAnswer;
     setValue("forms", forms);
-  }
+  };
 
-  const handleMaxRatingValueChange = (formIndex, index) =>{
+  const handleMaxRatingValueChange = (formIndex, index) => {
     const forms = [...getValues().forms];
     const answerObj = forms[formIndex].answers[0];
     answerObj.maxValue = index;
     setValue("forms", forms);
-  }
+  };
 
-  const handleVerbalChange = (formIndex, newValue, labelNumber ) =>{
+  const handleVerbalChange = (formIndex, newValue, labelNumber) => {
     const forms = [...getValues().forms];
     const answerObj = forms[formIndex].answers[0];
-    if(labelNumber === 1) {
+    if (labelNumber === 1) {
       answerObj.minValueVerbal = newValue;
-    }else{
+    } else {
       answerObj.maxValueVerbal = newValue;
     }
     setValue("forms", forms);
-  }
+  };
 
   const displayForm = (item, index) => {
     const formType = item.type;
