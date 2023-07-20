@@ -21,10 +21,12 @@ export const RatingScaleForm = ({
   handleQuestionChange,
   handleDescriptionChange,
   handleRatingValueChange,
-  handleMaxRatingValueChange
+  handleMaxRatingValueChange,
+  handleVerbalChange
 }) => {
-  const [firstRangeLabel, setFirstRangeLabel] = useState("");
-  const [secondRangeLabel, setSecondRangeLabel] = useState("");
+  const firstRangeLabel = item.answers[0].minValueVerbal;
+  const secondRangeLabel = item.answers[0].maxValueVerbal;
+
   
   const maxValue = item.answers[0].maxValue;
   console.log("MAX VALUE:", maxValue);
@@ -44,6 +46,10 @@ export const RatingScaleForm = ({
 
   const markAnswer = (value) =>{
     handleRatingValueChange(formIndex, value);
+  }
+
+  const changeLabelValue = (value, number) =>{
+    handleVerbalChange(formIndex, value, number);
   }
 
   const setMaxValue = (index) => {
@@ -70,11 +76,8 @@ export const RatingScaleForm = ({
         labelText="Range"
       />
       <SRangeLabelInputsContainer>
-        <RangeLabelInput displayLabel number={1} action={setFirstRangeLabel} />
-        <RangeLabelInput
-          action={setSecondRangeLabel}
-          number={maxValue}
-        />
+        <RangeLabelInput displayLabel number={1} action={changeLabelValue} />
+        <RangeLabelInput action={changeLabelValue} number={maxValue} />
       </SRangeLabelInputsContainer>
       <SRangeInputLabel>პასუხები</SRangeInputLabel>
       <RangeInput
