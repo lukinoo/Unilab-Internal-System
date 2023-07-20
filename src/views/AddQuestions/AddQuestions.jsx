@@ -181,7 +181,7 @@ export const AddQuestions = () => {
     setValue("forms", forms);
   };
 
-  const changeQuestion = (formIndex, newQuestion) => {
+  const handleQuestionChange = (formIndex, newQuestion) => {
     const forms = [...getValues().forms];
     forms[formIndex].question = newQuestion;
     setValue("forms", forms);
@@ -234,7 +234,7 @@ export const AddQuestions = () => {
             item={item}
             addAnswer={addAnswer}
             deleteAnswer={deleteAnswer}
-            changeQuestion={changeQuestion}
+            handleQuestionChange={handleQuestionChange}
             handleRemoveForm={() => remove(index)}
             handleMarkAnswer={handleMarkCheckboxAnswer}
             handleFormTypeChange={handleFormTypeChange}
@@ -250,7 +250,7 @@ export const AddQuestions = () => {
             item={item}
             addAnswer={addAnswer}
             deleteAnswer={deleteAnswer}
-            changeQuestion={changeQuestion}
+            handleQuestionChange={handleQuestionChange}
             handleRemoveForm={() => remove(index)}
             handleMarkAnswer={handleMarkRadioAnswer}
             handleFormTypeChange={handleFormTypeChange}
