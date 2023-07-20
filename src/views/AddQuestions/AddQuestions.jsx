@@ -264,6 +264,7 @@ export const AddQuestions = () => {
             formIndex={index}
             handleRemoveForm={() => remove(index)}
             indexedFormTypes={indexedFormTypes}
+            handleQuestionChange={handleQuestionChange}
             handleFormTypeChange={handleFormTypeChange}
             handleDescriptionChange={handleDescriptionChange}
           />
@@ -275,6 +276,7 @@ export const AddQuestions = () => {
             item={item}
             handleRemoveForm={() => remove(index)}
             indexedFormTypes={indexedFormTypes}
+            handleQuestionChange={handleQuestionChange}
             handleFormTypeChange={handleFormTypeChange}
             handleDescriptionChange={handleDescriptionChange}
           />
