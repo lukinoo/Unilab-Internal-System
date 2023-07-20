@@ -19,7 +19,8 @@ export const RatingScaleForm = ({
   indexedFormTypes,
   handleFormTypeChange,
   handleQuestionChange,
-  handleDescriptionChange
+  handleDescriptionChange,
+  handleRatingValueChange
 }) => {
   const [firstRangeLabel, setFirstRangeLabel] = useState("");
   const [secondRangeLabel, setSecondRangeLabel] = useState("");
@@ -37,6 +38,9 @@ export const RatingScaleForm = ({
     handleQuestionChange(formIndex, value);
   };
 
+  const markAnswer = (value) =>{
+    handleRatingValueChange(formIndex, value);
+  }
 
   return (
     <SRatingScaleFormContainer>
@@ -64,6 +68,7 @@ export const RatingScaleForm = ({
       </SRangeLabelInputsContainer>
       <SRangeInputLabel>პასუხები</SRangeInputLabel>
       <RangeInput
+        markAnswer={markAnswer}
         rangeValue={rangeValues[rangeValue]}
         firstRangeLabel={firstRangeLabel}
         secondRangeLabel={secondRangeLabel}
