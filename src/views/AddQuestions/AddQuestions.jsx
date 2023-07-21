@@ -166,7 +166,6 @@ export const AddQuestions = () => {
     setValue("forms", forms);
   };
 
-
   const displayForm = (item, index) => {
     const formType = item.type;
     switch (formType) {
@@ -184,6 +183,19 @@ export const AddQuestions = () => {
             handleMarkAnswer={handleMarkCheckboxAnswer}
             handleFormTypeChange={handleFormTypeChange}
             handleDescriptionChange={handleDescriptionChange}
+            handleCopyForm={()=>{
+              const numAnswers =
+                item.type === FORM_TYPES.CHECKBOX ||
+                item.type === FORM_TYPES.MULTIPLE_CHOICE
+                  ? 3
+                  : 1;
+
+              append({
+                type: item.type,
+                answers: arrayOfAnswers(numAnswers, item.type),
+                question: "",
+              })
+            }}
           />
         );
       case FORM_TYPES.MULTIPLE_CHOICE:
