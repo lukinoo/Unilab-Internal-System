@@ -11,7 +11,9 @@ import {
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { useForm, useFieldArray } from "react-hook-form";
 
-const arrayOfAnswers = (numOfQuestions, type) => {
+const arrayOfAnswers = (type) => {
+  const numOfQuestions =
+    type === FORM_TYPES.CHECKBOX || type === FORM_TYPES.MULTIPLE_CHOICE ? 3 : 1;
   if (type !== FORM_TYPES.RANGE_INPUT) {
     return Array.from({ length: numOfQuestions }, (_, i) => ({
       id: `${i + 1}`,
@@ -53,22 +55,22 @@ export const AddQuestions = () => {
       forms: [
         {
           type: FORM_TYPES.CHECKBOX,
-          answers: arrayOfAnswers(3, FORM_TYPES.CHECKBOX),
+          answers: arrayOfAnswers(FORM_TYPES.CHECKBOX),
           question: "",
         },
         {
           type: FORM_TYPES.MULTIPLE_CHOICE,
-          answers: arrayOfAnswers(3, FORM_TYPES.MULTIPLE_CHOICE),
+          answers: arrayOfAnswers(FORM_TYPES.MULTIPLE_CHOICE),
           question: "",
         },
         {
           type: FORM_TYPES.TEXTBOX,
-          answers: arrayOfAnswers(1, FORM_TYPES.TEXTBOX),
+          answers: arrayOfAnswers(FORM_TYPES.TEXTBOX),
           question: "",
         },
         {
           type: FORM_TYPES.RANGE_INPUT,
-          answers: arrayOfAnswers(1, FORM_TYPES.RANGE_INPUT),
+          answers: arrayOfAnswers(FORM_TYPES.RANGE_INPUT),
           question: "",
         },
       ],
@@ -123,14 +125,10 @@ export const AddQuestions = () => {
   const handleFormTypeChange = (formIndex, newFormTypeId) => {
     const forms = [...getValues().forms];
     const questionObj = forms[formIndex];
-    const numAnswers = newFormTypeId < 3 ? 3 : 1;
     questionObj.type = indexedFormTypes[newFormTypeId];
     questionObj.description = "";
     questionObj.question = "";
-    questionObj.answers = arrayOfAnswers(
-      numAnswers,
-      indexedFormTypes[newFormTypeId]
-    );
+    questionObj.answers = arrayOfAnswers(indexedFormTypes[newFormTypeId]);
     setValue("forms", forms);
   };
 
@@ -183,18 +181,12 @@ export const AddQuestions = () => {
             handleMarkAnswer={handleMarkCheckboxAnswer}
             handleFormTypeChange={handleFormTypeChange}
             handleDescriptionChange={handleDescriptionChange}
-            handleCopyForm={()=>{
-              const numAnswers =
-                item.type === FORM_TYPES.CHECKBOX ||
-                item.type === FORM_TYPES.MULTIPLE_CHOICE
-                  ? 3
-                  : 1;
-
+            handleCopyForm={() => {
               append({
                 type: item.type,
-                answers: arrayOfAnswers(numAnswers, item.type),
+                answers: arrayOfAnswers(item.type),
                 question: "",
-              })
+              });
             }}
           />
         );
@@ -256,9 +248,9 @@ export const AddQuestions = () => {
           handleAddQuestion={() =>
             append({
               type: FORM_TYPES.CHECKBOX,
-              answers: arrayOfAnswers(3, FORM_TYPES.CHECKBOX),
+              answers: arrayOfAnswers(FORM_TYPES.CHECKBOX),
               question: "",
-              description: ""
+              description: "",
             })
           }
         />
