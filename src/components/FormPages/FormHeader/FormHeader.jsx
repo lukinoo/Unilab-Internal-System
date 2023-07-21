@@ -10,7 +10,8 @@ export const FormHeader = ({
   indexedFormTypes,
   setFormType,
   formTypeIndex,
-  changeDescription
+  changeDescription,
+  handleCopyForm
 }) => {
   return (
     <SFormHeaderContainer>
@@ -25,7 +26,7 @@ export const FormHeader = ({
           showImgs={true}
           value={formTypeIndex}
         />
-        <DuplicateDeleteButtons handleRemoveForm={handleRemoveForm}/>
+        <DuplicateDeleteButtons handleRemoveForm={handleRemoveForm} handleCopyForm={handleCopyForm}/>
       </SFormHeaderDiv>
     </SFormHeaderContainer>
   )
