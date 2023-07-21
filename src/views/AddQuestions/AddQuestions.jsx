@@ -166,6 +166,7 @@ export const AddQuestions = () => {
     setValue("forms", forms);
   };
 
+
   const displayForm = (item, index) => {
     const formType = item.type;
     switch (formType) {
@@ -245,6 +246,7 @@ export const AddQuestions = () => {
               type: FORM_TYPES.CHECKBOX,
               answers: arrayOfAnswers(3, FORM_TYPES.CHECKBOX),
               question: "",
+              description: ""
             })
           }
         />
