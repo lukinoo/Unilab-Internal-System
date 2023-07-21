@@ -18,7 +18,8 @@ export const CheckboxForm = ({
   handleMarkAnswer,
   indexedFormTypes,
   handleFormTypeChange,
-  handleDescriptionChange
+  handleDescriptionChange,
+  handleCopyForm,
 }) => {
   const answers = item.answers;
 
@@ -54,6 +55,7 @@ export const CheckboxForm = ({
         handleRemoveForm={handleRemoveForm}
         formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
         changeDescription={changeDescription}
+        handleCopyForm={handleCopyForm}
       />
       <SFormBodyDiv>
         <h3>პასუხები:</h3>
