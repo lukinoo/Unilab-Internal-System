@@ -7,9 +7,11 @@ export const SRatingScaleFormContainer = styled.div`
 
 export const SRangeLabelInputsContainer = styled.div`
   display: flex;
-  gap: 3.5rem;
   align-items: flex-end;
+  justify-content: space-between;
   padding: 2rem 0;
+  gap: 3.5rem;
+  width: 51.9375rem;
 `
 
 export const SRangeInputLabel = styled.label`

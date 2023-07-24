@@ -6,12 +6,12 @@ export const SRangeLabelInputDiv = styled.div`
   display: flex;
   flex-direction: column;
   color: #ffffff;
+  width: 50%;
 `;
 
 export const SRangeLabelInput = styled(SInput)`
   border: 0.0625rem solid #ffffff;
   border-radius: 0.375rem;
-  width: 26.125rem;
   color: #ffffff;
   padding: 1.25rem 1.4375rem;
 `;
