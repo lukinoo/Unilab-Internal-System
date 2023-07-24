@@ -17,7 +17,6 @@ export const DuplicateDeleteButtons = ({
   useEffect(() => {
     const handleDesignChange = (e) => {
       if (e.target.id !== buttonId) {
-        console.log("A");
         setisClicked(false);
       }
     };
@@ -35,7 +34,7 @@ export const DuplicateDeleteButtons = ({
           src={srcDuplicate}
           alt="Duplicate Form"
           onClick={() => {
-            handleCopyForm;
+            handleCopyForm();
             setisClicked(!isClicked);
           }}
         />
