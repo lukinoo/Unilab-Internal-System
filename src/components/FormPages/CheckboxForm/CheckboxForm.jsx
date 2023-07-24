@@ -41,6 +41,7 @@ export const CheckboxForm = ({
         indexedFormTypes={indexedFormTypes}
         handleFormTypeChange={handleFormTypeChange}
         handleQuestionChange={handleQuestionChange}
+        handleDescriptionChange={handleDescriptionChange}
         handleRemoveForm={handleRemoveForm}
         formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
         handleCopyForm={handleCopyForm}
