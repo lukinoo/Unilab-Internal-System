@@ -12,10 +12,8 @@ export const DuplicateDeleteButtons = ({
   handleCopyForm,
 }) => {
   const [isClicked, setisClicked] = useState(false);
-  const srcDuplicate = isClicked
-    ? "assets/svg/duplicateClicked.svg"
-    : "assets/svg/duplicate.svg";
-  console.log(isClicked);
+  const srcDuplicate = isClicked ? "assets/svg/duplicateClicked.svg" : "assets/svg/duplicate.svg";
+
   useEffect(() => {
     const handleDesignChange = (e) => {
       if (e.target.id !== buttonId) {
