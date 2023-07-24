@@ -13,17 +13,8 @@ export const TextBoxForm = ({
   handleDescriptionChange,
   handleQuestionChange,
   handleTextBoxAnswerChange,
+  handleCopyForm
 }) => {
-  const setFormType = (newFormTypeId) => {
-    handleFormTypeChange(formIndex, newFormTypeId);
-  };
-  const changeDescription = (newDescription) => {
-    handleDescriptionChange(formIndex, newDescription);
-  };
-
-  const changeQuestion = (value) => {
-    handleQuestionChange(formIndex, value);
-  };
 
   const changeAnswer = (value) => {
     handleTextBoxAnswerChange(formIndex, value);
@@ -32,12 +23,14 @@ export const TextBoxForm = ({
   return (
     <SFormContainer>
       <FormHeader
+        formIndex={formIndex}
         indexedFormTypes={indexedFormTypes}
-        setFormType={setFormType}
+        handleFormTypeChange={handleFormTypeChange}
         handleRemoveForm={handleRemoveForm}
         formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
-        changeDescription={changeDescription}
-        changeQuestion={changeQuestion}
+        handleDescriptionChange={handleDescriptionChange}
+        handleQuestionChange={handleQuestionChange}
+        handleCopyForm={handleCopyForm}
       />
       <STextboxDiv>
         <h3>პასუხი:</h3>
