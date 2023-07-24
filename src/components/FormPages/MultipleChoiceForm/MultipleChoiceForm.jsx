@@ -35,26 +35,16 @@ export const MultipleChoiceForm = ({
     });
   };
 
-  const changeQuestion = (value) => {
-    handleQuestionChange(formIndex, value);
-  };
-
-  const setFormType = (newFormTypeId) =>{
-    handleFormTypeChange(formIndex, newFormTypeId);
-  }
-  const changeDescription = (newDescription)=>{
-    handleDescriptionChange(formIndex, newDescription);
-  }
-
   return (
     <SFormContainer>
       <FormHeader
+        formIndex={formIndex}
         indexedFormTypes={indexedFormTypes}
-        setFormType={setFormType}
-        changeQuestion={changeQuestion}
+        handleFormTypeChange={handleFormTypeChange}
+        handleQuestionChange={handleQuestionChange}
+        handleDescriptionChange={handleDescriptionChange}
         handleRemoveForm={handleRemoveForm}
         formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
-        changeDescription={changeDescription}
         handleCopyForm={handleCopyForm}
       />
       <SFormBodyDiv>
