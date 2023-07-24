@@ -164,6 +164,14 @@ export const AddQuestions = () => {
     setValue("forms", forms);
   };
 
+  const handleCopyForm = (type) => {
+    append({
+      type,
+      answers: arrayOfAnswers(type),
+      question: "",
+    });
+  };
+
   const displayForm = (item, index) => {
     const formType = item.type;
     switch (formType) {
@@ -181,13 +189,7 @@ export const AddQuestions = () => {
             handleMarkAnswer={handleMarkCheckboxAnswer}
             handleFormTypeChange={handleFormTypeChange}
             handleDescriptionChange={handleDescriptionChange}
-            handleCopyForm={() => {
-              append({
-                type: item.type,
-                answers: arrayOfAnswers(item.type),
-                question: "",
-              });
-            }}
+            handleCopyForm={()=>handleCopyForm(item.type)}
           />
         );
       case FORM_TYPES.MULTIPLE_CHOICE:
@@ -204,6 +206,7 @@ export const AddQuestions = () => {
             handleMarkAnswer={handleMarkRadioAnswer}
             handleFormTypeChange={handleFormTypeChange}
             handleDescriptionChange={handleDescriptionChange}
+            handleCopyForm={()=>handleCopyForm(item.type)}
           />
         );
       case FORM_TYPES.RANGE_INPUT:
@@ -218,6 +221,7 @@ export const AddQuestions = () => {
             handleDescriptionChange={handleDescriptionChange}
             handleMaxRatingValueChange={handleMaxRatingValueChange}
             handleVerbalChange={handleVerbalChange}
+            handleCopyForm={()=>handleCopyForm(item.type)}
           />
         );
       case FORM_TYPES.TEXTBOX:
@@ -231,6 +235,7 @@ export const AddQuestions = () => {
             handleFormTypeChange={handleFormTypeChange}
             handleDescriptionChange={handleDescriptionChange}
             handleTextBoxAnswerChange={handleTextBoxAnswerChange}
+            handleCopyForm={()=>handleCopyForm(item.type)}
           />
         );
       default:
