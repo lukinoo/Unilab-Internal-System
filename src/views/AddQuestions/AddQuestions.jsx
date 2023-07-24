@@ -7,7 +7,7 @@ import {
   SAddQuestionsMainDiv,
   STitle,
   SAddQuestionsContainer,
-  SWarningText
+  SInfoText
 } from "./AddQuestions.styled";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { useForm, useFieldArray } from "react-hook-form";
@@ -249,9 +249,9 @@ export const AddQuestions = () => {
       {/* SIDEBAR GOES HERE */}
       <STitle>კითხვების შედგენა</STitle>
       {fields.length === 0 && (
-        <SWarningText>
+        <SInfoText>
           კითხვარი ცარიელია. კითხვის დასამატებლად დააჭირეთ '+' ღილაკს
-        </SWarningText>
+        </SInfoText>
       )}
       <SAddQuestionsContainer>
         {fields.map((item, index) => displayForm(item, index))}

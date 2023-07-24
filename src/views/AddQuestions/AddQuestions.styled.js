@@ -29,7 +29,7 @@ export const SAddQuestionsContainer = styled(SContainer)`
   }
 `;
 
-export const SWarningText = styled.p`
+export const SInfoText = styled.p`
   color: #ffffff;
   font-size: 1.3rem;
   margin: 3rem 0 4rem;
