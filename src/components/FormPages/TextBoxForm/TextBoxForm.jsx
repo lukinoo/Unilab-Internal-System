@@ -13,6 +13,7 @@ export const TextBoxForm = ({
   handleDescriptionChange,
   handleQuestionChange,
   handleTextBoxAnswerChange,
+  handleCopyForm
 }) => {
   const setFormType = (newFormTypeId) => {
     handleFormTypeChange(formIndex, newFormTypeId);
@@ -38,6 +39,7 @@ export const TextBoxForm = ({
         formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
         changeDescription={changeDescription}
         changeQuestion={changeQuestion}
+        handleCopyForm={handleCopyForm}
       />
       <STextboxDiv>
         <h3>პასუხი:</h3>

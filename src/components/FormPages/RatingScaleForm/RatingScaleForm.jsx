@@ -22,6 +22,7 @@ export const RatingScaleForm = ({
   handleDescriptionChange,
   handleMaxRatingValueChange,
   handleVerbalChange,
+  handleCopyForm
 }) => {
   const firstRangeLabel = item.answers[0].minValueVerbal;
   const secondRangeLabel = item.answers[0].maxValueVerbal;
@@ -58,6 +59,7 @@ export const RatingScaleForm = ({
         formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
         changeDescription={changeDescription}
         changeQuestion={changeQuestion}
+        handleCopyForm={handleCopyForm}
       />
       <QuestionTypeDropdown
         action={setMaxValue}

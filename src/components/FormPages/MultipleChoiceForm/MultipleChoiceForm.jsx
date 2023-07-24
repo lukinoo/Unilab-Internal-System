@@ -19,7 +19,8 @@ export const MultipleChoiceForm = ({
   handleMarkAnswer,
   handleFormTypeChange,
   indexedFormTypes,
-  handleDescriptionChange
+  handleDescriptionChange,
+  handleCopyForm
 }) => {
   const answers = item.answers;
 
@@ -54,6 +55,7 @@ export const MultipleChoiceForm = ({
         handleRemoveForm={handleRemoveForm}
         formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
         changeDescription={changeDescription}
+        handleCopyForm={handleCopyForm}
       />
       <SFormBodyDiv>
         <h3>პასუხები:</h3>
