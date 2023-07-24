@@ -28,3 +28,9 @@ export const SAddQuestionsContainer = styled(SContainer)`
     margin-top: 5rem;
   }
 `;
+
+export const SWarningText = styled.p`
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin: 3rem 0 4rem;
+`
