@@ -22,24 +22,12 @@ export const RatingScaleForm = ({
   handleDescriptionChange,
   handleMaxRatingValueChange,
   handleVerbalChange,
-  handleCopyForm
+  handleCopyForm,
 }) => {
   const firstRangeLabel = item.answers[0].minValueVerbal;
   const secondRangeLabel = item.answers[0].maxValueVerbal;
 
   const maxValue = item.answers[0].maxValue;
-
-  const setFormType = (newFormTypeId) => {
-    handleFormTypeChange(formIndex, newFormTypeId);
-  };
-
-  const changeDescription = (newDescription) => {
-    handleDescriptionChange(formIndex, newDescription);
-  };
-
-  const changeQuestion = (value) => {
-    handleQuestionChange(formIndex, value);
-  };
 
   const changeLabelValue = (value, number) => {
     handleVerbalChange(formIndex, value, number);
@@ -53,12 +41,13 @@ export const RatingScaleForm = ({
   return (
     <SRatingScaleFormContainer>
       <FormHeader
+        formIndex={formIndex}
         indexedFormTypes={indexedFormTypes}
+        handleFormTypeChange={handleFormTypeChange}
+        handleQuestionChange={handleQuestionChange}
+        handleDescriptionChange={handleDescriptionChange}
         handleRemoveForm={handleRemoveForm}
-        setFormType={setFormType}
         formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
-        changeDescription={changeDescription}
-        changeQuestion={changeQuestion}
         handleCopyForm={handleCopyForm}
       />
       <QuestionTypeDropdown
