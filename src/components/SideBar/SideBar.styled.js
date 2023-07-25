@@ -61,3 +61,8 @@ export const SArrowButton = styled.button`
   cursor: pointer;
   padding: 0.5rem 0;
 `;
+
+export const SSideBarImg = styled.img`
+  width: 1.5rem;
+  height: 1.5rem;
+`
