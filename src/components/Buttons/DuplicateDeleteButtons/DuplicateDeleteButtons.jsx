@@ -35,7 +35,7 @@ export const DuplicateDeleteButtons = ({
           alt="Duplicate Form"
           onClick={() => {
             handleCopyForm();
-            setisClicked(!isClicked);
+            setisClicked(true);
           }}
         />
       </SDuplicateButtonContainer>
