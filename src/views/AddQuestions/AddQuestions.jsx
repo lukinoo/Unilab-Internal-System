@@ -11,6 +11,7 @@ import {
 } from "./AddQuestions.styled";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { useForm, useFieldArray } from "react-hook-form";
+import { SideBar } from "../../components/SideBar";
 
 const arrayOfAnswers = (type) => {
   const numOfQuestions =
@@ -246,7 +247,7 @@ export const AddQuestions = () => {
   return (
     <SAddQuestionsMainDiv>
       <FourthHeader />
-      {/* SIDEBAR GOES HERE */}
+      <SideBar />
       <STitle>კითხვების შედგენა</STitle>
       {fields.length === 0 && (
         <SInfoText>
