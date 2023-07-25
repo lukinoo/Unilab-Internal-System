@@ -1,25 +1,24 @@
-import testIcon from "/assets/svg/checkbox.svg"
+import homeIcon from "/assets/svg/home.svg";
+import editIcon from "/assets/svg/edit.svg"
+import textFileIcon from "/assets/svg/file-text.svg"
 
 export const sideBarData = [
   {
-    to: "",
-    icon: testIcon,
-    name: "TEST ICON",
-    label:"",
-    // children: [],
+    to: "/",
+    icon: homeIcon,
+    name: "სახლი",
+    label:"Home",
   },
   {
-    to: "",
-    icon: testIcon,
-    name: "TEST ICON2",
-    label:"",
-    // children: [],
+    to: "", // test
+    icon: editIcon,
+    name: "შესწორება", // test
+    label:"Edit",
   },
   {
-    to: "",
-    icon: testIcon,
-    name: "TEST ICON3",
+    to: "", // test
+    icon: textFileIcon,
+    name: "Text-file", // test
     label:"",
-    // children: [],
   }
 ]
