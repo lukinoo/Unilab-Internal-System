@@ -174,72 +174,41 @@ export const AddQuestions = () => {
     });
   };
 
+  const propsObj = (formIndex, item) => {
+    return {
+      indexedFormTypes,
+      formIndex,
+      changeAnswersArray,
+      item: item,
+      addAnswer,
+      deleteAnswer,
+      handleQuestionChange,
+      handleRemoveForm: () => remove(index),
+      handleMarkAnswer:
+        item.type === FORM_TYPES.CHECKBOX
+          ? handleMarkCheckboxAnswer
+          : handleMarkRadioAnswer,
+      handleFormTypeChange,
+      handleDescriptionChange,
+      handleCopyForm: () => handleCopyForm(item.type),
+      handleVerbalChange:
+        item.type === FORM_TYPES.RANGE_INPUT && handleVerbalChange,
+      handleTextBoxAnswerChange:
+        item.type === FORM_TYPES.TEXTBOX && handleTextBoxAnswerChange,
+    };
+  };
+
   const displayForm = (item, index) => {
     const formType = item.type;
     switch (formType) {
       case FORM_TYPES.CHECKBOX:
-        return (
-          <CheckboxForm
-            indexedFormTypes={indexedFormTypes}
-            formIndex={index}
-            changeAnswersArray={changeAnswersArray}
-            item={item}
-            addAnswer={addAnswer}
-            deleteAnswer={deleteAnswer}
-            handleQuestionChange={handleQuestionChange}
-            handleRemoveForm={() => remove(index)}
-            handleMarkAnswer={handleMarkCheckboxAnswer}
-            handleFormTypeChange={handleFormTypeChange}
-            handleDescriptionChange={handleDescriptionChange}
-            handleCopyForm={() => handleCopyForm(item.type)}
-          />
-        );
+        return <CheckboxForm {...propsObj(index, item)} />;
       case FORM_TYPES.MULTIPLE_CHOICE:
-        return (
-          <MultipleChoiceForm
-            indexedFormTypes={indexedFormTypes}
-            formIndex={index}
-            changeAnswersArray={changeAnswersArray}
-            item={item}
-            addAnswer={addAnswer}
-            deleteAnswer={deleteAnswer}
-            handleQuestionChange={handleQuestionChange}
-            handleRemoveForm={() => remove(index)}
-            handleMarkAnswer={handleMarkRadioAnswer}
-            handleFormTypeChange={handleFormTypeChange}
-            handleDescriptionChange={handleDescriptionChange}
-            handleCopyForm={() => handleCopyForm(item.type)}
-          />
-        );
+        return <MultipleChoiceForm {...propsObj(index, item)} />;
       case FORM_TYPES.RANGE_INPUT:
-        return (
-          <RatingScaleForm
-            item={item}
-            formIndex={index}
-            handleRemoveForm={() => remove(index)}
-            indexedFormTypes={indexedFormTypes}
-            handleQuestionChange={handleQuestionChange}
-            handleFormTypeChange={handleFormTypeChange}
-            handleDescriptionChange={handleDescriptionChange}
-            handleMaxRatingValueChange={handleMaxRatingValueChange}
-            handleVerbalChange={handleVerbalChange}
-            handleCopyForm={() => handleCopyForm(item.type)}
-          />
-        );
+        return <RatingScaleForm {...propsObj(index, item)} />;
       case FORM_TYPES.TEXTBOX:
-        return (
-          <TextBoxForm
-            formIndex={index}
-            item={item}
-            handleRemoveForm={() => remove(index)}
-            indexedFormTypes={indexedFormTypes}
-            handleQuestionChange={handleQuestionChange}
-            handleFormTypeChange={handleFormTypeChange}
-            handleDescriptionChange={handleDescriptionChange}
-            handleTextBoxAnswerChange={handleTextBoxAnswerChange}
-            handleCopyForm={() => handleCopyForm(item.type)}
-          />
-        );
+        return <TextBoxForm {...propsObj(index, item)} />;
       default:
         return null;
     }
