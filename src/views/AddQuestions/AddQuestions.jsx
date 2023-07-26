@@ -180,7 +180,7 @@ export const AddQuestions = () => {
       indexedFormTypes,
       formIndex,
       changeAnswersArray,
-      item: item,
+      item,
       addAnswer,
       deleteAnswer,
       handleQuestionChange,
