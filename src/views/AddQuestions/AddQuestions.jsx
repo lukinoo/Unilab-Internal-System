@@ -171,6 +171,7 @@ export const AddQuestions = () => {
       type,
       answers: arrayOfAnswers(type),
       question: "",
+      description: "",
     });
   };
 
