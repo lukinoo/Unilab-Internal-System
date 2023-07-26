@@ -183,7 +183,7 @@ export const AddQuestions = () => {
       addAnswer,
       deleteAnswer,
       handleQuestionChange,
-      handleRemoveForm: () => remove(index),
+      handleRemoveForm: () => remove(formIndex),
       handleMarkAnswer:
         item.type === FORM_TYPES.CHECKBOX
           ? handleMarkCheckboxAnswer
