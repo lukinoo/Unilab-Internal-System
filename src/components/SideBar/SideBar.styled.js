@@ -9,7 +9,7 @@ export const SSideBarContainer = styled(motion.nav)`
   border-radius: 0px 0px 6px 0px;
   top: 6.4rem;
   left: 0;
-  z-index: 1;
+  z-index: 2;
 `;
 
 export const SSideBarDiv = styled.div`
@@ -61,3 +61,8 @@ export const SArrowButton = styled.button`
   cursor: pointer;
   padding: 0.5rem 0;
 `;
+
+export const SSideBarImg = styled.img`
+  width: 1.5rem;
+  height: 1.5rem;
+`

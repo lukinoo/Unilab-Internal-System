@@ -1,0 +1,1 @@
+export { MultipleChoiceForm } from "./MultipleChoiceForm";
