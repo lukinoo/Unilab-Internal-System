@@ -196,7 +196,8 @@ export const AddQuestions = () => {
         item.type === FORM_TYPES.RANGE_INPUT && handleVerbalChange,
       handleTextBoxAnswerChange:
         item.type === FORM_TYPES.TEXTBOX && handleTextBoxAnswerChange,
-    };
+      handleMaxRatingValueChange,
+      };
   };
 
   const displayForm = (item, index) => {
