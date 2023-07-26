@@ -86,7 +86,7 @@ export const DraggableAnswersContainer = ({
                     >
                       <AnswerInput
                         type="text"
-                        width={"47rem"}
+                        width={"44.5rem"}
                         LeftComponent={<img src={dragIconSvg} alt="" />}
                         OptionSelector={optionSelector(index)}
                         RightComponent={

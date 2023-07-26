@@ -20,7 +20,7 @@ export const QuestionInput = ({
   left,
   position,
   backgroundColor,
-  handleQuestionChange,
+  changeQuestion,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -46,7 +46,7 @@ export const QuestionInput = ({
         onBlur={() => setIsFocused(false)}
         type={type}
         fontSize={fontSize}
-        onChange={(e)=>handleQuestionChange(e.target.value)}
+        onChange={(e)=>changeQuestion(e.target.value)}
       />
     </SQuestionInputContainer>
   );

@@ -4,34 +4,40 @@ import { QuestionTypeDropdown } from "../../Inputs/QuestionTypeDropdown";
 import { SFormHeaderContainer, SFormHeaderDiv } from "./FormHeader.styled";
 import { DuplicateDeleteButtons } from "../../Buttons/DuplicateDeleteButtons"
 
-const items = {
-  1: "Checkbox",
-  2: "Multiple Choice",
-  3: "Textbox",
-  4: "Rating Scale",
-};
-
-
 export const FormHeader = ({
-  questionTypeId,
-  setQuestionTypeId,
+  formIndex,
   handleQuestionChange,
-  handleRemoveForm
+  handleRemoveForm,
+  indexedFormTypes,
+  handleFormTypeChange,
+  formTypeIndex,
+  handleDescriptionChange,
+  handleCopyForm,
 }) => {
+  const changeQuestion = (value) => {
+    handleQuestionChange(formIndex, value);
+  };
+  const setFormType = (newFormTypeId) => {
+    handleFormTypeChange(formIndex, newFormTypeId);
+  };
+  const changeDescription = (newDescription)=>{
+    handleDescriptionChange(formIndex, newDescription);
+  }
+
   return (
     <SFormHeaderContainer>
       <SFormHeaderDiv marginRight>
-        <QuestionInput handleQuestionChange={handleQuestionChange}/>
-        <QuestionDescription marginTop="1.125rem" />
+        <QuestionInput changeQuestion={changeQuestion}/>
+        <QuestionDescription marginTop="1.125rem" changeDescription={changeDescription}/>
       </SFormHeaderDiv>
       <SFormHeaderDiv>
         <QuestionTypeDropdown 
-          items={items}
-          action={setQuestionTypeId}
-          value={questionTypeId}
+          items={indexedFormTypes}
+          action={setFormType}
           showImgs={true}
+          value={formTypeIndex}
         />
-        <DuplicateDeleteButtons handleRemoveForm={handleRemoveForm}/>
+        <DuplicateDeleteButtons handleRemoveForm={handleRemoveForm} handleCopyForm={handleCopyForm}/>
       </SFormHeaderDiv>
     </SFormHeaderContainer>
   )

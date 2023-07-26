@@ -7,7 +7,7 @@ export const RangeLabelInput = ({
 }) => {
 
   const handleInputChange = (e) =>{
-    action(e.target.value);
+    action(e.target.value, number);
   }
 
   return (

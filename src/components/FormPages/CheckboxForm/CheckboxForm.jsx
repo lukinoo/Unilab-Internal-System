@@ -1,18 +1,11 @@
-import { useState } from "react";
-import { FormHeader } from "../FormHeader/FormHeader"
+import { FormHeader } from "../FormHeader/FormHeader";
 import { DraggableAnswersContainer } from "../../DraggableAnswersContainer";
 import { SFormContainer } from "./CheckboxForm.styled";
 import { Button } from "../../Button/Button";
 import plusSvg from "/assets/svg/plus.svg";
 import { SFormBodyDiv } from "../MultipleChoiceForm/MultipleChoiceForm.styled";
 import { SPlusIcon } from "../../../views/AddQuestions/AddQuestions.styled";
-
-const items = {
-  1: "Checkbox",
-  2: "Multiple Choice",
-  3: "Textbox",
-  4: "Rating Scale",
-};
+import { getKeyByValue } from "../../../utils/getKeyByValue";
 
 export const CheckboxForm = ({
   item,
@@ -20,12 +13,15 @@ export const CheckboxForm = ({
   changeAnswersArray,
   addAnswer,
   deleteAnswer,
-  changeQuestion,
+  handleQuestionChange,
   handleRemoveForm,
-  handleMarkAnswer
+  handleMarkAnswer,
+  indexedFormTypes,
+  handleFormTypeChange,
+  handleDescriptionChange,
+  handleCopyForm,
 }) => {
-  const answers = item.answers
-  const [questionTypeId, setQuestionTypeId] = useState(1);  // Temporary code 
+  const answers = item.answers;
 
   const handleAddAnswer = () => {
     const ids = answers.map((obj) => obj.id);
@@ -34,26 +30,26 @@ export const CheckboxForm = ({
       id: `${largestId + 1}`,
       content: "",
       isCorrect: false,
-      type: items[questionTypeId],
+      type: item.type,
     });
-  };
-
-  const handleQuestionChange = (value) => {
-    changeQuestion(formIndex, value);
   };
 
   return (
     <SFormContainer>
       <FormHeader
-        questionTypeId={questionTypeId}
-        setQuestionTypeId={setQuestionTypeId}
+        formIndex={formIndex}
+        indexedFormTypes={indexedFormTypes}
+        handleFormTypeChange={handleFormTypeChange}
         handleQuestionChange={handleQuestionChange}
+        handleDescriptionChange={handleDescriptionChange}
         handleRemoveForm={handleRemoveForm}
+        formTypeIndex={getKeyByValue(indexedFormTypes, item.type)}
+        handleCopyForm={handleCopyForm}
       />
       <SFormBodyDiv>
         <h3>პასუხები:</h3>
         <DraggableAnswersContainer
-          type={items[questionTypeId]}
+          type={indexedFormTypes[1]} // temporary code
           answers={answers}
           deleteAnswer={deleteAnswer}
           changeAnswersArray={changeAnswersArray}
@@ -71,5 +67,5 @@ export const CheckboxForm = ({
         </Button>
       </SFormBodyDiv>
     </SFormContainer>
-  )
-}
+  );
+};

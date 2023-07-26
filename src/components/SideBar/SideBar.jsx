@@ -3,15 +3,16 @@ import { useAutoClose } from "../../hooks/useAutoClose";
 import { DropArrow } from "../DropArrow";
 import { SideButton } from "../Buttons/SideButton";
 import { SideDropdown } from "../Inputs/SideDropdown";
-
 import {
   SSideBarContainer,
   SSideBarDiv,
   SSideBarButton,
   SSideBarArrowButton,
+  SSideBarImg
 } from "./SideBar.styled";
+import { sideBarData } from "./sideBarData";
 
-export const SideBar = ({ items = [] }) => {
+export const SideBar = ({ items = sideBarData }) => {
   const dropdownRef = useRef(null);
   const [showSideBar, setShowSideBar] = useAutoClose(dropdownRef, false);
 
@@ -31,7 +32,7 @@ export const SideBar = ({ items = [] }) => {
                 path={item.to}
                 label={item.label}
                 items={item.children}
-                LeftComponent={item.icon}
+                LeftComponent={<SSideBarImg src={item.icon} alt="" />}
                 key={item.name}
               >
                 {item.name}
@@ -39,7 +40,7 @@ export const SideBar = ({ items = [] }) => {
             ) : (
               <SideButton
                 to={item.to}
-                LeftComponent={item.icon}
+                LeftComponent={<SSideBarImg src={item.icon} alt="" />}
                 key={item.name}
               >
                 {item.name}
