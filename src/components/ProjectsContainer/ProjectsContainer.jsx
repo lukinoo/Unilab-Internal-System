@@ -25,7 +25,8 @@ export const ProjectsContainer = ({
       <SSecondaryTiTle>პროექტები და გამოცდილება</SSecondaryTiTle>
       {getBatchData(startIndex, endIndex).map((projectObj)=>(
         <>
-          
+          <p>{projectObj.title}</p>
+          <p>{projectObj.description}</p>
         </>
       ))}
     </SProjectsContainer>
