@@ -4,7 +4,6 @@ import { SCourseTitle } from "../EditCourse/EditCourse.styled";
 export const SPortfolioMainDiv = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
 `
 
 export const STitle = styled(SCourseTitle)`
