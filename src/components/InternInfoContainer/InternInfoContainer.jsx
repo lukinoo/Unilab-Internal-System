@@ -1,3 +1,4 @@
+import { Button } from "../Button/Button";
 import {
   SInternInfoContainer,
   SNameAndOccupationDiv,
@@ -7,6 +8,7 @@ import {
   SImageDiv,
   SImageAndTextDiv,
   SInfoDiv,
+  SContactButton
 } from "./InternInfoContainer.styled";
 
 export const InternInfoContainer = ({
@@ -21,6 +23,7 @@ export const InternInfoContainer = ({
       <SImageAndTextDiv>
         <SImageDiv>
           <img src={imgUrl} alt={name} />
+          <SContactButton width={'18.25rem'}>დამიკავშირდით</SContactButton>
         </SImageDiv>
         <SInfoDiv>
           <SNameAndOccupationDiv>
@@ -30,7 +33,6 @@ export const InternInfoContainer = ({
           <SDescription>{description}</SDescription>
         </SInfoDiv>
       </SImageAndTextDiv>
-      {/* Button here */}
       {/* Social Links */}
     </SInternInfoContainer>
   );
