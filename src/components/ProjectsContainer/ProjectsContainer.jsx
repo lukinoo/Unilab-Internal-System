@@ -1,6 +1,7 @@
 import { SProjectsContainer } from "./ProjectsContainer.styled";
 import { SSecondaryTiTle } from "../../views/Portfolio/Portfolio.styled";
 import { useState } from "react";
+import { ProjectInfo } from "../ProjectInfo/ProjectInfo";
 
 const PROJECTS_PER_PAGE = 4;
 
@@ -24,10 +25,7 @@ export const ProjectsContainer = ({
     <SProjectsContainer>
       <SSecondaryTiTle>პროექტები და გამოცდილება</SSecondaryTiTle>
       {getBatchData(startIndex, endIndex).map((projectObj)=>(
-        <>
-          <p>{projectObj.title}</p>
-          <p>{projectObj.description}</p>
-        </>
+       <ProjectInfo projectObj={projectObj}/>
       ))}
     </SProjectsContainer>
   )
