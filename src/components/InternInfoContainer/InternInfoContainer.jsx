@@ -1,29 +1,37 @@
-import { SInternInfoContainer, SNameAndOccupationDiv, SName, SOccupation, SDescription, SImage  } from "./InternInfoContainer.styled";
+import {
+  SInternInfoContainer,
+  SNameAndOccupationDiv,
+  SName,
+  SOccupation,
+  SDescription,
+  SImageDiv,
+  SImageAndTextDiv,
+  SInfoDiv,
+} from "./InternInfoContainer.styled";
 
 export const InternInfoContainer = ({
   name,
   occupation,
   description,
   imgUrl,
-  links // Social Links object
+  links, // Social Links object
 }) => {
   return (
     <SInternInfoContainer>
-      <div>
-
-        <SImage src={imgUrl} alt={name} />
-        <div>
+      <SImageAndTextDiv>
+        <SImageDiv>
+          <img src={imgUrl} alt={name} />
+        </SImageDiv>
+        <SInfoDiv>
           <SNameAndOccupationDiv>
-              <SName>{name}</SName>
-              <SOccupation>{occupation}</SOccupation>
+            <SName>{name}</SName>
+            <SOccupation>{occupation}</SOccupation>
           </SNameAndOccupationDiv>
-          <SDescription>
-            {description}
-          </SDescription>
-        </div>
-      </div>
+          <SDescription>{description}</SDescription>
+        </SInfoDiv>
+      </SImageAndTextDiv>
       {/* Button here */}
       {/* Social Links */}
     </SInternInfoContainer>
-  )
-}
+  );
+};
