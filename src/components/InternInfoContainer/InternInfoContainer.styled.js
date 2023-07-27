@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { SButton } from "../Button/Button.styled";
 
 export const SInternInfoContainer = styled.div`
   display: flex;
@@ -29,6 +30,7 @@ export const SDescription = styled.p`
 `;
 
 export const SImageDiv = styled.div`
+  position: relative;
   border: 0.0625rem dashed #3f48cc;
   border-radius: 1.875rem;
   padding: 1.5rem;
@@ -50,4 +52,11 @@ export const SInfoDiv = styled.div`
   flex-direction: column;
   justify-content: space-around;
   width: 36.1875rem;
+`;
+
+export const SContactButton = styled(SButton)`
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 4.875rem;
 `;
