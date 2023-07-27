@@ -12,7 +12,7 @@ const ICONS = {
 
 export const SocialIcon = ({social, link}) => {
   return (
-    <a href={link}>
+    <a href={link} target="_blank">
       <img src={ICONS[social]} alt={social} />
     </a>
   )
