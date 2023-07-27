@@ -13,7 +13,7 @@ export const Portfolio = () => {
           links={{
             github: '',
             facebook: '',
-            linkedIn:'',
+            linkedin:'',
             instagram: '',
           }}
       />
