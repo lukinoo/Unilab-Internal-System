@@ -40,10 +40,8 @@ export const SImageDiv = styled.div`
   }
 `;
 export const SImageAndTextDiv = styled.div`
-  width: 50%;
-  /* max width */
+  width: 59.25rem;
   display: flex;
-  /* align-items: flex-end; */
   justify-content: space-between;
 `
 
@@ -51,7 +49,5 @@ export const SInfoDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: red;
   width: 36.1875rem;
-
 `
