@@ -9,3 +9,8 @@ export const SPorfolioFooterDiv = styled.div`
   font-size: 1.125rem;
   font-weight: 500;
 `;
+export const SCircledSocialDiv = styled.div`
+  display: flex;
+  width: 19.75rem;
+  justify-content: space-between;  
+`
