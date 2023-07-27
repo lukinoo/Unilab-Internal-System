@@ -1,8 +1,13 @@
+import githubSvg from "/assets/svg/github.svg";
+import facebookSvg from "/assets/svg/facebook.svg";
+import linkedInSvg from "/assets/svg/linkedin.svg";
+import instagramSvg from "/assets/svg/instagram.svg";
+
 const ICONS = {
-  github: '',
-  facebook: '',
-  linkedin: '',
-  intagram: '',
+  github: githubSvg,
+  facebook: facebookSvg,
+  linkedin: linkedInSvg,
+  instagram: instagramSvg
 }
 
 export const SocialIcon = ({social, link}) => {
