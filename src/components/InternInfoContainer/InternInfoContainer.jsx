@@ -23,7 +23,7 @@ export const InternInfoContainer = ({
       <SImageAndTextDiv>
         <SImageDiv>
           <img src={imgUrl} alt={name} />
-          <SContactButton width={'18.25rem'}>დამიკავშირდით</SContactButton>
+          <SContactButton>დამიკავშირდით</SContactButton>
         </SImageDiv>
         <SInfoDiv>
           <SNameAndOccupationDiv>
