@@ -1,4 +1,4 @@
-import { Button } from "../Button/Button";
+import { SocialIcon } from "../SocialIcon";
 import {
   SInternInfoContainer,
   SNameAndOccupationDiv,
@@ -34,6 +34,12 @@ export const InternInfoContainer = ({
         </SInfoDiv>
       </SImageAndTextDiv>
       {/* Social Links */}
+      <div>
+       <SocialIcon social='github' link={links.github} />
+       <SocialIcon social='facebook' link={links.facebook} />
+       <SocialIcon social='linkedin' link={links.linkedin} />
+       <SocialIcon social='instagram' link={links.instagram} />
+      </div>
     </SInternInfoContainer>
   );
 };
