@@ -1,5 +1,6 @@
 import { SPortfolioMainDiv, STitle } from "./Portfolio.styled";
 import { InternInfoContainer } from "../../components/InternInfoContainer/InternInfoContainer";
+import { PortfolioFooter } from "../../components/PortfolioFooter/PortfolioFooter";
 
 export const Portfolio = () => {
   return (
@@ -19,6 +20,15 @@ export const Portfolio = () => {
       />
       {/* Projects pagination */}
       {/* Footer */}
+      <PortfolioFooter 
+        links={{
+          github: '',
+          facebook: '',
+          linkedin:'',
+          instagram: '',
+        }}
+      />
+      
     </SPortfolioMainDiv>
   )
 }
