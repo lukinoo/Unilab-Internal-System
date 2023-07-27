@@ -4,9 +4,9 @@ export const SProjectsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 60rem;
   justify-content: space-between;
   color: #ffffff;
+  margin-top: 40rem;
 `
 export const SProjectsList = styled.div`
   display: flex;
