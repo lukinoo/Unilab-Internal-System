@@ -68,9 +68,6 @@ export const SSocialDiv = styled.div`
   display:flex;
   flex-direction: column;
   align-items: center;
-  &>a{
-    margin-bottom: 1.25rem;
-  }
 `
 
 export const SLine = styled.div`
