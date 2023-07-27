@@ -9,3 +9,9 @@ export const SPortfolioMainDiv = styled.div`
 
 export const STitle = styled(SCourseTitle)`
 `
+
+export const SSecondaryTiTle = styled.h2`
+  font-weight: 700;
+  font-size: 1.625rem;
+  color: #4980C0;
+`
