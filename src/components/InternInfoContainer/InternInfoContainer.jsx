@@ -8,7 +8,9 @@ import {
   SImageDiv,
   SImageAndTextDiv,
   SInfoDiv,
-  SContactButton
+  SContactButton,
+  SSocialDiv,
+  SLine
 } from "./InternInfoContainer.styled";
 
 export const InternInfoContainer = ({
@@ -34,12 +36,13 @@ export const InternInfoContainer = ({
         </SInfoDiv>
       </SImageAndTextDiv>
       {/* Social Links */}
-      <div>
-       <SocialIcon social='github' link={links.github} />
-       <SocialIcon social='facebook' link={links.facebook} />
-       <SocialIcon social='linkedin' link={links.linkedin} />
-       <SocialIcon social='instagram' link={links.instagram} />
-      </div>
+      <SSocialDiv>
+        <SocialIcon social='github' link={links.github} />
+        <SocialIcon social='facebook' link={links.facebook} />
+        <SocialIcon social='linkedin' link={links.linkedin} />
+        <SocialIcon social='instagram' link={links.instagram} />
+        <SLine />
+      </SSocialDiv>
     </SInternInfoContainer>
   );
 };
