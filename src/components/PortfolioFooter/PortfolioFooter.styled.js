@@ -6,4 +6,7 @@ export const SPorfolioFooterDiv = styled.div`
   align-items: center;
   background-color: red;
   margin-top: 20rem;// temporary
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 500;
 `;
