@@ -2,6 +2,7 @@ import githubSvg from "/assets/svg/github.svg";
 import facebookSvg from "/assets/svg/facebook.svg";
 import linkedInSvg from "/assets/svg/linkedin.svg";
 import instagramSvg from "/assets/svg/instagram.svg";
+import { SSocialIcon } from "./SocialIcon.styled";
 
 const ICONS = {
   github: githubSvg,
@@ -11,9 +12,10 @@ const ICONS = {
 }
 
 export const SocialIcon = ({social, link}) => {
+  console.log("LINK:", link, social)
   return (
-    <a href={link} target="_blank">
+    <SSocialIcon href={link} target="_blank">
       <img src={ICONS[social]} alt={social} />
-    </a>
+    </SSocialIcon>
   )
 }
