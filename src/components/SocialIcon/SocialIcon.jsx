@@ -12,7 +12,6 @@ const ICONS = {
 }
 
 export const SocialIcon = ({social, link}) => {
-  console.log("LINK:", link, social)
   return (
     <SSocialIcon href={link} target="_blank">
       <img src={ICONS[social]} alt={social} />
