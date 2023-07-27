@@ -1,4 +1,4 @@
-import { SProjectsContainer } from "./ProjectsContainer.styled";
+import { SProjectsContainer, SProjectsList } from "./ProjectsContainer.styled";
 import { SSecondaryTiTle } from "../../views/Portfolio/Portfolio.styled";
 import { useState } from "react";
 import { ProjectInfo } from "../ProjectInfo/ProjectInfo";
@@ -24,9 +24,11 @@ export const ProjectsContainer = ({
   return (
     <SProjectsContainer>
       <SSecondaryTiTle>პროექტები და გამოცდილება</SSecondaryTiTle>
-      {getBatchData(startIndex, endIndex).map((projectObj)=>(
-       <ProjectInfo projectObj={projectObj}/>
-      ))}
+      <SProjectsList>
+        {getBatchData(startIndex, endIndex).map((projectObj)=>(
+          <ProjectInfo projectObj={projectObj}/>
+        ))}
+      </SProjectsList>
     </SProjectsContainer>
   )
 }
