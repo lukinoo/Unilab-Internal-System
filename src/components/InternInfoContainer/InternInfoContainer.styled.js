@@ -60,3 +60,20 @@ export const SContactButton = styled(SButton)`
   top: 100%;
   margin-top: 4.875rem;
 `;
+
+export const SSocialDiv = styled.div`
+  position: absolute;
+  left: 90%;
+  top: 35rem;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+export const SLine = styled.div`
+  width: 0.0625rem;
+  height: 15.4375rem;
+  background-color: #3669A2;
+  box-shadow: 0rem .625rem .625rem 0rem rgba(255, 255, 255, 0.25);
+  margin-top: 2.625rem;
+`
