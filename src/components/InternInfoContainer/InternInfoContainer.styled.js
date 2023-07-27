@@ -31,7 +31,7 @@ export const SDescription = styled.p`
 
 export const SImageDiv = styled.div`
   position: relative;
-  border: 0.0625rem dashed #3f48cc;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='30' ry='30' stroke='%233F48CC' stroke-width='3' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
   border-radius: 1.875rem;
   padding: 1.5rem;
   & > img {
