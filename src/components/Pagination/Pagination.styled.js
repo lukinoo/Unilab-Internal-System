@@ -7,6 +7,7 @@ import doubleArrowRight from "/assets/svg/doubleChevronRight.svg";
 export const SPaginationDiv = styled.div`
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 11.4375rem;
   height: 1.5rem;
   font-size: 1.125rem;
