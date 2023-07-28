@@ -47,7 +47,14 @@ export const SProjectStatus = styled.p`
   font-weight: 600;
   width: 14.5rem;
   height: 2.25rem;
-  color: #ffffff;
   background-color: ${({ isFinalProject }) =>
     isFinalProject ? "#3F48CC" : "#EFEFEF"};
+  color: ${({ isFinalProject }) =>
+    !isFinalProject ? "#3F48CC" : "#EFEFEF"};
+  border-radius: 0.25rem;
 `;
+export const SProjectDescription = styled.p`
+  width: 44.375rem; 
+  font-size: 1rem;
+  font-weight: 400;
+`
