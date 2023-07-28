@@ -1,21 +1,44 @@
-import { SProjectInfoContainer, SDateDiv, SProjectInfoDiv} from "./ProjectInfo.styled"
+import {
+  SProjectInfoContainer,
+  SDateDiv,
+  SProjectInfoDiv,
+  SImage,
+  STitleAndRoleDiv,
+  SProjectTitle,
+  SProjectRole,
+  SProjectStatus,
+  SProjectDescription,
+  SArrowButton,
+} from "./ProjectInfo.styled";
 
-export const ProjectInfo = ({projectObj}) => {
+const FINAL_STATUS = "საფინალო პროექტი"
+
+export const ProjectInfo = ({ projectObj }) => {
   return (
     <SProjectInfoContainer>
-      <SDateDiv>{projectObj.startDate}-{projectObj.endDate}</SDateDiv>
+      <SDateDiv>
+        {projectObj.startDate}-{projectObj.endDate}
+      </SDateDiv>
       <SProjectInfoDiv>
-        {/* image */}
+        <SImage src={projectObj.image} alt={projectObj.title} />
         <div>
           <div>
-            {/* title */}
-            {/* role */}
-            {/* status */}
+            <STitleAndRoleDiv>
+              <SProjectTitle>{projectObj.title}</SProjectTitle>{" "}
+              <SProjectRole>{projectObj.role}</SProjectRole>
+            </STitleAndRoleDiv>
+            <SProjectStatus
+              isFinalProject={projectObj.status === FINAL_STATUS }
+            >
+              #{projectObj.status}
+            </SProjectStatus>
           </div>
-          {/* description */}
+          <SProjectDescription>{projectObj.description}</SProjectDescription>
         </div>
-        {/* button */}
+        <SArrowButton isFinalProject={projectObj.status ===FINAL_STATUS }>
+          სრულად
+        </SArrowButton>
       </SProjectInfoDiv>
     </SProjectInfoContainer>
-  )
-}
+  );
+};
