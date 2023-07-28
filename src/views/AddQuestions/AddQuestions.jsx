@@ -192,10 +192,8 @@ export const AddQuestions = () => {
       handleFormTypeChange,
       handleDescriptionChange,
       handleCopyForm: () => handleCopyForm(item.type),
-      handleVerbalChange:
-        item.type === FORM_TYPES.RANGE_INPUT && handleVerbalChange,
-      handleTextBoxAnswerChange:
-        item.type === FORM_TYPES.TEXTBOX && handleTextBoxAnswerChange,
+      handleVerbalChange,
+      handleTextBoxAnswerChange,
       handleMaxRatingValueChange,
       };
   };
