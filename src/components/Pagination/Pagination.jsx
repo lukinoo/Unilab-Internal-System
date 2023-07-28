@@ -14,10 +14,9 @@ export const Pagination = ({
   const numbersArray = Array.from({ length: totalPages }, (_, index) => index + 1);
   return (
     <SPaginationDiv>
-      <SDoubleArrow left />
-      <SArrow left />
+      {currentPage - 2 > 0 &&   <SDoubleArrow left onClick={()=>handlePageChange(currentPage - 2)}/>}
+      {currentPage - 1 > 0 &&  <SArrow left onClick={()=>handlePageChange(currentPage - 1)}/>}
       <SNumbersDiv>
-
         {numbersArray.map((number) => (
           <SPageNumber
             key={number}
@@ -28,8 +27,8 @@ export const Pagination = ({
           </SPageNumber>
         ))}
       </SNumbersDiv>
-      <SArrow />
-      <SDoubleArrow />
+      {currentPage + 1 <= totalPages &&  <SArrow onClick={()=>handlePageChange(currentPage + 1)}/>}
+      {currentPage + 2 <= totalPages &&   <SDoubleArrow onClick={()=>handlePageChange(currentPage + 2)}/>}
     </SPaginationDiv>
   );
 };
