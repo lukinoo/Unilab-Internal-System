@@ -33,6 +33,7 @@ export const SArrow = styled.button`
   background-image: url(${({ left }) => (left ? arrowLeft : arrowRight)});
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
 `
 export const SDoubleArrow = styled(SArrow)`
   background-image: url(${({ left }) => (left ? doubleArrowLeft : doubleArrowRight)});
