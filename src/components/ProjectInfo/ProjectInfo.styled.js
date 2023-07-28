@@ -44,6 +44,7 @@ export const SProjectTitle = styled.p`
 export const SProjectRole = styled(SProjectTitle)`
   font-size: 1.125rem;
   font-weight: 400;
+  opacity: 0.7;
 `;
 export const SProjectStatus = styled.p`
   display: flex;
