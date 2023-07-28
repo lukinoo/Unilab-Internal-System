@@ -22,20 +22,32 @@ export const SImage = styled.img`
   width: 14.5625rem;
   height: 14.5625rem;
   object-fit: cover;
-`
+`;
 export const STitleAndRoleDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: red;
   height: 3.5rem;
-`
+`;
 export const SProjectTitle = styled.p`
-  color: #3F48CC;
-  font-size: 1.1875rem;  
+  color: #3f48cc;
+  font-size: 1.1875rem;
   font-weight: 500;
-`
+`;
 export const SProjectRole = styled(SProjectTitle)`
   font-size: 1.125rem;
   font-weight: 400;
-`
+`;
+export const SProjectStatus = styled.p`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  width: 14.5rem;
+  height: 2.25rem;
+  color: #ffffff;
+  background-color: ${({ isFinalProject }) =>
+    isFinalProject ? "#3F48CC" : "#EFEFEF"};
+`;
