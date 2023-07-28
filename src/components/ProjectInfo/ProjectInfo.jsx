@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   SProjectInfoContainer,
   SDateDiv,
@@ -34,12 +35,11 @@ export const ProjectInfo = ({ projectObj }) => {
           </SInlineTextDiv>
           <SProjectDescription>{projectObj.description}</SProjectDescription>
         </div>
-        <SArrowButton
-          isFinalProject={projectObj.status === FINAL_STATUS}
-          to={projectObj.url}
-        >
-          სრულად
-        </SArrowButton>
+        <Link to={projectObj.url}>
+          <SArrowButton isFinalProject={projectObj.status === FINAL_STATUS}>
+            სრულად
+          </SArrowButton>
+        </Link>
       </SProjectInfoDiv>
     </SProjectInfoContainer>
   );
