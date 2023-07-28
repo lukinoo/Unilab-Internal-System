@@ -9,33 +9,35 @@ import {
   SProjectStatus,
   SProjectDescription,
   SArrowButton,
+  SInlineTextDiv,
 } from "./ProjectInfo.styled";
 
-const FINAL_STATUS = "საფინალო პროექტი"
+const FINAL_STATUS = "საფინალო პროექტი";
 
 export const ProjectInfo = ({ projectObj }) => {
   return (
     <SProjectInfoContainer>
       <SDateDiv>
-        {projectObj.startDate}-{projectObj.endDate}
+        {projectObj.startDate} - {projectObj.endDate}
       </SDateDiv>
       <SProjectInfoDiv>
         <SImage src={projectObj.image} alt={projectObj.title} />
         <div>
-          <div>
+          <SInlineTextDiv>
             <STitleAndRoleDiv>
               <SProjectTitle>{projectObj.title}</SProjectTitle>{" "}
               <SProjectRole>{projectObj.role}</SProjectRole>
             </STitleAndRoleDiv>
-            <SProjectStatus
-              isFinalProject={projectObj.status === FINAL_STATUS }
-            >
+            <SProjectStatus isFinalProject={projectObj.status === FINAL_STATUS}>
               #{projectObj.status}
             </SProjectStatus>
-          </div>
+          </SInlineTextDiv>
           <SProjectDescription>{projectObj.description}</SProjectDescription>
         </div>
-        <SArrowButton isFinalProject={projectObj.status ===FINAL_STATUS }>
+        <SArrowButton
+          isFinalProject={projectObj.status === FINAL_STATUS}
+          to={projectObj.url}
+        >
           სრულად
         </SArrowButton>
       </SProjectInfoDiv>
