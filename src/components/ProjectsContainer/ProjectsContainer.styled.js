@@ -6,7 +6,7 @@ export const SProjectsContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   color: #ffffff;
-  margin-top: 40rem;
+  margin-top: 30rem;
 `
 export const SProjectsList = styled.div`
   display: flex;
