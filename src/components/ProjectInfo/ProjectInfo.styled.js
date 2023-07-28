@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import arrowSvg from "/assets/svg/longArrow.svg";
+import arrowBlueSvg from "/assets/svg/longArrowBlue.svg";
 
 export const SProjectInfoContainer = styled.div`
   position: relative;
@@ -57,4 +59,18 @@ export const SProjectDescription = styled.p`
   width: 44.375rem; 
   font-size: 1rem;
   font-weight: 400;
+`
+export const SArrowButton = styled.button`
+  all: unset;
+  position: absolute;
+  top: 16rem;
+  left: 51.4375rem;
+  color: ${({ isFinalProject }) =>
+    !isFinalProject ? "#3F48CC" : "#EFEFEF"};
+  background-image:  url(${({isFinalProject}) => isFinalProject ? arrowSvg : arrowBlueSvg});
+  background-position: right;
+  background-repeat: no-repeat;
+  font-size: 1.125rem;
+  padding-right: 7rem;
+  cursor: pointer;
 `
