@@ -26,5 +26,16 @@ export const SImage = styled.img`
 export const STitleAndRoleDiv = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: blue;
+  justify-content: space-between;
+  background-color: red;
+  height: 3.5rem;
+`
+export const SProjectTitle = styled.p`
+  color: #3F48CC;
+  font-size: 1.1875rem;  
+  font-weight: 500;
+`
+export const SProjectRole = styled(SProjectTitle)`
+  font-size: 1.125rem;
+  font-weight: 400;
 `
