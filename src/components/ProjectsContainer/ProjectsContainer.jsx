@@ -22,7 +22,7 @@ export const ProjectsContainer = ({ projects }) => {
 
   const handlePageChange = (pageNumber) => {
     if (pageNumber <= 0) return;
-    if (totalPages < pageNumber * ITEMS_PER_PAGE) return;
+    else if (totalPages < pageNumber ) return;
     setCurrentPage(pageNumber);
   };
 
