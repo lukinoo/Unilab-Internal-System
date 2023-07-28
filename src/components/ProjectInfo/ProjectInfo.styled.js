@@ -15,5 +15,16 @@ export const SDateDiv = styled.div`
   left: -3.75rem;
 `;
 export const SProjectInfoDiv = styled.div`
+  display: flex;
   border-radius: 1.875rem;
 `;
+export const SImage = styled.img`
+  width: 14.5625rem;
+  height: 14.5625rem;
+  object-fit: cover;
+`
+export const STitleAndRoleDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: blue;
+`
