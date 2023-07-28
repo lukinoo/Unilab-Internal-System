@@ -39,14 +39,14 @@ export const GlobalStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'Noto Sans Georgian', sans-serif;
-    src: url('assets/fonts/NotoSansGeorgian-Thin.ttf');
+    src: url('assets/fonts/NotoSansGeorgian-ExtraLight.ttf');
     font-weight: 400;
     font-display: swap;
   }
 
   @font-face {
     font-family: 'Noto Sans Georgian', sans-serif;
-    src: url('assets/fonts/NotoSansGeorgian-ExtraLight.ttf');
+    src: url('assets/fonts/NotoSansGeorgian-Light.ttf');
     font-weight: 500;
     font-display: swap;
   }
