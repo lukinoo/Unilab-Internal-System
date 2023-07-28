@@ -34,7 +34,6 @@ export const STitleAndRoleDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: red;
   height: 3.5rem;
 `;
 export const SProjectTitle = styled.p`
@@ -78,4 +77,9 @@ export const SArrowButton = styled(Link)`
   font-size: 1.125rem;
   padding-right: 7rem;
   cursor: pointer;
+`
+export const SInlineTextDiv = styled.div`
+  display:flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
 `
