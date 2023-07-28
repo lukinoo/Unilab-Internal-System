@@ -2,10 +2,11 @@ import { SPortfolioMainDiv, STitle } from "./Portfolio.styled";
 import { InternInfoContainer } from "../../components/InternInfoContainer/InternInfoContainer";
 import { PortfolioFooter } from "../../components/PortfolioFooter/PortfolioFooter";
 import { ProjectsContainer } from "../../components/ProjectsContainer/ProjectsContainer";
-
+import { FourthHeader } from "../../components/Headers/FourthHeader";
 export const Portfolio = () => {
   return (
     <SPortfolioMainDiv>
+      <FourthHeader />
       <STitle>პორტფოლიო</STitle>
       <InternInfoContainer
           name={'ნინი წიკლაური'}
@@ -71,8 +72,6 @@ export const Portfolio = () => {
           url: ''
         },
       ]}/>
-      {/* Projects pagination */}
-      {/* Footer */}
       <PortfolioFooter 
         links={{
           github: '',
@@ -81,7 +80,6 @@ export const Portfolio = () => {
           instagram: '',
         }}
       />
-      
     </SPortfolioMainDiv>
   )
 }
