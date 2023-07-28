@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import arrowSvg from "/assets/svg/longArrow.svg";
 import arrowBlueSvg from "/assets/svg/longArrowBlue.svg";
+import { Link } from "react-router-dom";
 
 export const SProjectInfoContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 19.5625rem;
   width: 67.375rem;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='30' ry='30' stroke='%233F48CC' stroke-width='2' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
@@ -14,16 +16,19 @@ export const SProjectInfoContainer = styled.div`
 export const SDateDiv = styled.div`
   position: absolute;
   transform: rotate(-90deg);
-  left: -3.75rem;
+  left: -6rem;
 `;
 export const SProjectInfoDiv = styled.div`
   display: flex;
+  justify-content: space-between;
+  width: 92%;
   border-radius: 1.875rem;
 `;
 export const SImage = styled.img`
   width: 14.5625rem;
   height: 14.5625rem;
   object-fit: cover;
+  border-radius: 1rem;
 `;
 export const STitleAndRoleDiv = styled.div`
   display: flex;
@@ -60,7 +65,7 @@ export const SProjectDescription = styled.p`
   font-size: 1rem;
   font-weight: 400;
 `
-export const SArrowButton = styled.button`
+export const SArrowButton = styled(Link)`
   all: unset;
   position: absolute;
   top: 16rem;
