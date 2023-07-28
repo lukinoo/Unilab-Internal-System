@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import arrowSvg from "/assets/svg/longArrow.svg";
 import arrowBlueSvg from "/assets/svg/longArrowBlue.svg";
-import { Link } from "react-router-dom";
 
 export const SProjectInfoContainer = styled.div`
   position: relative;
@@ -65,7 +64,7 @@ export const SProjectDescription = styled.p`
   font-size: 1rem;
   font-weight: 400;
 `
-export const SArrowButton = styled(Link)`
+export const SArrowButton = styled.button`
   all: unset;
   position: absolute;
   top: 16rem;
