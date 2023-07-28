@@ -25,7 +25,7 @@ export const ProjectInfo = ({ projectObj }) => {
         <div>
           <SInlineTextDiv>
             <STitleAndRoleDiv>
-              <SProjectTitle>{projectObj.title}</SProjectTitle>{" "}
+              <SProjectTitle>{projectObj.title}</SProjectTitle>
               <SProjectRole>{projectObj.role}</SProjectRole>
             </STitleAndRoleDiv>
             <SProjectStatus isFinalProject={projectObj.status === FINAL_STATUS}>
