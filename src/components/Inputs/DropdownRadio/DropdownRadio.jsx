@@ -13,7 +13,6 @@ import { Input } from "../Input";
 import { SArrowButton } from "../Dropdown/Dropdown.styled";
 import { DropArrow } from "../../DropArrow";
 import { dropdownVariants } from "./DropdownRadio.variants";
-import { useForm } from "react-hook-form";
 import { AnimatePresence } from "framer-motion";
 import { useController } from "react-hook-form";
 
@@ -52,7 +51,7 @@ export const DropdownRadio = ({ name, control }) => {
       <SInputWrapper>
         <Input
           value={selectedOption}
-          placeholder="ჩაწერეთ პოზიცია"
+          placeholder="აირჩიეთ პოზიცია"
           label="პოზიცია"
           type={"text"}
           readOnly

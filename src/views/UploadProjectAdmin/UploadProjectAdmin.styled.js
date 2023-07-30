@@ -35,7 +35,7 @@ export const STeamMember = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 3.44rem;
 `;
 
 export const SPositionWrapper = styled.div`
@@ -43,6 +43,7 @@ export const SPositionWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 2.37rem;
+  position: relative;
 `;
 
 export const SButtonWrapper = styled.div`
@@ -51,4 +52,15 @@ export const SButtonWrapper = styled.div`
   align-items: center;
   gap: 3.563rem;
   margin: 5.5rem auto 0 auto;
+`;
+
+export const SReactSelect = styled.div`
+  width: 427px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  label {
+    font-size: 0.75rem;
+  }
 `;
