@@ -31,12 +31,26 @@ export const GlobalStyle = createGlobalStyle`
  }
 
   @font-face {
-      font-family: 'FiraGO';
-      src: url('assets/fonts/FiraGO-Bold.woff2');
-      font-weight: 700;
-      font-display: swap;
+    font-family: 'FiraGO';
+    src: url('assets/fonts/FiraGO-Bold.woff2');
+    font-weight: 700;
+    font-display: swap;
   }
 
+  @font-face {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    src: url('assets/fonts/NotoSansGeorgian-ExtraLight.ttf');
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    src: url('assets/fonts/NotoSansGeorgian-Light.ttf');
+    font-weight: 500;
+    font-display: swap;
+  }
+  
   ul, ol{
     list-style-type: none;
   }
