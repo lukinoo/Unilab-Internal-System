@@ -87,6 +87,21 @@ export const activeCoursesData = [
     title: "ICT პროექტების მართვა",
     src: "assets/images/CoursesInfoImages/ict.png"
   },
+  {
+    id: 4,
+    title: "Front - End",
+    src: "assets/images/CoursesInfoImages/frontend.png"
+  },
+  {
+    id: 5,
+    title: "გრაფიკული დიზაინი",
+    src: "assets/images/CoursesInfoImages/graphicDesign.png"
+  },
+  {
+    id: 6,
+    title: "ICT პროექტების მართვა",
+    src: "assets/images/CoursesInfoImages/ict.png"
+  },
 ]
 
 export const currentCoursesData = [
