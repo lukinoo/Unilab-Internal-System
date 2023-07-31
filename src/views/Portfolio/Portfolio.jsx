@@ -73,6 +73,8 @@ export const Portfolio = () => {
         },
       ]}/>
       <PortfolioFooter 
+        gmail="contact@contact.ge"
+        number="+995 333 67 56 43"
         links={{
           github: '',
           facebook: '',
