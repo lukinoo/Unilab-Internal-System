@@ -71,6 +71,42 @@ export const ContributorsData = [
   },
 ]
 
+export const activeCoursesData = [
+  {
+    id: 1,
+    title: "Front - End",
+    src: "assets/images/CoursesInfoImages/frontend.png"
+  },
+  {
+    id: 2,
+    title: "გრაფიკული დიზაინი",
+    src: "assets/images/CoursesInfoImages/graphicDesign.png"
+  },
+  {
+    id: 3,
+    title: "ICT პროექტების მართვა",
+    src: "assets/images/CoursesInfoImages/ict.png"
+  },
+]
+
+export const currentCoursesData = [
+  {
+    id: 1,
+    title: "Front - End",
+    src: "assets/images/CoursesInfoImages/frontend.png"
+  },
+  {
+    id: 2,
+    title: "გრაფიკული დიზაინი",
+    src: "assets/images/CoursesInfoImages/graphicDesign.png"
+  },
+  {
+    id: 3,
+    title: "ICT პროექტების მართვა",
+    src: "assets/images/CoursesInfoImages/ict.png"
+  },
+]
+
 export const studentData = [
   {
     id: "ce8410ce-a5f7-42fa-83b4-08d2bb3eb4a1",
