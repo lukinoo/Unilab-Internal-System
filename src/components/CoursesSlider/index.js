@@ -1,0 +1,1 @@
+export { CoursesSlider } from "./CoursesSlider"
