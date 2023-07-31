@@ -48,7 +48,7 @@ export const SAboutSection = styled.section`
 `;
 
 export const SAboutLine = styled.div`
-  margin-top: 17.125rem;
+  margin-top: ${({marginTop}) => (marginTop ? marginTop : "17.125rem")};
   width: 100%;
   img {
     width: 56.25rem;
