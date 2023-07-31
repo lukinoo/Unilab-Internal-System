@@ -30,6 +30,7 @@ export const SArrow = styled.button`
   all:unset;
   width: 1rem;
   height: 1rem;
+  padding: 0.7rem;
   background-image: url(${({ left }) => (left ? arrowLeft : arrowRight)});
   background-repeat: no-repeat;
   background-position: center;
