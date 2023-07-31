@@ -5,7 +5,9 @@ import Slider from "react-slick";
 import {
   SCoursesSlider,
   SCoursesSliderCard,
+  SCoursesSliderCardButtonWrapper,
   SCoursesSliderCardInfo,
+  SCoursesSliderCardTitleButton,
   SCoursesSliderCardVectorLeft,
   SCoursesSliderCardVectorRight,
   SCoursesSliderDashedBottom,
@@ -15,6 +17,7 @@ import {
   SCoursesSliderImgWrapper,
 } from "./CoursesSlider.styled";
 import { activeCoursesData } from "../../data";
+import { Button } from "../Button";
 
 export const CoursesSlider = () => {
   const settings = {
@@ -49,6 +52,15 @@ export const CoursesSlider = () => {
                 </SCoursesSliderDashedBottom>
               </SCoursesSliderImgContainer>
             </SCoursesSliderCardInfo>
+            <SCoursesSliderCardTitleButton>
+              <span>{title}</span>
+            </SCoursesSliderCardTitleButton>
+            <SCoursesSliderCardButtonWrapper>
+              <Button width={"15.625rem"}>
+                დეტალურად
+              </Button>
+            </SCoursesSliderCardButtonWrapper>
+            
           </SCoursesSliderCard>
         ))}
       </Slider>
