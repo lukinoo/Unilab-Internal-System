@@ -54,3 +54,20 @@ export const SCoursesSliderDashedBottom = styled.div`
   right: 0;
   rotate: 180deg;
 `
+
+export const SCoursesSliderCardTitleButton = styled.div`
+  margin: 1.875rem 0 2.25rem;
+
+  > span {
+    color: #3669A2;
+    font-family: "Noto Sans Georgian";
+    font-weight: 500;
+    font-size: 1.375rem;
+    line-height: 1;
+  }
+`
+
+export const SCoursesSliderCardButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`
