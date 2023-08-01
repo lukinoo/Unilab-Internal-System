@@ -3,6 +3,7 @@ import { SContributorsCard, SContributorsInfo } from "../ContributorsSlider/Cont
 
 export const SCoursesSlider = styled.div`
   width: 95vw;
+  margin: ${({margin}) => (margin ? margin : "0")};
 `
 
 export const SCoursesSliderCard = styled(SContributorsCard)`
