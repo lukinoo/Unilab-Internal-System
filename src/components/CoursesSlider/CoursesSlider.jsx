@@ -18,18 +18,21 @@ import {
 } from "./CoursesSlider.styled";
 import { activeCoursesData } from "../../data";
 import { Button } from "../Button";
+import { CustomNextArrow, CustomPrevArrow } from "../ContributorsSlider/CustomArrows/CustomArrows";
 
-export const CoursesSlider = () => {
+export const CoursesSlider = ({margin}) => {
   const settings = {
     dots: false,
     infinite: true,
     speed: 700,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     initialSlide: 0,
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
   };
   return (
-    <SCoursesSlider>
+    <SCoursesSlider margin={margin}>
       <Slider {...settings}>
         {activeCoursesData.map(({ id, title, src }) => (
           <SCoursesSliderCard key={id}>
