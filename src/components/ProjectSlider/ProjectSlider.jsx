@@ -2,10 +2,9 @@ import React, { useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { ProjectData } from "../../data";
 import { SProjectDiv, SProjectCard, SProjectImg } from "./ProjectSlider.Styled";
 
-export const ProjectSlider = ({ onChange }) => {
+export const ProjectSlider = ({ onChange, data }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -48,7 +47,7 @@ export const ProjectSlider = ({ onChange }) => {
   return (
     <SProjectDiv>
       <Slider {...settings}>
-        {ProjectData.map(({ id, src }) => (
+        {data.map(({ id, src }) => (
           <SProjectCard key={id}>
             <SProjectImg src={src} alt={"banner" + id} />
           </SProjectCard>
