@@ -18,7 +18,7 @@ export const SProjectCard = styled.div`
 
 export const SProjectImg = styled.img`
   width: 1240px;
-  height: 450px;
+  height: ${({imgHeight})=>imgHeight ? imgHeight : '28.125rem'};
   margin: 0 auto;
   pointer-events: none;
 `;
