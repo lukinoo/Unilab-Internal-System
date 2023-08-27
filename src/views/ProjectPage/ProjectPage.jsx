@@ -16,7 +16,8 @@ export const ProjectPage = () => {
     const userObj = ProjectData.team.filter(obj=>obj.name == user)[0];
     return userObj;
   }
-
+  const role = findUserObj(user).role;
+  const roleDescription = findUserObj(user).roleDescription;
 
   return (
     <SProjectPageMainDiv>
@@ -33,8 +34,8 @@ export const ProjectPage = () => {
       {/* img slider */}
       {/* My role */}
       <div>
-        <p>ჩემი როლი: {findUserObj(user).role}</p>
-        <p>{findUserObj(user).roleDescription}</p>
+        <p>ჩემი როლი: {role}</p>
+        <p>{roleDescription}</p>
       </div>
       <p>პროექტის ხანგრძლივობა: {ProjectData.duration}</p>
       {/* Project link */}
