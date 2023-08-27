@@ -12,10 +12,9 @@ export const ProjectPage = () => {
   const handleSliderChange = (i) => {
     setSliderIndex(i);
   };
-  const findRole = () =>{
-    const role = ProjectData.team.filter(obj=>obj.name == user)[0].role;
-    console.log("ROLE:",role);
-    return role;
+  const findUserObj = () =>{
+    const userObj = ProjectData.team.filter(obj=>obj.name == user)[0];
+    return userObj;
   }
 
 
@@ -34,8 +33,8 @@ export const ProjectPage = () => {
       {/* img slider */}
       {/* My role */}
       <div>
-        <p>ჩემი როლი: {findRole(user)}</p>
-        <p>{}</p>
+        <p>ჩემი როლი: {findUserObj(user).role}</p>
+        <p>{findUserObj(user).roleDescription}</p>
       </div>
       <p>პროექტის ხანგრძლივობა: {ProjectData.duration}</p>
       {/* Project link */}
