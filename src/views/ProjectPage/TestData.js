@@ -1,4 +1,4 @@
-export const ProjectData = {
+export const TestProjectData = {
   name: 'გლოსარიუმი',
   description: 'პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა, პროექტის აღწერა',
   images: [
@@ -18,37 +18,37 @@ export const ProjectData = {
   team: [
     {
       name: 'ნინი წიკლაური',
-      img: '',
+      img: 'https://s3-alpha-sig.figma.com/img/1b33/7726/df7454d970e376a4231b4b41b30abdc0?Expires=1693785600&Signature=nQTJ8aWpZKh2LRooJ5kxy0bA7gWjQsanneBNakRuYYLMrKZreSuMQCZvX57k6t1iJtdvPlSGZ~Zp4Bi0GuSBarfVlMZHDw7a5PBqmogHbQy5de1erdM94uaN-vegI~76Ist2H0IXcjUHkcU2mYSZNf8R4ENF18Akx~NlP-sfMib94f7kxEHUgVu6e34wZHhS9qusJcqcxV5XcWJ~98pSeJwKDVyK0kWvX4~rbxgeh8IqVKIvpZ4Y0zuueUNUzpRJzXgCxrF5-wYLPys7ZqmDdwBuxZWLxQRv3a3pP-KYmjsJG~1DG~qfalMSirPxs-~tsKg1ERLdTRq~TDY8kGBjHw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
       role: 'პროექტის მენეჯერი',
       roleDescription: 'ჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი',
     },
     {
       name: 'ნინი წიკლაური',
-      img: '',
+      img: 'https://s3-alpha-sig.figma.com/img/1b33/7726/df7454d970e376a4231b4b41b30abdc0?Expires=1693785600&Signature=nQTJ8aWpZKh2LRooJ5kxy0bA7gWjQsanneBNakRuYYLMrKZreSuMQCZvX57k6t1iJtdvPlSGZ~Zp4Bi0GuSBarfVlMZHDw7a5PBqmogHbQy5de1erdM94uaN-vegI~76Ist2H0IXcjUHkcU2mYSZNf8R4ENF18Akx~NlP-sfMib94f7kxEHUgVu6e34wZHhS9qusJcqcxV5XcWJ~98pSeJwKDVyK0kWvX4~rbxgeh8IqVKIvpZ4Y0zuueUNUzpRJzXgCxrF5-wYLPys7ZqmDdwBuxZWLxQRv3a3pP-KYmjsJG~1DG~qfalMSirPxs-~tsKg1ERLdTRq~TDY8kGBjHw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
       role: 'პროექტის მენეჯერი',
       roleDescription: 'ჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი',
     },
     {
       name: 'ნინი წიკლაური',
-      img: '',
+      img: 'https://s3-alpha-sig.figma.com/img/1b33/7726/df7454d970e376a4231b4b41b30abdc0?Expires=1693785600&Signature=nQTJ8aWpZKh2LRooJ5kxy0bA7gWjQsanneBNakRuYYLMrKZreSuMQCZvX57k6t1iJtdvPlSGZ~Zp4Bi0GuSBarfVlMZHDw7a5PBqmogHbQy5de1erdM94uaN-vegI~76Ist2H0IXcjUHkcU2mYSZNf8R4ENF18Akx~NlP-sfMib94f7kxEHUgVu6e34wZHhS9qusJcqcxV5XcWJ~98pSeJwKDVyK0kWvX4~rbxgeh8IqVKIvpZ4Y0zuueUNUzpRJzXgCxrF5-wYLPys7ZqmDdwBuxZWLxQRv3a3pP-KYmjsJG~1DG~qfalMSirPxs-~tsKg1ERLdTRq~TDY8kGBjHw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
       role: 'პროექტის მენეჯერი',
       roleDescription: 'ჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი',
     },
     {
       name: 'ნინი წიკლაური',
-      img: '',
+      img: 'https://s3-alpha-sig.figma.com/img/1b33/7726/df7454d970e376a4231b4b41b30abdc0?Expires=1693785600&Signature=nQTJ8aWpZKh2LRooJ5kxy0bA7gWjQsanneBNakRuYYLMrKZreSuMQCZvX57k6t1iJtdvPlSGZ~Zp4Bi0GuSBarfVlMZHDw7a5PBqmogHbQy5de1erdM94uaN-vegI~76Ist2H0IXcjUHkcU2mYSZNf8R4ENF18Akx~NlP-sfMib94f7kxEHUgVu6e34wZHhS9qusJcqcxV5XcWJ~98pSeJwKDVyK0kWvX4~rbxgeh8IqVKIvpZ4Y0zuueUNUzpRJzXgCxrF5-wYLPys7ZqmDdwBuxZWLxQRv3a3pP-KYmjsJG~1DG~qfalMSirPxs-~tsKg1ERLdTRq~TDY8kGBjHw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
       role: 'პროექტის მენეჯერი',
       roleDescription: 'ჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი',
     },
     {
       name: 'ნინი წიკლაური',
-      img: '',
+      img: 'https://s3-alpha-sig.figma.com/img/1b33/7726/df7454d970e376a4231b4b41b30abdc0?Expires=1693785600&Signature=nQTJ8aWpZKh2LRooJ5kxy0bA7gWjQsanneBNakRuYYLMrKZreSuMQCZvX57k6t1iJtdvPlSGZ~Zp4Bi0GuSBarfVlMZHDw7a5PBqmogHbQy5de1erdM94uaN-vegI~76Ist2H0IXcjUHkcU2mYSZNf8R4ENF18Akx~NlP-sfMib94f7kxEHUgVu6e34wZHhS9qusJcqcxV5XcWJ~98pSeJwKDVyK0kWvX4~rbxgeh8IqVKIvpZ4Y0zuueUNUzpRJzXgCxrF5-wYLPys7ZqmDdwBuxZWLxQRv3a3pP-KYmjsJG~1DG~qfalMSirPxs-~tsKg1ERLdTRq~TDY8kGBjHw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
       role: 'UI/UX დიზაინერი',
       roleDescription: 'ჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი',
     },
     {
       name: 'ნინი წიკლაური',
-      img: '',
+      img: 'https://s3-alpha-sig.figma.com/img/1b33/7726/df7454d970e376a4231b4b41b30abdc0?Expires=1693785600&Signature=nQTJ8aWpZKh2LRooJ5kxy0bA7gWjQsanneBNakRuYYLMrKZreSuMQCZvX57k6t1iJtdvPlSGZ~Zp4Bi0GuSBarfVlMZHDw7a5PBqmogHbQy5de1erdM94uaN-vegI~76Ist2H0IXcjUHkcU2mYSZNf8R4ENF18Akx~NlP-sfMib94f7kxEHUgVu6e34wZHhS9qusJcqcxV5XcWJ~98pSeJwKDVyK0kWvX4~rbxgeh8IqVKIvpZ4Y0zuueUNUzpRJzXgCxrF5-wYLPys7ZqmDdwBuxZWLxQRv3a3pP-KYmjsJG~1DG~qfalMSirPxs-~tsKg1ERLdTRq~TDY8kGBjHw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
       role: 'პროექტის მენეჯერი',
       roleDescription: 'ჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი, ჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლიჩემი როლი',
     },
