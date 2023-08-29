@@ -1,20 +1,28 @@
-import { SProjectTeamSlider, SMemberDiv, SMemberImg } from "./ProjectTeamSlider.styled";
+import {
+  SProjectTeamSlider,
+  SMemberDiv,
+  SMemberImg,
+  SRole,
+  SName,
+  SBlueLine,
+} from "./ProjectTeamSlider.styled";
 import { TestProjectData } from "../../views/ProjectPage/TestData";
 import { settings } from "./sliderSettings";
 import Slider from "react-slick";
 
-export const ProjectTeamSlider = () =>{
+export const ProjectTeamSlider = () => {
   return (
     <SProjectTeamSlider {...settings}>
       <Slider {...settings}>
-        {TestProjectData.team.map((obj, index)=>(
+        {TestProjectData.team.map((obj, index) => (
           <SMemberDiv>
             <SMemberImg src={obj.img} />
-            <p>{obj.name}</p>
-            <p>{obj.role}</p>
+            <SName>{obj.name}</SName>
+            <SBlueLine />
+            <SRole>{obj.role}</SRole>
           </SMemberDiv>
         ))}
       </Slider>
     </SProjectTeamSlider>
-  )
-}
+  );
+};
