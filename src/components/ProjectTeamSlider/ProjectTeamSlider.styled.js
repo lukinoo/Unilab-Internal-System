@@ -6,8 +6,7 @@ export const SProjectTeamSlider = styled.div`
 export const SMemberDiv = styled.div`
   width: 14.1875rem;
   height: 14.1875rem;
-  background-color: red; // test
-  /* border: 1px solid blue; // test */
+  /* background-color: red; // test */
   display: flex !important; 
   flex-direction: column;
   align-items: center;
@@ -22,6 +21,25 @@ export const SMemberImg = styled.img`
   width: 6rem;
   height: 6rem;
   border-radius: 100%;
-  border: .625rem;
+  border: 0.25rem solid #ffffff;
   object-fit: cover;
+  margin-bottom: 1.25rem;
+`
+
+export const SName = styled.p`
+  font-family: 'Noto Sans Georgian';
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #ffffff;
+  opacity: 0.6;
+`
+export const SRole = styled(SName)`
+  opacity: 1;
+`
+
+export const SBlueLine = styled.div`
+  width: 9.75rem;
+  height: 0.0625rem;
+  background-color: #2984CE;
+  margin: 0.6875rem 0;
 `
