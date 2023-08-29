@@ -1,12 +1,14 @@
+import { CustomChevronRight, CustomChevronLeft } from "./CustomChevrons/CustomChevrons";
+
 export const settings = {
   dots: false,
   infinite: true,
   speed: 700,
-  slidesToShow: 3,
+  slidesToShow: 5,
   slidesToScroll: 3,
   initialSlide: 0,
-  prevArrow: <>Prev</>,
-  nextArrow: <>Next</>,
+  prevArrow: <CustomChevronLeft />,
+  nextArrow: <CustomChevronRight />,
   responsive: [
     {
       breakpoint: 1024,
