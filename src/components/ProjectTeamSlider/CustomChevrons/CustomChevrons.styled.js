@@ -8,7 +8,6 @@ const BaseChevronButton = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
-  background-color: #4980C0;
   &>img{
     width: 60%;
     height: 60%;
