@@ -36,7 +36,7 @@ const BaseTitleParagraph = styled.p`
   }
 `
 
-export const SProjectTitle = styled(BaseTitleParagraph)`
+export const SLargeText = styled(BaseTitleParagraph)`
 `
 
 export const SProjectRole = styled(BaseTitleParagraph)`
