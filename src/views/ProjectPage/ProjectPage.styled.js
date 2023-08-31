@@ -50,6 +50,9 @@ export const SLargeText = styled.p`
 export const SProjectRole = styled(SLargeText)`
   font-size: 1.125rem;
 `
+export const SProjectDuration = styled(SLargeText)`
+  margin: 5.125rem 0 3.375rem;
+`
 export const SSliderDiv = styled.div`
   display: flex;
   max-width: 68rem;
