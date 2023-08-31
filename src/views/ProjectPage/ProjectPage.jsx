@@ -15,9 +15,10 @@ import {
   STitle,
 } from "./ProjectPage.styled";
 import { ProjectSlider } from "../../components/ProjectSlider";
-import { TestProjectData } from "./TestData";
+import { TestProjectData } from "./data/TestData";
 import { ProjectTeamSlider } from "../../components/ProjectTeamSlider/ProjectTeamSlider";
 import { Link } from "react-router-dom";
+import { tools } from "./data/tools";
 
 // user = person whose porfolio link was used to load the page
 export const ProjectPage = () => {
@@ -81,7 +82,9 @@ export const ProjectPage = () => {
           <SUsedToolsDiv>
             <p>გამოყენებული ხელსაწყოები</p>
             <div>
-                {/* Used tools:  */}
+              {TestProjectData.usedTools.map((tool, index) => (
+                <img src={tools[tool.toLowerCase()]} alt={tool} key={index} />
+              ))}
             </div>
           </SUsedToolsDiv>
         </SProjectPageFooter>
