@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { SAnotherDirection } from "../../components/Buttons/AnotherDirection/AnotherDirection.styled";
+import { SCourseTitle } from "../EditCourse/EditCourse.styled";
 import linkSvg from "/assets/svg/linkIcon.svg";
 
 export const SProjectPageMainDiv = styled.div`
@@ -13,6 +14,8 @@ export const SProjectPageMainDiv = styled.div`
   & * {
     font-family: inherit;
   }
+`
+export const STitle = styled(SCourseTitle)`
 `
 
 export const SWrapper = styled.div`
@@ -71,6 +74,7 @@ export const SProjectPageFooter = styled.div`
   margin-bottom: 20.5rem;
 `
 export const SProjectLink = styled(SAnotherDirection)`
+  width: 18.4375rem;
   display: flex;
   justify-content: space-around;
   span{
@@ -79,5 +83,14 @@ export const SProjectLink = styled(SAnotherDirection)`
     background-position: right;
     background-repeat: no-repeat;
     padding-right: 3rem;
+  }
+`
+export const SUsedToolsDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 300;
+  >div{
+    display: flex;
   }
 `
