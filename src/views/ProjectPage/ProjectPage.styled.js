@@ -12,8 +12,14 @@ export const SProjectPageMainDiv = styled.div`
   }
 `
 
-export const SInfoDiv = styled.div`
+export const SWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 90%;
+  max-width: 68rem;
+  align-items: center;
+`
+export const SInfoDiv = styled.div`
   max-width: 68rem;
   font-size: 1.125rem;
 `
@@ -43,7 +49,6 @@ export const SProjectRole = styled(SLargeText)`
 `
 export const SSliderDiv = styled.div`
   display: flex;
-  width: 90%;
   max-width: 68rem;
   margin: 6.0625rem 0;
   flex-direction: column;
@@ -52,4 +57,6 @@ export const SSliderDiv = styled.div`
     margin-bottom: 2rem;
     align-self: flex-start;
   }
+`
+export const SProjectPageFooter = styled.div`
 `
