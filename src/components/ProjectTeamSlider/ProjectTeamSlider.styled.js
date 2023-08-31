@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const SProjectTeamSlider = styled.div`
-  width: 90%;
+  width: 100%;
 `
 export const SMemberDiv = styled.div`
   width: 14.1875rem;
   height: 14.1875rem;
-  /* background-color: red; // test */
   display: flex !important; 
   flex-direction: column;
   align-items: center;
