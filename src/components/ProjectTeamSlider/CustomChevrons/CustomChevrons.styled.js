@@ -15,21 +15,25 @@ const BaseChevronButton = styled.button`
 `;
 
 export const SLeftChevronButton = styled(BaseChevronButton)`
-  left: -2.5rem;
-
+  left: -1rem;
   @media (min-width: 1024px) {
+    left: -3rem;
   }
-
+  @media (min-width: 1200px) {
+    left: -6rem;
+  }
   @media (max-width: 768px) {
   }
 `;
 
 export const SRightChevronbutton = styled(BaseChevronButton)`
-  right: -2.5rem;
-
+  right: -1rem;
   @media (min-width: 1024px) {
+    right: -3rem;
   }
-
+  @media (min-width: 1200px) {
+    right: -6rem;
+  }
   @media (max-width: 768px) {
   }
 `;
