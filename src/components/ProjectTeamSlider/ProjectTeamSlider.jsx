@@ -6,7 +6,7 @@ import {
   SName,
   SBlueLine,
 } from "./ProjectTeamSlider.styled";
-import { TestProjectData } from "../../views/ProjectPage/TestData";
+import { TestProjectData } from "../../views/ProjectPage/data/TestData";
 import { settings } from "./sliderSettings";
 import Slider from "react-slick";
 
@@ -15,7 +15,7 @@ export const ProjectTeamSlider = () => {
     <SProjectTeamSlider {...settings}>
       <Slider {...settings}>
         {TestProjectData.team.map((obj, index) => (
-          <SMemberDiv>
+          <SMemberDiv key={index}>
             <SMemberImg src={obj.img} />
             <SName>{obj.name}</SName>
             <SBlueLine />
