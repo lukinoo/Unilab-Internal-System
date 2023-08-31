@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { SAnotherDirection } from "../../components/Buttons/AnotherDirection/AnotherDirection.styled";
+import linkSvg from "/assets/svg/linkIcon.svg";
 
 export const SProjectPageMainDiv = styled.div`
   display: flex;
@@ -7,6 +9,7 @@ export const SProjectPageMainDiv = styled.div`
   color: #ffffff;
   font-family: 'Helvetica', sans-serif;
   font-size: 1.125rem;
+  overflow-x: hidden;
   & * {
     font-family: inherit;
   }
@@ -59,4 +62,19 @@ export const SSliderDiv = styled.div`
   }
 `
 export const SProjectPageFooter = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20.5rem;
+`
+export const SProjectLink = styled(SAnotherDirection)`
+  display: flex;
+  justify-content: space-around;
+  span{
+    font-family: 'FiraGO';
+    background-image: url(${linkSvg});
+    background-position: right;
+    background-repeat: no-repeat;
+    padding-right: 3rem;
+  }
 `
