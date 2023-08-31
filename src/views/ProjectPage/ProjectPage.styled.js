@@ -56,8 +56,9 @@ export const SProjectDuration = styled(SLargeText)`
   margin: 5.125rem 0 3.375rem;
 `;
 export const SSliderDiv = styled.div`
-  display: flex;
   max-width: 68rem;
+  width: 100%;
+  display: flex;
   margin: 6.0625rem 0;
   flex-direction: column;
   align-items: center;
