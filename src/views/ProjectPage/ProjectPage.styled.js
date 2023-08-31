@@ -28,17 +28,14 @@ export const SDescriptionDiv = styled.div`
     opacity: 0.6;
   }
 `
-const BaseTitleParagraph = styled.p`
-  font-size: 1.25rem;
+export const SLargeText = styled.p`
+ font-size: 1.25rem;
   margin-bottom: 2.2rem;
   >span{
     font-weight: 600;
   }
 `
 
-export const SLargeText = styled(BaseTitleParagraph)`
-`
-
-export const SProjectRole = styled(BaseTitleParagraph)`
+export const SProjectRole = styled(SLargeText)`
   font-size: 1.125rem;
 `
