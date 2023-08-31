@@ -6,6 +6,7 @@ export const SProjectPageMainDiv = styled.div`
   align-items: center;
   color: #ffffff;
   font-family: 'Helvetica', sans-serif;
+  font-size: 1.125rem;
   & * {
     font-family: inherit;
   }
@@ -29,7 +30,8 @@ export const SDescriptionDiv = styled.div`
   }
 `
 export const SLargeText = styled.p`
- font-size: 1.25rem;
+  font-size: 1.25rem;
+  align-self: flex-start;
   margin-bottom: 2.2rem;
   >span{
     font-weight: 600;
@@ -38,4 +40,16 @@ export const SLargeText = styled.p`
 
 export const SProjectRole = styled(SLargeText)`
   font-size: 1.125rem;
+`
+export const SSliderDiv = styled.div`
+  display: flex;
+  width: 90%;
+  max-width: 68rem;
+  margin: 6.0625rem 0;
+  flex-direction: column;
+  align-items: center;
+  >p{
+    margin-bottom: 2rem;
+    align-self: flex-start;
+  }
 `
