@@ -29,7 +29,7 @@ export const ProjectPage = () => {
     setSliderIndex(i);
   };
   const findUserObj = () => {
-    const userObj = TestProjectData.team.filter((obj) => obj.name == user)[0];
+    const userObj = TestProjectData.team.filter((obj) => obj.name === user)[0];
     return userObj;
   };
   const role = findUserObj(user).role;
