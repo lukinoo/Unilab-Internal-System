@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const SProjectDiv = styled.div`
   margin: 6.25rem 0rem 15rem;
+  width: 100%;
   > .slick-slider > .slick-dots > li > button {
     &:before {
       font-size: 0.75rem;
@@ -18,7 +19,7 @@ export const SProjectCard = styled.div`
 
 export const SProjectImg = styled.img`
   width: 1240px;
-  height: 450px;
+  height: ${({imgHeight})=>imgHeight ? imgHeight : '28.125rem'};
   margin: 0 auto;
   pointer-events: none;
 `;

@@ -13,10 +13,6 @@ export const ProjectsContainer = ({ projects }) => {
   const totalPages = Math.ceil(projects.length / PROJECTS_PER_PAGE);
 
   const getBatchData = (start, end) => {
-    if (end === 0) {
-      // corner case
-      return [...projects.slice(start, -1), projects[data.length - 1]];
-    }
     return projects.slice(start - PROJECTS_PER_PAGE, end - PROJECTS_PER_PAGE);
   };
 

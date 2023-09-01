@@ -22,8 +22,8 @@ export const PortfolioFooter = ({ gmail, number, links }) => {
         <span>მზად ვარ ახალი გამოწვევებისთვის</span>
       </SParagraph>
       <SContactInfoDiv>
-        <SContactInfoP img={phoneSvg}>+995 333 67 56 43</SContactInfoP>
-        <SContactInfoP img={mailSvg}>contact@contact.ge</SContactInfoP>
+        <SContactInfoP img={phoneSvg}>{number}</SContactInfoP>
+        <SContactInfoP img={mailSvg}>{gmail}</SContactInfoP>
       </SContactInfoDiv>
       <SCircledSocialDiv>
         <CircledIcon social="github" link={links.github} />
