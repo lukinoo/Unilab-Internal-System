@@ -1,25 +1,25 @@
-import { ActivitiesSvg } from "../../components/SideBar/SideSvgs/ActivitiesSvg";
-import { HDSvg } from "../../components/SideBar/SideSvgs/HDSvg";
-import { HeadPhoneSvg } from "../../components/SideBar/SideSvgs/HeadPhoneSvg";
-import { UsersSvg } from "../../components/SideBar/SideSvgs/UsersSvg";
-import { DesignerSvg } from "../../components/SideBar/SideSvgs/DesignerSvg";
-import { DeveloperModeSvg } from "../../components/SideBar/SideSvgs/DeveloperModeSvg";
+import designerSvg from "/assets/svg/designer.svg";
+import developerModeSvg from "/assets/svg/developerMode.svg";
+import activitiesSvg from "/assets/svg/activities.svg";
+import headphoneSvg from "/assets/svg/headphones.svg";
+import hardDriveSvg from "/assets/svg/hard-drive.svg";
+import usersSvg from "/assets/svg/users.svg";
 
 export const items = [
   {
     name: "UI/UX დიზაინერი",
     to: "/",
-    icon: <DesignerSvg />,
+    icon: designerSvg,
   },
   {
     name: "FRONT-END დეველოპერი",
     to: "/privacy-policy",
-    icon: <DeveloperModeSvg />,
+    icon: developerModeSvg,
   },
   {
     name: "FrontEnd-კონკურსები",
     to: "/",
-    icon: <ActivitiesSvg />,
+    icon: activitiesSvg,
     label: "Courses",
     children: [
       {
@@ -39,7 +39,7 @@ export const items = [
   {
     name: "აქტივობები",
     to: "/",
-    icon: <HeadPhoneSvg />,
+    icon: headphoneSvg,
     label: "Activities",
     children: [
       {
@@ -59,7 +59,7 @@ export const items = [
   {
     name: "მოწყობილობები",
     to: "/",
-    icon: <HDSvg />,
+    icon: hardDriveSvg,
     label: "Devices",
     children: [
       {
@@ -79,7 +79,7 @@ export const items = [
   {
     name: "მომხმარებლების მართვა",
     to: "/",
-    icon: <UsersSvg />,
+    icon: usersSvg,
     label: "User Control",
     children: [
       {
