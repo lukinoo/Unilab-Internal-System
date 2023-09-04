@@ -39,7 +39,7 @@ export const SButtonsWrapper = styled.div`
   gap: 4.625rem;
 `;
 
-export const SBackgroundSvg = styled.div`
+export const SBackgroundSvg = styled.img`
   position: absolute;
   top: 17.313rem;
   right: 0;
