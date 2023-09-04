@@ -16,7 +16,7 @@ import {
   SUploadedFile,
   SUploaderWrapper,
   SOverlay,
-} from "./SUploader.styled";
+} from "./Uploader.styled";
 
 export const Uploader = () => {
   const [data, setData] = useState([]);
