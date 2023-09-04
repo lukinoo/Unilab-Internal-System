@@ -10,7 +10,7 @@ export const SFlexColumnDiv = styled.div`
   padding: 1rem 1.375rem 1rem 0;
   font-size: 1rem;
   cursor: pointer;
-  border-right: ${({ topLeft }) => (topLeft ? " 1px solid #737373" : "none")}; ;
+  border-right: ${({ topLeft }) => (topLeft ? " 1px solid #737373" : "none")};
 `;
 
 export const SUploadedFile = styled.div`
