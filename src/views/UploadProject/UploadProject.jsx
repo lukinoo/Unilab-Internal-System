@@ -9,13 +9,14 @@ import { Input } from "../../components/Inputs/Input";
 import { Uploader } from "./components/Uploader";
 import { items } from "../Directions/SidebarItems";
 import {
+  SUploadProjectMainDiv,
   SBackgroundSvg,
   SButtonsWrapper,
   SContentWrapper,
   SInputWrapper,
   STitle,
   SUploaderContentWrapper,
-} from "./SUploadProject.styled";
+} from "./UploadProject.styled";
 import { Textarea } from "../../components/Inputs/Textarea";
 import { LinkAndLineGroupSvg } from "./SVG/LinkAndLineGroupSvg";
 import { Button } from "../../components/Button";
@@ -36,7 +37,7 @@ export const UploadProject = () => {
     delayError: 500,
   });
   return (
-    <>
+    <SUploadProjectMainDiv>
       <SBackgroundSvg>
         <BackgroundCircleSvg />
       </SBackgroundSvg>
@@ -89,6 +90,6 @@ export const UploadProject = () => {
         </SButtonsWrapper>
       </SContentWrapper>
       <Footer />
-    </>
+    </SUploadProjectMainDiv>
   );
 };
