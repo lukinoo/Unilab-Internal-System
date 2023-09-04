@@ -38,6 +38,7 @@ export const SUploadedFile = styled.div`
 
 export const SUploaderWrapper = styled.div`
   width: 100%;
+  min-width: 64.4375rem;
   display: ${({ item }) => (item ? "grid" : "flex")};
   justify-content: center;
   align-items: center;
