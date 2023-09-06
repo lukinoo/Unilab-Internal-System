@@ -10,7 +10,7 @@ export const SFlexColumnDiv = styled.div`
   padding: 1rem 1.375rem 1rem 0;
   font-size: 1rem;
   cursor: pointer;
-  border-right: ${({ topLeft }) => (topLeft ? " 1px solid #737373" : "none")}; ;
+  border-right: ${({ topLeft }) => (topLeft ? " 1px solid #737373" : "none")};
 `;
 
 export const SUploadedFile = styled.div`
@@ -38,6 +38,7 @@ export const SUploadedFile = styled.div`
 
 export const SUploaderWrapper = styled.div`
   width: 100%;
+  min-width: 64.4375rem;
   display: ${({ item }) => (item ? "grid" : "flex")};
   justify-content: center;
   align-items: center;
@@ -45,7 +46,8 @@ export const SUploaderWrapper = styled.div`
   padding: 3.25rem 3.75rem;
   gap: 4.563rem;
   min-height: 13rem;
-  border: 1px dashed white;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%23ffffff' stroke-width='3' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 0.625rem;
 `;
 
 export const SOverlay = styled.div`

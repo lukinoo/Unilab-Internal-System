@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const SUploadProjectMainDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 export const SContentWrapper = styled.div`
   margin: 0 auto 29rem auto;
   max-width: 64.438rem;
@@ -35,7 +39,7 @@ export const SButtonsWrapper = styled.div`
   gap: 4.625rem;
 `;
 
-export const SBackgroundSvg = styled.div`
+export const SBackgroundSvg = styled.img`
   position: absolute;
   top: 17.313rem;
   right: 0;

@@ -6,22 +6,31 @@ import { authenticationSchema } from "../../schemas/authentication";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { SideBar } from "../../components/SideBar";
 import { Input } from "../../components/Inputs/Input";
-import { Uploader } from "./components/Uploader";
+import { Uploader } from "../../components/Uploader/Uploader";
 import { items } from "../Directions/SidebarItems";
 import {
+  SUploadProjectMainDiv,
   SBackgroundSvg,
   SButtonsWrapper,
   SContentWrapper,
   SInputWrapper,
   STitle,
   SUploaderContentWrapper,
-} from "./SUploadProject.styled";
+} from "./UploadProject.styled";
 import { Textarea } from "../../components/Inputs/Textarea";
-import { LinkAndLineGroupSvg } from "./SVG/LinkAndLineGroupSvg";
 import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
-import { BackgroundCircleSvg } from "./SVG/BackgroundCircleSvg";
 import { SLabel } from "../../components/Inputs/Input/Input.styled";
+import backgroundCircleSvg from "/assets/svg/backgroundcircle.svg";
+
+const LinkAndLineComponent = () => {
+  return (
+    <img
+      src="/assets/svg/link.svg"
+      style={{ borderRight: "1px solid #EAEAEA", paddingRight: "1rem" }}
+    />
+  );
+};
 
 export const UploadProject = () => {
   const {
@@ -36,10 +45,8 @@ export const UploadProject = () => {
     delayError: 500,
   });
   return (
-    <>
-      <SBackgroundSvg>
-        <BackgroundCircleSvg />
-      </SBackgroundSvg>
+    <SUploadProjectMainDiv>
+      <SBackgroundSvg src={backgroundCircleSvg} />
       <FourthHeader />
       <SideBar items={items} />
       <SContentWrapper>
@@ -78,7 +85,7 @@ export const UploadProject = () => {
             register={register}
             errors={errors}
             control={control}
-            LeftComponent={<LinkAndLineGroupSvg />}
+            LeftComponent={<LinkAndLineComponent />}
           ></Input>
         </SInputWrapper>
         <SButtonsWrapper>
@@ -89,6 +96,6 @@ export const UploadProject = () => {
         </SButtonsWrapper>
       </SContentWrapper>
       <Footer />
-    </>
+    </SUploadProjectMainDiv>
   );
 };

@@ -6,17 +6,17 @@ import {
   SDeleteIcon,
   SDesk,
   SFileUpload,
-} from "../../../components/Buttons/Uploader/Uploader.styled";
-import { FileUploadSvg } from "../../../components/Buttons/Uploader/UploadSvg/FileUploadSvg";
-import { DeleteSvg } from "../../../components/Buttons/Uploader/UploadSvg/DeleteSvg";
-import { UploadedDoneSvg } from "../../../components/Buttons/Uploader/UploadSvg/UploadedDoneSvg";
-import { UploadCloudSvg } from "../../../components/Buttons/Uploader/UploadSvg/UploadCloudSvg";
+} from "../Buttons/Uploader/Uploader.styled";
+import { FileUploadSvg } from "../Buttons/Uploader/UploadSvg/FileUploadSvg";
+import { DeleteSvg } from "../Buttons/Uploader/UploadSvg/DeleteSvg";
+import { UploadedDoneSvg } from "../Buttons/Uploader/UploadSvg/UploadedDoneSvg";
+import { UploadCloudSvg } from "../Buttons/Uploader/UploadSvg/UploadCloudSvg";
 import {
   SFlexColumnDiv,
   SUploadedFile,
   SUploaderWrapper,
   SOverlay,
-} from "./SUploader.styled";
+} from "./Uploader.styled";
 
 export const Uploader = () => {
   const [data, setData] = useState([]);
