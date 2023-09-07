@@ -21,13 +21,19 @@ import { AnimatePresence } from "framer-motion";
 import { useController } from "react-hook-form";
 
 export const RadioDropdown = (props) => {
-  const { name, gridArea, items, control, inputPlaceholder } = props;
+  const {
+    name,
+    gridArea,
+    items,
+    control,
+    inputPlaceholder,
+    updateCustomInput,
+  } = props;
 
   const {
     field: { value, onChange, onBlur },
   } = useController({ name, control });
 
-  console.log("value:", value, "ITEMS:", items);
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false, onBlur);
 
@@ -82,8 +88,9 @@ export const RadioDropdown = (props) => {
                       />
                       <SCustomInput
                         name={"customInput"}
-                        onChange={(e) => console.log(e.target.value)}
+                        onChange={(e) => updateCustomInput(e.target.value)}
                         placeholder={inputPlaceholder}
+                        value={arr[index][1]}
                       />
                     </SRadioDropdownItem>
                   ) : (
