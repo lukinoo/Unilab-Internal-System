@@ -21,6 +21,7 @@ export const RadioDropdown = (props) => {
     field: { value, onChange, onBlur },
   } = useController({ name, control });
 
+  console.log("valuee:", value, "ITEMS:", items);
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false, onBlur);
 
@@ -88,6 +89,7 @@ export const RadioDropdown = (props) => {
                       onClick={() => handleSelect(customInputId)}
                     />
                     <Input
+                      name={"customInput"}
                       onChange={(e) => console.log(e.target.value)}
                       placeholder={inputPlaceholder}
                     />
