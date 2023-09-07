@@ -7,6 +7,12 @@ import {
   SDropdownList,
   SDropdownWrapper,
 } from "../Dropdown/Dropdown.styled";
+import {
+  SCustomInput,
+  SRadioDropdownItem,
+  SRadioInput,
+  SRadioDropdownText,
+} from "./RadioDropdown.styled";
 import { DropArrow } from "../../DropArrow";
 import { dropdownVariants } from "./RadioDropdown.variants";
 import { getLongestString } from "../../../utils/dropdown";
@@ -21,7 +27,7 @@ export const RadioDropdown = (props) => {
     field: { value, onChange, onBlur },
   } = useController({ name, control });
 
-  console.log("valuee:", value, "ITEMS:", items);
+  console.log("value:", value, "ITEMS:", items);
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false, onBlur);
 
@@ -65,36 +71,33 @@ export const RadioDropdown = (props) => {
               <span>--- no items ---</span>
             ) : (
               <>
-                {Object.entries(items).map(([id, value]) => {
+                {Object.entries(items).map(([id, textValue]) => {
                   return (
-                    <SDropdownItem key={id}>
-                      <SDropdownButton
-                        type="button"
+                    <SRadioDropdownItem
+                      key={id}
+                      onClick={() => handleSelect(id)}
+                    >
+                      <SRadioInput
+                        type="radio"
                         onClick={() => handleSelect(id)}
-                        data-longestitem={longestItem}
-                      >
-                        {value}
-                      </SDropdownButton>
-                    </SDropdownItem>
+                        checked={value === id}
+                      />
+                      <SRadioDropdownText>{textValue}</SRadioDropdownText>
+                    </SRadioDropdownItem>
                   );
                 })}
-                <SDropdownItem key={customInputId}>
-                  <SDropdownButton
-                    type="button"
-                    // onClick={() => handleSelect(customInputId)}
-                    data-longestitem={longestItem}
-                  >
-                    <input
-                      type="radio"
-                      onClick={() => handleSelect(customInputId)}
-                    />
-                    <Input
-                      name={"customInput"}
-                      onChange={(e) => console.log(e.target.value)}
-                      placeholder={inputPlaceholder}
-                    />
-                  </SDropdownButton>
-                </SDropdownItem>
+                <SRadioDropdownItem key={customInputId}>
+                  <SRadioInput
+                    type="radio"
+                    onClick={() => handleSelect(customInputId)}
+                    checked={value === customInputId}
+                  />
+                  <SCustomInput
+                    name={"customInput"}
+                    onChange={(e) => console.log(e.target.value)}
+                    placeholder={inputPlaceholder}
+                  />
+                </SRadioDropdownItem>
               </>
             )}
           </SDropdownList>
