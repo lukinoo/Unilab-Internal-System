@@ -10,16 +10,12 @@ import {
   STeamMember,
   STitle,
 } from "./UploadProjectAdmin.styled";
-// import { BgStarTopRight } from "./SVG/BgStarTopRight";
-// import { UpArrow } from "./SVG/UpArrow";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { SideBar } from "../../components/SideBar";
 import { Input } from "../../components/Inputs/Input";
 import { Textarea } from "../../components/Inputs/Textarea";
-import { Dropdown } from "../../components/Inputs/Dropdown";
 import { Button } from "../../components/Button";
 import { PlusSvg } from "../../components/Buttons/AdditionalResources/IconSvg/PlusSvg";
-// import { DropdownRadio } from "../../components/Inputs/DropdownRadio/DropdownRadio";
 import { RadioDropdown } from "../../components/Inputs/RadioDropdown/RadioDropdown";
 
 export const UploadProjectAdmin = () => {
@@ -28,6 +24,12 @@ export const UploadProjectAdmin = () => {
   const handleAddTeamMember = () => {
     setTeam([...team, { name: "", position: "", img: "" }]);
   };
+
+  const [positions, setPositions] = useState({
+    1: 'UI/UX დიზაინერი',
+    2: 'Frond End დეველოპერი',
+    3: 'პროექტის მენეჯერი',
+  })
 
   const {
     register,
@@ -81,9 +83,13 @@ export const UploadProjectAdmin = () => {
                     errors={errors}
                     control={control}
                   /> */}
-                  <Dropdown control={control} name={`member-name-${index}`} label="სახელი, გვარი" />
                   <SPositionWrapper>
-                    <RadioDropdown name={`member-position-${index}`} control={control} />
+                    <RadioDropdown 
+                      name={`member-position-${index}`} 
+                      control={control} 
+                      items={positions} 
+                      // pass the setter function to dropdown to update custom input value
+                    />
                   </SPositionWrapper>
                 </STeamMember>
               </STeamContainer>
