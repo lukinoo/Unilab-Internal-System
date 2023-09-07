@@ -15,7 +15,7 @@ import { AnimatePresence } from "framer-motion";
 import { useController } from "react-hook-form";
 
 export const RadioDropdown = (props) => {
-  const { name, gridArea, items, control } = props;
+  const { name, gridArea, items, control, inputPlaceholder } = props;
 
   const {
     field: { value, onChange, onBlur },
@@ -25,6 +25,8 @@ export const RadioDropdown = (props) => {
   const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false, onBlur);
 
   const longestItem = items && getLongestString(Object.values(items));
+
+  const customInputId = Object.entries(items).length + 1;
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);
@@ -61,19 +63,37 @@ export const RadioDropdown = (props) => {
             {!items ? (
               <span>--- no items ---</span>
             ) : (
-              Object.entries(items).map(([id, value]) => {
-                return (
-                  <SDropdownItem key={id}>
-                    <SDropdownButton
-                      type="button"
-                      onClick={() => handleSelect(id)}
-                      data-longestitem={longestItem}
-                    >
-                      {value}
-                    </SDropdownButton>
-                  </SDropdownItem>
-                );
-              })
+              <>
+                {Object.entries(items).map(([id, value]) => {
+                  return (
+                    <SDropdownItem key={id}>
+                      <SDropdownButton
+                        type="button"
+                        onClick={() => handleSelect(id)}
+                        data-longestitem={longestItem}
+                      >
+                        {value}
+                      </SDropdownButton>
+                    </SDropdownItem>
+                  );
+                })}
+                <SDropdownItem key={customInputId}>
+                  <SDropdownButton
+                    type="button"
+                    // onClick={() => handleSelect(customInputId)}
+                    data-longestitem={longestItem}
+                  >
+                    <input
+                      type="radio"
+                      onClick={() => handleSelect(customInputId)}
+                    />
+                    <Input
+                      onChange={(e) => console.log(e.target.value)}
+                      placeholder={inputPlaceholder}
+                    />
+                  </SDropdownButton>
+                </SDropdownItem>
+              </>
             )}
           </SDropdownList>
         )}
