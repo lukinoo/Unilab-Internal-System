@@ -13,7 +13,6 @@ import {
 } from "./RadioDropdown.styled";
 import { DropArrow } from "../../DropArrow";
 import { dropdownVariants } from "./RadioDropdown.variants";
-import { getLongestString } from "../../../utils/dropdown";
 import { useAutoClose } from "../../../hooks/useAutoClose";
 import { AnimatePresence } from "framer-motion";
 import { useController } from "react-hook-form";
