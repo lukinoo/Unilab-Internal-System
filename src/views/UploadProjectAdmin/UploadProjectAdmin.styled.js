@@ -40,9 +40,7 @@ export const STeamMember = styled.div`
 
 export const SPositionWrapper = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2.37rem;
+  flex-direction: column;
 `;
 
 export const SButtonWrapper = styled.div`
