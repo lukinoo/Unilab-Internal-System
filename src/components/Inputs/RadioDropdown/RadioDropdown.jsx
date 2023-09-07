@@ -77,9 +77,10 @@ export const RadioDropdown = (props) => {
                   return isLastItem ? (
                     <SRadioDropdownItem key={customInputId}>
                       <SRadioInput
+                        name={name}
                         type="radio"
                         onClick={() => handleSelect(customInputId)}
-                        checked={value === customInputId}
+                        defaultChecked={value === customInputId}
                       />
                       <SCustomInput
                         name={"customInput"}
@@ -94,9 +95,10 @@ export const RadioDropdown = (props) => {
                       onClick={() => handleSelect(id)}
                     >
                       <SRadioInput
+                        name={name}
                         type="radio"
                         onClick={() => handleSelect(id)}
-                        checked={value === id}
+                        defaultChecked={value === id}
                       />
                       <SRadioDropdownText>{textValue}</SRadioDropdownText>
                     </SRadioDropdownItem>
