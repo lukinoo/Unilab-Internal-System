@@ -29,7 +29,16 @@ export const UploadProjectAdmin = () => {
     1: 'UI/UX დიზაინერი',
     2: 'Frond End დეველოპერი',
     3: 'პროექტის მენეჯერი',
-  })
+    4: ''
+  });
+
+  const updateCustomInput = (newValue) =>{
+    const positionsCopy = {...positions};
+    const lastKey = Object.keys(positionsCopy).pop();
+    console.log("LAST KEY:",lastKey);
+    positionsCopy[lastKey] = newValue;
+    setPositions(positionsCopy);
+  }
 
   const {
     register,
@@ -87,8 +96,9 @@ export const UploadProjectAdmin = () => {
                     <RadioDropdown 
                       name={`member-position-${index}`} 
                       control={control} 
-                      items={positions} 
-                      // pass the setter function to dropdown to update custom input value
+                      items={positions}
+                      inputPlaceholder={"მიუთითეთ სხვა პოზიცია"}
+                      updateCustomInput={updateCustomInput}
                     />
                   </SPositionWrapper>
                 </STeamMember>
