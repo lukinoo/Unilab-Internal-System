@@ -71,8 +71,22 @@ export const RadioDropdown = (props) => {
               <span>--- no items ---</span>
             ) : (
               <>
-                {Object.entries(items).map(([id, textValue]) => {
-                  return (
+                {Object.entries(items).map(([id, textValue], index, arr) => {
+                  const isLastItem = index === arr.length - 1;
+                  return isLastItem ? (
+                    <SRadioDropdownItem key={customInputId}>
+                      <SRadioInput
+                        type="radio"
+                        onClick={() => handleSelect(customInputId)}
+                        checked={value === customInputId}
+                      />
+                      <SCustomInput
+                        name={"customInput"}
+                        onChange={(e) => console.log(e.target.value)}
+                        placeholder={inputPlaceholder}
+                      />
+                    </SRadioDropdownItem>
+                  ) : (
                     <SRadioDropdownItem
                       key={id}
                       onClick={() => handleSelect(id)}
@@ -86,18 +100,6 @@ export const RadioDropdown = (props) => {
                     </SRadioDropdownItem>
                   );
                 })}
-                <SRadioDropdownItem key={customInputId}>
-                  <SRadioInput
-                    type="radio"
-                    onClick={() => handleSelect(customInputId)}
-                    checked={value === customInputId}
-                  />
-                  <SCustomInput
-                    name={"customInput"}
-                    onChange={(e) => console.log(e.target.value)}
-                    placeholder={inputPlaceholder}
-                  />
-                </SRadioDropdownItem>
               </>
             )}
           </SDropdownList>
