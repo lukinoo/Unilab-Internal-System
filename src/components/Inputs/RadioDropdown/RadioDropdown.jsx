@@ -2,8 +2,6 @@ import React, { useRef } from "react";
 import { Input } from "../Input";
 import {
   SArrowButton,
-  SDropdownButton,
-  SDropdownItem,
   SDropdownList,
   SDropdownWrapper,
 } from "../Dropdown/Dropdown.styled";
@@ -36,8 +34,6 @@ export const RadioDropdown = (props) => {
 
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false, onBlur);
-
-  const longestItem = items && getLongestString(Object.values(items));
 
   const customInputId = Object.entries(items).length + 1;
 
