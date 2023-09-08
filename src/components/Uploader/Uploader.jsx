@@ -8,7 +8,6 @@ import {
   SFileUpload,
 } from "../Buttons/Uploader/Uploader.styled";
 import { FileUploadSvg } from "../Buttons/Uploader/UploadSvg/FileUploadSvg";
-import { DeleteSvg } from "../Buttons/Uploader/UploadSvg/DeleteSvg";
 import { UploadedDoneSvg } from "../Buttons/Uploader/UploadSvg/UploadedDoneSvg";
 import { UploadCloudSvg } from "../Buttons/Uploader/UploadSvg/UploadCloudSvg";
 import {
@@ -81,7 +80,7 @@ export const Uploader = ({ imageType }) => {
           <input
             ref={fileInputRef}
             type="file"
-            onChange={handleFileChange}
+            onClick={handleFileChange}
             style={{ display: "none" }}
           />
           <FileUploadSvg />
