@@ -16,7 +16,7 @@ import {
   SUploaderWrapper,
   SOverlay,
   SImg,
-  SUploadedImg,
+  SUploadedImgDiv,
 } from "./Uploader.styled";
 
 export const Uploader = ({ imageType }) => {
@@ -47,13 +47,13 @@ export const Uploader = ({ imageType }) => {
         if (imageType) {
           if (item instanceof File) imageURL = URL.createObjectURL(item);
           return (
-            <SUploadedImg key={uuidv4()} active={data.length}>
+            <SUploadedImgDiv key={uuidv4()} active={data.length}>
               {/* FOR IMAGE DISPLAY */}
               <SImg src={imageURL} alt="item" />
               <SOverlay>
                 <SDeleteIcon onClick={() => handleDelete(i)} />
               </SOverlay>
-            </SUploadedImg>
+            </SUploadedImgDiv>
           );
         }
         return (
