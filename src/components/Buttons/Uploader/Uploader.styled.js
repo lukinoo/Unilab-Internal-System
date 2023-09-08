@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import deleteSvg from "/assets/svg/delete.svg";
+
 
 export const SUploaderContainer = styled.div`
   display: flex;
@@ -37,16 +39,15 @@ export const SDeleteIcon = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
+  background-color: red;
+  background-image: url(${deleteSvg});
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 0.375rem;
   cursor: pointer;
-
-  &:hover {
-    background-color: red;
-
-    svg {
-      path {
-        stroke: white;
-      }
+  svg {
+    path {
+      stroke: white;
     }
   }
 `;
