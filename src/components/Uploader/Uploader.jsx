@@ -80,7 +80,7 @@ export const Uploader = ({ imageType }) => {
           <input
             ref={fileInputRef}
             type="file"
-            onClick={handleFileUpload}
+            onChange={handleFileUpload}
             style={{ display: "none" }}
           />
           <FileUploadSvg />
