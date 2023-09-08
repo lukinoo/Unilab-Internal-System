@@ -17,6 +17,7 @@ import { Textarea } from "../../components/Inputs/Textarea";
 import { Button } from "../../components/Button";
 import { PlusSvg } from "../../components/Buttons/AdditionalResources/IconSvg/PlusSvg";
 import { RadioDropdown } from "../../components/Inputs/RadioDropdown/RadioDropdown";
+import { Uploader } from "../../components/Uploader";
 
 export const UploadProjectAdmin = () => {
   const [team, setTeam] = useState([{ name: "", position: "", img: "" }]);
@@ -26,19 +27,19 @@ export const UploadProjectAdmin = () => {
   };
 
   const [positions, setPositions] = useState({
-    1: 'UI/UX დიზაინერი',
-    2: 'Frond End დეველოპერი',
-    3: 'პროექტის მენეჯერი',
-    4: ''
+    1: "UI/UX დიზაინერი",
+    2: "Frond End დეველოპერი",
+    3: "პროექტის მენეჯერი",
+    4: "",
   });
 
-  const updateCustomInput = (newValue) =>{
-    const positionsCopy = {...positions};
+  const updateCustomInput = (newValue) => {
+    const positionsCopy = { ...positions };
     const lastKey = Object.keys(positionsCopy).pop();
-    console.log("LAST KEY:",lastKey);
+    console.log("LAST KEY:", lastKey);
     positionsCopy[lastKey] = newValue;
     setPositions(positionsCopy);
-  }
+  };
 
   const {
     register,
@@ -71,7 +72,12 @@ export const UploadProjectAdmin = () => {
             errors={errors}
             register={register}
           />
-          <Textarea label="პროექტის აღწერა" control={control} name="project_desk" placeholder="პროექტის მოკლე აღწერა" />
+          <Textarea
+            label="პროექტის აღწერა"
+            control={control}
+            name="project_desk"
+            placeholder="პროექტის მოკლე აღწერა"
+          />
 
           <STitle marginTop="6.6rem" fontSize="1.25rem" fontWeight="500">
             პროექტზე მომუშავე გუდნი
@@ -80,7 +86,7 @@ export const UploadProjectAdmin = () => {
             return (
               <STeamContainer key={index}>
                 <STeamMember>
-                  {/* <Input
+                  <Input
                     id={`team-member-name-${index}`}
                     name={`team-member-name-${index}`}
                     type="text"
@@ -91,11 +97,12 @@ export const UploadProjectAdmin = () => {
                     register={register}
                     errors={errors}
                     control={control}
-                  /> */}
+                  />
                   <SPositionWrapper>
-                    <RadioDropdown 
-                      name={`member-position-${index}`} 
-                      control={control} 
+                    <label>პოზიცია</label>
+                    <RadioDropdown
+                      name={`member-position-${index}`}
+                      control={control}
                       items={positions}
                       inputPlaceholder={"მიუთითეთ სხვა პოზიცია"}
                       updateCustomInput={updateCustomInput}
@@ -108,10 +115,15 @@ export const UploadProjectAdmin = () => {
         </SInputWrapper>
         <SButtonWrapper>
           {/* <UpArrow /> */}
-          <Button width={"13.3125rem"} LeftComponent={<PlusSvg />} onClick={handleAddTeamMember}>
+          <Button
+            width={"13.3125rem"}
+            LeftComponent={<PlusSvg />}
+            onClick={handleAddTeamMember}
+          >
             დამატება
           </Button>
         </SButtonWrapper>
+        <Uploader imageType={true} />
         <button type="submit">Click</button>
       </SContentWrapper>
     </>
