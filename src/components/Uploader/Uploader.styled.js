@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import deleteSvg from "/assets/svg/delete.svg";
 
 export const SFlexColumnDiv = styled.div`
   grid-column: ${({ topLeft }) => (topLeft ? " 1/2" : "")};
