@@ -16,7 +16,7 @@ import { UploadCloudSvg } from "./UploadSvg/UploadCloudSvg";
 import { UploadedDoneSvg } from "./UploadSvg/UploadedDoneSvg";
 import { DownloadSvg } from "./UploadSvg/DownloadSvg";
 
-export const SingleUploader = ({ title, name }) => {
+export const SingleUploader = ({ title, name, imageType }) => {
   const [data, setData] = useState({});
 
   const fileInputRef = useRef(null);
@@ -52,9 +52,11 @@ export const SingleUploader = ({ title, name }) => {
           </SFileUpload>
           <SDesk>{name}</SDesk>
           <SOverlay>
-            <SDownloadICon>
-              <DownloadSvg />
-            </SDownloadICon>
+            {!imageType && (
+               <SDownloadICon>
+               <DownloadSvg />
+             </SDownloadICon>
+            )}
             <SDeleteIcon onClick={() => setData({})}></SDeleteIcon>
           </SOverlay>
         </UploadContentWrapper>
