@@ -19,9 +19,9 @@ import {
   SImg
 } from "./Uploader.styled";
 
-export const Uploader = () => {
+export const Uploader = ({imageType}) => {
   const [data, setData] = useState([]);
-  const name = "ატვირთეთ ფაილი";
+  const name = imageType ? 'ატვირთეთ ფოტო' : "ატვირთეთ ფაილი";
 
   const fileInputRef = useRef(null);
 
@@ -43,7 +43,6 @@ export const Uploader = () => {
     <SUploaderWrapper item={data.length > 0}>
       {data.map((item, i) => {
         // For image upload
-        const dataURL = URL.createObjectURL(item)
         return (
           <SUploadedFile key={uuidv4()} active={data.length}>
             <SFileUpload style={{ scale: "0.7" }}>
@@ -51,7 +50,7 @@ export const Uploader = () => {
               <SCloudUpload>
                 <UploadedDoneSvg />
                 {/* FOR IMAGE DISPLAY */}
-                <SImg src={dataURL} alt="item"/> 
+                {imageType && <SImg src={URL.createObjectURL(item)} alt="item"/> }
               </SCloudUpload>
             </SFileUpload>
             <SDesk>{data.length && "ფაილი ატვირთულია"}</SDesk>
