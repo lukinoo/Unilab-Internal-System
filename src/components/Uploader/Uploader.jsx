@@ -52,9 +52,7 @@ export const Uploader = ({ imageType }) => {
               {/* FOR IMAGE DISPLAY */}
               <SImg src={imageURL} alt="item" />
               <SOverlay>
-                <SDeleteIcon onClick={() => handleDelete(i)}>
-                  <DeleteSvg />
-                </SDeleteIcon>
+                <SDeleteIcon onClick={() => handleDelete(i)} />
               </SOverlay>
             </SUploadedImg>
           );
@@ -69,9 +67,7 @@ export const Uploader = ({ imageType }) => {
             </SFileUpload>
             <SDesk>{data.length && "ფაილი ატვირთულია"}</SDesk>
             <SOverlay>
-              <SDeleteIcon onClick={() => handleDelete(i)}>
-                <DeleteSvg />
-              </SDeleteIcon>
+              <SDeleteIcon onClick={() => handleDelete(i)} />
             </SOverlay>
           </SUploadedFile>
         );
