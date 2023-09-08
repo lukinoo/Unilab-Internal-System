@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import deleteSvg from "/assets/svg/delete.svg";
 
 export const SFlexColumnDiv = styled.div`
   grid-column: ${({ topLeft }) => (topLeft ? " 1/2" : "")};
@@ -65,3 +66,14 @@ export const SOverlay = styled.div`
   visibility: hidden;
   cursor: default;
 `;
+export const SImg = styled.img`
+  width: 9.25rem;
+  height: 9.25rem;
+  border-radius: 0.25rem;
+  object-fit: cover;
+`
+export const SUploadedImg = styled(SUploadedFile)`
+  border: none;
+  padding: 0;
+  width: fit-content;
+`
