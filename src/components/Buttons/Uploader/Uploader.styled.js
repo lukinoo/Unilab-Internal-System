@@ -45,11 +45,6 @@ export const SDeleteIcon = styled.div`
   background-repeat: no-repeat;
   border-radius: 0.375rem;
   cursor: pointer;
-  svg {
-    path {
-      stroke: white;
-    }
-  }
 `;
 
 export const SDownloadICon = styled.div`
