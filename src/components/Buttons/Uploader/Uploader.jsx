@@ -13,7 +13,6 @@ import {
 } from "./Uploader.styled";
 import { FileUploadSvg } from "./UploadSvg/FileUploadSvg";
 import { UploadCloudSvg } from "./UploadSvg/UploadCloudSvg";
-import { DeleteSvg } from "./UploadSvg/DeleteSvg";
 import { UploadedDoneSvg } from "./UploadSvg/UploadedDoneSvg";
 import { DownloadSvg } from "./UploadSvg/DownloadSvg";
 
@@ -56,9 +55,7 @@ export const Uploader = ({ title, name }) => {
             <SDownloadICon>
               <DownloadSvg />
             </SDownloadICon>
-            <SDeleteIcon onClick={() => setData({})}>
-              <DeleteSvg />
-            </SDeleteIcon>
+            <SDeleteIcon onClick={() => setData({})}></SDeleteIcon>
           </SOverlay>
         </UploadContentWrapper>
       </SUploader>
