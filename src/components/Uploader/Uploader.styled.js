@@ -62,6 +62,7 @@ export const SOverlay = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: inherit;
   gap: 1.187rem;
   visibility: hidden;
   cursor: default;
