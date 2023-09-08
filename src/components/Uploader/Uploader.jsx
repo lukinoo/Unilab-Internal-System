@@ -6,10 +6,10 @@ import {
   SDeleteIcon,
   SDesk,
   SFileUpload,
-} from "../Buttons/Uploader/Uploader.styled";
-import { FileUploadSvg } from "../Buttons/Uploader/UploadSvg/FileUploadSvg";
-import { UploadedDoneSvg } from "../Buttons/Uploader/UploadSvg/UploadedDoneSvg";
-import { UploadCloudSvg } from "../Buttons/Uploader/UploadSvg/UploadCloudSvg";
+} from "../Buttons/SingleUploader/SingleUploader.styled";
+import { FileUploadSvg } from "../Buttons/SingleUploader/UploadSvg/FileUploadSvg";
+import { UploadedDoneSvg } from "../Buttons/SingleUploader/UploadSvg/UploadedDoneSvg";
+import { UploadCloudSvg } from "../Buttons/SingleUploader/UploadSvg/UploadCloudSvg";
 import {
   SFlexColumnDiv,
   SUploadedFile,
