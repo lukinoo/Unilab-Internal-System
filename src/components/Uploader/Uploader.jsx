@@ -16,12 +16,13 @@ import {
   SUploadedFile,
   SUploaderWrapper,
   SOverlay,
-  SImg
+  SImg,
+  SUploadedImg,
 } from "./Uploader.styled";
 
-export const Uploader = ({imageType}) => {
+export const Uploader = ({ imageType }) => {
   const [data, setData] = useState([]);
-  const name = imageType ? 'ატვირთეთ ფოტო' : "ატვირთეთ ფაილი";
+  const name = imageType ? "ატვირთეთ ფოტო" : "ატვირთეთ ფაილი";
 
   const fileInputRef = useRef(null);
 
@@ -31,7 +32,7 @@ export const Uploader = ({imageType}) => {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    setData([file, ...data]);
+    if (file) setData([file, ...data]);
   };
 
   const handleDelete = (i) => {
@@ -43,14 +44,27 @@ export const Uploader = ({imageType}) => {
     <SUploaderWrapper item={data.length > 0}>
       {data.map((item, i) => {
         // For image upload
+        let imageURL;
+        if (imageType) {
+          if (item instanceof File) imageURL = URL.createObjectURL(item);
+          return (
+            <SUploadedImg key={uuidv4()} active={data.length}>
+              {/* FOR IMAGE DISPLAY */}
+              <SImg src={imageURL} alt="item" />
+              <SOverlay>
+                <SDeleteIcon onClick={() => handleDelete(i)}>
+                  <DeleteSvg />
+                </SDeleteIcon>
+              </SOverlay>
+            </SUploadedImg>
+          );
+        }
         return (
           <SUploadedFile key={uuidv4()} active={data.length}>
             <SFileUpload style={{ scale: "0.7" }}>
               <FileUploadSvg />
               <SCloudUpload>
                 <UploadedDoneSvg />
-                {/* FOR IMAGE DISPLAY */}
-                {imageType && <SImg src={URL.createObjectURL(item)} alt="item"/> }
               </SCloudUpload>
             </SFileUpload>
             <SDesk>{data.length && "ფაილი ატვირთულია"}</SDesk>
