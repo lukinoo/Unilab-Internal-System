@@ -17,8 +17,8 @@ import {
 } from "./Directions.styled";
 import { Dropdown } from "../../components/Inputs/Dropdown";
 import { items } from "./SidebarItems";
-import { Uploader } from "../../components/Buttons/Uploader";
-import { SUploaderContainer } from "../../components/Buttons/Uploader/Uploader.styled";
+import { SingleUploader } from "../../components/Buttons/SingleUploader";
+import { SUploaderContainer } from "../../components/Buttons/SingleUploader/SingleUploader.styled";
 import { Button } from "../../components/Button";
 import { BackgroundStar } from "./BackgroundSvg/BackgroundStar";
 import { SAdditionalResources } from "../../components/Buttons/AdditionalResources/AdditionaResources.styled";
@@ -70,10 +70,10 @@ export const Directions = () => {
         </SInputForm>
 
         <SUploaderContainer>
-          <Uploader title="კურსის სილაბუსი" name="ატვირთე სილაბუსი" />
-          <Uploader title="სტაჟირების სილაბუსი" name="ატვირთე სილაბუსი" />
-          <Uploader title="სცადე,ისწავლე ასწავლე" name="ატვირთე სილაბუსი" />
-          <Uploader title="უნილაბი სკოლაში" name="ატვირთე სილაბუსი" />
+          <SingleUploader title="კურსის სილაბუსი" name="ატვირთე სილაბუსი" />
+          <SingleUploader title="სტაჟირების სილაბუსი" name="ატვირთე სილაბუსი" />
+          <SingleUploader title="სცადე,ისწავლე ასწავლე" name="ატვირთე სილაბუსი" />
+          <SingleUploader title="უნილაბი სკოლაში" name="ატვირთე სილაბუსი" />
         </SUploaderContainer>
 
         <SAdditionalResources>
