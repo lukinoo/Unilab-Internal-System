@@ -29,7 +29,7 @@ export const Uploader = ({ imageType }) => {
     fileInputRef.current.click();
   };
 
-  const handleFileChange = (e) => {
+  const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (file) setData([file, ...data]);
   };
@@ -80,7 +80,7 @@ export const Uploader = ({ imageType }) => {
           <input
             ref={fileInputRef}
             type="file"
-            onClick={handleFileChange}
+            onClick={handleFileUpload}
             style={{ display: "none" }}
           />
           <FileUploadSvg />
