@@ -72,7 +72,7 @@ export const SImg = styled.img`
   border-radius: 0.25rem;
   object-fit: cover;
 `
-export const SUploadedImg = styled(SUploadedFile)`
+export const SUploadedImgDiv = styled(SUploadedFile)`
   border: none;
   padding: 0;
   width: fit-content;
