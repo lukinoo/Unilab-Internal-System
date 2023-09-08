@@ -19,9 +19,9 @@ import {
   SUploadedImgDiv,
 } from "./Uploader.styled";
 
-export const Uploader = ({ imageType }) => {
+export const Uploader = ({ isImageType }) => {
   const [data, setData] = useState([]);
-  const name = imageType ? "ატვირთეთ ფოტო" : "ატვირთეთ ფაილი";
+  const name = isImageType ? "ატვირთეთ ფოტო" : "ატვირთეთ ფაილი";
 
   const fileInputRef = useRef(null);
 
@@ -44,7 +44,7 @@ export const Uploader = ({ imageType }) => {
       {data.map((item, i) => {
         // For image upload
         let imageURL;
-        if (imageType) {
+        if (isImageType) {
           if (item instanceof File) imageURL = URL.createObjectURL(item);
           return (
             <SUploadedImgDiv key={uuidv4()} active={data.length}>
