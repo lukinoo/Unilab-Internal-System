@@ -16,6 +16,7 @@ import {
   SUploadedFile,
   SUploaderWrapper,
   SOverlay,
+  SImg
 } from "./Uploader.styled";
 
 export const Uploader = () => {
@@ -41,12 +42,16 @@ export const Uploader = () => {
   return (
     <SUploaderWrapper item={data.length > 0}>
       {data.map((item, i) => {
+        // For image upload
+        const dataURL = URL.createObjectURL(item)
         return (
           <SUploadedFile key={uuidv4()} active={data.length}>
             <SFileUpload style={{ scale: "0.7" }}>
               <FileUploadSvg />
               <SCloudUpload>
                 <UploadedDoneSvg />
+                {/* FOR IMAGE DISPLAY */}
+                <SImg src={dataURL} alt="item"/> 
               </SCloudUpload>
             </SFileUpload>
             <SDesk>{data.length && "ფაილი ატვირთულია"}</SDesk>
