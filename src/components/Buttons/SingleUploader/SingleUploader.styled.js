@@ -10,6 +10,7 @@ export const SUploaderContainer = styled.div`
 
 export const SInputWrapper = styled.div`
   width: ${({width})=>width ? width : "18.25rem"};
+  height: ${({height})=>height ? height : "9.812rem"};
   margin-top: 3.625rem;
   display: flex;
   flex-direction: column;
@@ -61,7 +62,7 @@ export const SDownloadICon = styled.div`
 export const SUploader = styled.form`
   position: relative;
   width: 100%;
-  height: 9.812rem;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
