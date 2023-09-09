@@ -15,6 +15,7 @@ import {
   SUploadDoneIcon,
   SUploadCloudIcon,
 } from "./SingleUploader.styled";
+import { SImg, SUploadedImgDiv } from "../../Uploader/Uploader.styled";
 import { DownloadSvg } from "./UploadSvg/DownloadSvg";
 
 export const SingleUploader = ({ title, name, isImageType, width, height }) => {
@@ -35,7 +36,7 @@ export const SingleUploader = ({ title, name, isImageType, width, height }) => {
     <SInputWrapper width={width} height={height}>
       <STitle>{title}</STitle>
       <SUploader
-        active={!!data.name}
+        active={data && !!data.name}
         onClick={() => !data.name && handleClick()}
       >
         <input
@@ -45,18 +46,35 @@ export const SingleUploader = ({ title, name, isImageType, width, height }) => {
           style={{ display: "none" }}
         />
         <UploadContentWrapper>
-          <SFileUpload>
+          {data && !data.size > 0 && (
+            <SFileUpload>
+              {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
+              <SCloudUpload>
+                {data?.name ? <SUploadDoneIcon /> : <SUploadCloudIcon />}
+              </SCloudUpload>
+            </SFileUpload>
+          )}
+          {/* <SFileUpload>
             {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
             <SCloudUpload>
               {data?.name ? <SUploadDoneIcon /> : <SUploadCloudIcon />}
             </SCloudUpload>
-          </SFileUpload>
-          <SDesk>{name}</SDesk>
+          </SFileUpload> */}
+          {data && isImageType && data.size > 0 && (
+            <SUploadedImgDiv active={data.length}>
+              <SImg src={URL.createObjectURL(data)} alt="" />
+              {/* <SOverlay>
+                 <SDeleteIcon onClick={() =>  setData({})} />
+               </SOverlay> */}
+            </SUploadedImgDiv>
+          )}
+          {data && !data.size > 0 && <SDesk>{name}</SDesk>}
+          {/* <SDesk>{name}</SDesk> */}
           <SOverlay>
             {!isImageType && (
-               <SDownloadICon>
-               <DownloadSvg />
-             </SDownloadICon>
+              <SDownloadICon>
+                <DownloadSvg />
+              </SDownloadICon>
             )}
             <SDeleteIcon onClick={() => setData({})}></SDeleteIcon>
           </SOverlay>
