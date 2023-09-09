@@ -54,22 +54,12 @@ export const SingleUploader = ({ title, name, isImageType, width, height }) => {
               </SCloudUpload>
             </SFileUpload>
           )}
-          {/* <SFileUpload>
-            {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
-            <SCloudUpload>
-              {data?.name ? <SUploadDoneIcon /> : <SUploadCloudIcon />}
-            </SCloudUpload>
-          </SFileUpload> */}
           {data && isImageType && data.size > 0 && (
             <SUploadedImgDiv active={data.length}>
               <SImg src={URL.createObjectURL(data)} alt="" />
-              {/* <SOverlay>
-                 <SDeleteIcon onClick={() =>  setData({})} />
-               </SOverlay> */}
             </SUploadedImgDiv>
           )}
           {data && !data.size > 0 && <SDesk>{name}</SDesk>}
-          {/* <SDesk>{name}</SDesk> */}
           <SOverlay>
             {!isImageType && (
               <SDownloadICon>
