@@ -6,8 +6,9 @@ import {
   SDeleteIcon,
   SDesk,
   SFileUpload,
+  SUploadFileIcon,
+  SUploadImgIcon,
 } from "../Buttons/SingleUploader/SingleUploader.styled";
-import { FileUploadSvg } from "../Buttons/SingleUploader/UploadSvg/FileUploadSvg";
 import { UploadedDoneSvg } from "../Buttons/SingleUploader/UploadSvg/UploadedDoneSvg";
 import { UploadCloudSvg } from "../Buttons/SingleUploader/UploadSvg/UploadCloudSvg";
 import {
@@ -48,7 +49,6 @@ export const Uploader = ({ isImageType }) => {
           if (item instanceof File) imageURL = URL.createObjectURL(item);
           return (
             <SUploadedImgDiv key={uuidv4()} active={data.length}>
-              {/* FOR IMAGE DISPLAY */}
               <SImg src={imageURL} alt="item" />
               <SOverlay>
                 <SDeleteIcon onClick={() => handleDelete(i)} />
@@ -59,7 +59,7 @@ export const Uploader = ({ isImageType }) => {
         return (
           <SUploadedFile key={uuidv4()} active={data.length}>
             <SFileUpload style={{ scale: "0.7" }}>
-              <FileUploadSvg />
+              {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
               <SCloudUpload>
                 <UploadedDoneSvg />
               </SCloudUpload>
@@ -83,7 +83,7 @@ export const Uploader = ({ isImageType }) => {
             onChange={handleFileUpload}
             style={{ display: "none" }}
           />
-          <FileUploadSvg />
+          {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
           <SCloudUpload>
             <UploadCloudSvg />
           </SCloudUpload>
