@@ -10,6 +10,8 @@ import {
   SOverlay,
   SDeleteIcon,
   SDownloadICon,
+  SUploadFileIcon,
+  SUploadImgIcon
 } from "./SingleUploader.styled";
 import { FileUploadSvg } from "./UploadSvg/FileUploadSvg";
 import { UploadCloudSvg } from "./UploadSvg/UploadCloudSvg";
@@ -45,7 +47,7 @@ export const SingleUploader = ({ title, name, isImageType, width, height }) => {
         />
         <UploadContentWrapper>
           <SFileUpload>
-            <FileUploadSvg />
+            {isImageType ? (<SUploadImgIcon />) : <SUploadFileIcon />}
             <SCloudUpload>
               {data?.name ? <UploadedDoneSvg /> : <UploadCloudSvg />}
             </SCloudUpload>
