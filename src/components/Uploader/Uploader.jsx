@@ -8,9 +8,9 @@ import {
   SFileUpload,
   SUploadFileIcon,
   SUploadImgIcon,
+  SUploadDoneIcon,
+  SUploadCloudIcon,
 } from "../Buttons/SingleUploader/SingleUploader.styled";
-import { UploadedDoneSvg } from "../Buttons/SingleUploader/UploadSvg/UploadedDoneSvg";
-import { UploadCloudSvg } from "../Buttons/SingleUploader/UploadSvg/UploadCloudSvg";
 import {
   SFlexColumnDiv,
   SUploadedFile,
@@ -61,7 +61,7 @@ export const Uploader = ({ isImageType }) => {
             <SFileUpload style={{ scale: "0.7" }}>
               {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
               <SCloudUpload>
-                <UploadedDoneSvg />
+                <SUploadDoneIcon />
               </SCloudUpload>
             </SFileUpload>
             <SDesk>{data.length && "ფაილი ატვირთულია"}</SDesk>
@@ -85,7 +85,7 @@ export const Uploader = ({ isImageType }) => {
           />
           {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
           <SCloudUpload>
-            <UploadCloudSvg />
+            <SUploadCloudIcon />
           </SCloudUpload>
         </SFileUpload>
         <SDesk style={{ fontSize: "1rem" }}>{name}</SDesk>

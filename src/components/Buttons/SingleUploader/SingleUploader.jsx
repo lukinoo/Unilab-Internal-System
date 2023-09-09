@@ -11,11 +11,10 @@ import {
   SDeleteIcon,
   SDownloadICon,
   SUploadFileIcon,
-  SUploadImgIcon
+  SUploadImgIcon,
+  SUploadDoneIcon,
+  SUploadCloudIcon,
 } from "./SingleUploader.styled";
-import { FileUploadSvg } from "./UploadSvg/FileUploadSvg";
-import { UploadCloudSvg } from "./UploadSvg/UploadCloudSvg";
-import { UploadedDoneSvg } from "./UploadSvg/UploadedDoneSvg";
 import { DownloadSvg } from "./UploadSvg/DownloadSvg";
 
 export const SingleUploader = ({ title, name, isImageType, width, height }) => {
@@ -47,9 +46,9 @@ export const SingleUploader = ({ title, name, isImageType, width, height }) => {
         />
         <UploadContentWrapper>
           <SFileUpload>
-            {isImageType ? (<SUploadImgIcon />) : <SUploadFileIcon />}
+            {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
             <SCloudUpload>
-              {data?.name ? <UploadedDoneSvg /> : <UploadCloudSvg />}
+              {data?.name ? <SUploadDoneIcon /> : <SUploadCloudIcon />}
             </SCloudUpload>
           </SFileUpload>
           <SDesk>{name}</SDesk>
