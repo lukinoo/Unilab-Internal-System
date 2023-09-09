@@ -16,7 +16,7 @@ import { UploadCloudSvg } from "./UploadSvg/UploadCloudSvg";
 import { UploadedDoneSvg } from "./UploadSvg/UploadedDoneSvg";
 import { DownloadSvg } from "./UploadSvg/DownloadSvg";
 
-export const SingleUploader = ({ title, name, isImageType }) => {
+export const SingleUploader = ({ title, name, isImageType, width, height }) => {
   const [data, setData] = useState({});
 
   const fileInputRef = useRef(null);
@@ -31,7 +31,7 @@ export const SingleUploader = ({ title, name, isImageType }) => {
   };
 
   return (
-    <SInputWrapper>
+    <SInputWrapper width={width} height={height}>
       <STitle>{title}</STitle>
       <SUploader
         active={!!data.name}
