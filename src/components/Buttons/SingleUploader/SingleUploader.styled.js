@@ -2,6 +2,8 @@ import styled from "styled-components";
 import deleteSvg from "/assets/svg/delete.svg";
 import imageUploadSvg from "/assets/svg/imageUpload.svg";
 import fileUploadSvg from "/assets/svg/fileUpload.svg";
+import uploadDoneSvg from "/assets/svg/uploadDone.svg";
+import uploadCloudSvg from "/assets/svg/uploadCloud.svg";
 
 export const SUploaderContainer = styled.div`
   display: flex;
@@ -124,4 +126,10 @@ export const SUploadFileIcon = styled.div`
 
 export const SUploadImgIcon = styled(SUploadFileIcon)`
   background-image: url(${imageUploadSvg});
+`
+export const SUploadDoneIcon = styled(SUploadFileIcon)`
+  background-image: url(${uploadDoneSvg});
+`
+export const SUploadCloudIcon = styled(SUploadFileIcon)`
+  background-image: url(${uploadCloudSvg});
 `
