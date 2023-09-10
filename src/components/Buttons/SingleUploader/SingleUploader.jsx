@@ -31,13 +31,13 @@ export const SingleUploader = ({ title, name, isImageType, width, height }) => {
     const file = e.target.files[0];
     setData(file);
   };
-
   return (
     <SInputWrapper width={width} height={height}>
       <STitle>{title}</STitle>
       <SUploader
-        active={data && !!data.name}
-        onClick={() => !data.name && handleClick()}
+        active={!!data?.name}
+        onClick={() => !data?.name && handleClick()}
+        isImageType={isImageType}
       >
         <input
           ref={fileInputRef}
@@ -46,20 +46,18 @@ export const SingleUploader = ({ title, name, isImageType, width, height }) => {
           style={{ display: "none" }}
         />
         <UploadContentWrapper>
-          {data && !data.size > 0 && (
             <SFileUpload>
               {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
               <SCloudUpload>
                 {data?.name ? <SUploadDoneIcon /> : <SUploadCloudIcon />}
               </SCloudUpload>
             </SFileUpload>
-          )}
-          {data && isImageType && data.size > 0 && (
+          {isImageType && data?.size > 0 && (
             <SUploadedImgDiv active={data.length}>
               <SImg src={URL.createObjectURL(data)} alt="" />
             </SUploadedImgDiv>
           )}
-          {data && !data.size > 0 && <SDesk>{name}</SDesk>}
+          {!(data?.size > 0) && <SDesk>{name}</SDesk>}
           <SOverlay>
             {!isImageType && (
               <SDownloadICon>
