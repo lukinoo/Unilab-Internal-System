@@ -78,7 +78,7 @@ export const SUploader = styled.form`
   ${({ active }) =>
     active &&
     `
-    border:2px solid #2984CE;
+    border: ${({isImageType})=>isImageType ? 'none' : '2px solid #2984CE'};
     &:hover {
       ${SOverlay} {
         background: rgba(255, 255, 255, 0.7);
