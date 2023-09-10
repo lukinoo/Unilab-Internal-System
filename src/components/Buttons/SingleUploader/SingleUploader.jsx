@@ -46,12 +46,12 @@ export const SingleUploader = ({ title, name, isImageType, width, height }) => {
           style={{ display: "none" }}
         />
         <UploadContentWrapper>
-            <SFileUpload>
-              {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
-              <SCloudUpload>
-                {data?.name ? <SUploadDoneIcon /> : <SUploadCloudIcon />}
-              </SCloudUpload>
-            </SFileUpload>
+          <SFileUpload>
+            {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
+            <SCloudUpload>
+              {data?.name ? <SUploadDoneIcon /> : <SUploadCloudIcon />}
+            </SCloudUpload>
+          </SFileUpload>
           {isImageType && data?.size > 0 && (
             <SUploadedImgDiv active={data.length}>
               <SImg src={URL.createObjectURL(data)} alt="" />
