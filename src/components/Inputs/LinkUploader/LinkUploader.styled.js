@@ -7,6 +7,9 @@ export const SOverlay = styled.div`
   background-color: blue;
   width: inherit;
   height: inherit;
+  border-radius: inherit;
+  align-items: center;
+  justify-content: center;
 `
 export const SLinkUploader = styled.div`
   position: relative;
@@ -19,10 +22,16 @@ export const SLinkUploader = styled.div`
   align-items: center;
   :hover{
     ${SOverlay}{
-      display: block;
+      display: flex;
     }
   }  
 `
-export const SLInkIcon = styled.img`
+const SIcon = styled.img`
+`
+export const SLInkIcon = styled(SIcon)`
   margin-left: 1.5rem;
+`
+export const SEditIcon = styled(SIcon)`
+`
+export const SDeleteIcon = styled(SIcon)`
 `
