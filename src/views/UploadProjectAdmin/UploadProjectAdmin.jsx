@@ -9,6 +9,7 @@ import {
   STeamContainer,
   STeamMember,
   STitle,
+  SAdditionalDataDiv
 } from "./UploadProjectAdmin.styled";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { SideBar } from "../../components/SideBar";
@@ -19,6 +20,8 @@ import { PlusSvg } from "../../components/Buttons/AdditionalResources/IconSvg/Pl
 import { RadioDropdown } from "../../components/Inputs/RadioDropdown/RadioDropdown";
 import { Uploader } from "../../components/Uploader";
 import { SingleUploader } from "../../components/Buttons/SingleUploader/SingleUploader";
+import { AnotherDirection } from "../../components/Buttons/AnotherDirection";
+import { LinkUploader } from "../../components/Inputs/LinkUploader";
 
 export const UploadProjectAdmin = () => {
   const [team, setTeam] = useState([{ name: "", position: "", img: "" }]);
@@ -33,6 +36,8 @@ export const UploadProjectAdmin = () => {
     3: "პროექტის მენეჯერი",
     4: "",
   });
+
+  const extraData = [{title: 'გლოსარიუმი'}, {title: 'გლოსარიუმი'}, {title: 'გლოსარიუმი'}];
 
   const updateCustomInput = (newValue) => {
     const positionsCopy = { ...positions };
@@ -125,6 +130,7 @@ export const UploadProjectAdmin = () => {
             დამატება
           </Button>
         </SButtonWrapper>
+        
         <SingleUploader
           isImageType
           title="პროექტის ქავერი"
@@ -133,6 +139,14 @@ export const UploadProjectAdmin = () => {
           height="15.1875rem"
         />
         <Uploader isImageType />
+        <p>პროექტის ბმული და დამატებითი რესურსები</p>
+        {/* <AnotherDirection /> */}
+        <SAdditionalDataDiv>
+          {extraData.map((obj, index)=>(
+            <LinkUploader title={obj.title} key={index} />
+          ))}
+        </SAdditionalDataDiv>
+       
         <button type="submit">Click</button>
       </SContentWrapper>
     </>
