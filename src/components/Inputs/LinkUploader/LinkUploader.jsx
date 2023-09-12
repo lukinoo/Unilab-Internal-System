@@ -1,4 +1,4 @@
-import { SLinkUploader, SLInkIcon, SOverlay, SEditIcon, SDeleteIcon } from "./LinkUploader.styled"
+import { SLinkUploader, SLInkIcon, SOverlay, SEditIcon, SDeleteIcon, SIconsDiv, SIconWrapper } from "./LinkUploader.styled"
 
 export const LinkUploader = ({
   title,
@@ -9,8 +9,14 @@ export const LinkUploader = ({
       {title}
       <SLInkIcon src="/assets/svg/linkIcon.svg" alt="link" />
       <SOverlay>
-        <SEditIcon src="/assets/svg/edit.svg" alt="edit" />
-        <SDeleteIcon src="/assets/svg/delete.svg" alt="delete" />
+        <SIconsDiv>
+          <SIconWrapper>
+            <SEditIcon src="/assets/svg/edit.svg" alt="edit" />
+          </SIconWrapper>
+          <SIconWrapper>
+            <SDeleteIcon src="/assets/svg/delete.svg" alt="delete" />
+          </SIconWrapper>
+        </SIconsDiv>
       </SOverlay>
     </SLinkUploader>
   )

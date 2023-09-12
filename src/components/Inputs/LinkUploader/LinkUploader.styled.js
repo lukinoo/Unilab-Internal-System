@@ -4,12 +4,11 @@ import styled from "styled-components";
 export const SOverlay = styled.div`
   position: absolute;
   display: none;
-  background-color: blue;
   width: inherit;
   height: inherit;
   border-radius: inherit;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 `
 export const SLinkUploader = styled.div`
   position: relative;
@@ -23,15 +22,29 @@ export const SLinkUploader = styled.div`
   :hover{
     ${SOverlay}{
       display: flex;
+      background: rgba(255, 255, 255, 0.70);
     }
   }  
 `
 const SIcon = styled.img`
 `
+
 export const SLInkIcon = styled(SIcon)`
   margin-left: 1.5rem;
 `
 export const SEditIcon = styled(SIcon)`
+  filter: invert(100%)
 `
-export const SDeleteIcon = styled(SIcon)`
+export const SDeleteIcon = styled(SEditIcon)`
+`
+export const SIconWrapper = styled.div`
+  border-radius: 0.375rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #ffffff;
+`
+export const SIconsDiv = styled.div`
+  width: 60%;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
 `
