@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+export const SUploadProjectMainDiv = styled.div`
+`
 export const SBgStarTopRight = styled.div`
   position: absolute;
   top: 33rem;
@@ -7,6 +9,10 @@ export const SBgStarTopRight = styled.div`
 `;
 
 export const SContentWrapper = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto 29rem auto;
   max-width: 64.438rem;
   display: flex;
@@ -54,5 +60,15 @@ export const SAdditionalDataDiv = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 3rem;
+  column-gap: 3rem;
   margin: 5rem 0;
+`
+export const SButtonsDiv = styled.div`
+  width: 34.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &>button{
+    width: 45%;
+  }
 `
