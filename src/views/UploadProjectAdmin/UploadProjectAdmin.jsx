@@ -20,7 +20,6 @@ import { PlusSvg } from "../../components/Buttons/AdditionalResources/IconSvg/Pl
 import { RadioDropdown } from "../../components/Inputs/RadioDropdown/RadioDropdown";
 import { Uploader } from "../../components/Uploader";
 import { SingleUploader } from "../../components/Buttons/SingleUploader/SingleUploader";
-import { AnotherDirection } from "../../components/Buttons/AnotherDirection";
 import { LinkUploader } from "../../components/Inputs/LinkUploader";
 
 export const UploadProjectAdmin = () => {
@@ -139,8 +138,9 @@ export const UploadProjectAdmin = () => {
           height="15.1875rem"
         />
         <Uploader isImageType />
-        <p>პროექტის ბმული და დამატებითი რესურსები</p>
-        {/* <AnotherDirection /> */}
+        <STitle marginTop="6.6rem" fontSize="1.25rem" fontWeight="500">
+           პროექტის დამატებითი რესურსები და ბმულები
+        </STitle>
         <SAdditionalDataDiv>
           {extraData.map((obj, index)=>(
             <LinkUploader title={obj.title} key={index} />
