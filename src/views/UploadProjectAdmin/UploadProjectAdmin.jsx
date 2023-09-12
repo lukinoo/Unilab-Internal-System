@@ -18,6 +18,7 @@ import { Button } from "../../components/Button";
 import { PlusSvg } from "../../components/Buttons/AdditionalResources/IconSvg/PlusSvg";
 import { RadioDropdown } from "../../components/Inputs/RadioDropdown/RadioDropdown";
 import { Uploader } from "../../components/Uploader";
+import { SingleUploader } from "../../components/Buttons/SingleUploader/SingleUploader";
 
 export const UploadProjectAdmin = () => {
   const [team, setTeam] = useState([{ name: "", position: "", img: "" }]);
@@ -106,6 +107,7 @@ export const UploadProjectAdmin = () => {
                       items={positions}
                       inputPlaceholder={"მიუთითეთ სხვა პოზიცია"}
                       updateCustomInput={updateCustomInput}
+                      width="26.375rem"
                     />
                   </SPositionWrapper>
                 </STeamMember>
@@ -123,7 +125,14 @@ export const UploadProjectAdmin = () => {
             დამატება
           </Button>
         </SButtonWrapper>
-        <Uploader imageType={true} />
+        <SingleUploader
+          isImageType
+          title="პროექტის ქავერი"
+          name="ატვირთეთ ფოტო"
+          width="64.4375rem"
+          height="15.1875rem"
+        />
+        <Uploader isImageType />
         <button type="submit">Click</button>
       </SContentWrapper>
     </>
