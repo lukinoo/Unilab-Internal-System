@@ -1,0 +1,1 @@
+export { PortfolioFooter } from "./PortfolioFooter";

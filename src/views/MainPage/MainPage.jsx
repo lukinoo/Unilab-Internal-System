@@ -32,7 +32,7 @@ export const MainPage = () => {
   return (
     <SMainDiv>
       <ThirdHeader />
-      <ProjectSlider onChange={handleSliderChange} />
+      <ProjectSlider onChange={handleSliderChange} data={ProjectData} />
       <SMainContent initial="hidden" animate="visible">
         <STitle key={"title" + sliderIndex} variants={titleVariants}>
           {title}
