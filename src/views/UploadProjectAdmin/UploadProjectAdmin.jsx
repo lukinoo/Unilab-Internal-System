@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import {
+  SUploadProjectMainDiv,
   SBgStarTopRight,
   SButtonWrapper,
   SContentWrapper,
@@ -9,7 +10,8 @@ import {
   STeamContainer,
   STeamMember,
   STitle,
-  SAdditionalDataDiv
+  SAdditionalDataDiv,
+  SButtonsDiv,
 } from "./UploadProjectAdmin.styled";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { SideBar } from "../../components/SideBar";
@@ -36,7 +38,11 @@ export const UploadProjectAdmin = () => {
     4: "",
   });
 
-  const extraData = [{title: 'გლოსარიუმი'}, {title: 'გლოსარიუმი'}, {title: 'გლოსარიუმი'}];
+  const extraData = [
+    { title: "გლოსარიუმი" },
+    { title: "გლოსარიუმი" },
+    { title: "გლოსარიუმი" },
+  ];
 
   const updateCustomInput = (newValue) => {
     const positionsCopy = { ...positions };
@@ -58,7 +64,7 @@ export const UploadProjectAdmin = () => {
   };
 
   return (
-    <>
+    <SUploadProjectMainDiv>
       <FourthHeader />
       {/* <SBgStarTopRight>
         <BgStarTopRight />
@@ -129,7 +135,7 @@ export const UploadProjectAdmin = () => {
             დამატება
           </Button>
         </SButtonWrapper>
-        
+
         <SingleUploader
           isImageType
           title="პროექტის ქავერი"
@@ -139,16 +145,19 @@ export const UploadProjectAdmin = () => {
         />
         <Uploader isImageType />
         <STitle marginTop="6.6rem" fontSize="1.25rem" fontWeight="500">
-           პროექტის დამატებითი რესურსები და ბმულები
+          პროექტის დამატებითი რესურსები და ბმულები
         </STitle>
         <SAdditionalDataDiv>
-          {extraData.map((obj, index)=>(
+          {extraData.map((obj, index) => (
             <LinkUploader title={obj.title} key={index} />
           ))}
         </SAdditionalDataDiv>
-       
-        <button type="submit">Click</button>
+
+        <SButtonsDiv>
+          <Button secondary>გაუქმება</Button>
+          <Button type="submit">შენახვა</Button>
+        </SButtonsDiv>
       </SContentWrapper>
-    </>
+    </SUploadProjectMainDiv>
   );
 };
