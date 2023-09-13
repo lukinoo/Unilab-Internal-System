@@ -14,6 +14,7 @@ export const SUploaderContainer = styled.div`
 export const SInputWrapper = styled.div`
   width: ${({width})=>width ? width : "18.25rem"};
   height: ${({height})=>height ? height : "9.812rem"};
+  margin: ${({margin})=>margin};
   margin-top: 3.625rem;
   display: flex;
   flex-direction: column;

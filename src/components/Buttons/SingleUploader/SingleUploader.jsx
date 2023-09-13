@@ -18,7 +18,7 @@ import {
 import { SImg, SUploadedImgDiv } from "../../Uploader/Uploader.styled";
 import { DownloadSvg } from "./UploadSvg/DownloadSvg";
 
-export const SingleUploader = ({ title, name, isImageType, width, height }) => {
+export const SingleUploader = ({ title, name, isImageType, width, height, margin }) => {
   const [data, setData] = useState({});
 
   const fileInputRef = useRef(null);
@@ -32,7 +32,7 @@ export const SingleUploader = ({ title, name, isImageType, width, height }) => {
     setData(file);
   };
   return (
-    <SInputWrapper width={width} height={height}>
+    <SInputWrapper width={width} height={height} margin={margin}>
       <STitle>{title}</STitle>
       <SUploader
         active={!!data?.name}
