@@ -63,15 +63,17 @@ export const UploadProjectAdmin = () => {
     console.log(data);
   };
 
-  // test functions
+  // test function
   const handleUpdate = (index) => {
     const objToUpdate = extraData[index];
     console.log(index, objToUpdate);
   };
+
   const handleDelete = (index) => {
     const objToUpdate = extraData[index];
-    console.log(index, objToUpdate);
+    setExtraData(prevData=>prevData.filter((_, i)=> i !== index));
   };
+  
   const addNewLink = () => {
     const obj = {
       title: "გლოსარიუმი",
