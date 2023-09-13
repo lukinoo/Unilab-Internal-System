@@ -70,7 +70,6 @@ export const UploadProjectAdmin = () => {
   };
 
   const handleDelete = (index) => {
-    const objToUpdate = extraData[index];
     setExtraData(prevData=>prevData.filter((_, i)=> i !== index));
   };
   
