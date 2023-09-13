@@ -144,16 +144,14 @@ export const UploadProjectAdmin = () => {
             );
           })}
         </SInputWrapper>
-        <SButtonWrapper>
-          {/* <UpArrow /> */}
-          <Button
-            width={"13.3125rem"}
-            LeftComponent={<PlusSvg />}
-            onClick={handleAddTeamMember}
-          >
-            დამატება
-          </Button>
-        </SButtonWrapper>
+        <Button
+          LeftComponent={<img src="/assets/svg/plus.svg" alt="plus" />}
+          width="13.3125rem"
+          onClick={handleAddTeamMember}
+          margin='5rem 0 5.9375rem'
+        >
+          დამატება
+        </Button>
 
         <SingleUploader
           isImageType
@@ -180,6 +178,7 @@ export const UploadProjectAdmin = () => {
           LeftComponent={<img src="/assets/svg/plus.svg" alt="plus" />}
           width="13.3125rem"
           onClick={addNewLink}
+          margin='3rem 0 15.625rem'
         >
           დამატება
         </Button>
