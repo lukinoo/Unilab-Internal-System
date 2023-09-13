@@ -2,7 +2,8 @@ import { SLinkUploader, SLInkIcon, SOverlay, SEditIcon, SDeleteIcon, SIconsDiv, 
 
 export const LinkUploader = ({
   title,
-
+  handleUpdate,
+  handleDelete
 }) => {
   return (
     <SLinkUploader>
@@ -10,10 +11,10 @@ export const LinkUploader = ({
       <SLInkIcon src="/assets/svg/linkIcon.svg" alt="link" />
       <SOverlay>
         <SIconsDiv>
-          <SIconWrapper>
-            <SEditIcon src="/assets/svg/edit.svg" alt="edit" />
+          <SIconWrapper onClick={handleUpdate}>
+            <SEditIcon src="/assets/svg/edit.svg" alt="edit"/>
           </SIconWrapper>
-          <SIconWrapper>
+          <SIconWrapper onClick={handleDelete}>
             <SDeleteIcon src="/assets/svg/delete.svg" alt="delete" />
           </SIconWrapper>
         </SIconsDiv>
