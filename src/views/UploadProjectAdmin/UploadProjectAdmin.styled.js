@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-export const SUploadProjectMainDiv = styled.div`
-`
+export const SUploadProjectMainDiv = styled.div``;
 export const SBgStarTopRight = styled.div`
   position: absolute;
   top: 33rem;
@@ -30,6 +29,7 @@ export const STitle = styled.h1`
 export const SInputWrapper = styled.div`
   position: relative;
   margin-top: 5.438rem;
+  width: 100%;
 `;
 
 export const STeamContainer = styled.div`
@@ -62,13 +62,13 @@ export const SAdditionalDataDiv = styled.div`
   row-gap: 3rem;
   column-gap: 3rem;
   margin: 5rem 0;
-`
+`;
 export const SButtonsDiv = styled.div`
   width: 34.375rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  &>button{
+  & > button {
     width: 45%;
   }
-`
+`;
