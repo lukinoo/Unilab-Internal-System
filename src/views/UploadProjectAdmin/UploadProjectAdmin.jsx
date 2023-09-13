@@ -38,11 +38,11 @@ export const UploadProjectAdmin = () => {
     4: "",
   });
 
-  const extraData = [
-    { title: "გლოსარიუმი" },
-    { title: "გლოსარიუმი" },
-    { title: "გლოსარიუმი" },
-  ];
+  const [extraData, setExtraData] = useState([
+    { title: "გლოსარიუმი", link: "" },
+    { title: "გლოსარიუმი", link: "" },
+    { title: "გლოსარიუმი", link: "" },
+  ]);
 
   const updateCustomInput = (newValue) => {
     const positionsCopy = { ...positions };
@@ -61,6 +61,23 @@ export const UploadProjectAdmin = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+  };
+
+  // test functions
+  const handleUpdate = (index) => {
+    const objToUpdate = extraData[index];
+    console.log(index, objToUpdate);
+  };
+  const handleDelete = (index) => {
+    const objToUpdate = extraData[index];
+    console.log(index, objToUpdate);
+  };
+  const addNewLink = () => {
+    const obj = {
+      title: "გლოსარიუმი",
+      link: "",
+    };
+    setExtraData((prevData) => [...prevData, obj]);
   };
 
   return (
@@ -149,9 +166,21 @@ export const UploadProjectAdmin = () => {
         </STitle>
         <SAdditionalDataDiv>
           {extraData.map((obj, index) => (
-            <LinkUploader title={obj.title} key={index} />
+            <LinkUploader
+              title={obj.title}
+              key={index}
+              handleUpdate={() => handleUpdate(index)}
+              handleDelete={() => handleDelete(index)}
+            />
           ))}
         </SAdditionalDataDiv>
+        <Button
+          LeftComponent={<img src="/assets/svg/plus.svg" alt="plus" />}
+          width="13.3125rem"
+          onClick={addNewLink}
+        >
+          დამატება
+        </Button>
 
         <SButtonsDiv>
           <Button secondary>გაუქმება</Button>
