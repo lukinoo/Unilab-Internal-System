@@ -159,6 +159,7 @@ export const UploadProjectAdmin = () => {
           name="ატვირთეთ ფოტო"
           width="64.4375rem"
           height="15.1875rem"
+          margin="0 0 5.75rem"
         />
         <Uploader isImageType />
         <STitle marginTop="6.6rem" fontSize="1.25rem" fontWeight="500">
