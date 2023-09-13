@@ -94,7 +94,7 @@ export const STitle = styled.p`
 `;
 
 export const SDesk = styled.span`
-  font-size: 0.688rem;
+  font-size: 0.75rem;
   font-style: italic;
   display: block;
 `;
