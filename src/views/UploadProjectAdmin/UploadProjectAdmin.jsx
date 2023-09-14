@@ -24,7 +24,6 @@ import { Uploader } from "../../components/Uploader";
 import { SingleUploader } from "../../components/Buttons/SingleUploader/SingleUploader";
 import { LinkUploader } from "../../components/Inputs/LinkUploader";
 import axios from "axios";
-import { SLabel } from "../../components/Inputs/Input/Input.styled";
 
 export const UploadProjectAdmin = () => {
   const [team, setTeam] = useState([{ name: "", position: "", img: "" }]);
@@ -94,6 +93,7 @@ export const UploadProjectAdmin = () => {
       console.log(error);
     }
   };
+  // create options array for react-select
   const createOptions = () => {
     const options = nameData.map((obj) => ({
       value: obj.name,
@@ -142,18 +142,6 @@ export const UploadProjectAdmin = () => {
             return (
               <STeamContainer key={index}>
                 <STeamMember>
-                  {/* <Input
-                    id={`team-member-name-${index}`}
-                    name={`team-member-name-${index}`}
-                    type="text"
-                    placeholder="ჩაწერეთ სახელი და გვარი"
-                    value={member.name}
-                    label="სახელი, გვარი"
-                    width="26.375rem"
-                    register={register}
-                    errors={errors}
-                    control={control}
-                  /> */}
                   <CustomSelect
                     id={`team-member-name-${index}`}
                     name={`team-member-name-${index}`}
