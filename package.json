@@ -22,6 +22,7 @@
     "react-paginate": "^8.1.4",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.5.0",
+    "react-select": "^5.7.4",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.6",
