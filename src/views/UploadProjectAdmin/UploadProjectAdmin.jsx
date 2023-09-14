@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   SUploadProjectMainDiv,
@@ -22,6 +22,7 @@ import { RadioDropdown } from "../../components/Inputs/RadioDropdown/RadioDropdo
 import { Uploader } from "../../components/Uploader";
 import { SingleUploader } from "../../components/Buttons/SingleUploader/SingleUploader";
 import { LinkUploader } from "../../components/Inputs/LinkUploader";
+import axios from "axios";
 
 export const UploadProjectAdmin = () => {
   const [team, setTeam] = useState([{ name: "", position: "", img: "" }]);
@@ -43,6 +44,8 @@ export const UploadProjectAdmin = () => {
     { title: "გლოსარიუმი", link: "" },
   ]);
 
+  const [nameData, setNameData] = useState([]);
+  console.log(nameData);
   const updateCustomInput = (newValue) => {
     const positionsCopy = { ...positions };
     const lastKey = Object.keys(positionsCopy).pop();
@@ -80,6 +83,19 @@ export const UploadProjectAdmin = () => {
     setExtraData((prevData) => [...prevData, obj]);
   };
 
+
+  const fetchData = async () =>{
+    try{
+      const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+      setNameData(response.data);
+    }catch(error){
+      console.log(error);
+    }
+  }
+
+  useEffect(()=>{
+    fetchData();
+  })
   return (
     <SUploadProjectMainDiv>
       <FourthHeader />
