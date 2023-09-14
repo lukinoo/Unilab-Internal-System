@@ -11,6 +11,7 @@ import {
   STitle,
   SAdditionalDataDiv,
   SButtonsDiv,
+  CustomSelect,
 } from "./UploadProjectAdmin.styled";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { SideBar } from "../../components/SideBar";
@@ -23,6 +24,7 @@ import { Uploader } from "../../components/Uploader";
 import { SingleUploader } from "../../components/Buttons/SingleUploader/SingleUploader";
 import { LinkUploader } from "../../components/Inputs/LinkUploader";
 import axios from "axios";
+import { SLabel } from "../../components/Inputs/Input/Input.styled";
 
 export const UploadProjectAdmin = () => {
   const [team, setTeam] = useState([{ name: "", position: "", img: "" }]);
@@ -37,15 +39,14 @@ export const UploadProjectAdmin = () => {
     3: "პროექტის მენეჯერი",
     4: "",
   });
-
   const [extraData, setExtraData] = useState([
     { title: "გლოსარიუმი", link: "" },
     { title: "გლოსარიუმი", link: "" },
     { title: "გლოსარიუმი", link: "" },
   ]);
-
   const [nameData, setNameData] = useState([]);
-  console.log(nameData);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [options, setOptions] = useState([]);
   const updateCustomInput = (newValue) => {
     const positionsCopy = { ...positions };
     const lastKey = Object.keys(positionsCopy).pop();
@@ -72,9 +73,9 @@ export const UploadProjectAdmin = () => {
   };
 
   const handleDelete = (index) => {
-    setExtraData(prevData=>prevData.filter((_, i)=> i !== index));
+    setExtraData((prevData) => prevData.filter((_, i) => i !== index));
   };
-  
+
   const addNewLink = () => {
     const obj = {
       title: "გლოსარიუმი",
@@ -83,19 +84,30 @@ export const UploadProjectAdmin = () => {
     setExtraData((prevData) => [...prevData, obj]);
   };
 
-
-  const fetchData = async () =>{
-    try{
-      const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
       setNameData(response.data);
-    }catch(error){
+    } catch (error) {
       console.log(error);
     }
-  }
+  };
+  const createOptions = () => {
+    const options = nameData.map((obj) => ({
+      value: obj.name,
+      label: obj.name,
+    }));
+    return options;
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchData();
-  })
+  }, []);
+  useEffect(() => {
+    setOptions(createOptions);
+  }, [nameData]);
   return (
     <SUploadProjectMainDiv>
       <FourthHeader />
@@ -130,7 +142,7 @@ export const UploadProjectAdmin = () => {
             return (
               <STeamContainer key={index}>
                 <STeamMember>
-                  <Input
+                  {/* <Input
                     id={`team-member-name-${index}`}
                     name={`team-member-name-${index}`}
                     type="text"
@@ -141,6 +153,19 @@ export const UploadProjectAdmin = () => {
                     register={register}
                     errors={errors}
                     control={control}
+                  /> */}
+                  <CustomSelect
+                    id={`team-member-name-${index}`}
+                    name={`team-member-name-${index}`}
+                    options={options}
+                    value={searchTerm}
+                    onChange={(value) => setSearchTerm(value)}
+                    placeholder="ჩაწერეთ სახელი და გვარი"
+                    searchable={true}
+                    register={register}
+                    errors={errors}
+                    control={control}
+                    width="26.375rem"
                   />
                   <SPositionWrapper>
                     <label>პოზიცია</label>
@@ -162,7 +187,7 @@ export const UploadProjectAdmin = () => {
           LeftComponent={<img src="/assets/svg/plus.svg" alt="plus" />}
           width="13.3125rem"
           onClick={handleAddTeamMember}
-          margin='5rem 0 5.9375rem'
+          margin="5rem 0 5.9375rem"
         >
           დამატება
         </Button>
@@ -193,7 +218,7 @@ export const UploadProjectAdmin = () => {
           LeftComponent={<img src="/assets/svg/plus.svg" alt="plus" />}
           width="13.3125rem"
           onClick={addNewLink}
-          margin='3rem 0 15.625rem'
+          margin="3rem 0 15.625rem"
         >
           დამატება
         </Button>
