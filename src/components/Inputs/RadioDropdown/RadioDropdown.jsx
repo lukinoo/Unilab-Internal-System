@@ -25,7 +25,7 @@ export const RadioDropdown = (props) => {
     control,
     inputPlaceholder,
     updateCustomInput,
-    width
+    width,
   } = props;
 
   const {
@@ -35,7 +35,7 @@ export const RadioDropdown = (props) => {
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useAutoClose(dropdownRef, false, onBlur);
 
-  const customInputId = Object.entries(items).length + 1;
+  const customInputId = Object.entries(items).length;
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);
