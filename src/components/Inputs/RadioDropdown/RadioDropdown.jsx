@@ -55,6 +55,7 @@ export const RadioDropdown = (props) => {
         readOnly
         type={"text"}
         onClick={toggleOpen}
+        height={height}
         RightComponent={
           <SArrowButton type="button" title="toggle dropdown">
             <DropArrow isOpen={isOpen} />
