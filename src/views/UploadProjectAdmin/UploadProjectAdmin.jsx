@@ -25,6 +25,24 @@ import { SingleUploader } from "../../components/Buttons/SingleUploader/SingleUp
 import { LinkUploader } from "../../components/Inputs/LinkUploader";
 import axios from "axios";
 
+
+const customStyles = {
+  control: (provided) => ({
+    ...provided,
+    color: 'black',
+    // border: '.0625rem solid blue',
+  }),
+  dropdownIndicator: (provided) => ({
+    ...provided,
+    color: 'gray',
+  }),
+  option: (provided) => ({
+    ...provided,
+    background: '#ffffff',
+    color: '#000'
+  }),
+};
+
 export const UploadProjectAdmin = () => {
   const [team, setTeam] = useState([{ name: "", position: "", img: "" }]);
 
@@ -108,6 +126,7 @@ export const UploadProjectAdmin = () => {
   useEffect(() => {
     setOptions(createOptions);
   }, [nameData]);
+
   return (
     <SUploadProjectMainDiv>
       <FourthHeader />
@@ -154,6 +173,7 @@ export const UploadProjectAdmin = () => {
                     errors={errors}
                     control={control}
                     width="26.375rem"
+                    styles={customStyles}
                   />
                   <SPositionWrapper>
                     <label>პოზიცია</label>
