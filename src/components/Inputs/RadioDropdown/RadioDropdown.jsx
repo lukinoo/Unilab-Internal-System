@@ -26,6 +26,7 @@ export const RadioDropdown = (props) => {
     inputPlaceholder,
     updateCustomInput,
     width,
+    height
   } = props;
 
   const {
@@ -47,7 +48,7 @@ export const RadioDropdown = (props) => {
   };
 
   return (
-    <SDropdownWrapper gridArea={gridArea} ref={dropdownRef} width={width}>
+    <SDropdownWrapper gridArea={gridArea} ref={dropdownRef} width={width} height={height}>
       <Input
         {...props}
         value={items && items[value]}
