@@ -69,5 +69,4 @@ export const SButtonsDiv = styled.div`
 
 export const CustomSelect = styled(Select)`
   width: ${({width})=>width};
-  color: black;
 `;
