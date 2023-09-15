@@ -183,6 +183,7 @@ export const UploadProjectAdmin = () => {
                       inputPlaceholder={"მიუთითეთ სხვა პოზიცია"}
                       updateCustomInput={updateCustomInput}
                       width="26.375rem"
+                      height="3.125rem"
                     />
                   </SPositionWrapper>
                 </STeamMember>
