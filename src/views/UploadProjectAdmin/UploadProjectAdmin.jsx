@@ -30,6 +30,7 @@ const customStyles = {
     ...provided,
     color: "black",
     borderRadius: "0.625rem",
+    height: '3.125rem',
   }),
   dropdownIndicator: (provided) => ({
     ...provided,
@@ -154,26 +155,30 @@ export const UploadProjectAdmin = () => {
           />
 
           <STitle marginTop="6.6rem" fontSize="1.25rem" fontWeight="500">
-            პროექტზე მომუშავე გუდნი
+            პროექტზე მომუშავე გუნდი
           </STitle>
           {team.map((member, index) => {
             return (
               <STeamContainer key={index}>
                 <STeamMember>
-                  <CustomSelect
-                    id={`team-member-name-${index}`}
-                    name={`team-member-name-${index}`}
-                    options={options}
-                    value={searchTerm}
-                    onChange={(value) => setSearchTerm(value)}
-                    placeholder="ჩაწერეთ სახელი და გვარი"
-                    searchable={true}
-                    register={register}
-                    errors={errors}
-                    control={control}
-                    width="26.375rem"
-                    styles={customStyles}
-                  />
+                  <SPositionWrapper>
+                    <label>პოზიცია</label>
+                    <CustomSelect
+                      id={`team-member-name-${index}`}
+                      name={`team-member-name-${index}`}
+                      options={options}
+                      value={searchTerm}
+                      onChange={(value) => setSearchTerm(value)}
+                      placeholder="ჩაწერეთ სახელი და გვარი"
+                      searchable={true}
+                      register={register}
+                      errors={errors}
+                      control={control}
+                      width="26.375rem"
+                      styles={customStyles}
+                    />
+                  </SPositionWrapper>
+
                   <SPositionWrapper>
                     <label>პოზიცია</label>
                     <RadioDropdown

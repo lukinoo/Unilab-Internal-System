@@ -49,6 +49,7 @@ export const STeamMember = styled.div`
 export const SPositionWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: red;
 `;
 export const SAdditionalDataDiv = styled.div`
   display: grid;
@@ -69,5 +70,4 @@ export const SButtonsDiv = styled.div`
 
 export const CustomSelect = styled(Select)`
   width: ${({width})=>width};
-  height: 3.125rem;
 `;
