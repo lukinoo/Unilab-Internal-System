@@ -69,4 +69,5 @@ export const SButtonsDiv = styled.div`
 
 export const CustomSelect = styled(Select)`
   width: ${({width})=>width};
+  height: 3.125rem;
 `;
