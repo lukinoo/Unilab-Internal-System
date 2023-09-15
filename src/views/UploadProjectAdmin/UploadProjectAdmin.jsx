@@ -25,21 +25,20 @@ import { SingleUploader } from "../../components/Buttons/SingleUploader/SingleUp
 import { LinkUploader } from "../../components/Inputs/LinkUploader";
 import axios from "axios";
 
-
 const customStyles = {
   control: (provided) => ({
     ...provided,
-    color: 'black',
-    // border: '.0625rem solid blue',
+    color: "black",
+    borderRadius: "0.625rem",
   }),
   dropdownIndicator: (provided) => ({
     ...provided,
-    color: 'gray',
+    color: "gray",
   }),
   option: (provided) => ({
     ...provided,
-    background: '#ffffff',
-    color: '#000'
+    background: "#ffffff",
+    color: "#000",
   }),
 };
 
