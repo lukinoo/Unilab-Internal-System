@@ -13,6 +13,8 @@ import {
   SButtonsDiv,
   CustomSelect,
   SArrowIcon,
+  SPersonImg,
+  SContainer
 } from "./UploadProjectAdmin.styled";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { SideBar } from "../../components/SideBar";
@@ -24,6 +26,7 @@ import { RadioDropdown } from "../../components/Inputs/RadioDropdown/RadioDropdo
 import { Uploader } from "../../components/Uploader";
 import { SingleUploader } from "../../components/Buttons/SingleUploader/SingleUploader";
 import { LinkUploader } from "../../components/Inputs/LinkUploader";
+import defaultProfilePicture from "/assets/svg/defaultUser.svg";
 import axios from "axios";
 
 const customStyles = {
@@ -181,18 +184,21 @@ export const UploadProjectAdmin = () => {
                     />
                   </SPositionWrapper>
 
-                  <SPositionWrapper>
-                    <label>პოზიცია</label>
-                    <RadioDropdown
-                      name={`member-position-${index}`}
-                      control={control}
-                      items={positions}
-                      inputPlaceholder={"მიუთითეთ სხვა პოზიცია"}
-                      updateCustomInput={updateCustomInput}
-                      width="26.375rem"
-                      height="3.125rem"
-                    />
-                  </SPositionWrapper>
+                  <SContainer>
+                    <SPositionWrapper>
+                      <label>პოზიცია</label>
+                      <RadioDropdown
+                        name={`member-position-${index}`}
+                        control={control}
+                        items={positions}
+                        inputPlaceholder={"მიუთითეთ სხვა პოზიცია"}
+                        updateCustomInput={updateCustomInput}
+                        width="26.375rem"
+                        height="3.125rem"
+                      />
+                    </SPositionWrapper> 
+                    <SPersonImg src={member.img ? member.img : defaultProfilePicture}/>
+                  </SContainer>
                 </STeamMember>
               </STeamContainer>
             );
