@@ -12,6 +12,7 @@ import {
   SAdditionalDataDiv,
   SButtonsDiv,
   CustomSelect,
+  SArrowIcon,
 } from "./UploadProjectAdmin.styled";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { SideBar } from "../../components/SideBar";
@@ -197,6 +198,7 @@ export const UploadProjectAdmin = () => {
             );
           })}
         </SInputWrapper>
+        <SArrowIcon src="/assets/svg/chevronRight.svg" alt="up" />
         <Button
           LeftComponent={<img src="/assets/svg/plus.svg" alt="plus" />}
           width="13.3125rem"

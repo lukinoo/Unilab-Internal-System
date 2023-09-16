@@ -69,3 +69,8 @@ export const SButtonsDiv = styled.div`
 export const CustomSelect = styled(Select)`
   width: ${({ width }) => width};
 `;
+export const SArrowIcon = styled.img`
+  transform: rotate(-90deg);
+  width: 4rem;
+  height: 4rem;
+`
