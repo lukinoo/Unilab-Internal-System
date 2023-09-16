@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export const SDropdownWrapper = styled.div`
   position: relative;
   width: ${({width})=>width ? width : 'fit-content'};
-  height: ${({height})=> height ? height : 'fit-content'};
+  height: fit-content;
   grid-area: ${({ gridArea }) => (gridArea ? gridArea : null)};
 `;
 
