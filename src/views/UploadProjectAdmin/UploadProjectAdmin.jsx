@@ -30,7 +30,7 @@ const customStyles = {
     ...provided,
     color: "black",
     borderRadius: "0.625rem",
-    height: '3.125rem',
+    height: "3.125rem",
   }),
   dropdownIndicator: (provided) => ({
     ...provided,
@@ -152,6 +152,7 @@ export const UploadProjectAdmin = () => {
             control={control}
             name="project_desk"
             placeholder="პროექტის მოკლე აღწერა"
+            marginTop="0.75rem"
           />
 
           <STitle marginTop="6.6rem" fontSize="1.25rem" fontWeight="500">
