@@ -73,4 +73,5 @@ export const SArrowIcon = styled.img`
   transform: rotate(-90deg);
   width: 4rem;
   height: 4rem;
+  margin-top:  8rem;
 `
