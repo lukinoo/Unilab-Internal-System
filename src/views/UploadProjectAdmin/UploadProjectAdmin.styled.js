@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Select from 'react-select';
+import Select from "react-select";
 
 export const SUploadProjectMainDiv = styled.div``;
 export const SBgStarTopRight = styled.div`
@@ -41,15 +41,13 @@ export const STeamContainer = styled.div`
 export const STeamMember = styled.div`
   width: 100%;
   display: flex;
-  /* align-items: center; */
-  align-items: flex-end;
   justify-content: space-between;
 `;
 
 export const SPositionWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: red;
+  justify-content: space-between;
 `;
 export const SAdditionalDataDiv = styled.div`
   display: grid;
@@ -69,5 +67,5 @@ export const SButtonsDiv = styled.div`
 `;
 
 export const CustomSelect = styled(Select)`
-  width: ${({width})=>width};
+  width: ${({ width }) => width};
 `;
