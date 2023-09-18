@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const SUploaderDiv = styled.div`
-  &>p{
-    margin-bottom: 0.875rem;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 `
 
 export const SFlexColumnDiv = styled.div`
