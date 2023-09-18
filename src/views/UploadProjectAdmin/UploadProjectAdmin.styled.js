@@ -68,17 +68,17 @@ export const SArrowIcon = styled.img`
   transform: rotate(-90deg);
   width: 4rem;
   height: 4rem;
-  margin-top:  8rem;
-`
+  margin-top: 8rem;
+`;
 export const SPersonImg = styled.img`
   width: 3.75rem;
   height: 3.75rem;
   border-radius: 100%;
   border: 0.3125rem solid #373737;
-`
+`;
 export const SContainer = styled.div`
   display: flex;
-  justify-content:space-between;
-  align-items: flex-end; 
+  justify-content: space-between;
+  align-items: flex-end;
   width: 50%;
-`
+`;
