@@ -71,8 +71,8 @@ export const SArrowIcon = styled.img`
   margin-top: 8rem;
 `;
 export const SPersonImg = styled.img`
-  width: 3.75rem;
-  height: 3.75rem;
+  width: 3.125rem;
+  height: 3.125rem;
   border-radius: 100%;
   border: 0.3125rem solid #373737;
 `;
