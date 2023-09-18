@@ -14,7 +14,15 @@ const STARS = {
 };
 
 export const Star = ({ number, top, left, width, height }) => {
-  return <SStar src={STARS[number]} top={top} left={left} />;
+  return (
+    <SStar
+      src={STARS[number]}
+      top={top}
+      left={left}
+      width={width}
+      height={height}
+    />
+  );
 };
 
 const SStar = styled.img`
