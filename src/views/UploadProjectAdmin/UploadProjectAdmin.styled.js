@@ -2,11 +2,6 @@ import styled from "styled-components";
 import Select from "react-select";
 
 export const SUploadProjectMainDiv = styled.div``;
-export const SBgStarTopRight = styled.div`
-  position: absolute;
-  top: 33rem;
-  right: 6.54rem;
-`;
 
 export const SContentWrapper = styled.form`
   display: flex;
