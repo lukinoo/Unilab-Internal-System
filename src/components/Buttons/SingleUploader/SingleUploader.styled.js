@@ -18,7 +18,7 @@ export const SInputWrapper = styled.div`
   margin-top: 3.625rem;
   display: flex;
   flex-direction: column;
-  gap: 0.437rem;
+  gap: 0.5rem;
 `;
 
 export const SOverlay = styled.div`
