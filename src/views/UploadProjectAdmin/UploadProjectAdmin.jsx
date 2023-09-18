@@ -223,7 +223,7 @@ export const UploadProjectAdmin = () => {
           height="15.1875rem"
           margin="0 0 5.75rem"
         />
-        <Uploader isImageType />
+        <Uploader isImageType label="დამატებითი ფოტოები" />
         <STitle marginTop="6.6rem" fontSize="1.25rem" fontWeight="500">
           პროექტის დამატებითი რესურსები და ბმულები
         </STitle>
