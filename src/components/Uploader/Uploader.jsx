@@ -6,21 +6,25 @@ import {
   SDeleteIcon,
   SDesk,
   SFileUpload,
-} from "../Buttons/Uploader/Uploader.styled";
-import { FileUploadSvg } from "../Buttons/Uploader/UploadSvg/FileUploadSvg";
-import { DeleteSvg } from "../Buttons/Uploader/UploadSvg/DeleteSvg";
-import { UploadedDoneSvg } from "../Buttons/Uploader/UploadSvg/UploadedDoneSvg";
-import { UploadCloudSvg } from "../Buttons/Uploader/UploadSvg/UploadCloudSvg";
+  SUploadFileIcon,
+  SUploadImgIcon,
+  SUploadDoneIcon,
+  SUploadCloudIcon,
+  STitle,
+} from "../Buttons/SingleUploader/SingleUploader.styled";
 import {
   SFlexColumnDiv,
   SUploadedFile,
   SUploaderWrapper,
   SOverlay,
+  SImg,
+  SUploadedImgDiv,
+  SUploaderDiv,
 } from "./Uploader.styled";
 
-export const Uploader = () => {
+export const Uploader = ({ isImageType, label }) => {
   const [data, setData] = useState([]);
-  const name = "ატვირთეთ ფაილი";
+  const name = isImageType ? "ატვირთეთ ფოტო" : "ატვირთეთ ფაილი";
 
   const fileInputRef = useRef(null);
 
@@ -28,9 +32,9 @@ export const Uploader = () => {
     fileInputRef.current.click();
   };
 
-  const handleFileChange = (e) => {
+  const handleFileUpload = (e) => {
     const file = e.target.files[0];
-    setData([file, ...data]);
+    if (file) setData([file, ...data]);
   };
 
   const handleDelete = (i) => {
@@ -39,44 +43,58 @@ export const Uploader = () => {
   };
 
   return (
-    <SUploaderWrapper item={data.length > 0}>
-      {data.map((item, i) => {
-        return (
-          <SUploadedFile key={uuidv4()} active={data.length}>
-            <SFileUpload style={{ scale: "0.7" }}>
-              <FileUploadSvg />
-              <SCloudUpload>
-                <UploadedDoneSvg />
-              </SCloudUpload>
-            </SFileUpload>
-            <SDesk>{data.length && "ფაილი ატვირთულია"}</SDesk>
-            <SOverlay>
-              <SDeleteIcon onClick={() => handleDelete(i)}>
-                <DeleteSvg />
-              </SDeleteIcon>
-            </SOverlay>
-          </SUploadedFile>
-        );
-      })}
-      <SFlexColumnDiv
-        topLeft={data.length}
-        active={!!data.name}
-        onClick={() => !data.name && handleClick()}
-      >
-        <SFileUpload>
-          <input
-            ref={fileInputRef}
-            type="file"
-            onChange={handleFileChange}
-            style={{ display: "none" }}
-          />
-          <FileUploadSvg />
-          <SCloudUpload>
-            <UploadCloudSvg />
-          </SCloudUpload>
-        </SFileUpload>
-        <SDesk style={{ fontSize: "1rem" }}>{name}</SDesk>
-      </SFlexColumnDiv>
-    </SUploaderWrapper>
+    <SUploaderDiv>
+      {label && <STitle>{label}</STitle>}
+      <SUploaderWrapper item={data.length > 0}>
+        {data.map((item, i) => {
+          // For image upload
+          let imageURL;
+          if (isImageType) {
+            if (item instanceof File) imageURL = URL.createObjectURL(item);
+            return (
+              <SUploadedImgDiv key={uuidv4()} active={data.length}>
+                <SImg src={imageURL} alt="item" />
+                <SOverlay>
+                  <SDeleteIcon onClick={() => handleDelete(i)} />
+                </SOverlay>
+              </SUploadedImgDiv>
+            );
+          }
+          return (
+            <SUploadedFile key={uuidv4()} active={data.length}>
+              <SFileUpload style={{ scale: "0.7" }}>
+                {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
+                <SCloudUpload>
+                  <SUploadDoneIcon />
+                </SCloudUpload>
+              </SFileUpload>
+              <SDesk>{data.length && "ფაილი ატვირთულია"}</SDesk>
+              <SOverlay>
+                <SDeleteIcon onClick={() => handleDelete(i)} />
+              </SOverlay>
+            </SUploadedFile>
+          );
+        })}
+        <SFlexColumnDiv
+          topLeft={data.length}
+          active={!!data.name}
+          onClick={() => !data.name && handleClick()}
+        >
+          <SFileUpload>
+            <input
+              ref={fileInputRef}
+              type="file"
+              onChange={handleFileUpload}
+              style={{ display: "none" }}
+            />
+            {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
+            <SCloudUpload>
+              <SUploadCloudIcon />
+            </SCloudUpload>
+          </SFileUpload>
+          <SDesk style={{ fontSize: "1rem" }}>{name}</SDesk>
+        </SFlexColumnDiv>
+      </SUploaderWrapper>
+    </SUploaderDiv>
   );
 };

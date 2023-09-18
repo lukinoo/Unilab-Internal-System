@@ -13,6 +13,7 @@ import { AddQuestions } from "./views/AddQuestions";
 import { Portfolio } from "./views/Portfolio";
 import { ProjectPage } from "./views/ProjectPage";
 import { UploadProject } from "./views/UploadProject";
+import { UploadProjectAdmin } from "./views/UploadProjectAdmin";
 import dayjs from "dayjs";
 import "dayjs/locale/ka";
 
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/directions" element={<Directions />} />
         <Route path="/add-questions" element={<AddQuestions />} />
         <Route path="/upload-project" element={<UploadProject />} />
+        <Route path="/upload-project-admin" element={<UploadProjectAdmin />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/project" element={<ProjectPage />} />
       </Routes>

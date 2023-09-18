@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { SDeleteIcon } from "../Uploader/Uploader.styled";
+import { SDeleteIcon } from "../SingleUploader/SingleUploader.styled";
 
 export const SAnotherDirWrapper = styled.div`
   margin: 7.062rem auto;

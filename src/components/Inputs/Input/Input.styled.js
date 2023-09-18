@@ -24,6 +24,7 @@ export const SInputWrapper = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+  height: ${({ height }) => height};
   border-radius: 0.625rem;
   background-color: #f1f1f1;
   padding: 0 1.2rem;
