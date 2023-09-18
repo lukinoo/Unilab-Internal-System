@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   SUploadProjectMainDiv,
-  SBgStarTopRight,
   SContentWrapper,
   SInputWrapper,
   SPositionWrapper,
@@ -14,20 +13,20 @@ import {
   CustomSelect,
   SArrowIcon,
   SPersonImg,
-  SContainer
+  SContainer,
 } from "./UploadProjectAdmin.styled";
 import { FourthHeader } from "../../components/Headers/FourthHeader";
 import { SideBar } from "../../components/SideBar";
 import { Input } from "../../components/Inputs/Input";
 import { Textarea } from "../../components/Inputs/Textarea";
 import { Button } from "../../components/Button";
-import { PlusSvg } from "../../components/Buttons/AdditionalResources/IconSvg/PlusSvg";
 import { RadioDropdown } from "../../components/Inputs/RadioDropdown/RadioDropdown";
 import { Uploader } from "../../components/Uploader";
 import { SingleUploader } from "../../components/Buttons/SingleUploader/SingleUploader";
 import { LinkUploader } from "../../components/Inputs/LinkUploader";
 import defaultProfilePicture from "/assets/svg/defaultUser.svg";
 import axios from "axios";
+import { Star } from "../../components/Star/Star";
 
 const customStyles = {
   control: (provided) => ({
@@ -134,9 +133,9 @@ export const UploadProjectAdmin = () => {
   return (
     <SUploadProjectMainDiv>
       <FourthHeader />
-      {/* <SBgStarTopRight>
-        <BgStarTopRight />
-      </SBgStarTopRight> */}
+      <Star number={1} top={"33.75rem"} left={"90%"} />
+      <Star number={5} top={"55rem"} left={"60%"} />
+      <Star number={4} top={"145rem"} left={"20%"} />
       <SideBar />
       <SContentWrapper onSubmit={handleSubmit(onSubmit)}>
         <STitle>პროექტის ატვირთვა</STitle>
@@ -196,8 +195,10 @@ export const UploadProjectAdmin = () => {
                         width="26.375rem"
                         height="3.125rem"
                       />
-                    </SPositionWrapper> 
-                    <SPersonImg src={member.img ? member.img : defaultProfilePicture}/>
+                    </SPositionWrapper>
+                    <SPersonImg
+                      src={member.img ? member.img : defaultProfilePicture}
+                    />
                   </SContainer>
                 </STeamMember>
               </STeamContainer>
