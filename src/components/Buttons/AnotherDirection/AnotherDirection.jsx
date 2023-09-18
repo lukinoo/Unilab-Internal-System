@@ -13,8 +13,8 @@ import {
 } from "./AnotherDirection.styled";
 
 import { LinkSvg } from "./IconSvg/LinkSvg";
-import { SDeleteIcon } from "../Uploader/Uploader.styled";
-import { DeleteSvg } from "../Uploader/UploadSvg/DeleteSvg";
+import { SDeleteIcon } from "../SingleUploader/SingleUploader.styled";
+import { DeleteSvg } from "../SingleUploader/UploadSvg/DeleteSvg";
 import { EditSvg } from "../AnotherDirection/IconSvg/EditSvg";
 import { Button } from "../../Button/Button";
 import { PlusSvg } from "../AdditionalResources/IconSvg/PlusSvg";

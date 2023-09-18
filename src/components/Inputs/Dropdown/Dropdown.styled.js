@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 
 export const SDropdownWrapper = styled.div`
   position: relative;
-  width: fit-content;
-  grid-area: ${({ gridArea }) => (gridArea ? gridArea : null)};
+  width: ${({width})=>width ? width : 'fit-content'};
   height: fit-content;
+  grid-area: ${({ gridArea }) => (gridArea ? gridArea : null)};
 `;
 
 export const SDropdownList = styled(motion.ul)`
@@ -14,7 +14,7 @@ export const SDropdownList = styled(motion.ul)`
   top: 100%;
   right: 0;
   display: flex;
-  max-height: 11rem;
+  max-height: 12rem;
   max-width: 100%;
   flex-direction: column;
   gap: 0.875rem;

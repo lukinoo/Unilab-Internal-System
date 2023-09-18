@@ -14,6 +14,7 @@ export const Input = ({
   placeholder,
   value,
   width,
+  height,
   fontSize,
   fontWeight,
   gridArea,
@@ -30,13 +31,13 @@ export const Input = ({
   return (
     <SContainer width={width} gridArea={gridArea} onClick={onClick}>
       <SLabel htmlFor={name}>{label}</SLabel>
-      <SInputWrapper>
+      <SInputWrapper height={height}>
         {LeftComponent}
         <SInput
           id={name}
           type={type}
           placeholder={placeholder}
-          width={width}
+          width={width} // unused prop
           fontSize={fontSize}
           fontWeight={fontWeight}
           readOnly={readOnly}

@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import deleteSvg from "/assets/svg/delete.svg";
+import imageUploadSvg from "/assets/svg/imageUpload.svg";
+import fileUploadSvg from "/assets/svg/fileUpload.svg";
+import uploadDoneSvg from "/assets/svg/uploadDone.svg";
+import uploadCloudSvg from "/assets/svg/uploadCloud.svg";
 
 export const SUploaderContainer = styled.div`
   display: flex;
@@ -7,11 +12,13 @@ export const SUploaderContainer = styled.div`
 `;
 
 export const SInputWrapper = styled.div`
-  max-width: 18.25rem;
+  width: ${({width})=>width ? width : "18.25rem"};
+  height: ${({height})=>height ? height : "9.812rem"};
+  margin: ${({margin})=>margin};
   margin-top: 3.625rem;
   display: flex;
   flex-direction: column;
-  gap: 0.437rem;
+  gap: 0.5rem;
 `;
 
 export const SOverlay = styled.div`
@@ -37,18 +44,12 @@ export const SDeleteIcon = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
+  background-color: red;
+  background-image: url(${deleteSvg});
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 0.375rem;
   cursor: pointer;
-
-  &:hover {
-    background-color: red;
-
-    svg {
-      path {
-        stroke: white;
-      }
-    }
-  }
 `;
 
 export const SDownloadICon = styled.div`
@@ -64,13 +65,13 @@ export const SDownloadICon = styled.div`
 
 export const SUploader = styled.form`
   position: relative;
-  width: 18.25rem;
-  height: 9.812rem;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px dashed #ffffff;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%23ffffff' stroke-width='3' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
   border-radius: 0.625rem;
   cursor: pointer;
   overflow: hidden;
@@ -78,7 +79,7 @@ export const SUploader = styled.form`
   ${({ active }) =>
     active &&
     `
-    border:2px solid #2984CE;
+    border: ${({isImageType})=>isImageType ? 'none' : '2px solid #2984CE'};
     &:hover {
       ${SOverlay} {
         background: rgba(255, 255, 255, 0.7);
@@ -93,7 +94,7 @@ export const STitle = styled.p`
 `;
 
 export const SDesk = styled.span`
-  font-size: 0.688rem;
+  font-size: 0.75rem;
   font-style: italic;
   display: block;
 `;
@@ -116,3 +117,20 @@ export const SCloudUpload = styled.div`
   left: 50%;
   top: 50%;
 `;
+export const SUploadFileIcon = styled.div`
+  width: 3.25rem;
+  height: 3.25rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(${fileUploadSvg});
+`
+
+export const SUploadImgIcon = styled(SUploadFileIcon)`
+  background-image: url(${imageUploadSvg});
+`
+export const SUploadDoneIcon = styled(SUploadFileIcon)`
+  background-image: url(${uploadDoneSvg});
+`
+export const SUploadCloudIcon = styled(SUploadFileIcon)`
+  background-image: url(${uploadCloudSvg});
+`
