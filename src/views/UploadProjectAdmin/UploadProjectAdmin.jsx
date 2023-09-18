@@ -24,7 +24,7 @@ import { RadioDropdown } from "../../components/Inputs/RadioDropdown/RadioDropdo
 import { Uploader } from "../../components/Uploader";
 import { SingleUploader } from "../../components/Buttons/SingleUploader/SingleUploader";
 import { LinkUploader } from "../../components/Inputs/LinkUploader";
-import { Star } from "../../components/Star/Star";
+import { Star } from "../../components/Star";
 import defaultProfilePicture from "/assets/svg/defaultUser.svg";
 import axios from "axios";
 
