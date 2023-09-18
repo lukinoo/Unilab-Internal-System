@@ -10,6 +10,7 @@ import {
   SUploadImgIcon,
   SUploadDoneIcon,
   SUploadCloudIcon,
+  STitle,
 } from "../Buttons/SingleUploader/SingleUploader.styled";
 import {
   SFlexColumnDiv,
@@ -18,9 +19,10 @@ import {
   SOverlay,
   SImg,
   SUploadedImgDiv,
+  SUploaderDiv,
 } from "./Uploader.styled";
 
-export const Uploader = ({ isImageType }) => {
+export const Uploader = ({ isImageType, label }) => {
   const [data, setData] = useState([]);
   const name = isImageType ? "ატვირთეთ ფოტო" : "ატვირთეთ ფაილი";
 
@@ -41,55 +43,58 @@ export const Uploader = ({ isImageType }) => {
   };
 
   return (
-    <SUploaderWrapper item={data.length > 0}>
-      {data.map((item, i) => {
-        // For image upload
-        let imageURL;
-        if (isImageType) {
-          if (item instanceof File) imageURL = URL.createObjectURL(item);
+    <SUploaderDiv>
+      {label && <STitle>{label}</STitle>}
+      <SUploaderWrapper item={data.length > 0}>
+        {data.map((item, i) => {
+          // For image upload
+          let imageURL;
+          if (isImageType) {
+            if (item instanceof File) imageURL = URL.createObjectURL(item);
+            return (
+              <SUploadedImgDiv key={uuidv4()} active={data.length}>
+                <SImg src={imageURL} alt="item" />
+                <SOverlay>
+                  <SDeleteIcon onClick={() => handleDelete(i)} />
+                </SOverlay>
+              </SUploadedImgDiv>
+            );
+          }
           return (
-            <SUploadedImgDiv key={uuidv4()} active={data.length}>
-              <SImg src={imageURL} alt="item" />
+            <SUploadedFile key={uuidv4()} active={data.length}>
+              <SFileUpload style={{ scale: "0.7" }}>
+                {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
+                <SCloudUpload>
+                  <SUploadDoneIcon />
+                </SCloudUpload>
+              </SFileUpload>
+              <SDesk>{data.length && "ფაილი ატვირთულია"}</SDesk>
               <SOverlay>
                 <SDeleteIcon onClick={() => handleDelete(i)} />
               </SOverlay>
-            </SUploadedImgDiv>
+            </SUploadedFile>
           );
-        }
-        return (
-          <SUploadedFile key={uuidv4()} active={data.length}>
-            <SFileUpload style={{ scale: "0.7" }}>
-              {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
-              <SCloudUpload>
-                <SUploadDoneIcon />
-              </SCloudUpload>
-            </SFileUpload>
-            <SDesk>{data.length && "ფაილი ატვირთულია"}</SDesk>
-            <SOverlay>
-              <SDeleteIcon onClick={() => handleDelete(i)} />
-            </SOverlay>
-          </SUploadedFile>
-        );
-      })}
-      <SFlexColumnDiv
-        topLeft={data.length}
-        active={!!data.name}
-        onClick={() => !data.name && handleClick()}
-      >
-        <SFileUpload>
-          <input
-            ref={fileInputRef}
-            type="file"
-            onChange={handleFileUpload}
-            style={{ display: "none" }}
-          />
-          {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
-          <SCloudUpload>
-            <SUploadCloudIcon />
-          </SCloudUpload>
-        </SFileUpload>
-        <SDesk style={{ fontSize: "1rem" }}>{name}</SDesk>
-      </SFlexColumnDiv>
-    </SUploaderWrapper>
+        })}
+        <SFlexColumnDiv
+          topLeft={data.length}
+          active={!!data.name}
+          onClick={() => !data.name && handleClick()}
+        >
+          <SFileUpload>
+            <input
+              ref={fileInputRef}
+              type="file"
+              onChange={handleFileUpload}
+              style={{ display: "none" }}
+            />
+            {isImageType ? <SUploadImgIcon /> : <SUploadFileIcon />}
+            <SCloudUpload>
+              <SUploadCloudIcon />
+            </SCloudUpload>
+          </SFileUpload>
+          <SDesk style={{ fontSize: "1rem" }}>{name}</SDesk>
+        </SFlexColumnDiv>
+      </SUploaderWrapper>
+    </SUploaderDiv>
   );
 };
