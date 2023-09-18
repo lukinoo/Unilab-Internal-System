@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const SUploaderDiv = styled.div`
+  &>p{
+    margin-bottom: 0.875rem;
+  }
+`
+
 export const SFlexColumnDiv = styled.div`
   grid-column: ${({ topLeft }) => (topLeft ? " 1/2" : "")};
   grid-row: ${({ topLeft }) => (topLeft ? " 1/2" : "")};
